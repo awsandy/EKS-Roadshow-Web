@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Deploy the Kubernetes Dashboard on Amazon EKS Workshop</title>
+    <link>//localhost:1313/beginner/040_dashboard/</link>
+    <description>Recent content in Deploy the Kubernetes Dashboard on Amazon EKS Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 08 Jul 2020 09:36:58 -0400</lastBuildDate><atom:link href="//localhost:1313/beginner/040_dashboard/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Deploy the Official Kubernetes Dashboard</title>
+      <link>//localhost:1313/beginner/040_dashboard/dashboard/</link>
+      <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
+      
+      <guid>//localhost:1313/beginner/040_dashboard/dashboard/</guid>
+      <description>The official Kubernetes dashboard is not deployed by default, but there are instructions in the official documentation
+We can deploy the dashboard with the following command:
+export DASHBOARD_VERSION=&amp;#34;v2.0.0&amp;#34; kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/${DASHBOARD_VERSION}/aio/deploy/recommended.yaml Since this is deployed to our private cluster, we need to access it via a proxy. kube-proxy is available to proxy our requests to the dashboard service. In your workspace, run the following command:
+kubectl proxy --port=8080 --address=0.0.0.0 --disable-filter=true &amp;amp; This will start the proxy, listen on port 8080, listen on all interfaces, and will disable the filtering of non-localhost requests.</description>
+    </item>
+    
+    <item>
+      <title>Access the Dashboard</title>
+      <link>//localhost:1313/beginner/040_dashboard/connect/</link>
+      <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
+      
+      <guid>//localhost:1313/beginner/040_dashboard/connect/</guid>
+      <description>Now we can access the Kubernetes Dashboard
+ In your Cloud9 environment, click Tools / Preview / Preview Running Application Scroll to the end of the URL and append:  /api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/ The Cloud9 Preview browser doesn&amp;rsquo;t appear to support the token authentication, so once you have the login screen in the cloud9 preview browser tab, press the Pop Out button to open the login screen in a regular browser tab, like below: Open a New Terminal Tab and enter</description>
+    </item>
+    
+    <item>
+      <title>Cleanup</title>
+      <link>//localhost:1313/beginner/040_dashboard/cleanup/</link>
+      <pubDate>Wed, 08 Jul 2020 09:36:58 -0400</pubDate>
+      
+      <guid>//localhost:1313/beginner/040_dashboard/cleanup/</guid>
+      <description>Stop the proxy and delete the dashboard deployment
+# kill proxy pkill -f &amp;#39;kubectl proxy --port=8080&amp;#39; # delete dashboard kubectl delete -f https://raw.githubusercontent.com/kubernetes/dashboard/${DASHBOARD_VERSION}/aio/deploy/recommended.yaml unset DASHBOARD_VERSION </description>
+    </item>
+    
+  </channel>
+</rss>

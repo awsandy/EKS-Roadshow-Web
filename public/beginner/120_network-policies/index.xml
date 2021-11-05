@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Securing Your Cluster with Network Policies on Amazon EKS Workshop</title>
+    <link>//localhost:1313/beginner/120_network-policies/</link>
+    <description>Recent content in Securing Your Cluster with Network Policies on Amazon EKS Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 13 Aug 2020 02:31:44 -0500</lastBuildDate><atom:link href="//localhost:1313/beginner/120_network-policies/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

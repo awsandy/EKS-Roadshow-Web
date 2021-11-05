@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CIS EKS Benchmark assessment using kube-bench on Amazon EKS Workshop</title>
+    <link>//localhost:1313/intermediate/300_cis_eks_benchmark/</link>
+    <description>Recent content in CIS EKS Benchmark assessment using kube-bench on Amazon EKS Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="//localhost:1313/intermediate/300_cis_eks_benchmark/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introduction to CIS Amazon EKS Benchmark and kube-bench</title>
+      <link>//localhost:1313/intermediate/300_cis_eks_benchmark/intro/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/intermediate/300_cis_eks_benchmark/intro/</guid>
+      <description>CIS Kubernetes Benchmark The latest version of CIS Kubernetes Benchmark v1.5.1 provides guidance on security configurations for Kubernetes versions v1.15 and onwards. The CIS Kubernetes Benchmark is scoped for implementations managing both the control plane, which includes etcd, API server, controller and scheduler, and the data plane, which is made up of one or more nodes or EC2 instances.
+CIS EKS Kubernetes Benchmark Since Amazon EKS provides a managed control plane, not all of the recommendations from the CIS Kubernetes Benchmark are applicable as customers are not responsible for configuring or managing the control plane.</description>
+    </item>
+    
+    <item>
+      <title>Module 1: Install kube-bench in node</title>
+      <link>//localhost:1313/intermediate/300_cis_eks_benchmark/ssh-into-node/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/intermediate/300_cis_eks_benchmark/ssh-into-node/</guid>
+      <description>In this module, we will install kube-bench in one of the nodes and run the CIS Amazon EKS Benchmark node assessment against eks-1.0 node controls.
+List Amazon EKS cluster nodes kubectl get nodes -o wide Output NAME STATUS ROLES AGE VERSION INTERNAL-IP EXTERNAL-IP OS-IMAGE KERNEL-VERSION CONTAINER-RUNTIME ip-192-168-17-56.us-west-2.compute.internal Ready &amp;lt;none&amp;gt; 24h v1.16.12-eks-904af05 192.168.17.56 34.220.140.125 Amazon Linux 2 4.14.181-142.260.amzn2.x86_64 docker://19.3.6 ip-192-168-45-110.us-west-2.compute.internal Ready &amp;lt;none&amp;gt; 24h v1.16.12-eks-904af05 192.168.45.110 34.220.227.8 Amazon Linux 2 4.14.181-142.260.amzn2.x86_64 docker://19.3.6 ip-192-168-84-9.</description>
+    </item>
+    
+    <item>
+      <title>Module 2: Run kube-bench as a K8s job</title>
+      <link>//localhost:1313/intermediate/300_cis_eks_benchmark/run-as-job/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/intermediate/300_cis_eks_benchmark/run-as-job/</guid>
+      <description>Create a job file Create a job file named job-eks.yaml using the command below.
+cat &amp;lt;&amp;lt; EOF &amp;gt; job-eks.yaml --- apiVersion: batch/v1 kind: Job metadata: name: kube-bench spec: template: spec: hostPID: true containers: - name: kube-bench image: aquasec/kube-bench:latest command: [&amp;#34;kube-bench&amp;#34;, &amp;#34;--benchmark&amp;#34;, &amp;#34;eks-1.0&amp;#34;] volumeMounts: - name: var-lib-kubelet mountPath: /var/lib/kubelet readOnly: true - name: etc-systemd mountPath: /etc/systemd readOnly: true - name: etc-kubernetes mountPath: /etc/kubernetes readOnly: true restartPolicy: Never volumes: - name: var-lib-kubelet hostPath: path: &amp;#34;/var/lib/kubelet&amp;#34; - name: etc-systemd hostPath: path: &amp;#34;/etc/systemd&amp;#34; - name: etc-kubernetes hostPath: path: &amp;#34;/etc/kubernetes&amp;#34; EOF Run the job on your cluster Run the kube-bench job on a pod in your cluster using the command below.</description>
+    </item>
+    
+    <item>
+      <title>Module 3: Run kube-bench in debug mode</title>
+      <link>//localhost:1313/intermediate/300_cis_eks_benchmark/debug-mode/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/intermediate/300_cis_eks_benchmark/debug-mode/</guid>
+      <description>Create a job file Create a job file named job-debug-eks.yaml using the command below.
+cat &amp;lt;&amp;lt; EOF &amp;gt; job-debug-eks.yaml --- apiVersion: batch/v1 kind: Job metadata: name: kube-bench-debug spec: template: spec: hostPID: true containers: - name: kube-bench image: aquasec/kube-bench:latest command: [&amp;#34;kube-bench&amp;#34;, &amp;#34;-v&amp;#34;, &amp;#34;3&amp;#34;, &amp;#34;--logtostderr&amp;#34;, &amp;#34;--benchmark&amp;#34;, &amp;#34;eks-1.0&amp;#34;] volumeMounts: - name: var-lib-kubelet mountPath: /var/lib/kubelet readOnly: true - name: etc-systemd mountPath: /etc/systemd readOnly: true - name: etc-kubernetes mountPath: /etc/kubernetes readOnly: true restartPolicy: Never volumes: - name: var-lib-kubelet hostPath: path: &amp;#34;/var/lib/kubelet&amp;#34; - name: etc-systemd hostPath: path: &amp;#34;/etc/systemd&amp;#34; - name: etc-kubernetes hostPath: path: &amp;#34;/etc/kubernetes&amp;#34; EOF Run the job on your cluster Run the kube-bench job on a pod in your cluster using the command below.</description>
+    </item>
+    
+    <item>
+      <title>Conclusion</title>
+      <link>//localhost:1313/intermediate/300_cis_eks_benchmark/conclusion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/intermediate/300_cis_eks_benchmark/conclusion/</guid>
+      <description>Conclusion In this chapter, we have explained:
+ CIS Kubernetes Benchmark and CIS Amazon EKS Benchmark; Introduced kube-bench as an open source tool to assess against CIS Kubernetes Benchmarks; Demonstrated steps to assess Amazon EKS clusters for managed and self managed nodes Kubernetes security configurations using kube-bench.  </description>
+    </item>
+    
+  </channel>
+</rss>

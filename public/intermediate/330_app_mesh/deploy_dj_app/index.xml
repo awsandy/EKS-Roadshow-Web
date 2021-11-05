@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Deploy the DJ app on Amazon EKS Workshop</title>
+    <link>//localhost:1313/intermediate/330_app_mesh/deploy_dj_app/</link>
+    <description>Recent content in Deploy the DJ app on Amazon EKS Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 13 Nov 2018 16:32:30 +0900</lastBuildDate><atom:link href="//localhost:1313/intermediate/330_app_mesh/deploy_dj_app/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About DJ App</title>
+      <link>//localhost:1313/intermediate/330_app_mesh/deploy_dj_app/about_the_k8s_app/</link>
+      <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
+      
+      <guid>//localhost:1313/intermediate/330_app_mesh/deploy_dj_app/about_the_k8s_app/</guid>
+      <description>Architecture The example app we&amp;rsquo;ll walk you through creating on App Mesh is called DJ and is used for a cloud-based music service.
+This application is composed of three microservices:
+ dj metal-v1 jazz-v1  The dj service makes requests to either the jazz-v1 or metal-v1 backends for artist lists:
+ Requests made to the jazz-v1 backend may return artists such as Miles Davis or Astrud Gilberto. Requests made to the metal-v1 backend may return artists such as Judas Priest or Megadeth.</description>
+    </item>
+    
+    <item>
+      <title>Clone the Repo</title>
+      <link>//localhost:1313/intermediate/330_app_mesh/deploy_dj_app/clone_repo/</link>
+      <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
+      
+      <guid>//localhost:1313/intermediate/330_app_mesh/deploy_dj_app/clone_repo/</guid>
+      <description>To begin, clone the repository that holds the DJ App&amp;rsquo;s files.
+# First, be sure you are in your environment directory cd ~/environment git clone https://github.com/aws/aws-app-mesh-examples # Change to the repo&amp;#39;s project directory: cd aws-app-mesh-examples/examples/apps/djapp/ </description>
+    </item>
+    
+    <item>
+      <title>Test Permissions</title>
+      <link>//localhost:1313/intermediate/330_app_mesh/deploy_dj_app/test_worker_perms/</link>
+      <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
+      
+      <guid>//localhost:1313/intermediate/330_app_mesh/deploy_dj_app/test_worker_perms/</guid>
+      <description>To test that your worker nodes are able to use these permissions correctly, we&amp;rsquo;ll run a job that attempts to list all existing meshes.
+Run this command to set the script to run against the correct region:
+sed -i&#39;.old&#39; -e &#39;s/\&amp;quot;us-west-2\&amp;quot;/\&amp;quot;&#39;$AWS_REGION&#39;\&amp;quot;/&#39; awscli.yaml Next, execute the job:
+kubectl apply -f awscli.yaml Make sure its completed by issuing the command:
+kubectl get jobs And see that desired and successful are both one:</description>
+    </item>
+    
+    <item>
+      <title>Create DJ App</title>
+      <link>//localhost:1313/intermediate/330_app_mesh/deploy_dj_app/create_the_app/</link>
+      <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
+      
+      <guid>//localhost:1313/intermediate/330_app_mesh/deploy_dj_app/create_the_app/</guid>
+      <description>Let&amp;rsquo;s create the DJ App!
+The application repo has all of the configuration YAML required to deploy the DJ App into its own prod namespace on your Kubernetes cluster.
+kubectl apply -f 1_base_application/base_app.yaml This will create the prod namespace as well as the Deployments and Services for the application. The output should be similar to:
+namespace/prod created deployment.apps/dj created deployment.apps/metal-v1 created deployment.apps/jazz-v1 created service/dj created service/metal-v1 created service/jazz-v1 created  You can now verify that the objects were all created successfully and the application is up and running.</description>
+    </item>
+    
+    <item>
+      <title>Test DJ App</title>
+      <link>//localhost:1313/intermediate/330_app_mesh/deploy_dj_app/test_the_app/</link>
+      <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
+      
+      <guid>//localhost:1313/intermediate/330_app_mesh/deploy_dj_app/test_the_app/</guid>
+      <description>To test what we&amp;rsquo;ve just created, we will:
+ Exec into the dj pod curl out to the jazz-v1 and metal-v1 backends  First we will exec into the dj pod
+export DJ_POD_NAME=$(kubectl get pods -n prod -l app=dj -o jsonpath=&amp;#39;{.items[].metadata.name}&amp;#39;) kubectl exec -n prod -it ${DJ_POD_NAME} bash You will see a prompt from within the dj container.
+root@dj-5b445fbdf4-8xkwp:/usr/src/app#  Now from the dj container, we&amp;rsquo;ll issue a curl request to the jazz-v1 backend service:</description>
+    </item>
+    
+    <item>
+      <title>Conclusion</title>
+      <link>//localhost:1313/intermediate/330_app_mesh/deploy_dj_app/conclusion/</link>
+      <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
+      
+      <guid>//localhost:1313/intermediate/330_app_mesh/deploy_dj_app/conclusion/</guid>
+      <description>Congratulations on deploying the initial DJ App architecture!
+Before we create the App Mesh-enabled versions of DJ App, we&amp;rsquo;ll first install the AWS App Mesh Controller for Kubernetes into our cluster.</description>
+    </item>
+    
+  </channel>
+</rss>

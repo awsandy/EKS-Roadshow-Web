@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Using Open Policy Agent (OPA) for policy-based control in EKS on Amazon EKS Workshop</title>
+    <link>//localhost:1313/intermediate/310_opa_gatekeeper/</link>
+    <description>Recent content in Using Open Policy Agent (OPA) for policy-based control in EKS on Amazon EKS Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="//localhost:1313/intermediate/310_opa_gatekeeper/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introduction to Open Policy Agent Gatekeeper</title>
+      <link>//localhost:1313/intermediate/310_opa_gatekeeper/intro/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/intermediate/310_opa_gatekeeper/intro/</guid>
+      <description>Open Policy Agent Gatekeeper OPA decouples policy decision-making from policy enforcement. When your software needs to make policy decisions it queries OPA and supplies structured data (e.g., JSON) as input. OPA accepts arbitrary structured data as input.
+OPA generates policy decisions by evaluating the query input and against policies and data. OPA and Rego are domain-agnostic so you can describe almost any kind of invariant in your policies. For example:</description>
+    </item>
+    
+    <item>
+      <title>OPA Gatekeeper setup in EKS</title>
+      <link>//localhost:1313/intermediate/310_opa_gatekeeper/setup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/intermediate/310_opa_gatekeeper/setup/</guid>
+      <description>In this section, we will setup OPA Gatekeeper within the cluster.
+1. Deploy OPA Gatekeeper using Prebuilt docker images kubectl apply -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper/release-3.1/deploy/gatekeeper.yaml 2. Check the pods in gatekeeper-system namespace kubectl get pods -n gatekeeper-system The output will be similar to:
+NAME READY STATUS RESTARTS AGE gatekeeper-audit-5bc9b59c57-9d9hc 1/1 Running 0 25s gatekeeper-controller-manager-744cdc8556-hxf2n 1/1 Running 0 25s gatekeeper-controller-manager-744cdc8556-jn42m 1/1 Running 0 25s gatekeeper-controller-manager-744cdc8556-wwrb6 1/1 Running 0 25s 3. Observe OPA Gatekeeper Component logs once operational You can follow the OPA logs to see the webhook requests being issued by the Kubernetes API server:</description>
+    </item>
+    
+    <item>
+      <title>Build Policy using Constraint &amp; Constraint Template</title>
+      <link>//localhost:1313/intermediate/310_opa_gatekeeper/policy-example-1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/intermediate/310_opa_gatekeeper/policy-example-1/</guid>
+      <description>1. Build Constraint Templates ConstraintTemplate describes the Rego that enforces the constraint and the schema of the constraint. The schema constraint allows the author of the constraint (cluster admin) to define the contraint behavior.
+In this example, the cluster admin will force the use of unprivileged containers in the cluseter. The OPA Gatekeeper will look for the securitycontext field and check if privileged=true. If it&amp;rsquo;s the case, then, the request will fail.</description>
+    </item>
+    
+    <item>
+      <title>Clean up</title>
+      <link>//localhost:1313/intermediate/310_opa_gatekeeper/cleanup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/intermediate/310_opa_gatekeeper/cleanup/</guid>
+      <description>Clean up steps kubectl delete -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper/master/deploy/gatekeeper.yaml Make sure that all the CRD were deleted:
+kubectl delete crd \  configs.config.gatekeeper.sh \  constraintpodstatuses.status.gatekeeper.sh \  constrainttemplatepodstatuses.status.gatekeeper.sh \  constrainttemplates.templates.gatekeeper.sh </description>
+    </item>
+    
+  </channel>
+</rss>

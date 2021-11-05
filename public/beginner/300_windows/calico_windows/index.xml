@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Create Network Policies Using Calico on Amazon EKS Workshop</title>
+    <link>//localhost:1313/beginner/300_windows/calico_windows/</link>
+    <description>Recent content in Create Network Policies Using Calico on Amazon EKS Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 08 Nov 2018 08:30:11 -0700</lastBuildDate><atom:link href="//localhost:1313/beginner/300_windows/calico_windows/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Deploy Calico on the Cluster</title>
+      <link>//localhost:1313/beginner/300_windows/calico_windows/install_calico/</link>
+      <pubDate>Thu, 08 Nov 2018 08:30:11 -0700</pubDate>
+      
+      <guid>//localhost:1313/beginner/300_windows/calico_windows/install_calico/</guid>
+      <description>Apply the Calico manifest from the aws/amazon-vpc-cni-k8s GitHub project. This creates the daemon sets in the kube-system namespace.
+kubectl apply -f https://raw.githubusercontent.com/aws/amazon-vpc-cni-k8s/master/config/v1.6/calico.yaml Let&amp;rsquo;s go over few key features of the Calico manifest:
+ We see an annotation throughout; annotations are a way to attach non-identifying metadata to objects. This metadata is not used internally by Kubernetes, so they cannot be used to identify within k8s. Instead, they are used by external tools and libraries.</description>
+    </item>
+    
+    <item>
+      <title>Install Calico on the Windows node</title>
+      <link>//localhost:1313/beginner/300_windows/calico_windows/install_calico_node/</link>
+      <pubDate>Thu, 08 Nov 2018 08:30:11 -0700</pubDate>
+      
+      <guid>//localhost:1313/beginner/300_windows/calico_windows/install_calico_node/</guid>
+      <description>In this module, we will install Calico on the windows node.
+List Amazon EKS cluster nodes and find the windows node.
+kubectl get nodes -l kubernetes.io/os=windows -L kubernetes.io/os NAME STATUS ROLES AGE VERSION OS ip-192-168-5-189.us-east-2.compute.internal Ready &amp;lt;none&amp;gt; 25m v1.17.12-eks-7684af windows  SSH into nodes using SSM via the AWS Console by finding the windows node in the list of running EC2 instances, select the instance named &amp;ldquo;eksworkshop-eksctl-windows-ng-Node&amp;rdquo; and click Connect</description>
+    </item>
+    
+    <item>
+      <title>Test Network Policies</title>
+      <link>//localhost:1313/beginner/300_windows/calico_windows/test_network_policy/</link>
+      <pubDate>Thu, 08 Nov 2018 08:30:11 -0700</pubDate>
+      
+      <guid>//localhost:1313/beginner/300_windows/calico_windows/test_network_policy/</guid>
+      <description>We to define the Windows and Linux deployments by running the following command.
+cat &amp;lt;&amp;lt; EOF &amp;gt; ~/environment/windows/sample-deployments.yaml --- apiVersion: apps/v1 kind: Deployment metadata: name: nginx-deployment namespace: windows spec: selector: matchLabels: app: nginx replicas: 1 template: metadata: labels: app: nginx spec: containers: - name: nginx image: nginx:1.7.9 securityContext: privileged: true nodeSelector: beta.kubernetes.io/os: linux EOF We can now deploy those pods in our cluster.
+kubectl apply -f ~/environment/windows/sample-deployments.yaml Verify that the pods are in ‘Running’ state.</description>
+    </item>
+    
+  </channel>
+</rss>

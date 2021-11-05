@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Porting DJ to App Mesh on Amazon EKS Workshop</title>
+    <link>//localhost:1313/intermediate/330_app_mesh/port_to_app_mesh/</link>
+    <description>Recent content in Porting DJ to App Mesh on Amazon EKS Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 13 Nov 2018 16:32:30 +0900</lastBuildDate><atom:link href="//localhost:1313/intermediate/330_app_mesh/port_to_app_mesh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mesh Resources and Design</title>
+      <link>//localhost:1313/intermediate/330_app_mesh/port_to_app_mesh/mesh_resources_overview/</link>
+      <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
+      
+      <guid>//localhost:1313/intermediate/330_app_mesh/port_to_app_mesh/mesh_resources_overview/</guid>
+      <description>To port the DJ App to App Mesh, you will need create a mesh as well as the various mesh components. You&amp;rsquo;ll also apply labels to the prod namespace to affiliate your new mesh with it, and to enable automatic sidecar injection for pods within it.
+App Mesh Resources Kubernetes application objects that run within App Mesh must be defined as Virtual Nodes. This provides App Mesh an abstraction to objects such as Kubernetes Deployments and Services, and provides endpoints for communication and routing configuration.</description>
+    </item>
+    
+    <item>
+      <title>Create the Meshed Application</title>
+      <link>//localhost:1313/intermediate/330_app_mesh/port_to_app_mesh/create_meshed_app/</link>
+      <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
+      
+      <guid>//localhost:1313/intermediate/330_app_mesh/port_to_app_mesh/create_meshed_app/</guid>
+      <description>Using the YAML we just reviewed, apply the meshed application resources with kubectl.
+kubectl apply -f 2_meshed_application/meshed_app.yaml namespace/prod configured mesh.appmesh.k8s.aws/dj-app created virtualnode.appmesh.k8s.aws/dj created virtualservice.appmesh.k8s.aws/jazz created virtualservice.appmesh.k8s.aws/metal created virtualrouter.appmesh.k8s.aws/jazz-router created virtualrouter.appmesh.k8s.aws/metal-router created virtualnode.appmesh.k8s.aws/jazz-v1 created virtualnode.appmesh.k8s.aws/metal-v1 created service/jazz created service/metal created namespace/prod configured  This creates the Kubernetes objects, and the App Mesh controller in turn creates resources within AWS App Mesh for you.
+You can see that your mesh object was created using kubectl.</description>
+    </item>
+    
+    <item>
+      <title>Sidecar Injection</title>
+      <link>//localhost:1313/intermediate/330_app_mesh/port_to_app_mesh/trigger_sidecar_injection/</link>
+      <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
+      
+      <guid>//localhost:1313/intermediate/330_app_mesh/port_to_app_mesh/trigger_sidecar_injection/</guid>
+      <description>Recall that to join the mesh, each pod will need an Envoy proxy sidecar container. To stream configuration, those proxies will need some minimal permissions in IAM. We can use IRSA here again, granting only the required permissions to our application namespace.
+Note you can scope the policy actions to only specific resources within your namespace, if you wish. For the purposes of our demo, we&amp;rsquo;ll use the default policy and apply to all resources in the namespace.</description>
+    </item>
+    
+    <item>
+      <title>Testing the Application</title>
+      <link>//localhost:1313/intermediate/330_app_mesh/port_to_app_mesh/testing_v1/</link>
+      <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
+      
+      <guid>//localhost:1313/intermediate/330_app_mesh/port_to_app_mesh/testing_v1/</guid>
+      <description>Now it&amp;rsquo;s time to test. Calls can be made to metal or jazz from within the dj pod and they are routed to either the metal-v1 or jazz-v1 endpoints, respectively.
+To test if our ported DJ App is working as expected, we&amp;rsquo;ll first exec into the dj container.
+export DJ_POD_NAME=$(kubectl get pods -n prod -l app=dj -o jsonpath=&amp;#39;{.items[].metadata.name}&amp;#39;) kubectl -n prod exec -it ${DJ_POD_NAME} -c dj bash You will see a prompt from within the dj container.</description>
+    </item>
+    
+    <item>
+      <title>Canary Testing with a v2</title>
+      <link>//localhost:1313/intermediate/330_app_mesh/port_to_app_mesh/canary_testing/</link>
+      <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
+      
+      <guid>//localhost:1313/intermediate/330_app_mesh/port_to_app_mesh/canary_testing/</guid>
+      <description>A canary release is a method of slowly exposing a new version of software. The theory behind it is that by serving the new version of the software initially to say, 5% of requests, if there is a problem, the problem only impacts a very small percentage of users before its discovered and rolled back.
+So now back to our DJ App scenario, metal-v2 and jazz-v2 services are out, and they now include the city each artist is from in the response.</description>
+    </item>
+    
+    <item>
+      <title>Testing DJ App v2</title>
+      <link>//localhost:1313/intermediate/330_app_mesh/port_to_app_mesh/testing_v2/</link>
+      <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
+      
+      <guid>//localhost:1313/intermediate/330_app_mesh/port_to_app_mesh/testing_v2/</guid>
+      <description>To test if our canary is working as expected, once again exec into the dj container and send some requests.
+export DJ_POD_NAME=$(kubectl get pods -n prod -l app=dj -o jsonpath=&amp;#39;{.items[].metadata.name}&amp;#39;) kubectl -n prod exec -it ${DJ_POD_NAME} -c dj bash Once at the container&amp;rsquo;s prompt, issue a series of curl&amp;rsquo;s to test the traffic distribution.
+root@dj-5b445fbdf4-8xkwp:/usr/src/app#  while true; do curl http://jazz.prod.svc.cluster.local:9080/ echo sleep .5 done Output should be similar to this, with about 5% of our traffic getting the new version.</description>
+    </item>
+    
+  </channel>
+</rss>

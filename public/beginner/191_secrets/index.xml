@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Encrypting Secrets with AWS Key Management Service (KMS) Keys on Amazon EKS Workshop</title>
+    <link>//localhost:1313/beginner/191_secrets/</link>
+    <description>Recent content in Encrypting Secrets with AWS Key Management Service (KMS) Keys on Amazon EKS Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 09 Apr 2019 00:00:00 -0300</lastBuildDate><atom:link href="//localhost:1313/beginner/191_secrets/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWS KMS and Custom Key Store</title>
+      <link>//localhost:1313/beginner/191_secrets/kms-custom-keystore/</link>
+      <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
+      
+      <guid>//localhost:1313/beginner/191_secrets/kms-custom-keystore/</guid>
+      <description>Considerations for your AWS KMS CMK Before we get to the lab exercise, we wanted to take some time to discuss options for generating your AWS KMS CMK. AWS KMS provides you with two alternatives to store your CMK. Your security requirements may dictate which alternative is suitable for your workloads on Amazon EKS.
+There is an AWS Online Tech Talk on Encrypting Secrets in Amazon EKS that dives deep into this topic.</description>
+    </item>
+    
+    <item>
+      <title>Create a Secret</title>
+      <link>//localhost:1313/beginner/191_secrets/create-a-secret/</link>
+      <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
+      
+      <guid>//localhost:1313/beginner/191_secrets/create-a-secret/</guid>
+      <description>Encrypt Your Secret Create a namespace for this exercise:
+kubectl create ns secretslab Output:
+namespace/secretslab created  Create a text file containing your secret:
+echo -n &amp;#34;am i safe?&amp;#34; &amp;gt; ./test-creds Create your secret
+kubectl create secret \  generic test-creds \  --from-file=test-creds=./test-creds \  --namespace secretslab Output:
+secret/test-creds created  Retrieve the secret via the CLI:
+kubectl get secret test-creds \  -o jsonpath=&amp;#34;{.data.test-creds}&amp;#34; \  --namespace secretslab | \  base64 --decode Output: am i safe?</description>
+    </item>
+    
+    <item>
+      <title>Access the Secret from a Pod</title>
+      <link>//localhost:1313/beginner/191_secrets/consume-a-secret/</link>
+      <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
+      
+      <guid>//localhost:1313/beginner/191_secrets/consume-a-secret/</guid>
+      <description>Deploy a Pod to Consume the Secret Create a YAML file (podconsumingsecret.yaml) with the following pod definition:
+cat &amp;lt;&amp;lt; EOF &amp;gt; podconsumingsecret.yaml --- apiVersion: v1 kind: Pod metadata: name: consumesecret spec: containers: - name: shell image: amazonlinux:2018.03 command: - &amp;#34;bin/bash&amp;#34; - &amp;#34;-c&amp;#34; - &amp;#34;cat /tmp/test-creds &amp;amp;&amp;amp; sleep 10000&amp;#34; volumeMounts: - name: sec mountPath: &amp;#34;/tmp&amp;#34; readOnly: true volumes: - name: sec secret: secretName: test-creds EOF Deploy the pod on your EKS cluster:</description>
+    </item>
+    
+    <item>
+      <title>Cleanup The Lab</title>
+      <link>//localhost:1313/beginner/191_secrets/cleanup/</link>
+      <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
+      
+      <guid>//localhost:1313/beginner/191_secrets/cleanup/</guid>
+      <description>Remove The Namespace Let&amp;rsquo;s delete the namespace for this exercise:
+rm -f test-creds rm -f podconsumingsecret.yaml kubectl delete ns secretslab Output:
+namespace &amp;#34;secretslab&amp;#34; deleted  This cleans up the secret and pod we deployed for this lab.</description>
+    </item>
+    
+  </channel>
+</rss>

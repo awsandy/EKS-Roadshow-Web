@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Deploying Stateful Microservices with AWS EFS on Amazon EKS Workshop</title>
+    <link>//localhost:1313/beginner/190_efs/</link>
+    <description>Recent content in Deploying Stateful Microservices with AWS EFS on Amazon EKS Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 01 Sep 2020 00:00:00 -0300</lastBuildDate><atom:link href="//localhost:1313/beginner/190_efs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Creating an EFS File System</title>
+      <link>//localhost:1313/beginner/190_efs/launching-efs/</link>
+      <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
+      
+      <guid>//localhost:1313/beginner/190_efs/launching-efs/</guid>
+      <description>An EFS file system may be created and configured either from the AWS Management Console or using AWS CLI. An EFS file system may be accessed concurrently by worker nodes (EC2 instances) running inside the EKS cluster VPC. Instances connect to a file system by using a network interface called a mount target.
+First, let&amp;rsquo;s define a set of environment variables pertaining to the name of your EKS cluster, VPC where it is deployed and the IPv4 CIDR block associated with that VPC.</description>
+    </item>
+    
+    <item>
+      <title>EFS Provisioner for EKS with CSI Driver</title>
+      <link>//localhost:1313/beginner/190_efs/efs-csi-driver/</link>
+      <pubDate>Tue, 01 Sep 2020 00:00:00 -0300</pubDate>
+      
+      <guid>//localhost:1313/beginner/190_efs/efs-csi-driver/</guid>
+      <description>About the Amazon EFS CSI Driver On Amazon EKS, the open-source EFS Container Storage Interface (CSI) driver is used to manage the attachment of Amazon EFS volumes to Kubernetes Pods.
+Deploy EFS CSI Driver We are going to deploy the driver using the stable release:
+kubectl apply -k &amp;quot;github.com/kubernetes-sigs/aws-efs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.0&amp;quot; Verify pods have been deployed:
+kubectl get pods -n kube-system Should return new pods with csi driver:
+Output: NAME READY STATUS RESTARTS AGE efs-csi-node-8hgpt 3/3 Running 0 6h11m efs-csi-node-d7r47 3/3 Running 0 6h11m efs-csi-node-fs49j 3/3 Running 0 6h11m  Create Persistent Volume Next we will deploy a persistent volume using the EFS created.</description>
+    </item>
+    
+    <item>
+      <title>Deploying the Stateful Services</title>
+      <link>//localhost:1313/beginner/190_efs/deploying-services/</link>
+      <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
+      
+      <guid>//localhost:1313/beginner/190_efs/deploying-services/</guid>
+      <description>Next, launch a set of two pods with the following commands.
+cd ~/environment/efs wget https://eksworkshop.com/beginner/190_efs/efs.files/efs-writer.yaml wget https://eksworkshop.com/beginner/190_efs/efs.files/efs-reader.yaml kubectl apply -f efs-writer.yaml kubectl apply -f efs-reader.yaml Each one of these pods references the PVC resource named efs-storage-claim created earlier and mounts the backing PV to a local directory named /shared.
+Verify that the efs-writer pod is successfully writing data to the shared persistent volume.
+kubectl exec -it efs-writer -n storage -- tail /shared/out.</description>
+    </item>
+    
+    <item>
+      <title>Clean Up</title>
+      <link>//localhost:1313/beginner/190_efs/cleaning/</link>
+      <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
+      
+      <guid>//localhost:1313/beginner/190_efs/cleaning/</guid>
+      <description>Cleaning up Delete the Kubernetes resources deployed to the EKS cluster.
+cd ~/environment/efs kubectl delete -f efs-reader.yaml kubectl delete -f efs-writer.yaml kubectl delete -f efs-pvc.yaml Delete the efs-csi-node daemonset from the kube-system namespace
+kubectl delete ds efs-csi-node -n kube-system Delete the mount targets associated with the EFS file system
+FILE_SYSTEM_ID=$(aws efs describe-file-systems | jq --raw-output &#39;.FileSystems[].FileSystemId&#39;) targets=$(aws efs describe-mount-targets --file-system-id $FILE_SYSTEM_ID | jq --raw-output &#39;.MountTargets[].MountTargetId&#39;) for target in ${targets[@]} do echo &amp;quot;deleting mount target &amp;quot; $target aws efs delete-mount-target --mount-target-id $target done Check the status of EFS file system to find out if the mount targets have all been deleted.</description>
+    </item>
+    
+  </channel>
+</rss>

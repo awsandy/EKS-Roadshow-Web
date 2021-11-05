@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gitops on Amazon EKS Workshop</title>
+    <link>//localhost:1313/tags/gitops/</link>
+    <description>Recent content in gitops on Amazon EKS Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="//localhost:1313/tags/gitops/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GitOps with Weave Flux</title>
+      <link>//localhost:1313/intermediate/260_weave_flux/</link>
+      <pubDate>Sun, 14 Oct 2018 19:56:14 -0400</pubDate>
+      
+      <guid>//localhost:1313/intermediate/260_weave_flux/</guid>
+      <description>GitOps with Weave Flux GitOps, a term coined by Weaveworks, is a way to do continuous delivery. Git is used as single source of truth for deploying into your cluster. This is easy for a development team as they are already familiar with git and do not need to know other tools. Weave Flux is a tool that runs in your Kubernetes cluster and implements changes based on monitoring Git and image repositories.</description>
+    </item>
+    
+    <item>
+      <title>Continuous Deployment with ArgoCD</title>
+      <link>//localhost:1313/intermediate/290_argocd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/intermediate/290_argocd/</guid>
+      <description>Continuous Deployment with ArgoCD [Argo CD] (https://argoproj.github.io/argo-cd/) is a declarative, GitOps continuous delivery tool for Kubernetes. The core component of Argo CD is the Application Controller, which continuously monitors running applications and compares the live application state against the desired target state defined in the Git repository. This powers the following use cases:
+Automated deployment : controller pushes the desired application state into the cluster automatically, either in response to a Git commit, a trigger from CI pipeline, or a manual user request.</description>
+    </item>
+    
+  </channel>
+</rss>

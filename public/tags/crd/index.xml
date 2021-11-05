@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>crd on Amazon EKS Workshop</title>
+    <link>//localhost:1313/tags/crd/</link>
+    <description>Recent content in crd on Amazon EKS Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="//localhost:1313/tags/crd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Custom Resource Definition</title>
+      <link>//localhost:1313/intermediate/270_custom_resource_definition/</link>
+      <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
+      
+      <guid>//localhost:1313/intermediate/270_custom_resource_definition/</guid>
+      <description>Custom Resource Definition Introduction In this Chapter, we will review the Custom Resource Definition (CRD) concept, and some examples of usage.
+In Kubernetes API, a resource is an endpoint storing the API objects in a collection. As an example, the pods resource contains a collection of Pod objects.
+CRD’s are extensions of Kubernetes API that stores collection of API objects of certain kind. They extend the Kubernetes API or allow you to add your own API into the cluster.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>opa on Amazon EKS Workshop</title>
+    <link>//localhost:1313/tags/opa/</link>
+    <description>Recent content in opa on Amazon EKS Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="//localhost:1313/tags/opa/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using Open Policy Agent (OPA) for policy-based control in EKS</title>
+      <link>//localhost:1313/intermediate/310_opa_gatekeeper/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/intermediate/310_opa_gatekeeper/</guid>
+      <description>Using Open Policy Agent (OPA) for policy-based control in EKS   Security and governance is a critical component of configuring and managing fine-grained control for Kubernetes clusters and applications. Amazon EKS provides secure, managed Kubernetes clusters by default, but you still need to ensure that you configure and administer the applications appropriately that you run as part of the cluster.
+The Open Policy Agent (OPA, pronounced “oh-pa”) is an open source, general-purpose policy engine that unifies policy enforcement across the stack.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>intermediate on Amazon EKS Workshop</title>
+    <link>//localhost:1313/tags/intermediate/</link>
+    <description>Recent content in intermediate on Amazon EKS Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 20 Jul 2021 00:00:00 -0300</lastBuildDate><atom:link href="//localhost:1313/tags/intermediate/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Intermediate</title>
+      <link>//localhost:1313/intermediate/</link>
+      <pubDate>Fri, 22 Jan 2021 09:45:32 -0500</pubDate>
+      
+      <guid>//localhost:1313/intermediate/</guid>
+      <description>Intermediate </description>
+    </item>
+    
+    <item>
+      <title>IAM Roles for Service Accounts</title>
+      <link>//localhost:1313/beginner/110_irsa/</link>
+      <pubDate>Tue, 20 Jul 2021 00:00:00 -0300</pubDate>
+      
+      <guid>//localhost:1313/beginner/110_irsa/</guid>
+      <description>Fine-Grained IAM Roles for Service Accounts   In Kubernetes version 1.12, support was added for a new ProjectedServiceAccountToken feature, which is an OIDC JSON web token that also contains the service account identity, and supports a configurable audience.
+Amazon EKS now hosts a public OIDC discovery endpoint per cluster containing the signing keys for the ProjectedServiceAccountToken JSON web tokens so external systems, like IAM, can validate and accept the Kubernetes-issued OIDC tokens.</description>
+    </item>
+    
+    <item>
+      <title>Securing Your Cluster with Network Policies</title>
+      <link>//localhost:1313/beginner/120_network-policies/</link>
+      <pubDate>Thu, 13 Aug 2020 02:31:44 -0500</pubDate>
+      
+      <guid>//localhost:1313/beginner/120_network-policies/</guid>
+      <description>Securing your cluster with network policies In this chapter, we are going to use two tools to secure our cluster by using network policies and then integrating our cluster&amp;rsquo;s network policies with EKS security groups.
+First we will use Project Calico to enforce Kubernetes network policies in our cluster, protecting our various microservices.
+After that, we will use Calico Enterprise to
+ Implement Egress Access Controls to enable your EKS workloads to communicate with other Amazon services (for example: RDS or EC2 instances) or other API endpoints.</description>
+    </item>
+    
+    <item>
+      <title>Assigning Pods to Nodes</title>
+      <link>//localhost:1313/beginner/140_assigning_pods/</link>
+      <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
+      
+      <guid>//localhost:1313/beginner/140_assigning_pods/</guid>
+      <description>Assigning Pods to Nodes   Introduction In this Chapter, we will review how the strategy of assigning Pods works, alternatives and recommended approaches.
+You can constrain a pod to only be able to run on particular nodes or to prefer to run on particular nodes.
+Generally such constraints are unnecessary, as the scheduler will automatically do a reasonable placement (e.g. spread your pods across nodes, not place the pod on a node with insufficient free resources, etc.</description>
+    </item>
+    
+    <item>
+      <title>Advanced VPC Networking with EKS</title>
+      <link>//localhost:1313/beginner/160_advanced-networking/</link>
+      <pubDate>Sat, 02 Mar 2019 16:47:38 -0500</pubDate>
+      
+      <guid>//localhost:1313/beginner/160_advanced-networking/</guid>
+      <description>Advanced VPC Networking with EKS   In this Chapter, we will review some of the advanced VPC networking features with EKS.</description>
+    </item>
+    
+    <item>
+      <title>Migrate to EKS</title>
+      <link>//localhost:1313/intermediate/200_migrate_to_eks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/intermediate/200_migrate_to_eks/</guid>
+      <description>Migrate Workloads to EKS In this chapter we will migrate a workload from a self managed kind cluster to an EKS cluster. The workload will have a stateless frontend and a stateful database backend. You&amp;rsquo;ll need to follow the steps to create a Cloud9 workspace. Make sure you update your IAM permissions with an eksworkshop-admin role.
+When you create your Cloud9 instance you should select an instance size with at least 8 GB of memory (eg m5.</description>
+    </item>
+    
+    <item>
+      <title>Resource Management</title>
+      <link>//localhost:1313/intermediate/201_resource_management/</link>
+      <pubDate>Mon, 22 Jun 2020 00:00:00 -0300</pubDate>
+      
+      <guid>//localhost:1313/intermediate/201_resource_management/</guid>
+      <description>Resource Management   Kubernetes Request is used to ensure a Pod has enough defined resources available. It is possible for the Pod to use more than what is specified. This is considered a soft limit.
+Kubernetes Limit is a used to ensure a Pod does not use above what is specified. This is considered a hard limit.
+Kubernetes Resource Quotas is used to limit resource usage per namespace.
+Kubernetes Pod Priority and Preemption is a used to apply priorities to pods relative to other pods.</description>
+    </item>
+    
+    <item>
+      <title>Deploying Jenkins</title>
+      <link>//localhost:1313/intermediate/210_jenkins/</link>
+      <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
+      
+      <guid>//localhost:1313/intermediate/210_jenkins/</guid>
+      <description>Deploy Jenkins In this Chapter, we will deploy Jenkins using the Helm package manager we installed in the Helm module and the OIDC identity provider we setup in the [IAM Roles for Service Accounts module]({{ ref &amp;ldquo;beginner/110_irsa&amp;rdquo;}}).</description>
+    </item>
+    
+    <item>
+      <title>Logging with Amazon OpenSearch, Fluent Bit, and OpenSearch Dashboards</title>
+      <link>//localhost:1313/intermediate/230_logging/</link>
+      <pubDate>Tue, 21 Jul 2020 22:23:34 -0400</pubDate>
+      
+      <guid>//localhost:1313/intermediate/230_logging/</guid>
+      <description>Logging with Amazon OpenSearch, Fluent Bit, and OpenSearch Dashboards In this Chapter, we will deploy a common Kubernetes logging pattern which consists of the following:
+  Fluent Bit: an open source and multi-platform Log Processor and Forwarder which allows you to collect data/logs from different sources, unify and send them to multiple destinations. It&amp;rsquo;s fully compatible with Docker and Kubernetes environments.
+  Amazon OpenSearch Service: OpenSearch is an open source, distributed search and analytics suite derived from Elasticsearch.</description>
+    </item>
+    
+    <item>
+      <title>Monitoring using Prometheus and Grafana</title>
+      <link>//localhost:1313/intermediate/240_monitoring/</link>
+      <pubDate>Sun, 14 Oct 2018 09:27:46 -0400</pubDate>
+      
+      <guid>//localhost:1313/intermediate/240_monitoring/</guid>
+      <description>Monitoring using Prometheus and Grafana In this Chapter, we will deploy Prometheus and Grafana to monitor Kubernetes cluster
+What is Prometheus? Prometheus is an open-source systems monitoring and alerting toolkit originally built at SoundCloud. Since its inception in 2012, many companies and organizations have adopted Prometheus, and the project has a very active developer and user community. It is now a standalone open source project and maintained independently of any company.</description>
+    </item>
+    
+    <item>
+      <title>Monitoring using Pixie</title>
+      <link>//localhost:1313/intermediate/241_pixie/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/intermediate/241_pixie/</guid>
+      <description>Monitoring using Pixie In this chapter, we will deploy Pixie to monitor an application on a Kubernetes cluster.
+What is Pixie? Pixie is an open-source observability platform for Kubernetes. It helps developers explore, monitor and debug their applications. Pixie’s features include:
+Progressive instrumentation
+Pixie collects full-body request traces, system resource metrics, and Kubernetes events right out of box. Pixie&amp;rsquo;s auto-instrumentation capabilities require no code changes by the user and consume less than 5% overhead, because it powered by eBPF*.</description>
+    </item>
+    
+    <item>
+      <title>Monitoring using Amazon Managed Service for Prometheus / Grafana</title>
+      <link>//localhost:1313/intermediate/246_monitoring_amp_amg/</link>
+      <pubDate>Sun, 14 Oct 2018 09:27:46 -0400</pubDate>
+      
+      <guid>//localhost:1313/intermediate/246_monitoring_amp_amg/</guid>
+      <description>Introduction Amazon Managed Service for Prometheus (AMP) Amazon Managed Service for Prometheus is a monitoring service for metrics compatible with the open source Prometheus project, making it easier for you to securely monitor container environments. AMP is a solution for monitoring containers based on the popular Cloud Native Computing Foundation (CNCF) Prometheus project. AMP is powered by Cortex, an open source CNCF project that adds horizontal scalability to ingest, store, query, and alert on Prometheus metrics.</description>
+    </item>
+    
+    <item>
+      <title>EKS CloudWatch Container Insights</title>
+      <link>//localhost:1313/intermediate/250_cloudwatch_container_insights/</link>
+      <pubDate>Mon, 13 Apr 2020 15:27:17 -0400</pubDate>
+      
+      <guid>//localhost:1313/intermediate/250_cloudwatch_container_insights/</guid>
+      <description>In this chapter we will learn and leverage the new CloudWatch Container Insights to see how you can use native CloudWatch features to monitor your EKS Cluster performance.
+You can use CloudWatch Container Insights to collect, aggregate, and summarize metrics and logs from your containerized applications and microservices. Container Insights is available for Amazon Elastic Container Service, Amazon Elastic Kubernetes Service, and Kubernetes platforms on Amazon EC2. The metrics include utilization for resources such as CPU, memory, disk, and network.</description>
+    </item>
+    
+    <item>
+      <title>Continuous Deployment with ArgoCD</title>
+      <link>//localhost:1313/intermediate/290_argocd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/intermediate/290_argocd/</guid>
+      <description>Continuous Deployment with ArgoCD [Argo CD] (https://argoproj.github.io/argo-cd/) is a declarative, GitOps continuous delivery tool for Kubernetes. The core component of Argo CD is the Application Controller, which continuously monitors running applications and compares the live application state against the desired target state defined in the Git repository. This powers the following use cases:
+Automated deployment : controller pushes the desired application state into the cluster automatically, either in response to a Git commit, a trigger from CI pipeline, or a manual user request.</description>
+    </item>
+    
+    <item>
+      <title>Continuous Delivery with Spinnaker</title>
+      <link>//localhost:1313/intermediate/265_spinnaker_eks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/intermediate/265_spinnaker_eks/</guid>
+      <description>Continuous Delivery with Spinnaker Spinnaker is an open-source, multi-cloud continuous delivery platform, originally developed by Netflix, that helps you release software changes rapidly and reliably. Development team can focus on just application development and leave ops provisioning to Spinnaker for automating reinforcement of business and regulatory requirements. Spinnaker supports several CI systems and build tools like CodeBuild, Jenkins. You can integrate Spinnaker for configuring Artifacts from Git, Amazon S3, Amazon ECR etc.</description>
+    </item>
+    
+    <item>
+      <title>CIS EKS Benchmark assessment using kube-bench</title>
+      <link>//localhost:1313/intermediate/300_cis_eks_benchmark/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/intermediate/300_cis_eks_benchmark/</guid>
+      <description>CIS EKS Benchmark assessment using kube-bench   Security is a critical component of configuring and maintaining Kubernetes clusters and applications. Amazon EKS provides secure, managed Kubernetes clusters by default, but you still need to ensure that you configure the nodes and applications you run as part of the cluster to ensure a secure implementation.
+Since CIS Kubernetes Benchmark provides good practice guidance on security configurations for Kubernetes clusters, customers asked us for guidance on CIS Kubernetes Benchmark for Amazon EKS to meet their security and compliance requirements.</description>
+    </item>
+    
+    <item>
+      <title>Using Open Policy Agent (OPA) for policy-based control in EKS</title>
+      <link>//localhost:1313/intermediate/310_opa_gatekeeper/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/intermediate/310_opa_gatekeeper/</guid>
+      <description>Using Open Policy Agent (OPA) for policy-based control in EKS   Security and governance is a critical component of configuring and managing fine-grained control for Kubernetes clusters and applications. Amazon EKS provides secure, managed Kubernetes clusters by default, but you still need to ensure that you configure and administer the applications appropriately that you run as part of the cluster.
+The Open Policy Agent (OPA, pronounced “oh-pa”) is an open source, general-purpose policy engine that unifies policy enforcement across the stack.</description>
+    </item>
+    
+    <item>
+      <title>Patching/Upgrading your EKS Cluster</title>
+      <link>//localhost:1313/intermediate/320_eks_upgrades/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/intermediate/320_eks_upgrades/</guid>
+      <description>Patching/Upgrading your EKS Cluster As EKS tracks upstream Kubernetes that means that customers can, and should, regularly upgrade their EKS so as to stay within the project&amp;rsquo;s upstream support window. This used to be the current version and two version back (n-2) - but it was recently extended to three versions back (n-3).
+There is a new major version of Kubernetes every quarter which means that the Kubernetes support window has now gone from three quarters of a year to one full year.</description>
+    </item>
+    
+    <item>
+      <title>Getting Started with AWS App Mesh</title>
+      <link>//localhost:1313/intermediate/330_app_mesh/</link>
+      <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
+      
+      <guid>//localhost:1313/intermediate/330_app_mesh/</guid>
+      <description>AWS App Mesh on Amazon EKS   Getting Fancy with AWS App Mesh on Amazon EKS   At re:invent 2018, we announced AWS App Mesh, a service mesh that provides application-level networking to make it easy for your services to communicate with each other across multiple types of compute infrastructure. App Mesh standardizes how your services communicate, giving you end-to-end visibility and ensuring high-availability for your applications.
+Service meshes like AWS App Mesh help you to run and monitor HTTP and TCP services at scale.</description>
+    </item>
+    
+  </channel>
+</rss>

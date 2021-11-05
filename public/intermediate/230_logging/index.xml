@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Logging with Amazon OpenSearch, Fluent Bit, and OpenSearch Dashboards on Amazon EKS Workshop</title>
+    <link>//localhost:1313/intermediate/230_logging/</link>
+    <description>Recent content in Logging with Amazon OpenSearch, Fluent Bit, and OpenSearch Dashboards on Amazon EKS Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 21 Jul 2020 22:23:34 -0400</lastBuildDate><atom:link href="//localhost:1313/intermediate/230_logging/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Configure IRSA for Fluent Bit</title>
+      <link>//localhost:1313/intermediate/230_logging/prereqs/</link>
+      <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
+      
+      <guid>//localhost:1313/intermediate/230_logging/prereqs/</guid>
+      <description>Click here if you are not familiar wit IAM Roles for Service Accounts (IRSA).
+ With IAM roles for service accounts on Amazon EKS clusters, you can associate an IAM role with a Kubernetes service account. This service account can then provide AWS permissions to the containers in any pod that uses that service account. With this feature, you no longer need to provide extended permissions to the node IAM role so that pods on that node can call AWS APIs.</description>
+    </item>
+    
+    <item>
+      <title>Provision an Amazon OpenSearch Cluster</title>
+      <link>//localhost:1313/intermediate/230_logging/setup_es/</link>
+      <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
+      
+      <guid>//localhost:1313/intermediate/230_logging/setup_es/</guid>
+      <description>This example creates an one instance Amazon OpenSearch cluster named eksworkshop-logging. This cluster will be created in the same region as the EKS Kubernetes cluster.
+The Amazon OpenSearch cluster will have Fine-Grained Access Control enabled.
+Fine-grained access control offers two forms of authentication and authorization:
+ A built-in user database, which makes it easy to configure usernames and passwords inside of Amazon OpenSearch cluster. AWS Identity and Access Management (IAM) integration, which lets you map IAM principals to permissions.</description>
+    </item>
+    
+    <item>
+      <title>Configure Amazon OpenSearch Access</title>
+      <link>//localhost:1313/intermediate/230_logging/config_es/</link>
+      <pubDate>Tue, 21 Jul 2020 15:48:43 -0400</pubDate>
+      
+      <guid>//localhost:1313/intermediate/230_logging/config_es/</guid>
+      <description>Mapping Roles to Users Role mapping is the most critical aspect of fine-grained access control. Fine-grained access control has some predefined roles to help you get started, but unless you map roles to users, every request to the cluster ends in a permissions error.
+Backend roles offer another way of mapping roles to users. Rather than mapping the same role to dozens of different users, you can map the role to a single backend role, and then make sure that all users have that backend role.</description>
+    </item>
+    
+    <item>
+      <title>Deploy Fluent Bit</title>
+      <link>//localhost:1313/intermediate/230_logging/deploy/</link>
+      <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
+      
+      <guid>//localhost:1313/intermediate/230_logging/deploy/</guid>
+      <description>Let&amp;rsquo;s start by downloading the fluentbit.yaml deployment file and replace some variables.
+cd ~/environment/logging # get the Amazon OpenSearch Endpoint export ES_ENDPOINT=$(aws es describe-elasticsearch-domain --domain-name ${ES_DOMAIN_NAME} --output text --query &amp;#34;DomainStatus.Endpoint&amp;#34;) curl -Ss https://www.eksworkshop.com/intermediate/230_logging/deploy.files/fluentbit.yaml \  | envsubst &amp;gt; ~/environment/logging/fluentbit.yaml Explore the file to see what will be deployed. The fluent bit log agent configuration is located in the Kubernetes ConfigMap and will be deployed as a DaemonSet, i.e. one pod per worker node.</description>
+    </item>
+    
+    <item>
+      <title>OpenSearch Dashboards</title>
+      <link>//localhost:1313/intermediate/230_logging/kibana/</link>
+      <pubDate>Tue, 21 Jul 2020 22:23:34 -0400</pubDate>
+      
+      <guid>//localhost:1313/intermediate/230_logging/kibana/</guid>
+      <description>Finally Let&amp;rsquo;s log into OpenSearch Dashboards to visualize our logs.
+echo &amp;#34;OpenSearch Dashboards URL: https://${ES_ENDPOINT}/_dashboards/ OpenSearch Dashboards user: ${ES_DOMAIN_USER}OpenSearch Dashboards password: ${ES_DOMAIN_PASSWORD}&amp;#34; From the OpenSearch Dashboards Welcome screen select Explore on my own
+Now click Confirm button on Select your tenant screen
+On the next screen click on OpenSearch Dashboards tile
+Now click Add your data
+Now click Create index Pattern
+Add *fluent-bit* as the Index pattern and click Next step</description>
+    </item>
+    
+    <item>
+      <title>Cleanup</title>
+      <link>//localhost:1313/intermediate/230_logging/cleanup/</link>
+      <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
+      
+      <guid>//localhost:1313/intermediate/230_logging/cleanup/</guid>
+      <description>cd ~/environment/ kubectl delete -f ~/environment/logging/fluentbit.yaml aws opensearch delete-domain \  --domain-name ${ES_DOMAIN_NAME} eksctl delete iamserviceaccount \  --name fluent-bit \  --namespace logging \  --cluster eksworkshop-eksctl \  --wait aws iam delete-policy \  --policy-arn &amp;#34;arn:aws:iam::${ACCOUNT_ID}:policy/fluent-bit-policy&amp;#34; kubectl delete namespace logging rm -rf ~/environment/logging unset ES_DOMAIN_NAME unset ES_VERSION unset ES_DOMAIN_USER unset ES_DOMAIN_PASSWORD unset FLUENTBIT_ROLE unset ES_ENDPOINT </description>
+    </item>
+    
+  </channel>
+</rss>

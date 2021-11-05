@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Security groups for pods on Amazon EKS Workshop</title>
+    <link>//localhost:1313/beginner/115_sg-per-pod/</link>
+    <description>Recent content in Security groups for pods on Amazon EKS Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 26 Nov 2020 13:01:55 -0500</lastBuildDate><atom:link href="//localhost:1313/beginner/115_sg-per-pod/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Prerequisite</title>
+      <link>//localhost:1313/beginner/115_sg-per-pod/09_prerequisite/</link>
+      <pubDate>Sat, 20 Feb 2021 16:48:09 -0500</pubDate>
+      
+      <guid>//localhost:1313/beginner/115_sg-per-pod/09_prerequisite/</guid>
+      <description>Security groups for pods are supported by most Nitro-based Amazon EC2 instance families, including the m5, c5, r5, p3, m6g, c6g, and r6g instance families. The t3 instance family is not supported and so we will create a second NodeGroup using one m5.large instance.
+ mkdir ${HOME}/environment/sg-per-pod cat &amp;lt;&amp;lt; EoF &amp;gt; ${HOME}/environment/sg-per-pod/nodegroup-sec-group.yaml apiVersion: eksctl.io/v1alpha5 kind: ClusterConfig metadata: name: eksworkshop-eksctl region: ${AWS_REGION} managedNodeGroups: - name: nodegroup-sec-group desiredCapacity: 1 instanceType: m5.large EoF eksctl create nodegroup -f ${HOME}/environment/sg-per-pod/nodegroup-sec-group.</description>
+    </item>
+    
+    <item>
+      <title>Security groups creation</title>
+      <link>//localhost:1313/beginner/115_sg-per-pod/10_secgroup/</link>
+      <pubDate>Thu, 26 Nov 2020 15:59:47 -0500</pubDate>
+      
+      <guid>//localhost:1313/beginner/115_sg-per-pod/10_secgroup/</guid>
+      <description>Create and configure the security groups First, let&amp;rsquo;s create the RDS security group (RDS_SG). It will be used by the Amazon RDS instance to control network access.
+export VPC_ID=$(aws eks describe-cluster \  --name eksworkshop-eksctl \  --query &amp;#34;cluster.resourcesVpcConfig.vpcId&amp;#34; \  --output text) # create RDS security group aws ec2 create-security-group \  --description &amp;#39;RDS SG&amp;#39; \  --group-name &amp;#39;RDS_SG&amp;#39; \  --vpc-id ${VPC_ID} # save the security group ID for future use export RDS_SG=$(aws ec2 describe-security-groups \  --filters Name=group-name,Values=RDS_SG Name=vpc-id,Values=${VPC_ID} \  --query &amp;#34;SecurityGroups[0].</description>
+    </item>
+    
+    <item>
+      <title>RDS creation</title>
+      <link>//localhost:1313/beginner/115_sg-per-pod/20_rds/</link>
+      <pubDate>Wed, 02 Dec 2020 21:00:37 -0500</pubDate>
+      
+      <guid>//localhost:1313/beginner/115_sg-per-pod/20_rds/</guid>
+      <description>Now that our security groups are ready let&amp;rsquo;s create our Amazon RDS for PostgreSQL database.
+We first need to create a DB subnet groups. We will use the same subnets as our EKS cluster.
+export PUBLIC_SUBNETS_ID=$(aws ec2 describe-subnets \  --filters &amp;#34;Name=vpc-id,Values=$VPC_ID&amp;#34; &amp;#34;Name=tag:Name,Values=eksctl-eksworkshop-eksctl-cluster/SubnetPublic*&amp;#34; \  --query &amp;#39;Subnets[*].SubnetId&amp;#39; \  --output json | jq -c .) # create a db subnet group aws rds create-db-subnet-group \  --db-subnet-group-name rds-eksworkshop \  --db-subnet-group-description rds-eksworkshop \  --subnet-ids ${PUBLIC_SUBNETS_ID} We can now create our database.</description>
+    </item>
+    
+    <item>
+      <title>CNI configuration</title>
+      <link>//localhost:1313/beginner/115_sg-per-pod/30_cni_config/</link>
+      <pubDate>Wed, 02 Dec 2020 21:30:00 -0500</pubDate>
+      
+      <guid>//localhost:1313/beginner/115_sg-per-pod/30_cni_config/</guid>
+      <description>To enable this new functionality, Amazon EKS clusters have two new components running on the Kubernetes control plane:
+ A mutating webhook responsible for adding limits and requests to pods requiring security groups. A resource controller responsible for managing network interfaces associated with those pods.  To facilitate this feature, each worker node will be associated with a single trunk network interface, and multiple branch network interfaces. The trunk interface acts as a standard network interface attached to the instance.</description>
+    </item>
+    
+    <item>
+      <title>SecurityGroup Policy</title>
+      <link>//localhost:1313/beginner/115_sg-per-pod/40_sg_policy/</link>
+      <pubDate>Thu, 26 Nov 2020 16:24:15 -0500</pubDate>
+      
+      <guid>//localhost:1313/beginner/115_sg-per-pod/40_sg_policy/</guid>
+      <description>SecurityGroup Policy A new Custom Resource Definition (CRD) has also been added automatically at the cluster creation. Cluster administrators can specify which security groups to assign to pods through the SecurityGroupPolicy CRD. Within a namespace, you can select pods based on pod labels, or based on labels of the service account associated with a pod. For any matching pods, you also define the security group IDs to be applied.
+You can verify the CRD is present with this command.</description>
+    </item>
+    
+    <item>
+      <title>Pods Deployments</title>
+      <link>//localhost:1313/beginner/115_sg-per-pod/50_deploy/</link>
+      <pubDate>Wed, 02 Dec 2020 23:37:35 -0500</pubDate>
+      
+      <guid>//localhost:1313/beginner/115_sg-per-pod/50_deploy/</guid>
+      <description>Kubernetes secrets Before deploying our two pods we need to provide them with the RDS endpoint and password. We will create a kubernetes secret.
+export RDS_PASSWORD=$(cat ~/environment/sg-per-pod/rds_password) export RDS_ENDPOINT=$(aws rds describe-db-instances \  --db-instance-identifier rds-eksworkshop \  --query &amp;#39;DBInstances[0].Endpoint.Address&amp;#39; \  --output text) kubectl create secret generic rds\  --namespace=sg-per-pod \  --from-literal=&amp;#34;password=${RDS_PASSWORD}&amp;#34; \  --from-literal=&amp;#34;host=${RDS_ENDPOINT}&amp;#34; kubectl -n sg-per-pod describe secret rds Output
+Name: rds Namespace: sg-per-pod Labels: &amp;lt;none&amp;gt; Annotations: &amp;lt;none&amp;gt; Type: Opaque Data ==== host: 56 bytes password: 32 bytes  Deployments Let&amp;rsquo;s download both pods deployment files</description>
+    </item>
+    
+    <item>
+      <title>Cleanup</title>
+      <link>//localhost:1313/beginner/115_sg-per-pod/90_cleanup/</link>
+      <pubDate>Wed, 02 Dec 2020 16:04:30 -0500</pubDate>
+      
+      <guid>//localhost:1313/beginner/115_sg-per-pod/90_cleanup/</guid>
+      <description>export VPC_ID=$(aws eks describe-cluster \  --name eksworkshop-eksctl \  --query &amp;#34;cluster.resourcesVpcConfig.vpcId&amp;#34; \  --output text) export RDS_SG=$(aws ec2 describe-security-groups \  --filters Name=group-name,Values=RDS_SG Name=vpc-id,Values=${VPC_ID} \  --query &amp;#34;SecurityGroups[0].GroupId&amp;#34; --output text) export POD_SG=$(aws ec2 describe-security-groups \  --filters Name=group-name,Values=POD_SG Name=vpc-id,Values=${VPC_ID} \  --query &amp;#34;SecurityGroups[0].GroupId&amp;#34; --output text) export C9_IP=$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) export NODE_GROUP_SG=$(aws ec2 describe-security-groups \  --filters Name=tag:Name,Values=eks-cluster-sg-eksworkshop-eksctl-* Name=vpc-id,Values=${VPC_ID} \  --query &amp;#34;SecurityGroups[0].GroupId&amp;#34; \  --output text) # uninstall the RPM package sudo yum remove -y $(sudo yum list installed | grep amzn2extra-postgresql12 | awk &amp;#39;{ print $1}&amp;#39;) # delete database aws rds delete-db-instance \  --db-instance-identifier rds-eksworkshop \  --delete-automated-backups \  --skip-final-snapshot # delete kubernetes element kubectl -n sg-per-pod delete -f ~/environment/sg-per-pod/green-pod.</description>
+    </item>
+    
+  </channel>
+</rss>

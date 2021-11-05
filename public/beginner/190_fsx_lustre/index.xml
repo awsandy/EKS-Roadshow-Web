@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Deploying Stateful Microservices with Amazon FSx Lustre on Amazon EKS Workshop</title>
+    <link>//localhost:1313/beginner/190_fsx_lustre/</link>
+    <description>Recent content in Deploying Stateful Microservices with Amazon FSx Lustre on Amazon EKS Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 10 Aug 2021 00:00:00 -0300</lastBuildDate><atom:link href="//localhost:1313/beginner/190_fsx_lustre/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Creating an Fsx Lustre File System</title>
+      <link>//localhost:1313/beginner/190_fsx_lustre/launching-fsx/</link>
+      <pubDate>Tue, 03 Nov 2020 00:00:00 -0300</pubDate>
+      
+      <guid>//localhost:1313/beginner/190_fsx_lustre/launching-fsx/</guid>
+      <description>The Amazon FSx for Lustre Container Storage Interface (CSI) driver provides a CSI interface that allows Amazon EKS clusters to manage the lifecycle of Amazon FSx for Lustre file systems. For detailed descriptions of the available parameters and complete examples that demonstrate the driver&amp;rsquo;s features, see the Amazon FSx for Lustre Container Storage Interface (CSI) driver project on GitHub.
+Prerequisites You must complete the Start the Workshop and Launch using eksctl modules if you haven&amp;rsquo;t already, in order to meet the following prerequisites:</description>
+    </item>
+    
+    <item>
+      <title>Deploying the Stateful Services</title>
+      <link>//localhost:1313/beginner/190_fsx_lustre/deploying-services/</link>
+      <pubDate>Tue, 10 Aug 2021 00:00:00 -0300</pubDate>
+      
+      <guid>//localhost:1313/beginner/190_fsx_lustre/deploying-services/</guid>
+      <description>Deploy a Kubernetes storage class, persistent volume claim, and sample application to verify that the CSI driver is working This procedure uses the Dynamic volume provisioning for Amazon S3 from the Amazon FSx for Lustre Container Storage Interface (CSI) driver GitHub repository to consume a dynamically-provisioned Amazon FSx for Lustre volume.
+  Create an Amazon S3 bucket and a folder within it named export by creating and copying a file to the bucket.</description>
+    </item>
+    
+    <item>
+      <title>Clean Up</title>
+      <link>//localhost:1313/beginner/190_fsx_lustre/cleaning/</link>
+      <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
+      
+      <guid>//localhost:1313/beginner/190_fsx_lustre/cleaning/</guid>
+      <description>Cleaning up Once we are done, let&amp;rsquo;s cleanup the resources specific to this module:
+kubectl delete -f &amp;quot;https://raw.githubusercontent.com/kubernetes-sigs/aws-fsx-csi-driver/master/examples/kubernetes/dynamic_provisioning_s3/specs/pod.yaml&amp;quot; kubectl delete -f claim.yaml kubectl delete -f storageclass.yaml kubectl delete -k &amp;quot;github.com/kubernetes-sigs/aws-fsx-csi-driver/deploy/kubernetes/overlays/stable/?ref=master&amp;quot; aws s3 rm --recursive s3://$S3_LOGS_BUCKET aws s3 rb s3://$S3_LOGS_BUCKET eksctl delete iamserviceaccount \ --region $AWS_REGION \ --name fsx-csi-controller-sa \ --namespace kube-system \ --cluster $CLUSTER_NAME aws iam delete-policy \ --policy-arn arn:aws:iam::$ACCOUNT_ID:policy/Amazon_FSx_Lustre_CSI_Driver </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Advanced VPC Networking with EKS on Amazon EKS Workshop</title>
+    <link>//localhost:1313/beginner/160_advanced-networking/</link>
+    <description>Recent content in Advanced VPC Networking with EKS on Amazon EKS Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 02 Mar 2019 16:47:38 -0500</lastBuildDate><atom:link href="//localhost:1313/beginner/160_advanced-networking/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

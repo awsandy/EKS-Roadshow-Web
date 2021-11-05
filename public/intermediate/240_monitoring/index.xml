@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Monitoring using Prometheus and Grafana on Amazon EKS Workshop</title>
+    <link>//localhost:1313/intermediate/240_monitoring/</link>
+    <description>Recent content in Monitoring using Prometheus and Grafana on Amazon EKS Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 14 Oct 2018 09:27:46 -0400</lastBuildDate><atom:link href="//localhost:1313/intermediate/240_monitoring/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Prereqs</title>
+      <link>//localhost:1313/intermediate/240_monitoring/prereqs/</link>
+      <pubDate>Sun, 14 Oct 2018 19:56:14 -0400</pubDate>
+      
+      <guid>//localhost:1313/intermediate/240_monitoring/prereqs/</guid>
+      <description>Is helm installed? We will use helm to install Prometheus &amp;amp; Grafana monitoring tools for this chapter. Please review installing helm chapter for instructions if you don&amp;rsquo;t have it installed.
+# add prometheus Helm repo helm repo add prometheus-community https://prometheus-community.github.io/helm-charts # add grafana Helm repo helm repo add grafana https://grafana.github.io/helm-charts </description>
+    </item>
+    
+    <item>
+      <title>Deploy Prometheus</title>
+      <link>//localhost:1313/intermediate/240_monitoring/deploy-prometheus/</link>
+      <pubDate>Sun, 14 Oct 2018 20:33:02 -0400</pubDate>
+      
+      <guid>//localhost:1313/intermediate/240_monitoring/deploy-prometheus/</guid>
+      <description>Deploy Prometheus First we are going to install Prometheus. In this example, we are primarily going to use the standard configuration, but we do override the storage class. We will use gp2 EBS volumes for simplicity and demonstration purpose. When deploying in production, you would use io1 volumes with desired IOPS and increase the default storage size in the manifests to get better performance. Run the following command:
+kubectl create namespace prometheus helm install prometheus prometheus-community/prometheus \  --namespace prometheus \  --set alertmanager.</description>
+    </item>
+    
+    <item>
+      <title>Deploy Grafana</title>
+      <link>//localhost:1313/intermediate/240_monitoring/deploy-grafana/</link>
+      <pubDate>Sun, 14 Oct 2018 20:54:13 -0400</pubDate>
+      
+      <guid>//localhost:1313/intermediate/240_monitoring/deploy-grafana/</guid>
+      <description>We are now going to install Grafana. For this example, we are primarily using the Grafana defaults, but we are overriding several parameters. As with Prometheus, we are setting the storage class to gp2, admin password, configuring the datasource to point to Prometheus and creating an external load balancer for the service.
+Create YAML file called grafana.yaml with following commands:
+mkdir ${HOME}/environment/grafana cat &amp;lt;&amp;lt; EoF &amp;gt; ${HOME}/environment/grafana/grafana.yaml datasources: datasources.yaml: apiVersion: 1 datasources: - name: Prometheus type: prometheus url: http://prometheus-server.</description>
+    </item>
+    
+    <item>
+      <title>Dashboards</title>
+      <link>//localhost:1313/intermediate/240_monitoring/dashboards/</link>
+      <pubDate>Sun, 14 Oct 2018 21:03:43 -0400</pubDate>
+      
+      <guid>//localhost:1313/intermediate/240_monitoring/dashboards/</guid>
+      <description>Log in to Grafana Log in to Grafana dashboard using credentials supplied during configuration.
+You will notice that &amp;lsquo;Install Grafana&amp;rsquo; &amp;amp; &amp;lsquo;create your first data source&amp;rsquo; are already completed. We will import community created dashboard for this tutorial.
+Cluster Monitoring Dashboard For creating a dashboard to monitor the cluster:
+ Click &#39;+&#39; button on left panel and select &amp;lsquo;Import&amp;rsquo;. Enter 3119 dashboard id under Grafana.com Dashboard. Click &amp;lsquo;Load&amp;rsquo;. Select &amp;lsquo;Prometheus&amp;rsquo; as the endpoint under prometheus data sources drop down.</description>
+    </item>
+    
+    <item>
+      <title>Cleanup</title>
+      <link>//localhost:1313/intermediate/240_monitoring/cleanup/</link>
+      <pubDate>Sun, 14 Oct 2018 21:03:30 -0400</pubDate>
+      
+      <guid>//localhost:1313/intermediate/240_monitoring/cleanup/</guid>
+      <description>Uninstall Prometheus and Grafana helm uninstall prometheus --namespace prometheus kubectl delete ns prometheus helm uninstall grafana --namespace grafana kubectl delete ns grafana rm -rf ${HOME}/environment/grafana </description>
+    </item>
+    
+  </channel>
+</rss>

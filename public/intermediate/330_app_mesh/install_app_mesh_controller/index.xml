@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWS App Mesh Integration on Amazon EKS Workshop</title>
+    <link>//localhost:1313/intermediate/330_app_mesh/install_app_mesh_controller/</link>
+    <description>Recent content in AWS App Mesh Integration on Amazon EKS Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 13 Nov 2018 16:32:30 +0900</lastBuildDate><atom:link href="//localhost:1313/intermediate/330_app_mesh/install_app_mesh_controller/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About Sidecars</title>
+      <link>//localhost:1313/intermediate/330_app_mesh/install_app_mesh_controller/about_sidecar/</link>
+      <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
+      
+      <guid>//localhost:1313/intermediate/330_app_mesh/install_app_mesh_controller/about_sidecar/</guid>
+      <description>For a pod in your application to join a mesh, it must have an Envoy proxy container running sidecar within the pod. This establishes the data plane that AWS App Mesh controls. So we must run an Envoy container within each pod of the DJ App deployment. For example:
+This can be accomplished a few different ways:
+  Before installing the application, you can modify the DJ App Deployment container specs to include App Mesh sidecar containers and set a few required configuration elements and environment variables.</description>
+    </item>
+    
+    <item>
+      <title>Install the App Mesh Controller</title>
+      <link>//localhost:1313/intermediate/330_app_mesh/install_app_mesh_controller/install_controller/</link>
+      <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
+      
+      <guid>//localhost:1313/intermediate/330_app_mesh/install_app_mesh_controller/install_controller/</guid>
+      <description>Helm V3 If the command below gives you an error, follow this link to install the latest version of Helm.
+ helm version --short The AWS App Mesh Controller for Kubernetes is easily installed using Helm. To get started, add the EKS Charts repository.
+helm repo add eks https://aws.github.io/eks-charts helm repo list | grep eks-charts eks https://aws.github.io/eks-charts  Create the appmesh-system namespace and attach IAM Policies for AWS App Mesh and AWS Cloud Map full access.</description>
+    </item>
+    
+    <item>
+      <title>Conclusion</title>
+      <link>//localhost:1313/intermediate/330_app_mesh/install_app_mesh_controller/conclusion/</link>
+      <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
+      
+      <guid>//localhost:1313/intermediate/330_app_mesh/install_app_mesh_controller/conclusion/</guid>
+      <description>Congratulations on installing the AWS App Mesh Controller for Kubernetes in your cluster!
+Next, we&amp;rsquo;ll enable observability, analytics, and routing functionality into our DJ App by porting it to run within App Mesh, and we&amp;rsquo;ll demonstrate how to simplify various types of deployments.</description>
+    </item>
+    
+  </channel>
+</rss>

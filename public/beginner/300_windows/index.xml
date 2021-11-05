@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Windows containers on EKS on Amazon EKS Workshop</title>
+    <link>//localhost:1313/beginner/300_windows/</link>
+    <description>Recent content in Windows containers on EKS on Amazon EKS Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 27 Jul 2020 11:33:21 -0400</lastBuildDate><atom:link href="//localhost:1313/beginner/300_windows/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Considerations</title>
+      <link>//localhost:1313/beginner/300_windows/considerations/</link>
+      <pubDate>Mon, 27 Jul 2020 11:39:53 -0400</pubDate>
+      
+      <guid>//localhost:1313/beginner/300_windows/considerations/</guid>
+      <description>Before deploying Windows nodes, be aware of the following considerations.
+ Windows workloads are supported with Amazon EKS clusters running Kubernetes version 1.14 or later. Amazon EC2 instance types C3, C4, D2, I2, M4 (excluding m4.16xlarge), and R3 instances are not supported for Windows workloads. Host networking mode is not supported for Windows workloads. Amazon EKS clusters must contain one or more Linux nodes to run core system pods that only run on Linux, such as coredns and the VPC resource controller.</description>
+    </item>
+    
+    <item>
+      <title>Windows nodes</title>
+      <link>//localhost:1313/beginner/300_windows/windows_nodes/</link>
+      <pubDate>Mon, 27 Jul 2020 11:50:00 -0400</pubDate>
+      
+      <guid>//localhost:1313/beginner/300_windows/windows_nodes/</guid>
+      <description>Enable Windows support This procedure only works for clusters that were created with eksctl and assumes that your eksctl version is 0.24.0 or later.
+ You can check your version with the following command
+eksctl version The next command will deploy the VPC resource controller and VPC admission controller webhook that are required on Amazon EKS clusters to run Windows workloads.
+eksctl utils \  install-vpc-controllers \  --cluster eksworkshop-eksctl \  --approve Launch self-managed Windows nodes Create your node group with the following command</description>
+    </item>
+    
+    <item>
+      <title>Deploy an application</title>
+      <link>//localhost:1313/beginner/300_windows/sample_app_deploy/</link>
+      <pubDate>Mon, 27 Jul 2020 15:34:36 -0400</pubDate>
+      
+      <guid>//localhost:1313/beginner/300_windows/sample_app_deploy/</guid>
+      <description>NodeSelector You must specify node selectors on your applications so that the pods land on a node with the appropriate operating system.
+For Linux pods, use the following node selector text in your manifests. nodeSelector: kubernetes.io/os: linux kubernetes.io/arch: amd64  For Windows pods, use the following node selector text in your manifests.
+nodeSelector: kubernetes.io/os: windows kubernetes.io/arch: amd64  Our deployment file already has the proper node selectors so you won&amp;rsquo;t have to add them yourself.</description>
+    </item>
+    
+    <item>
+      <title>Cleanup</title>
+      <link>//localhost:1313/beginner/300_windows/cleanup/</link>
+      <pubDate>Tue, 28 Jul 2020 07:51:45 -0400</pubDate>
+      
+      <guid>//localhost:1313/beginner/300_windows/cleanup/</guid>
+      <description>calicoctl delete -f - &amp;lt; ~/environment/windows/deny_icmp.yaml unalias calicoctl kubectl delete -f https://docs.projectcalico.org/archive/v3.15/manifests/calicoctl.yaml kubectl delete -f ~/environment/windows/sample-deployments.yaml kubectl delete -f ~/environment/windows/user-rolebinding.yaml kubectl delete -f https://raw.githubusercontent.com/aws/amazon-vpc-cni-k8s/master/config/v1.6/calico.yaml kubectl delete -f ~/environment/windows/windows_server_iis.yaml kubectl delete namespace windows eksctl delete nodegroup \  -f ~/environment/windows/windows_nodes.yaml \  --approve \  --wait rm -rf ~/environment/windows/ </description>
+    </item>
+    
+  </channel>
+</rss>

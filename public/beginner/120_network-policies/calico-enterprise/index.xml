@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Calico Enterprise Usecases on Amazon EKS Workshop</title>
+    <link>//localhost:1313/beginner/120_network-policies/calico-enterprise/</link>
+    <description>Recent content in Calico Enterprise Usecases on Amazon EKS Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 13 Aug 2020 02:28:35 -0500</lastBuildDate><atom:link href="//localhost:1313/beginner/120_network-policies/calico-enterprise/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Registration - GET ACCCESS TO CALICO ENTERPRISE TRIAL</title>
+      <link>//localhost:1313/beginner/120_network-policies/calico-enterprise/register/</link>
+      <pubDate>Thu, 13 Aug 2020 02:29:26 -0500</pubDate>
+      
+      <guid>//localhost:1313/beginner/120_network-policies/calico-enterprise/register/</guid>
+      <description>The team at Tigera offers a free access to Calico Enterprise Edition for all EKSWorkshop users. Follow the steps below to get your free trial to access Calico Enterprise and run it directly on your EKS cluster.
+  Go to the Calico Enterprise trial registration website using this link .
+  Fill out your contact details along with your work email address to ensure you receive your trial environment details promptly.</description>
+    </item>
+    
+    <item>
+      <title>Policy Automation and External Access</title>
+      <link>//localhost:1313/beginner/120_network-policies/calico-enterprise/lab-1/</link>
+      <pubDate>Thu, 13 Aug 2020 02:30:49 -0500</pubDate>
+      
+      <guid>//localhost:1313/beginner/120_network-policies/calico-enterprise/lab-1/</guid>
+      <description>Getting Started Before you go any further, please remember to type lab1 set_up in the terminal to set up the environment for this lab.
+Introduction In this lab, you will learn to leverage Calico Enterprise to implement pod-level access controls and enable a self-service model that makes it easy for development teams to define and deploy Calico and Kubernetes network policies for their applications. This allows your organization to more easily adopt best practices around microsegmentation and a zero-trust approach to network security in your Kubernetes platform.</description>
+    </item>
+    
+    <item>
+      <title>Visibility and Troubleshooting</title>
+      <link>//localhost:1313/beginner/120_network-policies/calico-enterprise/lab-2/</link>
+      <pubDate>Thu, 13 Aug 2020 02:30:49 -0500</pubDate>
+      
+      <guid>//localhost:1313/beginner/120_network-policies/calico-enterprise/lab-2/</guid>
+      <description>Getting Started Before you go any further, please remember to type lab2 set_up in the terminal to set up the environment for this lab.
+Introduction In this lab, you will learn how Calico Enterprise makes it easy for platform engineering and development teams to gain visibility into everything that is happening from a networking perspective within your cluster, quickly diagnose issues, and understand how policies are being evaluated in real-time. The visibility that Calico Enterprise provides is a cornerstone to improving the operations of your container platform and adopting network security best practices.</description>
+    </item>
+    
+    <item>
+      <title>Implementing Existing Security Controls in Kubernetes</title>
+      <link>//localhost:1313/beginner/120_network-policies/calico-enterprise/lab-3/</link>
+      <pubDate>Thu, 13 Aug 2020 02:31:44 -0500</pubDate>
+      
+      <guid>//localhost:1313/beginner/120_network-policies/calico-enterprise/lab-3/</guid>
+      <description>Getting Started Before you go any further, please remember to type lab3 set_up in the terminal to set up the environment for this lab.
+Introduction In this lab, you will learn how Calico Enterprise makes it easy for security and compliance teams to extend existing enterprise controls to Kubernetes. The dynamic nature of workloads within a cluster presents a number of challenges for security and compliance practitioners. Calico Enterprise addresses these challenges with a tool set that extends Kubernetes itself and understands the declarative metadata within your cluster.</description>
+    </item>
+    
+  </channel>
+</rss>

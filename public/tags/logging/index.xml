@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>logging on Amazon EKS Workshop</title>
+    <link>//localhost:1313/tags/logging/</link>
+    <description>Recent content in logging on Amazon EKS Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="//localhost:1313/tags/logging/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Logging with Amazon OpenSearch, Fluent Bit, and OpenSearch Dashboards</title>
+      <link>//localhost:1313/intermediate/230_logging/</link>
+      <pubDate>Tue, 21 Jul 2020 22:23:34 -0400</pubDate>
+      
+      <guid>//localhost:1313/intermediate/230_logging/</guid>
+      <description>Logging with Amazon OpenSearch, Fluent Bit, and OpenSearch Dashboards In this Chapter, we will deploy a common Kubernetes logging pattern which consists of the following:
+  Fluent Bit: an open source and multi-platform Log Processor and Forwarder which allows you to collect data/logs from different sources, unify and send them to multiple destinations. It&amp;rsquo;s fully compatible with Docker and Kubernetes environments.
+  Amazon OpenSearch Service: OpenSearch is an open source, distributed search and analytics suite derived from Elasticsearch.</description>
+    </item>
+    
+  </channel>
+</rss>

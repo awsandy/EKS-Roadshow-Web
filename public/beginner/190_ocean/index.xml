@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Optimized Worker Node Management with Ocean by Spot.io on Amazon EKS Workshop</title>
+    <link>//localhost:1313/beginner/190_ocean/</link>
+    <description>Recent content in Optimized Worker Node Management with Ocean by Spot.io on Amazon EKS Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 09 Apr 2019 00:00:00 -0300</lastBuildDate><atom:link href="//localhost:1313/beginner/190_ocean/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Create a Free Spot.io Account</title>
+      <link>//localhost:1313/beginner/190_ocean/register/</link>
+      <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
+      
+      <guid>//localhost:1313/beginner/190_ocean/register/</guid>
+      <description>In this section, you will create a free Spot.io account, and subsequently link that account to your AWS account. A video tutorial covering this section can be found at the bottom of the page.
+Creating a Spot.io Account Begin by heading over to spot.io and clicking the &amp;ldquo;Get Started for Free&amp;rdquo; button on the top right. This will take you to the sign up page, where you create a free account.</description>
+    </item>
+    
+    <item>
+      <title>Connect Ocean to your EKS Cluster</title>
+      <link>//localhost:1313/beginner/190_ocean/launch_ocean/</link>
+      <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
+      
+      <guid>//localhost:1313/beginner/190_ocean/launch_ocean/</guid>
+      <description>In this section we will create a new Ocean cluster, associated with your existing EKS cluster.
+Step 1: Create A New Cluster  To get started with the Ocean Creation Wizard, select &amp;ldquo;Cloud Clusters&amp;rdquo; from the side menu, under &amp;ldquo;Ocean&amp;rdquo;, and click the &amp;ldquo;Create Cluster&amp;rdquo; button on the top right. On the Use Cases page, select &amp;ldquo;Migrate Worker Nodes&#39; Configuration&amp;rdquo; under &amp;ldquo;Join an Existing Cluster”:   Step 2: General Settings  Enter a Cluster Name and Identifier and select the Region of your EKS cluster.</description>
+    </item>
+    
+    <item>
+      <title>Deploying Applications With Ocean</title>
+      <link>//localhost:1313/beginner/190_ocean/deploying_apps/</link>
+      <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
+      
+      <guid>//localhost:1313/beginner/190_ocean/deploying_apps/</guid>
+      <description>In this section we will launch a test deployment and see how Ocean handles different node configurations via the &amp;ldquo;Launch Specifications&amp;rdquo; feature.
+Easily Run Multiple Workload Types In One Cluster The challenge of running multiple workload types (separate applications, dev/test environmets, node groups requiring a GPU AMI, etc&amp;hellip;) on the same Kubernetes cluster is applying a unique configuration to each one of the workloads in a heterogeneous environment. When your worker nodes are managed in a standard EKS cluster, usually every workload type is managed separately in a different Auto-scaling group.</description>
+    </item>
+    
+    <item>
+      <title>Headroom - A Buffer For Faster Scale Out</title>
+      <link>//localhost:1313/beginner/190_ocean/headroom/</link>
+      <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
+      
+      <guid>//localhost:1313/beginner/190_ocean/headroom/</guid>
+      <description>Keeping Scale-Up Proactive One of the key features of the Ocean Autoscaler, is the ability to maintain a dynamic buffer of spare capacity called Headroom. The buffer is algorithmically tailored to meet the actual requirements of the incoming containerized workloads which enables immediate pod scheduling. This is perfect for workloads that make use of Horizontal Pod Autoscaler, and helps prevent pending pods which scale scale-out of worker nodes a proactive process, instead of the reactive nature of Kubernetes Cluster-Autoscaler.</description>
+    </item>
+    
+    <item>
+      <title>Showback - Cost Allocation</title>
+      <link>//localhost:1313/beginner/190_ocean/showback/</link>
+      <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
+      
+      <guid>//localhost:1313/beginner/190_ocean/showback/</guid>
+      <description>Kubernetes Workload Cost Showback Ocean provides you with advanced Cost Analysis for your EKS cluster, with detailed showback which delivers visibility down to the application level.
+Found under Cost Analysis tab of the Ocean Console, the data can be aggregated in several ways:
+ Namespace: With namespaces being used to create logical groupings within a cluster, this is a very straightforward way to identify which environment, team or other grouping is responsible for the associated cost.</description>
+    </item>
+    
+    <item>
+      <title>Rightsizing Applications</title>
+      <link>//localhost:1313/beginner/190_ocean/rightsizing/</link>
+      <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
+      
+      <guid>//localhost:1313/beginner/190_ocean/rightsizing/</guid>
+      <description>Right Size Pod Requirements For Optimal Resource Allocation One of the challenging tasks of managing containerized clusters is estimating your Pods’ resource requirements in terms of vCPU and memory. Even if development teams manage to achieve an accurate estimate of their application’s resource consumption, chances are that these measurements will vary in a production environment.
+Ocean’s Right Sizing feature compares the CPU &amp;amp; Memory requests of your Pods to their actual consumption in production.</description>
+    </item>
+    
+    <item>
+      <title>Deploy Infrastructure Changes With Ease</title>
+      <link>//localhost:1313/beginner/190_ocean/cluster_roll/</link>
+      <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
+      
+      <guid>//localhost:1313/beginner/190_ocean/cluster_roll/</guid>
+      <description>Applying Infrastructure Configuration Changes Ocean&amp;rsquo;s Cluster Roll allows you to apply changes to instance configurations (modifying AMI, User-Data, Security-Group, Private IP, etc.) and roll your cluster in a single click. This replaces the running instances in a blue-green manner, in batches of a configurable size.
+Ocean&amp;rsquo;s Cluster Roll takes into consideration the actual pods currently running in the cluster and is aware of any new workload entering the cluster. It launches compute capacity to match the workload’s requirements, and freezes any auto-scaling related activity, until the roll is completed.</description>
+    </item>
+    
+    <item>
+      <title>Cluster Logs and Scaling Decisions</title>
+      <link>//localhost:1313/beginner/190_ocean/logs/</link>
+      <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
+      
+      <guid>//localhost:1313/beginner/190_ocean/logs/</guid>
+      <description>Cluster Logs And Autoscaling Visibility The final tab on the Ocean cluster dashboard is the log tab, which contains your cluster logs. Here you can look back at the various events occurring in the Cluster and filter by time, severity and resource ID.
+Most importantly, you can gain deep visibility into the decisions made by Ocean&amp;rsquo;s Autoscaler, and see the reason for each scaling activity by clicking on “View Details”. The details view will show you pre and post scale resource allocation, the reason for the scaling, and the affected resources.</description>
+    </item>
+    
+    <item>
+      <title>Cleanup</title>
+      <link>//localhost:1313/beginner/190_ocean/cleanup/</link>
+      <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
+      
+      <guid>//localhost:1313/beginner/190_ocean/cleanup/</guid>
+      <description>Cleaning up If you are running in your own account, you may keep your Ocean cluster and your Spot.io Account, as it is free of charge for up to 20 Nodes. If you are running in an account that was created for you as part of an AWS event, there is no need to delete the resources used in this chapter as the AWS account will be closed automatically, but you should still proceed with the deletion of the Ocean cluster and closing of the Spot.</description>
+    </item>
+    
+  </channel>
+</rss>

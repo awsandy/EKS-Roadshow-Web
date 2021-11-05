@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Conclusion on Amazon EKS Workshop</title>
+    <link>//localhost:1313/910_conclusion/</link>
+    <description>Recent content in Conclusion on Amazon EKS Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="//localhost:1313/910_conclusion/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What Have We Accomplished</title>
+      <link>//localhost:1313/910_conclusion/conclusion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/910_conclusion/conclusion/</guid>
+      <description>We have:
+ Deployed an application consisting of microservices Deployed the Kubernetes Dashboard Deployed packages using Helm Deployed a centralized logging infrastructure Configured Automatic scaling of our pods and worker nodes  </description>
+    </item>
+    
+    <item>
+      <title>Let us know what you think!</title>
+      <link>//localhost:1313/910_conclusion/survey/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/910_conclusion/survey/</guid>
+      <description> Please take our survey!   </description>
+    </item>
+    
+  </channel>
+</rss>

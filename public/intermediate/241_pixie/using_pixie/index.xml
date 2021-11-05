@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Using Pixie on Amazon EKS Workshop</title>
+    <link>//localhost:1313/intermediate/241_pixie/using_pixie/</link>
+    <description>Recent content in Using Pixie on Amazon EKS Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="//localhost:1313/intermediate/241_pixie/using_pixie/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Run a PxL script</title>
+      <link>//localhost:1313/intermediate/241_pixie/using_pixie/run_script/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/intermediate/241_pixie/using_pixie/run_script/</guid>
+      <description>Let&amp;rsquo;s use Pixie&amp;rsquo;s Live UI to run a built-in PxL script.
+Run a PxL Script  Open Pixie’s Live UI. Select your cluster using the cluster drop-down menu.  Select the px/namespace script from the script drop-down menu.  This script has one required argument (as denoted with an *). Enter px-sock-shop for the namespace argument.  After the script executes, you should see a view similar to the following:</description>
+    </item>
+    
+    <item>
+      <title>Observe Service Errors</title>
+      <link>//localhost:1313/intermediate/241_pixie/using_pixie/service_errors/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/intermediate/241_pixie/using_pixie/service_errors/</guid>
+      <description>Let’s see if we can figure out what is causing the application filtering bug we saw earlier in this tutorial.
+Given that the bug exists on the “Catalogue” page, there’s a good chance that page involves the catalogue service.
+Scroll down the page to the “Service List” table and select the px-sock-shop/catalogue service.
+Deep links embedded in script views allow you to easily navigate between scripts. Selecting any service name deep link will navigate you to the px/service script, which shows us the request statistics for the selected service.</description>
+    </item>
+    
+    <item>
+      <title>Inspect the HTTP Request</title>
+      <link>//localhost:1313/intermediate/241_pixie/using_pixie/http_data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/intermediate/241_pixie/using_pixie/http_data/</guid>
+      <description>Pixie automatically traces the full request/response bodies of application w for the following supported protocols. Let’s use Pixie to see the contents of this failed HTTP request.
+Inspect the HTTP Request Select the px/http_data script from the script drop-down menu. Change the start_time to -30m or any window that will include when you triggered the bug in the Sock Shop app.
+This script shows the traced HTTP1/2 requests made within your cluster, as long as the request either originates or is received inside of your cluster.</description>
+    </item>
+    
+    <item>
+      <title>Inspect the MySQL Request</title>
+      <link>//localhost:1313/intermediate/241_pixie/using_pixie/mysql_data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/intermediate/241_pixie/using_pixie/mysql_data/</guid>
+      <description>From the demo app’s YAML file, we know that the catalog service talks to a MySQL database. Let’s inspect the catalog service&amp;rsquo;s mysql requests to see if we can get more information about the type of database connection error.
+Select the px/mysql_data script from the script drop-down menu. This script shows all of the mysql requests Pixie has traced in the cluster. Let’s filter these requests.
+Modify the script’s start_time to -30m or any window that will include when you triggered the bug in the Sock Shop app.</description>
+    </item>
+    
+  </channel>
+</rss>

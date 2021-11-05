@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Continuous Deployment with ArgoCD on Amazon EKS Workshop</title>
+    <link>//localhost:1313/intermediate/290_argocd/</link>
+    <description>Recent content in Continuous Deployment with ArgoCD on Amazon EKS Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="//localhost:1313/intermediate/290_argocd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Install Argo CD</title>
+      <link>//localhost:1313/intermediate/290_argocd/install/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/intermediate/290_argocd/install/</guid>
+      <description>ArgoCD Architecture ArgoCD is composed of three mains components:
+API Server: Exposes the API for the WebUI / CLI / CICD Systems
+Repository Server: Internal service which maintains a local cache of the git repository holding the application manifests
+Application Controller: Kubernetes controller which controls and monitors applications continuously and compares that current live state with desired target state (specified in the repository). If a OutOfSync is detected, it will take corrective actions.</description>
+    </item>
+    
+    <item>
+      <title>Configure ArgoCD</title>
+      <link>//localhost:1313/intermediate/290_argocd/configure/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/intermediate/290_argocd/configure/</guid>
+      <description>As the Argo CD has been deployed, we now need to configure argocd-server and then login:
+Expose argocd-server By default argocd-server is not publicaly exposed. For the purpose of this workshop, we will use a Load Balancer to make it usable:
+kubectl patch svc argocd-server -n argocd -p &#39;{&amp;quot;spec&amp;quot;: {&amp;quot;type&amp;quot;: &amp;quot;LoadBalancer&amp;quot;}}&#39; Wait about 2 minutes for the LoadBalancer creation
+export ARGOCD_SERVER=`kubectl get svc argocd-server -n argocd -o json | jq --raw-output &#39;.</description>
+    </item>
+    
+    <item>
+      <title>Deploy an application</title>
+      <link>//localhost:1313/intermediate/290_argocd/deploy_application/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/intermediate/290_argocd/deploy_application/</guid>
+      <description>We now have an ArgoCD fully deployed, we will now deploy an application (ecsdemo-nodejs).
+Fork application repository First step is to create a fork for the Github application we will deploy.
+Login to github, go to: https://github.com/brentley/ecsdemo-nodejs.git and Fork the repo Then into your select the https URL by clicking into button Clone or download: This URL will be needed when we will configure the application into ArgoCD.
+Create application Connect with ArgoCD CLI using our cluster context:</description>
+    </item>
+    
+    <item>
+      <title>Update the application</title>
+      <link>//localhost:1313/intermediate/290_argocd/update_application/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/intermediate/290_argocd/update_application/</guid>
+      <description>Our application is now deployed into our ArgoCD. We are now going to update our github repository synced with our application
+Update your application Go to your Github fork repository:
+Update spec.replicas: 2 in ecsdemo-nodejs/kubernetes/deployment.yaml
+apiVersion: apps/v1 kind: Deployment metadata: name: ecsdemo-nodejs labels: app: ecsdemo-nodejs namespace: default spec: replicas: 2 selector: matchLabels: app: ecsdemo-nodejs strategy: rollingUpdate: maxSurge: 25% maxUnavailable: 25% type: RollingUpdate template: metadata: labels: app: ecsdemo-nodejs spec: containers: - image: brentley/ecsdemo-nodejs:latest imagePullPolicy: Always name: ecsdemo-nodejs ports: - containerPort: 3000 protocol: TCP Add a commit message and click on Commit changes</description>
+    </item>
+    
+    <item>
+      <title>Cleanup</title>
+      <link>//localhost:1313/intermediate/290_argocd/cleanup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/intermediate/290_argocd/cleanup/</guid>
+      <description>Congratulations on completing the Continuous Deployment with ArgoCD module.
+This module is not used in subsequent steps, so you can remove the resources now, or at the end of the workshop:
+argocd app delete ecsdemo-nodejs -y watch argocd app get ecsdemo-nodejs Wait until all ressources are cleared with this message:
+FATA[0000] rpc error: code = NotFound desc = applications.argoproj.io &amp;quot;ecsdemo-nodejs&amp;quot; not found And then delete ArgoCD from your cluster:
+kubectl delete -n argocd -f https://raw.</description>
+    </item>
+    
+  </channel>
+</rss>

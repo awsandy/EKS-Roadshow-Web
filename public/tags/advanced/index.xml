@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>advanced on Amazon EKS Workshop</title>
+    <link>//localhost:1313/tags/advanced/</link>
+    <description>Recent content in advanced on Amazon EKS Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="//localhost:1313/tags/advanced/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CI/CD with CodePipeline</title>
+      <link>//localhost:1313/intermediate/220_codepipeline/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/intermediate/220_codepipeline/</guid>
+      <description>CI/CD with CodePipeline Continuous integration (CI) and continuous delivery (CD) are essential for deft organizations. Teams are more productive when they can make discrete changes frequently, release those changes programmatically and deliver updates without disruption.
+In this module, we will build a CI/CD pipeline using AWS CodePipeline. The CI/CD pipeline will deploy a sample Kubernetes service, we will make a change to the GitHub repository and observe the automated delivery of this change to the cluster.</description>
+    </item>
+    
+    <item>
+      <title>Tracing with X-Ray</title>
+      <link>//localhost:1313/intermediate/245_x-ray/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/intermediate/245_x-ray/</guid>
+      <description>Tracing with X-Ray As distributed systems evolve, monitoring and debugging services becomes challenging. Container-orchestration platforms like Kubernetes solve a lot of problems, but they also introduce new challenges for developers and operators in understanding how services interact and where latency exists. AWS X-Ray helps developers analyze and debug distributed services.
+In this module, we are going to deploy the X-Ray agent as a DaemonSet, deploy sample front-end and back-end services that are instrumented with the X-Ray SDK, make some sample requests and then examine the traces and service maps in the AWS Management Console.</description>
+    </item>
+    
+    <item>
+      <title>GitOps with Weave Flux</title>
+      <link>//localhost:1313/intermediate/260_weave_flux/</link>
+      <pubDate>Sun, 14 Oct 2018 19:56:14 -0400</pubDate>
+      
+      <guid>//localhost:1313/intermediate/260_weave_flux/</guid>
+      <description>GitOps with Weave Flux GitOps, a term coined by Weaveworks, is a way to do continuous delivery. Git is used as single source of truth for deploying into your cluster. This is easy for a development team as they are already familiar with git and do not need to know other tools. Weave Flux is a tool that runs in your Kubernetes cluster and implements changes based on monitoring Git and image repositories.</description>
+    </item>
+    
+    <item>
+      <title>Custom Resource Definition</title>
+      <link>//localhost:1313/intermediate/270_custom_resource_definition/</link>
+      <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
+      
+      <guid>//localhost:1313/intermediate/270_custom_resource_definition/</guid>
+      <description>Custom Resource Definition Introduction In this Chapter, we will review the Custom Resource Definition (CRD) concept, and some examples of usage.
+In Kubernetes API, a resource is an endpoint storing the API objects in a collection. As an example, the pods resource contains a collection of Pod objects.
+CRD’s are extensions of Kubernetes API that stores collection of API objects of certain kind. They extend the Kubernetes API or allow you to add your own API into the cluster.</description>
+    </item>
+    
+  </channel>
+</rss>

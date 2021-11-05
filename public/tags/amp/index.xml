@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AMP on Amazon EKS Workshop</title>
+    <link>//localhost:1313/tags/amp/</link>
+    <description>Recent content in AMP on Amazon EKS Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 14 Oct 2018 09:27:46 -0400</lastBuildDate><atom:link href="//localhost:1313/tags/amp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Monitoring using Amazon Managed Service for Prometheus / Grafana</title>
+      <link>//localhost:1313/intermediate/246_monitoring_amp_amg/</link>
+      <pubDate>Sun, 14 Oct 2018 09:27:46 -0400</pubDate>
+      
+      <guid>//localhost:1313/intermediate/246_monitoring_amp_amg/</guid>
+      <description>Introduction Amazon Managed Service for Prometheus (AMP) Amazon Managed Service for Prometheus is a monitoring service for metrics compatible with the open source Prometheus project, making it easier for you to securely monitor container environments. AMP is a solution for monitoring containers based on the popular Cloud Native Computing Foundation (CNCF) Prometheus project. AMP is powered by Cortex, an open source CNCF project that adds horizontal scalability to ingest, store, query, and alert on Prometheus metrics.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Continuous Delivery with Spinnaker on Amazon EKS Workshop</title>
+    <link>//localhost:1313/intermediate/265_spinnaker_eks/</link>
+    <description>Recent content in Continuous Delivery with Spinnaker on Amazon EKS Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="//localhost:1313/intermediate/265_spinnaker_eks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Spinnaker Overview</title>
+      <link>//localhost:1313/intermediate/265_spinnaker_eks/overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/intermediate/265_spinnaker_eks/overview/</guid>
+      <description>Spinnaker Architecture You can also see the detailed architecture of spinnaker at Armory docs.
+Image source:https://docs.armory.io/docs/overview/architecture/
+Deck: Browser-based UI for Spinnaker.
+Gate: API callers and Spinnaker UI communicate to Spinnaker server via this API gateway called Gate.
+Orca: Pipelines and other ad-hoc operations are managed by this orchestration engine called Orca.
+Clouddriver: Indexing and Caching of deployed resources are taken care by Clouddriver. It also facilitates calls to cloud providers like AWS, GCE, and Azure.</description>
+    </item>
+    
+    <item>
+      <title>Install Spinnaker Operator</title>
+      <link>//localhost:1313/intermediate/265_spinnaker_eks/install_operator/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/intermediate/265_spinnaker_eks/install_operator/</guid>
+      <description>There are several methods to install open source Spinnaker on EKS/Kubernetes:
+ Halyard Operator Kleat intended to replace Halyard (under active development)  In this workshop we will be using Spinnaker Operator, a Kubernetes Operator for managing Spinnaker, built by Armory. The Operator makes managing Spinnaker, which runs in Kubernetes, dramatically simpler and more automated, while introducing new Kubernetes-native features. The current tool (Halyard) involved significant manual processes and requires Spinnaker domain expertise.</description>
+    </item>
+    
+    <item>
+      <title>Artifact Configuration</title>
+      <link>//localhost:1313/intermediate/265_spinnaker_eks/configure_artifact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/intermediate/265_spinnaker_eks/configure_artifact/</guid>
+      <description>Lets configure all the artifacts and storage for Spinnaker services that we will need for our usecase. We will adding all the configuration to the file located at deploy/spinnaker/basic/spinnakerservice.yml which got created by Spinnaker Operator install in previous chapter.
+Configure Spinnaker Release Version Pick a release from https://spinnaker.io/community/releases/versions/ and export that version. Below we are using the latest Spinnaker release when this workshop was written,
+export SPINNAKER_VERSION=1.25.4 Open the SpinnakerService manifest located at deploy/spinnaker/basic/spinnakerservice.</description>
+    </item>
+    
+    <item>
+      <title>Add EKS Account</title>
+      <link>//localhost:1313/intermediate/265_spinnaker_eks/add_eks-cccount/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/intermediate/265_spinnaker_eks/add_eks-cccount/</guid>
+      <description>At a high level, Spinnaker operates in the following way when deploying to Kubernetes:
+ Spinnaker is configured with one or more “Cloud Provider” Kubernetes accounts (which you can think of as deployment targets) For each Kubernetes account, Spinnaker is provided a kubeconfig to connect to that Kubernetes cluster The kubeconfig should have the following contents:  A Kubernetes kubeconfig cluster A Kubernetes kubeconfig user A Kubernetes kubeconfig context Metadata such as which context to use by default   Each Kubernetes account is configured in the SpinnakerService manifest under spec.</description>
+    </item>
+    
+    <item>
+      <title>Install Spinnaker</title>
+      <link>//localhost:1313/intermediate/265_spinnaker_eks/install_spinnaker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/intermediate/265_spinnaker_eks/install_spinnaker/</guid>
+      <description>By now we have completed our configuration for Spinnaker and the SpinnakerService manifest located at deploy/spinnaker/basic/spinnakerservice.yml should look like below:
+apiVersion: spinnaker.io/v1alpha2 kind: SpinnakerService metadata: name: spinnaker spec: spinnakerConfig: config: version: $SPINNAKER_VERSION # the version of Spinnaker to be deployed persistentStorage: persistentStoreType: s3 s3: bucket: $S3_BUCKET rootFolder: front50 region: $AWS_REGION accessKeyId: $AWS_ACCESS_KEY_ID secretAccessKey: $AWS_SECRET_ACCESS_KEY deploymentEnvironment: sidecars: spin-clouddriver: - name: token-refresh dockerImage: quay.io/skuid/ecr-token-refresh:latest mountPath: /etc/passwords configMapVolumeMounts: - configMapName: token-refresh-config mountPath: /opt/config/ecr-token-refresh features: artifacts: true artifacts: github: enabled: true accounts: - name: $GITHUB_USER token: $GITHUB_TOKEN # GitHub&amp;#39;s personal access token.</description>
+    </item>
+    
+    <item>
+      <title>Testing Helm-Based Pipeline</title>
+      <link>//localhost:1313/intermediate/265_spinnaker_eks/testing-helm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/intermediate/265_spinnaker_eks/testing-helm/</guid>
+      <description>Now lets deploy Helm Based Application to EKS using Spinnaker pipeline.
+Spinnaker UI Create application Click on Create Application and enter details as Product-Detail Create Pipeline Click on Pipelines under Product-Detail and click on Configure a new pipeline and add the name as below. Setup Trigger Click on Configuration under Pipelines and click on Add Trigger. This is the ECR registry we had setup in Spinnaker manifest in Configure Artifact chapter.</description>
+    </item>
+    
+    <item>
+      <title>Cleanup</title>
+      <link>//localhost:1313/intermediate/265_spinnaker_eks/cleanup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/intermediate/265_spinnaker_eks/cleanup/</guid>
+      <description>Delete Spinnaker artifacts Namespace deletion may take few minutes, please wait till the process completes.
+ for i in $(kubectl get crd | grep spinnaker | cut -d&amp;#34; &amp;#34; -f1) ; do kubectl delete crd $i done kubectl delete ns spinnaker-operator kubectl delete ns spinnaker kubectl delete ns detail (Optional) Create Old Nodegroup In case you have existing workloads to evit to this nodegroup before we delete the nodegroup created for this chapter Nodegroup creation will take few minutes.</description>
+    </item>
+    
+  </channel>
+</rss>

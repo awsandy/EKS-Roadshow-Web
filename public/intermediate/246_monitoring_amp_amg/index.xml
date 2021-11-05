@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Monitoring using Amazon Managed Service for Prometheus / Grafana on Amazon EKS Workshop</title>
+    <link>//localhost:1313/intermediate/246_monitoring_amp_amg/</link>
+    <description>Recent content in Monitoring using Amazon Managed Service for Prometheus / Grafana on Amazon EKS Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 14 Oct 2018 09:27:46 -0400</lastBuildDate><atom:link href="//localhost:1313/intermediate/246_monitoring_amp_amg/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Create AMP workspace</title>
+      <link>//localhost:1313/intermediate/246_monitoring_amp_amg/create_amp_workspace/</link>
+      <pubDate>Thu, 21 Jan 2021 21:42:08 -0500</pubDate>
+      
+      <guid>//localhost:1313/intermediate/246_monitoring_amp_amg/create_amp_workspace/</guid>
+      <description>Create a new AMP workspace Go to the AMP console and type-in a name for the AMP workspace and click on Create
+Alternatively, you can also use AWS CLI to create the workspace using the following command:
+aws amp create-workspace --alias eks-workshop --region $AWS_REGION The AMP workspace should be created in just a few seconds. Once created, you will be able to see the workspace as shown below:</description>
+    </item>
+    
+    <item>
+      <title>Setup IAM</title>
+      <link>//localhost:1313/intermediate/246_monitoring_amp_amg/setup_iam/</link>
+      <pubDate>Thu, 21 Jan 2021 21:43:04 -0500</pubDate>
+      
+      <guid>//localhost:1313/intermediate/246_monitoring_amp_amg/setup_iam/</guid>
+      <description>Setup IAM for Prometheus Server to send metrics to AMP The shell script shown below can be used to execute the following actions after substituting the placeholder variable YOUR_EKS_CLUSTER_NAME with the name of your Amazon EKS cluster.
+ Creates an IAM role with an IAM policy that has permissions to remote-write into an AMP workspace Creates a Kubernetes service account that is annotated with the IAM role Creates a trust relationship between the IAM role and the OIDC provider hosted in your Amazon EKS cluster  ##!</description>
+    </item>
+    
+    <item>
+      <title>Ingest Metrics into AMP</title>
+      <link>//localhost:1313/intermediate/246_monitoring_amp_amg/ingest_metrics/</link>
+      <pubDate>Thu, 21 Jan 2021 22:27:17 -0500</pubDate>
+      
+      <guid>//localhost:1313/intermediate/246_monitoring_amp_amg/ingest_metrics/</guid>
+      <description>Amazon Managed Service for Prometheus does not directly scrape operational metrics from containerized workloads in a Kubernetes cluster. It requires users to deploy and manage a standard Prometheus server, or an OpenTelemetry agent such as the AWS Distro for OpenTelemetry Collector in their cluster to perform this task.
+Execute the following commands to deploy the Prometheus server on the EKS cluster helm repo add prometheus-community https://prometheus-community.github.io/helm-charts kubectl create ns prometheus Create a file called amp_ingest_override_values.</description>
+    </item>
+    
+    <item>
+      <title>Create AMG workspace</title>
+      <link>//localhost:1313/intermediate/246_monitoring_amp_amg/create_amg_workspace/</link>
+      <pubDate>Thu, 21 Jan 2021 22:47:19 -0500</pubDate>
+      
+      <guid>//localhost:1313/intermediate/246_monitoring_amp_amg/create_amg_workspace/</guid>
+      <description>Prerequisite AMG requires AWS SSO enabled in your account. AWS SSO is used as the authentication provider to sign into the AMG workspace.
+Follow the steps below to enable AWS SSO in your account  Sign in to the AWS Management Console with your AWS Organizations management account credentials. Open the AWS SSO console. Choose Enable AWS SSO.  If you have not yet set up AWS Organizations, you will be prompted to create an organization.</description>
+    </item>
+    
+    <item>
+      <title>Login to AMG workspace</title>
+      <link>//localhost:1313/intermediate/246_monitoring_amp_amg/amg_login/</link>
+      <pubDate>Fri, 22 Jan 2021 09:23:11 -0500</pubDate>
+      
+      <guid>//localhost:1313/intermediate/246_monitoring_amp_amg/amg_login/</guid>
+      <description>Login to AMG workspace Click on the Grafana workspace URL in the Summary section
+This will take you to the AWS SSO login screen, where you can provide the UserId and Password that you created as part of prerequisites.</description>
+    </item>
+    
+    <item>
+      <title>Query Metrics</title>
+      <link>//localhost:1313/intermediate/246_monitoring_amp_amg/query_metrics/</link>
+      <pubDate>Fri, 22 Jan 2021 09:45:32 -0500</pubDate>
+      
+      <guid>//localhost:1313/intermediate/246_monitoring_amp_amg/query_metrics/</guid>
+      <description>Configure AMP data source Select AWS services from the AWS logo on the left navigation bar, which will take you to the screen as shown below showing all the AWS data sources available for you to choose from.
+Select Prometheus from the list, select the AWS Region where you created the AMP workspace. This will automatically populate the AMP workspaces available in that Region as shown below.
+Simply select the AMP workspace from the list and click Add data sources.</description>
+    </item>
+    
+    <item>
+      <title>Cleanup</title>
+      <link>//localhost:1313/intermediate/246_monitoring_amp_amg/cleanup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/intermediate/246_monitoring_amp_amg/cleanup/</guid>
+      <description>Congratulations on completing the Monitoring using Amazon Managed Service for Prometheus / Grafana module.
+Please cleanup your environment before going to a new one:
+Cleanup Helm environment:
+helm uninstall prometheus-for-amp -n prometheus kubectl delete ns prometheus Delete IAM ressources:
+SERVICE_ACCOUNT_IAM_ROLE=EKS-AMP-ServiceAccount-Role SERVICE_ACCOUNT_IAM_POLICY=AWSManagedPrometheusWriteAccessPolicy AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query &amp;quot;Account&amp;quot; --output text) SERVICE_ACCOUNT_IAM_POLICY_ARN=arn:aws:iam::$AWS_ACCOUNT_ID:policy/$SERVICE_ACCOUNT_IAM_POLICY aws iam detach-role-policy --role-name $SERVICE_ACCOUNT_IAM_ROLE --policy-arn $SERVICE_ACCOUNT_IAM_POLICY_ARN aws iam delete-role --role-name $SERVICE_ACCOUNT_IAM_ROLE Cleanup AMP Workspace:
+aws amp delete-workspace --workspace-id $WORKSPACE_ID </description>
+    </item>
+    
+  </channel>
+</rss>
