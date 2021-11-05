@@ -7,15 +7,6 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="//localhost:1313/tags/ci/cd/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Deploying Jenkins</title>
-      <link>//localhost:1313/intermediate/210_jenkins/</link>
-      <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
-      
-      <guid>//localhost:1313/intermediate/210_jenkins/</guid>
-      <description>Deploy Jenkins In this Chapter, we will deploy Jenkins using the Helm package manager we installed in the Helm module and the OIDC identity provider we setup in the [IAM Roles for Service Accounts module]({{ ref &amp;ldquo;beginner/110_irsa&amp;rdquo;}}).</description>
-    </item>
-    
-    <item>
       <title>CI/CD with CodePipeline</title>
       <link>//localhost:1313/intermediate/220_codepipeline/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -23,15 +14,6 @@
       <guid>//localhost:1313/intermediate/220_codepipeline/</guid>
       <description>CI/CD with CodePipeline Continuous integration (CI) and continuous delivery (CD) are essential for deft organizations. Teams are more productive when they can make discrete changes frequently, release those changes programmatically and deliver updates without disruption.
 In this module, we will build a CI/CD pipeline using AWS CodePipeline. The CI/CD pipeline will deploy a sample Kubernetes service, we will make a change to the GitHub repository and observe the automated delivery of this change to the cluster.</description>
-    </item>
-    
-    <item>
-      <title>GitOps with Weave Flux</title>
-      <link>//localhost:1313/intermediate/260_weave_flux/</link>
-      <pubDate>Sun, 14 Oct 2018 19:56:14 -0400</pubDate>
-      
-      <guid>//localhost:1313/intermediate/260_weave_flux/</guid>
-      <description>GitOps with Weave Flux GitOps, a term coined by Weaveworks, is a way to do continuous delivery. Git is used as single source of truth for deploying into your cluster. This is easy for a development team as they are already familiar with git and do not need to know other tools. Weave Flux is a tool that runs in your Kubernetes cluster and implements changes based on monitoring Git and image repositories.</description>
     </item>
     
   </channel>

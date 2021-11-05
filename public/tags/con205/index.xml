@@ -5,8 +5,7 @@
     <link>//localhost:1313/tags/con205/</link>
     <description>Recent content in CON205 on Amazon EKS Workshop</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 20 Jul 2021 00:00:00 -0300</lastBuildDate><atom:link href="//localhost:1313/tags/con205/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="//localhost:1313/tags/con205/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Introduction</title>
       <link>//localhost:1313/010_introduction/</link>
@@ -73,16 +72,6 @@ Automatic scaling in K8s comes in two forms:
     </item>
     
     <item>
-      <title>IAM Roles for Service Accounts</title>
-      <link>//localhost:1313/beginner/110_irsa/</link>
-      <pubDate>Tue, 20 Jul 2021 00:00:00 -0300</pubDate>
-      
-      <guid>//localhost:1313/beginner/110_irsa/</guid>
-      <description>Fine-Grained IAM Roles for Service Accounts   In Kubernetes version 1.12, support was added for a new ProjectedServiceAccountToken feature, which is an OIDC JSON web token that also contains the service account identity, and supports a configurable audience.
-Amazon EKS now hosts a public OIDC discovery endpoint per cluster containing the signing keys for the ProjectedServiceAccountToken JSON web tokens so external systems, like IAM, can validate and accept the Kubernetes-issued OIDC tokens.</description>
-    </item>
-    
-    <item>
       <title>CI/CD with CodePipeline</title>
       <link>//localhost:1313/intermediate/220_codepipeline/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -90,16 +79,6 @@ Amazon EKS now hosts a public OIDC discovery endpoint per cluster containing the
       <guid>//localhost:1313/intermediate/220_codepipeline/</guid>
       <description>CI/CD with CodePipeline Continuous integration (CI) and continuous delivery (CD) are essential for deft organizations. Teams are more productive when they can make discrete changes frequently, release those changes programmatically and deliver updates without disruption.
 In this module, we will build a CI/CD pipeline using AWS CodePipeline. The CI/CD pipeline will deploy a sample Kubernetes service, we will make a change to the GitHub repository and observe the automated delivery of this change to the cluster.</description>
-    </item>
-    
-    <item>
-      <title>Tracing with X-Ray</title>
-      <link>//localhost:1313/intermediate/245_x-ray/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//localhost:1313/intermediate/245_x-ray/</guid>
-      <description>Tracing with X-Ray As distributed systems evolve, monitoring and debugging services becomes challenging. Container-orchestration platforms like Kubernetes solve a lot of problems, but they also introduce new challenges for developers and operators in understanding how services interact and where latency exists. AWS X-Ray helps developers analyze and debug distributed services.
-In this module, we are going to deploy the X-Ray agent as a DaemonSet, deploy sample front-end and back-end services that are instrumented with the X-Ray SDK, make some sample requests and then examine the traces and service maps in the AWS Management Console.</description>
     </item>
     
   </channel>

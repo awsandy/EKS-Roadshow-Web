@@ -7,6 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="//localhost:1313/020_prerequisites/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>AWS Workshop Portal</title>
+      <link>//localhost:1313/020_prerequisites/portal/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/020_prerequisites/portal/</guid>
+      <description>Login to AWS Workshop Portal This workshop creates an AWS account and a Cloud9 environment. You will need the Participant Hash provided upon entry, and your email address to track your unique session.
+Connect to the portal by clicking the button or browsing to https://dashboard.eventengine.run/. The following screen shows up.
+Enter the provided hash in the text box. The button on the bottom right corner changes to Accept Terms &amp;amp; Login.</description>
+    </item>
+    
+    <item>
       <title>Create a Workspace</title>
       <link>//localhost:1313/020_prerequisites/workspace/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

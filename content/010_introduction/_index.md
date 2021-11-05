@@ -21,7 +21,7 @@ A walkthrough of basic Kubernetes concepts.
 
 ![Title Image](/images/introduction/eks-product-page.png)
 
-Welcome to the Amazon EKS Workshop!
+Welcome to the Amazon EKS Roadshow!
 
 The intent of this workshop is to educate users about the features of Amazon EKS.
 

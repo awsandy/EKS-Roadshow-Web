@@ -6,17 +6,7 @@
     <description>Recent content in beginner on Amazon EKS Workshop</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 15 Jul 2021 00:00:00 -0300</lastBuildDate><atom:link href="//localhost:1313/tags/beginner/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Security groups creation</title>
-      <link>//localhost:1313/beginner/115_sg-per-pod/10_secgroup/</link>
-      <pubDate>Thu, 26 Nov 2020 15:59:47 -0500</pubDate>
-      
-      <guid>//localhost:1313/beginner/115_sg-per-pod/10_secgroup/</guid>
-      <description>Create and configure the security groups First, let&amp;rsquo;s create the RDS security group (RDS_SG). It will be used by the Amazon RDS instance to control network access.
-export VPC_ID=$(aws eks describe-cluster \  --name eksworkshop-eksctl \  --query &amp;#34;cluster.resourcesVpcConfig.vpcId&amp;#34; \  --output text) # create RDS security group aws ec2 create-security-group \  --description &amp;#39;RDS SG&amp;#39; \  --group-name &amp;#39;RDS_SG&amp;#39; \  --vpc-id ${VPC_ID} # save the security group ID for future use export RDS_SG=$(aws ec2 describe-security-groups \  --filters Name=group-name,Values=RDS_SG Name=vpc-id,Values=${VPC_ID} \  --query &amp;#34;SecurityGroups[0].</description>
-    </item>
-    
+    <lastBuildDate>Wed, 08 Jul 2020 09:36:58 -0400</lastBuildDate><atom:link href="//localhost:1313/tags/beginner/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Introduction</title>
       <link>//localhost:1313/010_introduction/</link>
@@ -32,17 +22,6 @@ Specifically, we will walk you through the following topics:</description>
     </item>
     
     <item>
-      <title>RDS creation</title>
-      <link>//localhost:1313/beginner/115_sg-per-pod/20_rds/</link>
-      <pubDate>Wed, 02 Dec 2020 21:00:37 -0500</pubDate>
-      
-      <guid>//localhost:1313/beginner/115_sg-per-pod/20_rds/</guid>
-      <description>Now that our security groups are ready let&amp;rsquo;s create our Amazon RDS for PostgreSQL database.
-We first need to create a DB subnet groups. We will use the same subnets as our EKS cluster.
-export PUBLIC_SUBNETS_ID=$(aws ec2 describe-subnets \  --filters &amp;#34;Name=vpc-id,Values=$VPC_ID&amp;#34; &amp;#34;Name=tag:Name,Values=eksctl-eksworkshop-eksctl-cluster/SubnetPublic*&amp;#34; \  --query &amp;#39;Subnets[*].SubnetId&amp;#39; \  --output json | jq -c .) # create a db subnet group aws rds create-db-subnet-group \  --db-subnet-group-name rds-eksworkshop \  --db-subnet-group-description rds-eksworkshop \  --subnet-ids ${PUBLIC_SUBNETS_ID} We can now create our database.</description>
-    </item>
-    
-    <item>
       <title>Start the workshop...</title>
       <link>//localhost:1313/020_prerequisites/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -53,16 +32,6 @@ export PUBLIC_SUBNETS_ID=$(aws ec2 describe-subnets \  --filters &amp;#34;Name=v
     </item>
     
     <item>
-      <title>CNI configuration</title>
-      <link>//localhost:1313/beginner/115_sg-per-pod/30_cni_config/</link>
-      <pubDate>Wed, 02 Dec 2020 21:30:00 -0500</pubDate>
-      
-      <guid>//localhost:1313/beginner/115_sg-per-pod/30_cni_config/</guid>
-      <description>To enable this new functionality, Amazon EKS clusters have two new components running on the Kubernetes control plane:
- A mutating webhook responsible for adding limits and requests to pods requiring security groups. A resource controller responsible for managing network interfaces associated with those pods.  To facilitate this feature, each worker node will be associated with a single trunk network interface, and multiple branch network interfaces. The trunk interface acts as a standard network interface attached to the instance.</description>
-    </item>
-    
-    <item>
       <title>Launch using eksctl</title>
       <link>//localhost:1313/030_eksctl/</link>
       <pubDate>Tue, 07 Aug 2018 13:36:57 -0700</pubDate>
@@ -70,16 +39,6 @@ export PUBLIC_SUBNETS_ID=$(aws ec2 describe-subnets \  --filters &amp;#34;Name=v
       <guid>//localhost:1313/030_eksctl/</guid>
       <description>Launch using eksctl   eksctl is a tool jointly developed by AWS and Weaveworks that automates much of the experience of creating EKS clusters.
 In this module, we will use eksctl to launch and configure our EKS cluster and nodes.</description>
-    </item>
-    
-    <item>
-      <title>SecurityGroup Policy</title>
-      <link>//localhost:1313/beginner/115_sg-per-pod/40_sg_policy/</link>
-      <pubDate>Thu, 26 Nov 2020 16:24:15 -0500</pubDate>
-      
-      <guid>//localhost:1313/beginner/115_sg-per-pod/40_sg_policy/</guid>
-      <description>SecurityGroup Policy A new Custom Resource Definition (CRD) has also been added automatically at the cluster creation. Cluster administrators can specify which security groups to assign to pods through the SecurityGroupPolicy CRD. Within a namespace, you can select pods based on pod labels, or based on labels of the service account associated with a pod. For any matching pods, you also define the security group IDs to be applied.
-You can verify the CRD is present with this command.</description>
     </item>
     
     <item>
@@ -94,21 +53,10 @@ You can verify the CRD is present with this command.</description>
     <item>
       <title>Beginner</title>
       <link>//localhost:1313/beginner/</link>
-      <pubDate>Tue, 10 Aug 2021 00:00:00 -0300</pubDate>
+      <pubDate>Thu, 01 Oct 2020 08:30:11 -0700</pubDate>
       
       <guid>//localhost:1313/beginner/</guid>
       <description>Beginner </description>
-    </item>
-    
-    <item>
-      <title>Pods Deployments</title>
-      <link>//localhost:1313/beginner/115_sg-per-pod/50_deploy/</link>
-      <pubDate>Wed, 02 Dec 2020 23:37:35 -0500</pubDate>
-      
-      <guid>//localhost:1313/beginner/115_sg-per-pod/50_deploy/</guid>
-      <description>Kubernetes secrets Before deploying our two pods we need to provide them with the RDS endpoint and password. We will create a kubernetes secret.
-export RDS_PASSWORD=$(cat ~/environment/sg-per-pod/rds_password) export RDS_ENDPOINT=$(aws rds describe-db-instances \  --db-instance-identifier rds-eksworkshop \  --query &amp;#39;DBInstances[0].Endpoint.Address&amp;#39; \  --output text) kubectl create secret generic rds\  --namespace=sg-per-pod \  --from-literal=&amp;#34;password=${RDS_PASSWORD}&amp;#34; \  --from-literal=&amp;#34;host=${RDS_ENDPOINT}&amp;#34; kubectl -n sg-per-pod describe secret rds Output
-Name: rds Namespace: sg-per-pod Labels: &amp;lt;none&amp;gt; Annotations: &amp;lt;none&amp;gt; Type: Opaque Data ==== host: 56 bytes password: 32 bytes  Deployments Let&amp;rsquo;s download both pods deployment files</description>
     </item>
     
     <item>
@@ -132,16 +80,6 @@ Name: rds Namespace: sg-per-pod Labels: &amp;lt;none&amp;gt; Annotations: &amp;l
     </item>
     
     <item>
-      <title>Health Checks</title>
-      <link>//localhost:1313/beginner/070_healthchecks/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//localhost:1313/beginner/070_healthchecks/</guid>
-      <description>Health Checks   By default, Kubernetes will restart a container if it crashes for any reason. It uses Liveness and Readiness probes which can be configured for running a robust application by identifying the healthy containers to send traffic to and restarting the ones when required.
-In this section, we will understand how liveness and readiness probes are defined and test the same against different states of a pod. Below is the high level description of how these probes work.</description>
-    </item>
-    
-    <item>
       <title>Autoscaling our Applications and Clusters</title>
       <link>//localhost:1313/beginner/080_scaling/</link>
       <pubDate>Thu, 01 Oct 2020 08:30:11 -0700</pubDate>
@@ -150,15 +88,6 @@ In this section, we will understand how liveness and readiness probes are define
       <description>Implement AutoScaling with HPA and CA   In this Chapter, we will show patterns for scaling your worker nodes and applications deployments automatically.
 Automatic scaling in K8s comes in two forms:
   Horizontal Pod Autoscaler (HPA) scales the pods in a deployment or replica set. It is implemented as a K8s API resource and a controller. The controller manager queries the resource utilization against the metrics specified in each HorizontalPodAutoscaler definition.</description>
-    </item>
-    
-    <item>
-      <title>Cleanup</title>
-      <link>//localhost:1313/beginner/115_sg-per-pod/90_cleanup/</link>
-      <pubDate>Wed, 02 Dec 2020 16:04:30 -0500</pubDate>
-      
-      <guid>//localhost:1313/beginner/115_sg-per-pod/90_cleanup/</guid>
-      <description>export VPC_ID=$(aws eks describe-cluster \  --name eksworkshop-eksctl \  --query &amp;#34;cluster.resourcesVpcConfig.vpcId&amp;#34; \  --output text) export RDS_SG=$(aws ec2 describe-security-groups \  --filters Name=group-name,Values=RDS_SG Name=vpc-id,Values=${VPC_ID} \  --query &amp;#34;SecurityGroups[0].GroupId&amp;#34; --output text) export POD_SG=$(aws ec2 describe-security-groups \  --filters Name=group-name,Values=POD_SG Name=vpc-id,Values=${VPC_ID} \  --query &amp;#34;SecurityGroups[0].GroupId&amp;#34; --output text) export C9_IP=$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) export NODE_GROUP_SG=$(aws ec2 describe-security-groups \  --filters Name=tag:Name,Values=eks-cluster-sg-eksworkshop-eksctl-* Name=vpc-id,Values=${VPC_ID} \  --query &amp;#34;SecurityGroups[0].GroupId&amp;#34; \  --output text) # uninstall the RPM package sudo yum remove -y $(sudo yum list installed | grep amzn2extra-postgresql12 | awk &amp;#39;{ print $1}&amp;#39;) # delete database aws rds delete-db-instance \  --db-instance-identifier rds-eksworkshop \  --delete-automated-backups \  --skip-final-snapshot # delete kubernetes element kubectl -n sg-per-pod delete -f ~/environment/sg-per-pod/green-pod.</description>
     </item>
     
     <item>
@@ -181,26 +110,6 @@ Automatic scaling in K8s comes in two forms:
     </item>
     
     <item>
-      <title>Using IAM Groups to manage Kubernetes access</title>
-      <link>//localhost:1313/beginner/091_iam-groups/</link>
-      <pubDate>Sun, 05 Apr 2020 18:00:00 +0000</pubDate>
-      
-      <guid>//localhost:1313/beginner/091_iam-groups/</guid>
-      <description>Using IAM Groups to manage Kubernetes cluster access   In this chapter, we&amp;rsquo;ll learn about how to simplify access to different parts of the kubernetes clusters depending on IAM Groups</description>
-    </item>
-    
-    <item>
-      <title>Security groups for pods</title>
-      <link>//localhost:1313/beginner/115_sg-per-pod/</link>
-      <pubDate>Thu, 26 Nov 2020 13:01:55 -0500</pubDate>
-      
-      <guid>//localhost:1313/beginner/115_sg-per-pod/</guid>
-      <description>Introduction Containerized applications frequently require access to other services running within the cluster as well as external AWS services, such as Amazon Relational Database Service (Amazon RDS).
-On AWS, controlling network level access between services is often accomplished via security groups.
-Before the release of this new functionality, you could only assign security groups at the node level. And because all nodes inside a Node group share the security group, by attaching the security group to access the RDS instance to the Node group, all the pods running on theses nodes would have access the database even if only the green pod should have access.</description>
-    </item>
-    
-    <item>
       <title>Exposing a Service</title>
       <link>//localhost:1313/beginner/130_exposing-service/</link>
       <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
@@ -210,88 +119,12 @@ Before the release of this new functionality, you could only assign security gro
     </item>
     
     <item>
-      <title>Using Spot Instances with EKS</title>
-      <link>//localhost:1313/beginner/150_spotnodegroups/</link>
-      <pubDate>Mon, 08 Mar 2021 10:00:00 -0800</pubDate>
-      
-      <guid>//localhost:1313/beginner/150_spotnodegroups/</guid>
-      <description>Using Spot Instances with EKS   In this module, you will learn how to provision, manage, and maintain your Kubernetes clusters with Amazon EKS on EC2 Spot instances using Spot managed node groups to optimize cost and scale. Click here for a deep-dive blog post on Kubernetes and EC2 Spot Instances in managed node groups.</description>
-    </item>
-    
-    <item>
-      <title>Stateful containers using StatefulSets</title>
-      <link>//localhost:1313/beginner/170_statefulset/</link>
-      <pubDate>Sun, 23 Feb 2020 13:57:00 -0800</pubDate>
-      
-      <guid>//localhost:1313/beginner/170_statefulset/</guid>
-      <description>Stateful containers using StatefulSets StatefulSet manages the deployment and scaling of a set of Pods, and provides guarantees about the ordering and uniqueness of these Pods, suitable for applications that require one or more of the following.
- Stable, unique network identifiers Stable, persistent storage Ordered, graceful deployment and scaling Ordered, automated rolling updates  In this Chapter, we will review how to deploy a MySQL database using StatefulSet and Amazon Elastic Block Store (EBS) as PersistentVolume.</description>
-    </item>
-    
-    <item>
-      <title>Deploy Bottlerocket nodes for additional security</title>
-      <link>//localhost:1313/beginner/185_bottlerocket/</link>
-      <pubDate>Wed, 26 May 2021 00:00:00 -0300</pubDate>
-      
-      <guid>//localhost:1313/beginner/185_bottlerocket/</guid>
-      <description>Deploying Bottlerocket nodes to your cluster Bottlerocket is a Linux-based open-source operating system that is purpose-built by Amazon Web Services for running containers. Bottlerocket includes only the essential software required to run containers, and ensures that the underlying software is always secure. With Bottlerocket, customers can reduce maintenance overhead and automate their workflows by applying configuration settings consistently as nodes are upgraded or replaced. Bottlerocket is now generally available at no cost as an Amazon Machine Image (AMI) for Amazon Elastic Compute Cloud (EC2).</description>
-    </item>
-    
-    <item>
       <title>Deploying Microservices to EKS Fargate</title>
       <link>//localhost:1313/beginner/180_fargate/</link>
       <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
       
       <guid>//localhost:1313/beginner/180_fargate/</guid>
       <description>Deploying Microservices to EKS Fargate   AWS Fargate is a technology that provides on-demand, right-sized compute capacity for containers. With AWS Fargate, you no longer have to provision, configure, or scale groups of virtual machines to run containers. This removes the need to choose server types, decide when to scale your node groups, or optimize cluster packing. You can control which pods start on Fargate and how they run with Fargate profiles, which are defined as part of your Amazon EKS cluster.</description>
-    </item>
-    
-    <item>
-      <title>Deploying Stateful Microservices with Amazon FSx Lustre</title>
-      <link>//localhost:1313/beginner/190_fsx_lustre/</link>
-      <pubDate>Tue, 10 Aug 2021 00:00:00 -0300</pubDate>
-      
-      <guid>//localhost:1313/beginner/190_fsx_lustre/</guid>
-      <description>Deploying Stateful Microservices with Amazon FSx Lustre   Amazon FSx for Lustre is a fully managed service that provides cost-effective, high-performance storage for compute workloads. Many workloads such as machine learning, high performance computing (HPC), video rendering, and financial simulations depend on compute instances accessing the same set of data through high-performance shared storage.
-Powered by Lustre, the world&amp;rsquo;s most popular high-performance file system, FSx for Lustre offers sub-millisecond latencies, up to hundreds of gigabytes per second of throughput, and millions of IOPS.</description>
-    </item>
-    
-    <item>
-      <title>Deploying Stateful Microservices with AWS EFS</title>
-      <link>//localhost:1313/beginner/190_efs/</link>
-      <pubDate>Tue, 01 Sep 2020 00:00:00 -0300</pubDate>
-      
-      <guid>//localhost:1313/beginner/190_efs/</guid>
-      <description>Deploying Stateful Microservices with AWS EFS   Amazon Elastic File System (Amazon EFS) provides a simple, scalable, fully managed elastic NFS file system for use with AWS Cloud services and on-premises resources. It is built to scale on demand to petabytes without disrupting applications, growing and shrinking automatically as you add and remove files, eliminating the need to provision and manage capacity to accommodate growth.
-Amazon EFS supports the Network File System version 4 (NFSv4.</description>
-    </item>
-    
-    <item>
-      <title>Optimized Worker Node Management with Ocean by Spot.io</title>
-      <link>//localhost:1313/beginner/190_ocean/</link>
-      <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
-      
-      <guid>//localhost:1313/beginner/190_ocean/</guid>
-      <description>Optimized Worker Node Management with Ocean by Spot.io Introduction Amazon EC2 Spot Instances offer AWS customers up to 90% cost savings in comparison to On-Demand Instances. However, they can be interrupted with a 2 minute warning when EC2 needs the capacity back. While this itself does not pose any issue for stateless workloads such as those typically running on Amazon EKS, managing larger clusters running Spot Instances as worker nodes on your own, does require a large amount of manual configuration, setup and maintenance.</description>
-    </item>
-    
-    <item>
-      <title>Encrypting Secrets with AWS Key Management Service (KMS) Keys</title>
-      <link>//localhost:1313/beginner/191_secrets/</link>
-      <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
-      
-      <guid>//localhost:1313/beginner/191_secrets/</guid>
-      <description>Encrypting Kubernetes Secrets   Kubernetes can store secrets that pods can access via a mounted volume. Today, Kubernetes secrets are stored with Base64 encoding, but security teams would prefer a stronger approach. Amazon EKS clusters version 1.13 and higher support the capability of encrypting your Kubernetes secrets using AWS Key Management Service (KMS) Customer Managed Keys (CMK). No changes in the way you are using secrets are required. The only requirement is to enable the encryption provider support during EKS cluster creation.</description>
-    </item>
-    
-    <item>
-      <title>Securing Secrets using SealedSecrets</title>
-      <link>//localhost:1313/beginner/200_secrets/</link>
-      <pubDate>Thu, 15 Jul 2021 00:00:00 -0300</pubDate>
-      
-      <guid>//localhost:1313/beginner/200_secrets/</guid>
-      <description>Securing Secrets using SealedSecrets Kubernetes Secret is a resource that helps cluster operators manage the deployment of sensitive information such as passwords, OAuth tokens, and ssh keys etc. These Secrets can be mounted as data volumes or exposed as environment variables to the containers in a Pod, thus decoupling Pod deployment from managing sensitive data needed by the containerized applications within a Pod.
-It is a common practice for a DevOps Team to manage the YAML manifests for various Kubernetes resources and version control them using a Git repository.</description>
     </item>
     
     <item>
@@ -310,16 +143,6 @@ It is a common practice for a DevOps Team to manage the YAML manifests for vario
       
       <guid>//localhost:1313/920_cleanup/</guid>
       <description>Cleanup </description>
-    </item>
-    
-    <item>
-      <title>Windows containers on EKS</title>
-      <link>//localhost:1313/beginner/300_windows/</link>
-      <pubDate>Mon, 27 Jul 2020 11:33:21 -0400</pubDate>
-      
-      <guid>//localhost:1313/beginner/300_windows/</guid>
-      <description>Windows containers on EKS Many development teams build and support applications designed to run on Windows Servers and with Windows Container Support on EKS, they can deploy them on Kubernetes alongside Linux applications. This ability will provide more consistency in system logging, performance monitoring, and code deployment pipelines.
-To demonstrate how this feature works, you will add a new node group which contains 2 Windows servers 2019 to our EKS Cluster and deploy a Windows sample application.</description>
     </item>
     
   </channel>

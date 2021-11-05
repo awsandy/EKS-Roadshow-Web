@@ -8,15 +8,6 @@
     <language>en-us</language>
     <lastBuildDate>Sun, 14 Oct 2018 09:27:46 -0400</lastBuildDate><atom:link href="//localhost:1313/tags/operations/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Deploying Jenkins</title>
-      <link>//localhost:1313/intermediate/210_jenkins/</link>
-      <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
-      
-      <guid>//localhost:1313/intermediate/210_jenkins/</guid>
-      <description>Deploy Jenkins In this Chapter, we will deploy Jenkins using the Helm package manager we installed in the Helm module and the OIDC identity provider we setup in the [IAM Roles for Service Accounts module]({{ ref &amp;ldquo;beginner/110_irsa&amp;rdquo;}}).</description>
-    </item>
-    
-    <item>
       <title>CI/CD with CodePipeline</title>
       <link>//localhost:1313/intermediate/220_codepipeline/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -48,37 +39,6 @@ What is Prometheus? Prometheus is an open-source systems monitoring and alerting
     </item>
     
     <item>
-      <title>Monitoring using Pixie</title>
-      <link>//localhost:1313/intermediate/241_pixie/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//localhost:1313/intermediate/241_pixie/</guid>
-      <description>Monitoring using Pixie In this chapter, we will deploy Pixie to monitor an application on a Kubernetes cluster.
-What is Pixie? Pixie is an open-source observability platform for Kubernetes. It helps developers explore, monitor and debug their applications. Pixie’s features include:
-Progressive instrumentation
-Pixie collects full-body request traces, system resource metrics, and Kubernetes events right out of box. Pixie&amp;rsquo;s auto-instrumentation capabilities require no code changes by the user and consume less than 5% overhead, because it powered by eBPF*.</description>
-    </item>
-    
-    <item>
-      <title>Tracing with X-Ray</title>
-      <link>//localhost:1313/intermediate/245_x-ray/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//localhost:1313/intermediate/245_x-ray/</guid>
-      <description>Tracing with X-Ray As distributed systems evolve, monitoring and debugging services becomes challenging. Container-orchestration platforms like Kubernetes solve a lot of problems, but they also introduce new challenges for developers and operators in understanding how services interact and where latency exists. AWS X-Ray helps developers analyze and debug distributed services.
-In this module, we are going to deploy the X-Ray agent as a DaemonSet, deploy sample front-end and back-end services that are instrumented with the X-Ray SDK, make some sample requests and then examine the traces and service maps in the AWS Management Console.</description>
-    </item>
-    
-    <item>
-      <title>Monitoring using Amazon Managed Service for Prometheus / Grafana</title>
-      <link>//localhost:1313/intermediate/246_monitoring_amp_amg/</link>
-      <pubDate>Sun, 14 Oct 2018 09:27:46 -0400</pubDate>
-      
-      <guid>//localhost:1313/intermediate/246_monitoring_amp_amg/</guid>
-      <description>Introduction Amazon Managed Service for Prometheus (AMP) Amazon Managed Service for Prometheus is a monitoring service for metrics compatible with the open source Prometheus project, making it easier for you to securely monitor container environments. AMP is a solution for monitoring containers based on the popular Cloud Native Computing Foundation (CNCF) Prometheus project. AMP is powered by Cortex, an open source CNCF project that adds horizontal scalability to ingest, store, query, and alert on Prometheus metrics.</description>
-    </item>
-    
-    <item>
       <title>EKS CloudWatch Container Insights</title>
       <link>//localhost:1313/intermediate/250_cloudwatch_container_insights/</link>
       <pubDate>Mon, 13 Apr 2020 15:27:17 -0400</pubDate>
@@ -89,26 +49,6 @@ You can use CloudWatch Container Insights to collect, aggregate, and summarize m
     </item>
     
     <item>
-      <title>GitOps with Weave Flux</title>
-      <link>//localhost:1313/intermediate/260_weave_flux/</link>
-      <pubDate>Sun, 14 Oct 2018 19:56:14 -0400</pubDate>
-      
-      <guid>//localhost:1313/intermediate/260_weave_flux/</guid>
-      <description>GitOps with Weave Flux GitOps, a term coined by Weaveworks, is a way to do continuous delivery. Git is used as single source of truth for deploying into your cluster. This is easy for a development team as they are already familiar with git and do not need to know other tools. Weave Flux is a tool that runs in your Kubernetes cluster and implements changes based on monitoring Git and image repositories.</description>
-    </item>
-    
-    <item>
-      <title>Custom Resource Definition</title>
-      <link>//localhost:1313/intermediate/270_custom_resource_definition/</link>
-      <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
-      
-      <guid>//localhost:1313/intermediate/270_custom_resource_definition/</guid>
-      <description>Custom Resource Definition Introduction In this Chapter, we will review the Custom Resource Definition (CRD) concept, and some examples of usage.
-In Kubernetes API, a resource is an endpoint storing the API objects in a collection. As an example, the pods resource contains a collection of Pod objects.
-CRD’s are extensions of Kubernetes API that stores collection of API objects of certain kind. They extend the Kubernetes API or allow you to add your own API into the cluster.</description>
-    </item>
-    
-    <item>
       <title>Patching/Upgrading your EKS Cluster</title>
       <link>//localhost:1313/intermediate/320_eks_upgrades/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -116,16 +56,6 @@ CRD’s are extensions of Kubernetes API that stores collection of API objects o
       <guid>//localhost:1313/intermediate/320_eks_upgrades/</guid>
       <description>Patching/Upgrading your EKS Cluster As EKS tracks upstream Kubernetes that means that customers can, and should, regularly upgrade their EKS so as to stay within the project&amp;rsquo;s upstream support window. This used to be the current version and two version back (n-2) - but it was recently extended to three versions back (n-3).
 There is a new major version of Kubernetes every quarter which means that the Kubernetes support window has now gone from three quarters of a year to one full year.</description>
-    </item>
-    
-    <item>
-      <title>Getting Started with AWS App Mesh</title>
-      <link>//localhost:1313/intermediate/330_app_mesh/</link>
-      <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
-      
-      <guid>//localhost:1313/intermediate/330_app_mesh/</guid>
-      <description>AWS App Mesh on Amazon EKS   Getting Fancy with AWS App Mesh on Amazon EKS   At re:invent 2018, we announced AWS App Mesh, a service mesh that provides application-level networking to make it easy for your services to communicate with each other across multiple types of compute infrastructure. App Mesh standardizes how your services communicate, giving you end-to-end visibility and ensuring high-availability for your applications.
-Service meshes like AWS App Mesh help you to run and monitor HTTP and TCP services at scale.</description>
     </item>
     
   </channel>
