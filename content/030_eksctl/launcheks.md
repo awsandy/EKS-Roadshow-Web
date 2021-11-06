@@ -79,21 +79,65 @@ Launching EKS and all the dependencies will take approximately 15 minutes
 Change eksworkshop.yaml to include one or more of the following:
 
 * Full EKS logging to CloudWatch
-* Include the latest add ons for coredns and kubeproxy
+* Include the latest add ons for coredns, kube-proxy & vpc-cni
 * Enable OIDC
 * Encrypt secrets using the key we setup earlier ${MASTER_ARN}
 * Ensure the nodegroup uses private networking
 
 
-Tip: You can find example code snippets to combine for all these suggested features at
+{{% notice tip %}}
+:bulb: You can find example code snippets to combine for all these suggested features at
 https://github.com/weaveworks/eksctl/tree/main/examples
+{{% /notice %}}
 
 
 
+{{%expand "Expand here to see a possible solution" %}}
+```bash
+cat << EOF > eksworkshop.yaml
+---
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
 
+metadata:
+  name: eksworkshop-eksctl
+  region: ${AWS_REGION}
+  version: "1.20"
 
+availabilityZones: ["${AZS[0]}", "${AZS[1]}", "${AZS[2]}"]
 
+managedNodeGroups:
+- name: nodegroup
+  desiredCapacity: 3
+  instanceType: t3.small
+  ssh:
+    enableSsm: true
+  privateNetworking: true
 
-{{%expand "Expand here to see a solution" %}}
+cloudWatch:
+  clusterLogging:
+    enableTypes: ["*"]
+    # all supported types: "api", "audit", "authenticator", "controllerManager", "scheduler"
+    # supported special values: "*" and "all"
 
+    # Sets the number of days to retain the logs for (see [CloudWatch docs](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.html#API_PutRetentionPolicy_RequestSyntax)).
+    # By default, log data is stored in CloudWatch Logs indefinitely.
+    logRetentionInDays: 60
+
+secretsEncryption:
+  keyARN: ${MASTER_ARN}
+
+iam:
+  withOIDC: true
+
+addons:
+- name: vpc-cni # no version is specified so it deploys the default version
+  attachPolicyARNs:
+    - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
+- name: coredns
+  version: latest # auto discovers the latest available
+- name: kube-proxy
+  version: latest
+
+```
 {{% /expand %}}
