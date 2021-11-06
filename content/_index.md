@@ -1,5 +1,5 @@
 ---
-title: "Amazon EKS Workshop"
+title: "Amazon EKS Roadshow"
 chapter: true
 weight: 1
 ---

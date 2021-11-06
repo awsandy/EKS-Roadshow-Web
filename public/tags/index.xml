@@ -1,75 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Amazon EKS Workshop</title>
+    <title>Tags on Amazon EKS Roadshow</title>
     <link>//localhost:1313/tags/</link>
-    <description>Recent content in Tags on Amazon EKS Workshop</description>
+    <description>Recent content in Tags on Amazon EKS Roadshow</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 08 Jul 2020 09:36:58 -0400</lastBuildDate><atom:link href="//localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>beginner</title>
-      <link>//localhost:1313/tags/beginner/</link>
-      <pubDate>Wed, 08 Jul 2020 09:36:58 -0400</pubDate>
-      
-      <guid>//localhost:1313/tags/beginner/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>CON203</title>
-      <link>//localhost:1313/tags/con203/</link>
-      <pubDate>Wed, 08 Jul 2020 09:36:58 -0400</pubDate>
-      
-      <guid>//localhost:1313/tags/con203/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>CON206</title>
-      <link>//localhost:1313/tags/con206/</link>
-      <pubDate>Sun, 14 Oct 2018 09:27:46 -0400</pubDate>
-      
-      <guid>//localhost:1313/tags/con206/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>intermediate</title>
-      <link>//localhost:1313/tags/intermediate/</link>
-      <pubDate>Sun, 14 Oct 2018 09:27:46 -0400</pubDate>
-      
-      <guid>//localhost:1313/tags/intermediate/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>monitoring</title>
-      <link>//localhost:1313/tags/monitoring/</link>
-      <pubDate>Sun, 14 Oct 2018 09:27:46 -0400</pubDate>
-      
-      <guid>//localhost:1313/tags/monitoring/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>operations</title>
-      <link>//localhost:1313/tags/operations/</link>
-      <pubDate>Sun, 14 Oct 2018 09:27:46 -0400</pubDate>
-      
-      <guid>//localhost:1313/tags/operations/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>advanced</title>
-      <link>//localhost:1313/tags/advanced/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//localhost:1313/tags/advanced/</guid>
-      <description></description>
-    </item>
-    
+    <language>en-us</language><atom:link href="//localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>appmesh</title>
       <link>//localhost:1313/tags/appmesh/</link>
@@ -80,20 +16,20 @@
     </item>
     
     <item>
-      <title>ci/cd</title>
-      <link>//localhost:1313/tags/ci/cd/</link>
+      <title>beginner</title>
+      <link>//localhost:1313/tags/beginner/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/tags/ci/cd/</guid>
+      <guid>//localhost:1313/tags/beginner/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>cis eks benchmark</title>
-      <link>//localhost:1313/tags/cis-eks-benchmark/</link>
+      <title>CON203</title>
+      <link>//localhost:1313/tags/con203/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/tags/cis-eks-benchmark/</guid>
+      <guid>//localhost:1313/tags/con203/</guid>
       <description></description>
     </item>
     
@@ -107,11 +43,20 @@
     </item>
     
     <item>
-      <title>kube-bench</title>
-      <link>//localhost:1313/tags/kube-bench/</link>
+      <title>CON206</title>
+      <link>//localhost:1313/tags/con206/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/tags/kube-bench/</guid>
+      <guid>//localhost:1313/tags/con206/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>intermediate</title>
+      <link>//localhost:1313/tags/intermediate/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/tags/intermediate/</guid>
       <description></description>
     </item>
     
@@ -125,11 +70,20 @@
     </item>
     
     <item>
-      <title>logging</title>
-      <link>//localhost:1313/tags/logging/</link>
+      <title>monitoring</title>
+      <link>//localhost:1313/tags/monitoring/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/tags/logging/</guid>
+      <guid>//localhost:1313/tags/monitoring/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>operations</title>
+      <link>//localhost:1313/tags/operations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/tags/operations/</guid>
       <description></description>
     </item>
     
@@ -139,6 +93,15 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>//localhost:1313/tags/opn401/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Roadshow Activities</title>
+      <link>//localhost:1313/tags/roadshow-activities/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/tags/roadshow-activities/</guid>
       <description></description>
     </item>
     

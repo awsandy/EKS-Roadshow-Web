@@ -31,9 +31,6 @@ If you do see the correct role, proceed to next step to create an EKS cluster.
 
 ### Create an EKS cluster
 
-{{% notice warning %}}
-`eksctl` version must be 0.38.0 or above to deploy EKS 1.19, [click here](/030_eksctl/prerequisites) to get the latest version.
-{{% /notice %}}
 
 Create an eksctl deployment file (eksworkshop.yaml) use in creating your cluster using the following syntax:
 
@@ -46,7 +43,7 @@ kind: ClusterConfig
 metadata:
   name: eksworkshop-eksctl
   region: ${AWS_REGION}
-  version: "1.19"
+  version: "1.20"
 
 availabilityZones: ["${AZS[0]}", "${AZS[1]}", "${AZS[2]}"]
 
@@ -57,14 +54,6 @@ managedNodeGroups:
   ssh:
     enableSsm: true
 
-# To enable all of the control plane logs, uncomment below:
-# cloudWatch:
-#  clusterLogging:
-#    enableTypes: ["*"]
-
-secretsEncryption:
-  keyARN: ${MASTER_ARN}
-EOF
 ```
 
 Next, use the file you created as the input for the eksctl cluster creation.
@@ -80,3 +69,31 @@ eksctl create cluster -f eksworkshop.yaml
 {{% notice info %}}
 Launching EKS and all the dependencies will take approximately 15 minutes
 {{% /notice %}}
+
+
+
+#### Challenge:
+
+**Launching EKS with some Production features**
+
+Change eksworkshop.yaml to include one or more of the following:
+
+* Full EKS logging to CloudWatch
+* Include the latest add ons for coredns and kubeproxy
+* Enable OIDC
+* Encrypt secrets using the key we setup earlier ${MASTER_ARN}
+* Ensure the nodegroup uses private networking
+
+
+Tip: You can find example code snippets to combine for all these suggested features at
+https://github.com/weaveworks/eksctl/tree/main/examples
+
+
+
+
+
+
+
+{{%expand "Expand here to see a solution" %}}
+
+{{% /expand %}}

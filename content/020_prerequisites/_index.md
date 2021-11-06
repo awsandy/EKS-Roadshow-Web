@@ -16,7 +16,7 @@ tags:
 # Getting Started
 
 
-To start the workshop, please follow the these steps ...
-[**Create a Workspace**](/020_prerequisites/portal/)
+To start the workshop, please follow the the steps in this section starting with ...
+[**AWS Workshop Portal**](/020_prerequisites/portal/)
 
 

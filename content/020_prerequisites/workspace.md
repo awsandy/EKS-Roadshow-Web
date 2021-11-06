@@ -29,14 +29,10 @@ the cloud9 domain, or connecting to the workspace might be impacted.
 Cloud9 requires third-party-cookies. You can whitelist the [specific domains]( https://docs.aws.amazon.com/cloud9/latest/user-guide/troubleshooting.html#troubleshooting-env-loading).
 {{% /notice %}}
 
-### Launch Cloud9 in your closest region:
+### Launch Cloud9:
 
-{{< tabs name="Region" >}}
-{{{< tab name="Oregon" include="us-west-2.md" />}}
-{{{< tab name="Ireland" include="eu-west-1.md" />}}
-{{{< tab name="Ohio" include="us-east-2.md" />}}
-{{{< tab name="Singapore" include="ap-southeast-1.md" />}}
-{{< /tabs >}}
+Create a Cloud9 Environment: [https://eu-west-1.console.aws.amazon.com/cloud9/home?region=eu-west-1](https://eu-west-1.console.aws.amazon.com/cloud9/home?region=eu-west-1?name=eksworkshop&instanceType=t3.small)
+
 
 - Select **Create environment**
 - Name it **eksworkshop**, click Next.

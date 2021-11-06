@@ -1,20 +1,13 @@
 [
 {
 	"uri": "//localhost:1313/",
-	"title": "Amazon EKS Workshop",
+	"title": "Amazon EKS Roadshow",
 	"tags": [],
 	"description": "",
 	"content": "Amazon EKS Roadshow Pilot  In this workshop, we will explore multiple ways to configure VPC, ALB, and EC2 Kubernetes workers, and Amazon Elastic Kubernetes Service.\n"
 },
 {
-	"uri": "//localhost:1313/020_prerequisites/self_paced/account/",
-	"title": "Create an AWS account",
-	"tags": [],
-	"description": "",
-	"content": " Your account must have the ability to create new IAM roles and scope other IAM permissions.\n   If you don\u0026rsquo;t already have an AWS account with Administrator access: create one now by clicking here\n  Once you have an AWS account, ensure you are following the remaining workshop steps as an IAM user with administrator access to the AWS account: Create a new IAM user to use for the workshop\n  Enter the user details:   Attach the AdministratorAccess IAM Policy:   Click to create the new user:   Take note of the login URL and save:   "
-},
-{
-	"uri": "//localhost:1313/intermediate/250_cloudwatch_container_insights/gettingstarted/",
+	"uri": "//localhost:1313/beginner/250_cloudwatch_container_insights/gettingstarted/",
 	"title": "Getting Started",
 	"tags": [],
 	"description": "",
@@ -28,21 +21,21 @@
 	"content": "We have:\n Deployed an application consisting of microservices Deployed the Kubernetes Dashboard Deployed packages using Helm Deployed a centralized logging infrastructure Configured Automatic scaling of our pods and worker nodes  "
 },
 {
-	"uri": "//localhost:1313/intermediate/250_cloudwatch_container_insights/installwordpress/",
+	"uri": "//localhost:1313/beginner/250_cloudwatch_container_insights/installwordpress/",
 	"title": "Install WordPress",
 	"tags": [],
 	"description": "",
 	"content": "We\u0026rsquo;ll be using the bitnami charts repository to install WordPress to our EKS cluster.\n In your Cloud9 Workspace terminal you just need to run the following commands to deploy WordPress and its database.\n# Create a namespace wordpress kubectl create namespace wordpress-cwi # Add the bitnami Helm Charts Repository helm repo add bitnami https://charts.bitnami.com/bitnami # Deploy WordPress in its own namespace helm -n wordpress-cwi install understood-zebu bitnami/wordpress This chart will create:\n Two persistent volumes claims.. Multiple secrets. One StatefulSet for MariaDB. One Deployment for Wordpress.  You can follow the status of the deployment with this command\nkubectl -n wordpress-cwi rollout status deployment understood-zebu-wordpress "
 },
 {
-	"uri": "//localhost:1313/intermediate/250_cloudwatch_container_insights/accesswp/",
+	"uri": "//localhost:1313/beginner/250_cloudwatch_container_insights/accesswp/",
 	"title": "Accessing Wordpress",
 	"tags": [],
 	"description": "",
 	"content": "Testing public URL It may take a few minutes for the LoadBalancer to be available.\n You’ll need the URL for your WordPress site. This is easily accomplished by running the command below from your terminal window.\nexport SERVICE_URL=$(kubectl get svc -n wordpress-cwi understood-zebu-wordpress --template \u0026#34;{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}\u0026#34;) echo \u0026#34;Public URL: http://$SERVICE_URL/\u0026#34; You should see the Hello World WordPress welcome page. Testing the admin interface export ADMIN_URL=\u0026#34;http://$SERVICE_URL/admin\u0026#34; export ADMIN_PASSWORD=$(kubectl get secret --namespace wordpress-cwi understood-zebu-wordpress -o jsonpath=\u0026#34;{.data.wordpress-password}\u0026#34; | base64 --decode) echo \u0026#34;Admin URL: http://$SERVICE_URL/admin Username: user Password: $ADMIN_PASSWORD\u0026#34; In your favorite browser paste in your Wordpress Admin URL from the Installing Wordpress section. You should be greeted with the following screen. Enter your username and password to make sure they work.\nIf you are taken to the below screen, you have a successfully running Wordpress install backed by MaiaDB in your EKS Cluster.\nNow that we have verified that the site is working we can continue with getting CloudWatch Container Insights installed on our cluster!\n"
 },
 {
-	"uri": "//localhost:1313/intermediate/250_cloudwatch_container_insights/cwcinstallprep/",
+	"uri": "//localhost:1313/beginner/250_cloudwatch_container_insights/cwcinstallprep/",
 	"title": "Preparing to Install Container Insights",
 	"tags": [],
 	"description": "",
@@ -54,13 +47,6 @@
 	"tags": [],
 	"description": "",
 	"content": "Before starting to learn about the various auto-scaling options for your EKS cluster we are going to install Kube-ops-view from Henning Jacobs.\nKube-ops-view provides a common operational picture for a Kubernetes cluster that helps with understanding our cluster setup in a visual way.\nWe will deploy kube-ops-view using Helm configured in a previous module\n The following line updates the stable helm repository and then installs kube-ops-view using a LoadBalancer Service type and creating a RBAC (Resource Base Access Control) entry for the read-only service account to read nodes and pods information from the cluster.\nhelm install kube-ops-view \\ stable/kube-ops-view \\ --set service.type=LoadBalancer \\ --set rbac.create=True The execution above installs kube-ops-view exposing it through a Service using the LoadBalancer type. A successful execution of the command will display the set of resources created and will prompt some advice asking you to use kubectl proxy and a local URL for the service. Given we are using the type LoadBalancer for our service, we can disregard this; Instead we will point our browser to the external load balancer.\nMonitoring and visualization shouldn\u0026rsquo;t be typically be exposed publicly unless the service is properly secured and provide methods for authentication and authorization. You can still deploy kube-ops-view using a Service of type ClusterIP by removing the --set service.type=LoadBalancer section and using kubectl proxy. Kube-ops-view does also support Oauth 2\n To check the chart was installed successfully:\nhelm list should display :\nNAME REVISION UPDATED STATUS CHART APP VERSION NAMESPACE kube-ops-view 1 Sun Sep 22 11:47:31 2019 DEPLOYED kube-ops-view-1.1.0 0.11 default With this we can explore kube-ops-view output by checking the details about the newly service created.\nkubectl get svc kube-ops-view | tail -n 1 | awk '{ print \u0026quot;Kube-ops-view URL = http://\u0026quot;$4 }' This will display a line similar to Kube-ops-view URL = http://\u0026lt;URL_PREFIX_ELB\u0026gt;.amazonaws.com Opening the URL in your browser will provide the current state of our cluster.\nYou may need to refresh the page and clean your browser cache. The creation and setup of the LoadBalancer may take a few minutes; usually in two minutes you should see kub-ops-view.\n As this workshop moves along and you perform scale up and down actions, you can check the effects and changes in the cluster using kube-ops-view. Check out the different components and see how they map to the concepts that we have already covered during this workshop.\nSpend some time checking the state and properties of your EKS cluster.\n "
-},
-{
-	"uri": "//localhost:1313/intermediate/240_monitoring/prereqs/",
-	"title": "Prereqs",
-	"tags": [],
-	"description": "",
-	"content": "Is helm installed? We will use helm to install Prometheus \u0026amp; Grafana monitoring tools for this chapter. Please review installing helm chapter for instructions if you don\u0026rsquo;t have it installed.\n# add prometheus Helm repo helm repo add prometheus-community https://prometheus-community.github.io/helm-charts # add grafana Helm repo helm repo add grafana https://grafana.github.io/helm-charts "
 },
 {
 	"uri": "//localhost:1313/beginner/050_deploy/applications/",
@@ -77,49 +63,49 @@
 	"content": "Install the Helm CLI Before we can get started configuring Helm, we\u0026rsquo;ll need to first install the command line tools that you will interact with. To do this, run the following:\ncurl -sSL https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash We can verify the version\nhelm version --short Let\u0026rsquo;s configure our first Chart repository. Chart repositories are similar to APT or yum repositories that you might be familiar with on Linux, or Taps for Homebrew on macOS.\nDownload the stable repository so we have something to start with:\nhelm repo add stable https://charts.helm.sh/stable Once this is installed, we will be able to list the charts you can install:\nhelm search repo stable Finally, let\u0026rsquo;s configure Bash completion for the helm command:\nhelm completion bash \u0026gt;\u0026gt; ~/.bash_completion . /etc/profile.d/bash_completion.sh . ~/.bash_completion source \u0026lt;(helm completion bash) "
 },
 {
-	"uri": "//localhost:1313/intermediate/250_cloudwatch_container_insights/cwcinstall/",
+	"uri": "//localhost:1313/beginner/250_cloudwatch_container_insights/cwcinstall/",
 	"title": "Installing Container Insights",
 	"tags": [],
 	"description": "",
 	"content": "To complete the setup of Container Insights, you can follow the quick start instructions in this section.\nFrom your Cloud9 Terminal you will just need to run the following command.\ncurl -s https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/k8s-deployment-manifest-templates/deployment-mode/daemonset/container-insights-monitoring/quickstart/cwagent-fluentd-quickstart.yaml | sed \u0026#34;s/{{cluster_name}}/eksworkshop-eksctl/;s/{{region_name}}/${AWS_REGION}/\u0026#34; | kubectl apply -f - The command above will:\n Create the Namespace amazon-cloudwatch. Create all the necessary security objects for both DaemonSet:  SecurityAccount. ClusterRole. ClusterRoleBinding.   Deploy Cloudwatch-Agent (responsible for sending the metrics to CloudWatch) as a DaemonSet. Deploy fluentd (responsible for sending the logs to Cloudwatch) as a DaemonSet. Deploy ConfigMap configurations for both DaemonSets.  You can find the full information and manual install steps here.\n You can verify all the DaemonSets have been deployed by running the following command.\nkubectl -n amazon-cloudwatch get daemonsets Output\nNAME DESIRED CURRENT READY UP-TO-DATE AVAILABLE NODE SELECTOR AGE cloudwatch-agent 3 3 3 3 3 \u0026lt;none\u0026gt; 2m43s fluentd-cloudwatch 3 3 3 3 3 \u0026lt;none\u0026gt; 2m43s  That\u0026rsquo;s it. It\u0026rsquo;s that simple to install the agent and get it up and running. You can follow the manual steps in the full documentation, but with the Quickstart the deployment of the Daemon is easy and quick!\nNow onto verifying the data is being collected! "
 },
 {
-	"uri": "//localhost:1313/intermediate/250_cloudwatch_container_insights/verifycwci/",
+	"uri": "//localhost:1313/beginner/250_cloudwatch_container_insights/verifycwci/",
 	"title": "Verify CloudWatch Container Insights is working",
 	"tags": [],
 	"description": "",
 	"content": "To verify that data is being collected in CloudWatch, launch the CloudWatch Containers UI in your browser using the link generated by the command below\necho \u0026#34; Use the URL below to access Cloudwatch Container Insights in $AWS_REGION: https://console.aws.amazon.com/cloudwatch/home?region=${AWS_REGION}#cw:dashboard=Container;context=~(clusters~\u0026#39;eksworkshop-eksctl~dimensions~(~)~performanceType~\u0026#39;Service)\u0026#34; From here you can see the metrics are being collected and presented to CloudWatch. You can switch between various drop downs to see EKS Services, EKS Cluster and more.\nWe can now continue with load testing the cluster to see how these metrics can look under load. "
 },
 {
-	"uri": "//localhost:1313/intermediate/250_cloudwatch_container_insights/prepareloadtest/",
+	"uri": "//localhost:1313/beginner/250_cloudwatch_container_insights/prepareloadtest/",
 	"title": "Preparing your Load Test",
 	"tags": [],
 	"description": "",
 	"content": "Now that we have monitoring enabled we will simulate heavy load to our EKS Cluster hosting our Wordpress install. While generating the load, we can watch CloudWatch Container Insights for the performance metrics.\nInstall Siege for load testing on your Workspace sudo yum install siege -y Verify Siege is working by typing the below into your terminal window.\nsiege --version Output example (version may vary). SIEGE 3.0.8 Copyright (C) 2014 by Jeffrey Fulmer, et al. This is free software; see the source for copying conditions. There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  "
 },
 {
-	"uri": "//localhost:1313/intermediate/250_cloudwatch_container_insights/runloadtest/",
+	"uri": "//localhost:1313/beginner/250_cloudwatch_container_insights/runloadtest/",
 	"title": "Running the Load Test",
 	"tags": [],
 	"description": "",
 	"content": "Run Siege to Load Test your Wordpress Site Now that Siege has been installed, we\u0026rsquo;re going to generate some load to our Wordpress site and see the metrics change in CloudWatch Container Insights.\nFrom your terminal window, run the following command.\nexport WP_ELB=$(kubectl -n wordpress-cwi get svc understood-zebu-wordpress -o jsonpath=\u0026#34;{.status.loadBalancer.ingress[].hostname}\u0026#34;) siege -q -t 15S -c 200 -i http://${WP_ELB} This command tells Siege to run 200 concurrent connections to your Wordpress site at varying URLS for 15 seconds.\nAfter the 15 seconds, you should see an output like the one below.\nLifting the server siege... done. Transactions: 614 hits Availability: 100.00 % Elapsed time: 14.33 secs Data transferred: 4.14 MB Response time: 3.38 secs Transaction rate: 42.85 trans/sec Throughput: 0.29 MB/sec Concurrency: 144.79 Successful transactions: 614 Failed transactions: 0 Longest transaction: 5.55 Shortest transaction: 0.19 FILE: /home/ec2-user/siege.log You can disable this annoying message by editing the .siegerc file in your home directory; change the directive \u0026#39;show-logfile\u0026#39; to false.  Now let\u0026rsquo;s go view our newly collected metrics! "
 },
 {
-	"uri": "//localhost:1313/intermediate/250_cloudwatch_container_insights/viewvetrics/",
+	"uri": "//localhost:1313/beginner/250_cloudwatch_container_insights/viewvetrics/",
 	"title": "Viewing our collected metrics",
 	"tags": [],
 	"description": "",
 	"content": "Now let\u0026rsquo;s navigate back to CloudWatch Container Insights browser tab to view the data we\u0026rsquo;ve generated.\nFrom here you can choose a number of different views. We’re going to narrow down our timelines to a custom time range of just 30 minute so we can zoom into our recently collected insights.\nTo do so go to the Time Range option at the top right of The CloudWatch Container Insights windows and selecting 30 minutes.\nOnce zoomed in on the time frame we can see the large spike in resource usage for the load we just generated to the Wordpress service in our EKS Cluster.\nAs mentioned previous you can view some different metrics based on the Dropdown menu options. Let\u0026rsquo;s take a quick look at some of those items.\n"
 },
 {
-	"uri": "//localhost:1313/intermediate/201_resource_management/basic-pod-limits/",
+	"uri": "//localhost:1313/beginner/201_resource_management/basic-pod-limits/",
 	"title": "Basic Pod CPU and Memory Management",
 	"tags": [],
 	"description": "",
 	"content": "We will create four pods:\n A request deployment with Request cpu = 0.5 and memory = 1G A limit-cpu deployment with Limit cpu = 0.5 and memory = 1G A limit-memory deployment with Limit cpu = 1 and memory = 1G A restricted deployment with Request of cpu = 1/memory = 1G and Limit cpu = 1.8/memory=2G  Deploy Metrics Server Follow the instructions in the module Deploy the Metrics Server to enable the Kubernetes Metrics Server.\nVerify that the metrics-server deployment is running the desired number of pods with the following command.\nkubectl get deployment metrics-server -n kube-system Output: NAME READY UP-TO-DATE AVAILABLE AGE metrics-server 1/1 1 1 19s  CPU units are expressed as 1 CPU or 1000m, which equals to 1vCPU/Core. Additional details can be found here\n Deploy Pods In order to generate cpu and memory load we will use stress-ng with the following flags.\n vm-keep: maintain consistent memory usage vm-bytes: bytes given to each worker vm: number of workers to spawn ex. vm=1 uses 1000m CPU vm=2 uses 2000m CPU oomable: will not respawn after being killed by OOM killer verbose: show all information output timeout: length of test  # Deploy Limits pod with hard limit on cpu at 500m but wants 1000m kubectl run --limits=memory=1G,cpu=0.5 --image hande007/stress-ng basic-limit-cpu-pod --restart=Never -- --vm-keep --vm-bytes 512m --timeout 600s --vm 1 --oomable --verbose # Deploy Request pod with soft limit on memory  kubectl run --requests=memory=1G,cpu=0.5 --image hande007/stress-ng basic-request-pod --restart=Never -- --vm-keep --vm-bytes 2g --timeout 600s --vm 1 --oomable --verbose # Deploy restricted pod with limits and requests wants cpu 2 and memory at 1G kubectl run --requests=cpu=1,memory=1G --limits=cpu=1.8,memory=2G --image hande007/stress-ng basic-restricted-pod --restart=Never -- --vm-keep --vm-bytes 1g --timeout 600s --vm 2 --oomable --verbose # Deploy Limits pod with hard limit on memory at 1G but wants 2G kubectl run --limits=memory=1G,cpu=1 --image hande007/stress-ng basic-limit-memory-pod --restart=Never -- --vm-keep --vm-bytes 2g --timeout 600s --vm 1 --oomable --verbose Verify Current Resource Usage Check if pods are running properly. It is expected that basic-limit-memory-pod is not not running due to it asking for 2G of memory when it is assigned a Limit of 1G.\nkubectl get pod Output: NAME READY STATUS RESTARTS AGE basic-limit-cpu-pod 1/1 Running 0 69s basic-limit-memory-pod 0/1 OOMKilled 0 68s basic-request-pod 1/1 Running 0 68s basic-restricted-pod 1/1 Running 0 67s  Next we check the current utilization\n# After at least 60 seconds of generating metrics kubectl top pod Output: NAME CPU(cores) MEMORY(bytes) basic-limit-cpu-pod 501m 516Mi basic-request-pod 1000m 2055Mi basic-restricted-pod 1795m 1029Mi  Running multiple stress-ng on the same node will consume less CPU per pod. For example if the expected CPU is 1000 but only running 505 there may be other pods on the nodes consuming CPU.\n Kubernetes Requests and Limits can be applied to higher level abstractions like Deployment.   Expand here to see the example   apiVersion: apps/v1 kind: Deployment metadata: labels: app: stress-deployment name: stress-deployment spec: replicas: 1 selector: matchLabels: app: stress-deployment template: metadata: labels: app: stress-deployment spec: containers: - args: - --vm-keep - --vm-bytes - 1500m - --timeout - 600s - --vm - \u0026quot;3\u0026quot; - --oomable - --verbose image: hande007/stress-ng name: stress-deployment resources: limits: cpu: 2200m memory: 2G requests: cpu: \u0026quot;1\u0026quot; memory: 1G   \nCleanup Clean up the pods before moving on to free up resources\nkubectl delete pod basic-request-pod kubectl delete pod basic-limit-memory-pod kubectl delete pod basic-limit-cpu-pod kubectl delete pod basic-restricted-pod "
 },
 {
-	"uri": "//localhost:1313/intermediate/250_cloudwatch_container_insights/viewlogs/",
+	"uri": "//localhost:1313/beginner/250_cloudwatch_container_insights/viewlogs/",
 	"title": "Viewing our collected logs",
 	"tags": [],
 	"description": "",
@@ -140,25 +126,11 @@
 	"content": "AWS Fargate with Amazon EKS is currently available in the following Regions:\n   Region Name Region     US East (Ohio) us-east-2   US East (N. Virginia) us-east-1   US West (N. California) us-west-1   US West (Oregon) us-west-2   Africa (Cape Town) af-south-1   Asia Pacific (Hong Kong) ap-east-1   Asia Pacific (Mumbai) ap-south-1   Asia Pacific (Seoul) ap-northeast-2   Asia Pacific (Singapore) ap-southeast-1   Asia Pacific (Sydney) ap-southeast-2   Asia Pacific (Tokyo) ap-northeast-1 (apne1-az1, apne1-az2, \u0026amp; apne1-az4 only)   Canada (Central) ca-central-1   Europe (Frankfurt) eu-central-1   Europe (Ireland) eu-west-1   Europe (London) eu-west-2   Europe (Milan) eu-south-1   Europe (Paris) eu-west-3   Europe (Stockholm) eu-north-1   South America (São Paulo) sa-east-1   Middle East (Bahrain) me-south-1    Don\u0026rsquo;t continue the lab unless you use one of these region.\n "
 },
 {
-	"uri": "//localhost:1313/intermediate/240_monitoring/deploy-prometheus/",
-	"title": "Deploy Prometheus",
-	"tags": [],
-	"description": "",
-	"content": "Deploy Prometheus First we are going to install Prometheus. In this example, we are primarily going to use the standard configuration, but we do override the storage class. We will use gp2 EBS volumes for simplicity and demonstration purpose. When deploying in production, you would use io1 volumes with desired IOPS and increase the default storage size in the manifests to get better performance. Run the following command:\nkubectl create namespace prometheus helm install prometheus prometheus-community/prometheus \\  --namespace prometheus \\  --set alertmanager.persistentVolume.storageClass=\u0026#34;gp2\u0026#34; \\  --set server.persistentVolume.storageClass=\u0026#34;gp2\u0026#34; Make note of the prometheus endpoint in helm response (you will need this later). It should look similar to below:\nThe Prometheus server can be accessed via port 80 on the following DNS name from within your cluster: prometheus-server.prometheus.svc.cluster.local Check if Prometheus components deployed as expected\nkubectl get all -n prometheus You should see response similar to below. They should all be Ready and Available\nNAME READY STATUS RESTARTS AGE pod/prometheus-alertmanager-868f8db8c4-67j2x 2/2 Running 0 78s pod/prometheus-kube-state-metrics-6df5d44568-c4tkn 1/1 Running 0 78s pod/prometheus-node-exporter-dh6f4 1/1 Running 0 78s pod/prometheus-node-exporter-v8rd8 1/1 Running 0 78s pod/prometheus-node-exporter-vcbjq 1/1 Running 0 78s pod/prometheus-pushgateway-759689fbc6-hvjjm 1/1 Running 0 78s pod/prometheus-server-546c64d959-qxbzd 2/2 Running 0 78s NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE service/prometheus-alertmanager ClusterIP 10.100.38.47 \u0026lt;none\u0026gt; 80/TCP 78s service/prometheus-kube-state-metrics ClusterIP 10.100.165.139 \u0026lt;none\u0026gt; 8080/TCP 78s service/prometheus-node-exporter ClusterIP None \u0026lt;none\u0026gt; 9100/TCP 78s service/prometheus-pushgateway ClusterIP 10.100.150.237 \u0026lt;none\u0026gt; 9091/TCP 78s service/prometheus-server ClusterIP 10.100.209.224 \u0026lt;none\u0026gt; 80/TCP 78s NAME DESIRED CURRENT READY UP-TO-DATE AVAILABLE NODE SELECTOR AGE daemonset.apps/prometheus-node-exporter 3 3 3 3 3 \u0026lt;none\u0026gt; 78s NAME READY UP-TO-DATE AVAILABLE AGE deployment.apps/prometheus-alertmanager 1/1 1 1 78s deployment.apps/prometheus-kube-state-metrics 1/1 1 1 78s deployment.apps/prometheus-pushgateway 1/1 1 1 78s deployment.apps/prometheus-server 1/1 1 1 78s NAME DESIRED CURRENT READY AGE replicaset.apps/prometheus-alertmanager-868f8db8c4 1 1 1 78s replicaset.apps/prometheus-kube-state-metrics-6df5d44568 1 1 1 78s replicaset.apps/prometheus-pushgateway-759689fbc6 1 1 1 78s replicaset.apps/prometheus-server-546c64d959 1 1 1 78s  In order to access the Prometheus server URL, we are going to use the kubectl port-forward command to access the application. In Cloud9, run:\nkubectl port-forward -n prometheus deploy/prometheus-server 8080:9090 In your Cloud9 environment, click Tools / Preview / Preview Running Application. Scroll to the end of the URL and append:\n/targets  In the web UI, you can see all the targets and metrics being monitored by Prometheus:\n"
-},
-{
 	"uri": "//localhost:1313/010_introduction/",
 	"title": "Introduction",
 	"tags": ["beginner", "kubeflow", "appmesh", "CON203", "CON205", "CON206"],
 	"description": "",
 	"content": "Introduction to Kubernetes   A walkthrough of basic Kubernetes concepts.\nWelcome to the Amazon EKS Roadshow!\nThe intent of this workshop is to educate users about the features of Amazon EKS.\nBackground in EKS, Kubernetes, Docker, and container workflows are not required, but they are recommended.\nThis chapter will introduce you to the basic workings of Kubernetes, laying the foundation for the hands-on portion of the workshop.\nSpecifically, we will walk you through the following topics:\n Kubernetes (k8s) Basics   Kubernetes Architecture   Amazon EKS   "
-},
-{
-	"uri": "//localhost:1313/beginner/090_rbac/intro/",
-	"title": "What is RBAC?",
-	"tags": [],
-	"description": "",
-	"content": "According to the official kubernetes docs:\n Role-based access control (RBAC) is a method of regulating access to computer or network resources based on the roles of individual users within an enterprise.\n The core logical components of RBAC are:\nEntity\nA group, user, or service account (an identity representing an application that wants to execute certain operations (actions) and requires permissions to do so).\nResource\nA pod, service, or secret that the entity wants to access using the certain operations.\nRole\nUsed to define rules for the actions the entity can take on various resources.\nRole binding\nThis attaches (binds) a role to an entity, stating that the set of rules define the actions permitted by the attached entity on the specified resources.\nThere are two types of Roles (Role, ClusterRole) and the respective bindings (RoleBinding, ClusterRoleBinding). These differentiate between authorization in a namespace or cluster-wide.\nNamespace\nNamespaces are an excellent way of creating security boundaries, they also provide a unique scope for object names as the \u0026lsquo;namespace\u0026rsquo; name implies. They are intended to be used in multi-tenant environments to create virtual kubernetes clusters on the same physical cluster.\nObjectives for this module In this module, we\u0026rsquo;re going to explore k8s RBAC by creating an IAM user called rbac-user who is authenticated to access the EKS cluster but is only authorized (via RBAC) to list, get, and watch pods and deployments in the \u0026lsquo;rbac-test\u0026rsquo; namespace.\nTo achieve this, we\u0026rsquo;ll create an IAM user, map that user to a kubernetes role, then perform kubernetes actions under that user\u0026rsquo;s context.\n"
 },
 {
 	"uri": "//localhost:1313/beginner/050_deploy/deploynodejs/",
@@ -182,13 +154,6 @@
 	"content": "Deploy the Metrics Server Metrics Server is a scalable, efficient source of container resource metrics for Kubernetes built-in autoscaling pipelines.\nThese metrics will drive the scaling behavior of the deployments.\nWe will deploy the metrics server using Kubernetes Metrics Server.\nkubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.5.0/components.yaml Lets' verify the status of the metrics-server APIService (it could take a few minutes).\nkubectl get apiservice v1beta1.metrics.k8s.io -o json | jq \u0026#39;.status\u0026#39; { \u0026#34;conditions\u0026#34;: [ { \u0026#34;lastTransitionTime\u0026#34;: \u0026#34;2020-11-10T06:39:13Z\u0026#34;, \u0026#34;message\u0026#34;: \u0026#34;all checks passed\u0026#34;, \u0026#34;reason\u0026#34;: \u0026#34;Passed\u0026#34;, \u0026#34;status\u0026#34;: \u0026#34;True\u0026#34;, \u0026#34;type\u0026#34;: \u0026#34;Available\u0026#34; } ] }  We are now ready to scale a deployed application\n"
 },
 {
-	"uri": "//localhost:1313/intermediate/230_logging/prereqs/",
-	"title": "Configure IRSA for Fluent Bit",
-	"tags": [],
-	"description": "",
-	"content": " Click here if you are not familiar wit IAM Roles for Service Accounts (IRSA).\n With IAM roles for service accounts on Amazon EKS clusters, you can associate an IAM role with a Kubernetes service account. This service account can then provide AWS permissions to the containers in any pod that uses that service account. With this feature, you no longer need to provide extended permissions to the node IAM role so that pods on that node can call AWS APIs.\nEnabling IAM roles for service accounts on your cluster To use IAM roles for service accounts in your cluster, we will first create an OIDC identity provider\neksctl utils associate-iam-oidc-provider \\  --cluster eksworkshop-eksctl \\  --approve Creating an IAM role and policy for your service account Next, we will create an IAM policy that limits the permissions needed by the Fluent Bit containers to connect to the Elasticsearch cluster. We will also create an IAM role for your Kubernetes service accounts to use before you associate it with a service account.\nmkdir ~/environment/logging/ export ES_DOMAIN_NAME=\u0026#34;eksworkshop-logging\u0026#34; cat \u0026lt;\u0026lt;EoF \u0026gt; ~/environment/logging/fluent-bit-policy.json { \u0026#34;Version\u0026#34;: \u0026#34;2012-10-17\u0026#34;, \u0026#34;Statement\u0026#34;: [ { \u0026#34;Action\u0026#34;: [ \u0026#34;es:ESHttp*\u0026#34; ], \u0026#34;Resource\u0026#34;: \u0026#34;arn:aws:es:${AWS_REGION}:${ACCOUNT_ID}:domain/${ES_DOMAIN_NAME}\u0026#34;, \u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34; } ] } EoF aws iam create-policy \\  --policy-name fluent-bit-policy \\  --policy-document file://~/environment/logging/fluent-bit-policy.json Create an IAM role Finally, create an IAM role for the fluent-bit Service Account in the logging namespace.\nkubectl create namespace logging eksctl create iamserviceaccount \\  --name fluent-bit \\  --namespace logging \\  --cluster eksworkshop-eksctl \\  --attach-policy-arn \u0026#34;arn:aws:iam::${ACCOUNT_ID}:policy/fluent-bit-policy\u0026#34; \\  --approve \\  --override-existing-serviceaccounts Make sure your service account with the ARN of the IAM role is annotated kubectl -n logging describe sa fluent-bit Output\nName: fluent-bit Namespace: logging Labels: \u0026lt;none\u0026gt; Annotations: eks.amazonaws.com/role-arn: arn:aws:iam::197520326489:role/eksctl-eksworkshop-eksctl-addon-iamserviceac-Role1-1V7G71K6ZN8ID Image pull secrets: \u0026lt;none\u0026gt; Mountable secrets: fluent-bit-token-qxdtx Tokens: fluent-bit-token-qxdtx Events: \u0026lt;none\u0026gt;  "
-},
-{
 	"uri": "//localhost:1313/beginner/060_helm/helm_micro/create_chart/",
 	"title": "Create a Chart",
 	"tags": [],
@@ -196,35 +161,14 @@
 	"content": "Helm charts have a structure similar to:\n/eksdemo ├── charts/ ├── Chart.yaml ├── templates/ │ ├── deployment.yaml │ ├── _helpers.tpl │ ├── hpa.yaml │ ├── ingress.yaml │ ├── NOTES.txt │ ├── serviceaccount.yaml │ ├── service.yaml │ └── tests │ └── test-connection.yaml └── values.yaml  We\u0026rsquo;ll follow this template, and create a new chart called eksdemo with the following commands:\ncd ~/environment helm create eksdemo cd eksdemo "
 },
 {
-	"uri": "//localhost:1313/beginner/040_dashboard/dashboard/",
-	"title": "Deploy the Official Kubernetes Dashboard",
-	"tags": [],
-	"description": "",
-	"content": "The official Kubernetes dashboard is not deployed by default, but there are instructions in the official documentation\nWe can deploy the dashboard with the following command:\nexport DASHBOARD_VERSION=\u0026#34;v2.0.0\u0026#34; kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/${DASHBOARD_VERSION}/aio/deploy/recommended.yaml Since this is deployed to our private cluster, we need to access it via a proxy. kube-proxy is available to proxy our requests to the dashboard service. In your workspace, run the following command:\nkubectl proxy --port=8080 --address=0.0.0.0 --disable-filter=true \u0026amp; This will start the proxy, listen on port 8080, listen on all interfaces, and will disable the filtering of non-localhost requests.\nThis command will continue to run in the background of the current terminal\u0026rsquo;s session.\nWe are disabling request filtering, a security feature that guards against XSRF attacks. This isn\u0026rsquo;t recommended for a production environment, but is useful for our dev environment.\n "
-},
-{
-	"uri": "//localhost:1313/intermediate/220_codepipeline/role/",
-	"title": "Create IAM Role",
-	"tags": [],
-	"description": "",
-	"content": "In an AWS CodePipeline, we are going to use AWS CodeBuild to deploy a sample Kubernetes service. This requires an AWS Identity and Access Management (IAM) role capable of interacting with the EKS cluster.\nIn this step, we are going to create an IAM role and add an inline policy that we will use in the CodeBuild stage to interact with the EKS cluster via kubectl.\nCreate the role:\ncd ~/environment TRUST=\u0026quot;{ \\\u0026quot;Version\\\u0026quot;: \\\u0026quot;2012-10-17\\\u0026quot;, \\\u0026quot;Statement\\\u0026quot;: [ { \\\u0026quot;Effect\\\u0026quot;: \\\u0026quot;Allow\\\u0026quot;, \\\u0026quot;Principal\\\u0026quot;: { \\\u0026quot;AWS\\\u0026quot;: \\\u0026quot;arn:aws:iam::${ACCOUNT_ID}:root\\\u0026quot; }, \\\u0026quot;Action\\\u0026quot;: \\\u0026quot;sts:AssumeRole\\\u0026quot; } ] }\u0026quot; echo '{ \u0026quot;Version\u0026quot;: \u0026quot;2012-10-17\u0026quot;, \u0026quot;Statement\u0026quot;: [ { \u0026quot;Effect\u0026quot;: \u0026quot;Allow\u0026quot;, \u0026quot;Action\u0026quot;: \u0026quot;eks:Describe*\u0026quot;, \u0026quot;Resource\u0026quot;: \u0026quot;*\u0026quot; } ] }' \u0026gt; /tmp/iam-role-policy aws iam create-role --role-name EksWorkshopCodeBuildKubectlRole --assume-role-policy-document \u0026quot;$TRUST\u0026quot; --output text --query 'Role.Arn' aws iam put-role-policy --role-name EksWorkshopCodeBuildKubectlRole --policy-name eks-describe --policy-document file:///tmp/iam-role-policy "
-},
-{
-	"uri": "//localhost:1313/intermediate/200_migrate_to_eks/create-kind-cluster/",
+	"uri": "//localhost:1313/beginner/200_migrate_to_eks/create-kind-cluster/",
 	"title": "Create kind cluster",
 	"tags": [],
 	"description": "",
 	"content": "While our EKS cluster is being created we can create a kind cluster locally. Before we create one lets make sure our network rules are set up\nThis is going to manually create some iptables rules to route traffic to your Cloud9 instance. If you reboot the VM you will have to run these commands again as they persistent.\n echo \u0026#39;net.ipv4.conf.all.route_localnet = 1\u0026#39; | sudo tee /etc/sysctl.conf sudo sysctl -p /etc/sysctl.conf sudo iptables -t nat -A PREROUTING -p tcp -d 169.254.170.2 --dport 80 -j DNAT --to-destination 127.0.0.1:51679 sudo iptables -t nat -A OUTPUT -d 169.254.170.2 -p tcp -m tcp --dport 80 -j REDIRECT --to-ports 51679 Create a config file for the kind cluster\ncat \u0026gt; kind.yaml \u0026lt;\u0026lt;EOF kind: Cluster apiVersion: kind.x-k8s.io/v1alpha4 nodes: - role: control-plane image: kindest/node:v1.19.11@sha256:07db187ae84b4b7de440a73886f008cf903fcf5764ba8106a9fd5243d6f32729 extraPortMappings: - containerPort: 30000 hostPort: 30000 - containerPort: 30001 hostPort: 30001 EOF Create the local kind cluster\nkind create cluster --config kind.yaml Set the default context to the EKS cluster.\nkubectl config use-context \u0026#34;${INSTANCE_ID}@${CLUSTER}.${AWS_REGION}.eksctl.io\u0026#34; "
 },
 {
-	"uri": "//localhost:1313/intermediate/300_cis_eks_benchmark/intro/",
-	"title": "Introduction to CIS Amazon EKS Benchmark and kube-bench",
-	"tags": [],
-	"description": "",
-	"content": "CIS Kubernetes Benchmark The latest version of CIS Kubernetes Benchmark v1.5.1 provides guidance on security configurations for Kubernetes versions v1.15 and onwards. The CIS Kubernetes Benchmark is scoped for implementations managing both the control plane, which includes etcd, API server, controller and scheduler, and the data plane, which is made up of one or more nodes or EC2 instances.\nCIS EKS Kubernetes Benchmark Since Amazon EKS provides a managed control plane, not all of the recommendations from the CIS Kubernetes Benchmark are applicable as customers are not responsible for configuring or managing the control plane.\nCIS Amazon EKS Benchmark v1.0.0 provides guidance for node security configurations for Kubernetes and aligns with CIS Kubernetes Benchmark v1.5.1.\nNote: The CIS committee agreed to remove controls for the appropriate control plane recommendations from the managed Kubernetes benchmarks. The CIS Amazon EKS Benchmark consists of four sections on control plane logging configuration, worker nodes, policies and managed services.\n aquasecurity/kube-bench kube-bench is a popular open source CIS Kubernetes Benchmark assessment tool created by AquaSecurity. kube-bench is a Go application that checks whether Kubernetes is deployed securely by running the checks documented in the CIS Kubernetes Benchmark. Tests are configured with YAML files, and this makes kube-bench easy to update as test specifications evolve. AquaSecurity is an AWS Advanced Technology Partner.\n"
-},
-{
-	"uri": "//localhost:1313/intermediate/201_resource_management/advanced-pod-limits/",
+	"uri": "//localhost:1313/beginner/201_resource_management/advanced-pod-limits/",
 	"title": "Advanced Pod CPU and Memory Management",
 	"tags": [],
 	"description": "",
@@ -245,20 +189,6 @@
 	"content": "The Fargate profile allows an administrator to declare which pods run on Fargate. Each profile can have up to five selectors that contain a namespace and optional labels. You must define a namespace for every selector. The label field consists of multiple optional key-value pairs. Pods that match a selector (by matching a namespace for the selector and all of the labels specified in the selector) are scheduled on Fargate.\nIt is generally a good practice to deploy user application workloads into namespaces other than kube-system or default so that you have more fine-grained capabilities to manage the interaction between your pods deployed on to EKS. You will now create a new Fargate profile named applications that targets all pods destined for the fargate namespace.\nCreate a Fargate profile eksctl create fargateprofile \\  --cluster eksworkshop-eksctl \\  --name game-2048 \\  --namespace game-2048  Fargate profiles are immutable. However, you can create a new updated profile to replace an existing profile and then delete the original after the updated profile has finished creating\n When your EKS cluster schedules pods on Fargate, the pods will need to make calls to AWS APIs on your behalf to do things like pull container images from Amazon ECR. The Fargate Pod Execution Role provides the IAM permissions to do this. This IAM role is automatically created for you by the above command.\nCreation of a Fargate profile can take up to several minutes. Execute the following command after the profile creation is completed and you should see output similar to what is shown below.\neksctl get fargateprofile \\  --cluster eksworkshop-eksctl \\  -o yaml Output: - name: game-2048 podExecutionRoleARN: arn:aws:iam::197520326489:role/eksctl-eksworkshop-eksctl-FargatePodExecutionRole-1NOQE05JKQEED selectors: - namespace: game-2048 subnets: - subnet-02783ce3799e77b0b - subnet-0aa755ffdf08aa58f - subnet-0c6a156cf3d523597  Notice that the profile includes the private subnets in your EKS cluster. Pods running on Fargate are not assigned public IP addresses, so only private subnets (with no direct route to an Internet Gateway) are supported when you create a Fargate profile. Hence, while provisioning an EKS cluster, you must make sure that the VPC that you create contains one or more private subnets. When you create an EKS cluster with eksctl utility, under the hoods it creates a VPC that meets these requirements.\n"
 },
 {
-	"uri": "//localhost:1313/beginner/090_rbac/install_test_pods/",
-	"title": "Install Test Pods",
-	"tags": [],
-	"description": "",
-	"content": "In this tutorial, we\u0026rsquo;re going to demonstrate how to provide limited access to pods running in the rbac-test namespace for a user named rbac-user.\nTo do that, let\u0026rsquo;s first create the rbac-test namespace, and then install nginx into it:\nkubectl create namespace rbac-test kubectl create deploy nginx --image=nginx -n rbac-test To verify the test pods were properly installed, run:\nkubectl get all -n rbac-test Output should be similar to:\nNAME READY STATUS RESTARTS AGE pod/nginx-5c7588df-8mvxx 1/1 Running 0 48s NAME READY UP-TO-DATE AVAILABLE AGE deployment.apps/nginx 1/1 1 1 48s NAME DESIRED CURRENT READY AGE replicaset.apps/nginx-5c7588df 1 1 1 48s  "
-},
-{
-	"uri": "//localhost:1313/020_prerequisites/self_paced/",
-	"title": "...on your own",
-	"tags": [],
-	"description": "",
-	"content": "Running the workshop on your own Only complete this section if you are running the workshop on your own. If you are at an AWS hosted event (such as re:Invent, Kubecon, Immersion Day, etc), go to Start the workshop at an AWS event.\n  Create an AWS account   "
-},
-{
 	"uri": "//localhost:1313/020_prerequisites/portal/",
 	"title": "AWS Workshop Portal",
 	"tags": [],
@@ -266,21 +196,14 @@
 	"content": "Login to AWS Workshop Portal This workshop creates an AWS account and a Cloud9 environment. You will need the Participant Hash provided upon entry, and your email address to track your unique session.\nConnect to the portal by clicking the button or browsing to https://dashboard.eventengine.run/. The following screen shows up.\nEnter the provided hash in the text box. The button on the bottom right corner changes to Accept Terms \u0026amp; Login. Click on that button to continue.\nClick on AWS Console on dashboard.\nTake the defaults and click on Open AWS Console. This will open AWS Console in a new browser tab.\nOnce you have completed the step above, you can head straight to Create a Workspace\n"
 },
 {
-	"uri": "//localhost:1313/intermediate/220_codepipeline/configmap/",
-	"title": "Modify aws-auth ConfigMap",
-	"tags": [],
-	"description": "",
-	"content": "Now that we have the IAM role created, we are going to add the role to the aws-auth ConfigMap for the EKS cluster.\nOnce the ConfigMap includes this new role, kubectl in the CodeBuild stage of the pipeline will be able to interact with the EKS cluster via the IAM role.\nROLE=\u0026quot; - rolearn: arn:aws:iam::${ACCOUNT_ID}:role/EksWorkshopCodeBuildKubectlRole\\n username: build\\n groups:\\n - system:masters\u0026quot; kubectl get -n kube-system configmap/aws-auth -o yaml | awk \u0026quot;/mapRoles: \\|/{print;print \\\u0026quot;$ROLE\\\u0026quot;;next}1\u0026quot; \u0026gt; /tmp/aws-auth-patch.yml kubectl patch configmap/aws-auth -n kube-system --patch \u0026quot;$(cat /tmp/aws-auth-patch.yml)\u0026quot;  If you would like to edit the aws-auth ConfigMap manually, you can run: $ kubectl edit -n kube-system configmap/aws-auth\n "
-},
-{
-	"uri": "//localhost:1313/intermediate/250_cloudwatch_container_insights/cwalarms/",
+	"uri": "//localhost:1313/beginner/250_cloudwatch_container_insights/cwalarms/",
 	"title": "Using CloudWatch Alarms",
 	"tags": [],
 	"description": "",
 	"content": "You can use the CloudWatch metrics to generate various alarms for your EKS Cluster based on assigned metrics.\nIn CloudWatch Container Insights we’re going to drill down to create an alarm using CloudWatch for CPU Utilization of the Wordpress service.\nTo do so:\n Click on the three vertical dots in the upper right of the CPU Utilization box. Select View in Metrics.  This will isolate us to a single pane view of CPU Utilization for the eksworkshop-eksctl cluster.\nFrom this window we can create alarms for the understood-zebu-wordpress service so we know when it’s under heavy load.\nFor this lab we’re going to set the threshold low so we can guarantee to set it off with the load test.\n To create an alarm, click on the small bell icon in line with the Wordpress service. This will take you to the metrics alarm configuration screen.\nAs we can see from the screen we peaked CPU at over 6 % so we’re going to set our metric to 3% to assure it sets off an alarm. Set your alarm to 50% of whatever you max was during the load test on the graph.\nClick next on the bottom and continue to Configure Actions.\nWe’re going to create a configuration to send an SNS alert to your email address when CPU gets above your threshold.\nOn the Configure Action screen:\n Leave default of in Alarm. Select Create new topic under Select and SNS Topic. In Create new topic\u0026hellip; name it wordpress-CPU-alert. In Email Endpoints enter your email address. Click create topic.  Once those items are set, you can click Next at the bottom of the screen.\nOn the next screen we’ll add a unique name for our alert, and press Next.\nThe next screen will show your metric and the conditions. Make sure to click create alarm.\nAfter creating your new SNS topic you will need to verify your subscription in your email. Testing your alarm For the last step of this lab, we’re going to run one more load test on our site to verify our alarm triggers. Go back to your Cloud9 terminal and run the same commands we can previously to load up our Wordpress site.\ni.e.\nexport WP_ELB=$(kubectl -n wordpress-cwi get svc understood-zebu-wordpress -o jsonpath=\u0026#34;{.status.loadBalancer.ingress[].hostname}\u0026#34;) siege -q -t 15S -c 200 -i ${WP_ELB} In a minute or two, you should receive and email about your CPU being in alert. If you don’t verify your SNS topic configuration and that you’ve accepted the subscription to the topic.\n"
 },
 {
-	"uri": "//localhost:1313/intermediate/201_resource_management/resource-quota/",
+	"uri": "//localhost:1313/beginner/201_resource_management/resource-quota/",
 	"title": "Resource Quotas",
 	"tags": [],
 	"description": "",
@@ -301,28 +224,14 @@
 	"content": "AWS Load Balancer Controller The AWS ALB Ingress Controller has been rebranded to AWS Load Balancer Controller.\n\u0026ldquo;AWS Load Balancer Controller\u0026rdquo; is a controller to help manage Elastic Load Balancers for a Kubernetes cluster.\n It satisfies Kubernetes Ingress resources by provisioning Application Load Balancers. It satisfies Kubernetes Service resources by provisioning Network Load Balancers.  Helm We will use Helm to install the ALB Ingress Controller.\nCheck to see if helm is installed:\nhelm version  If Helm is not found, see installing helm for instructions.\n Create IAM OIDC provider First, we will have to set up an OIDC provider with the cluster.\nThis step is required to give IAM permissions to a Fargate pod running in the cluster using the IAM for Service Accounts feature.\nLearn more about IAM Roles for Service Accounts in the Amazon EKS documentation.\n eksctl utils associate-iam-oidc-provider \\  --region ${AWS_REGION} \\  --cluster eksworkshop-eksctl \\  --approve Create an IAM policy The next step is to create the IAM policy that will be used by the AWS Load Balancer Controller.\nThis policy will be later associated to the Kubernetes Service Account and will allow the controller pods to create and manage the ELB’s resources in your AWS account for you.\naws iam create-policy \\  --policy-name AWSLoadBalancerControllerIAMPolicy \\  --policy-document https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/main/docs/install/iam_policy.json Create a IAM role and ServiceAccount for the Load Balancer controller Next, create a Kubernetes Service Account by executing the following command\neksctl create iamserviceaccount \\  --cluster eksworkshop-eksctl \\  --namespace kube-system \\  --name aws-load-balancer-controller \\  --attach-policy-arn arn:aws:iam::${ACCOUNT_ID}:policy/AWSLoadBalancerControllerIAMPolicy \\  --override-existing-serviceaccounts \\  --approve The above command deploys a CloudFormation template that creates an IAM role and attaches the IAM policy to it.\nThe IAM role gets associated with a Kubernetes Service Account. You can see details of the service account created with the following command.\nkubectl get sa aws-load-balancer-controller -n kube-system -o yaml Output\napiVersion: v1 kind: ServiceAccount metadata: annotations: eks.amazonaws.com/role-arn: arn:aws:iam::\u0026lt;AWS_ACCOUNT_ID\u0026gt;:role/eksctl-eksworkshop-eksctl-addon-iamserviceac-Role1-1MMJRJ4LWWHD8 creationTimestamp: \u0026#34;2020-12-04T19:31:57Z\u0026#34; name: aws-load-balancer-controller namespace: kube-system resourceVersion: \u0026#34;3094\u0026#34; selfLink: /api/v1/namespaces/kube-system/serviceaccounts/aws-load-balancer-controller uid: aa940b27-796e-4cda-bbba-fe6ca8207c00 secrets: - name: aws-load-balancer-controller-token-8pnww  For more information on IAM Roles for Service Accounts follow this link.\n Install the TargetGroupBinding CRDs kubectl apply -k github.com/aws/eks-charts/stable/aws-load-balancer-controller//crds?ref=master Deploy the Helm chart from the Amazon EKS charts repo Fist, We will verify if the AWS Load Balancer Controller version has beed set\nif [ ! -x ${LBC_VERSION} ] then tput setaf 2; echo \u0026#39;${LBC_VERSION} has been set.\u0026#39; else tput setaf 1;echo \u0026#39;${LBC_VERSION} has NOT been set.\u0026#39; fi  If the result is ${LBC_VERSION} has NOT been set., click here for the instructions.\n helm repo add eks https://aws.github.io/eks-charts export VPC_ID=$(aws eks describe-cluster \\  --name eksworkshop-eksctl \\  --query \u0026#34;cluster.resourcesVpcConfig.vpcId\u0026#34; \\  --output text) helm upgrade -i aws-load-balancer-controller \\  eks/aws-load-balancer-controller \\  -n kube-system \\  --set clusterName=eksworkshop-eksctl \\  --set serviceAccount.create=false \\  --set serviceAccount.name=aws-load-balancer-controller \\  --set image.tag=\u0026#34;${LBC_VERSION}\u0026#34; \\  --set region=${AWS_REGION} \\  --set vpcId=${VPC_ID} You can check if the deployment has completed\nkubectl -n kube-system rollout status deployment aws-load-balancer-controller "
 },
 {
-	"uri": "//localhost:1313/020_prerequisites/aws_event/",
-	"title": "...at an AWS event",
-	"tags": [],
-	"description": "",
-	"content": "Running the workshop at an AWS Event Only complete this section if you are at an AWS hosted event (such as re:Invent, Kubecon, Immersion Day, or any other event hosted by an AWS employee). If you are running the workshop on your own, go to:\nStart the workshop on your own.\n  AWS Workshop Portal   "
-},
-{
-	"uri": "//localhost:1313/intermediate/220_codepipeline/forksample/",
-	"title": "Fork Sample Repository",
-	"tags": [],
-	"description": "",
-	"content": "We are now going to fork the sample Kubernetes service so that we will be able modify the repository and trigger builds.\nLogin to GitHub and fork the sample service to your own account:\nhttps://github.com/rnzsgh/eks-workshop-sample-api-service-go\nOnce the repo is forked, you can view it in your your GitHub repositories.\nThe forked repo will look like:\n"
-},
-{
-	"uri": "//localhost:1313/intermediate/250_cloudwatch_container_insights/wraup/",
+	"uri": "//localhost:1313/beginner/250_cloudwatch_container_insights/wraup/",
 	"title": "Wrapping Up",
 	"tags": [],
 	"description": "",
 	"content": "Wrapping Up As you can see it’s fairly easy to get CloudWatch Container Insights to work, and set alarms for CPU and other metrics.\nWith CloudWatch Container Insights we remove the need to manage and update your own monitoring infrastructure and allow you to use native AWS solutions that you don’t have to manage the platform for.\n Cleanup your Environment Let\u0026rsquo;s clean up Wordpress so it\u0026rsquo;s not running in your cluster any longer.\nhelm -n wordpress-cwi uninstall understood-zebu kubectl delete namespace wordpress-cwi Run the following command to delete Container Insights from your cluster.\ncurl -s https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/k8s-deployment-manifest-templates/deployment-mode/daemonset/container-insights-monitoring/quickstart/cwagent-fluentd-quickstart.yaml | sed \u0026#34;s/{{cluster_name}}/eksworkshop-eksctl/;s/{{region_name}}/${AWS_REGION}/\u0026#34; | kubectl delete -f - Delete the SNS topic and the subscription.\n# Delete the SNS Topic aws sns delete-topic \\  --topic-arn arn:aws:sns:${AWS_REGION}:${ACCOUNT_ID}:wordpress-CPU-Alert # Delete the subscription aws sns unsubscribe \\  --subscription-arn $(aws sns list-subscriptions | jq -r \u0026#39;.Subscriptions[].SubscriptionArn\u0026#39;) Finally we will remove the CloudWatchAgentServerPolicy policy from the Nodes IAM Role\naws iam detach-role-policy \\  --policy-arn arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy \\  --role-name ${ROLE_NAME} Thank you for using CloudWatch Container Insights! There is a lot more to learn about our Observability features using Amazon CloudWatch and AWS X-Ray. Take a look at our One Observability Workshop\n "
 },
 {
-	"uri": "//localhost:1313/intermediate/201_resource_management/pod-priority/",
+	"uri": "//localhost:1313/beginner/201_resource_management/pod-priority/",
 	"title": "Pod Priority and Preemption",
 	"tags": [],
 	"description": "",
@@ -343,25 +252,11 @@
 	"content": "What is Ingress? Ingress exposes HTTP and HTTPS routes from outside the cluster to services within the cluster. Traffic routing is controlled by rules defined on the Ingress resource.\nHere is a simple example where an Ingress sends all its traffic to one Service: An Ingress may be configured to give Services externally-reachable URLs, load balance traffic, terminate SSL/TLS, and offer name-based virtual hosting. An Ingress controller is responsible for fulfilling the Ingress, usually with a load balancer, though it may also configure your edge router or additional frontends to help handle the traffic.\nAn Ingress does not expose arbitrary ports or protocols. Exposing services other than HTTP and HTTPS to the internet typically uses a service of Service.Type=NodePort or Service.Type=LoadBalancer.\nYou must have an ingress controller to satisfy an Ingress. Only creating an Ingress resource has no effect.\nYou may need to deploy an Ingress controller such as AWS Load Balancer Controller. You can choose from a number of Ingress controllers.\nIdeally, all Ingress controllers should fit the reference specification. In reality, the various Ingress controllers operate slightly differently.\nThe Ingress Resource A minimal ingress resource example for ingress-nginx:\napiVersion: extensions/v1beta1 kind: Ingress metadata: name: test-ingress annotations: nginx.ingress.kubernetes.io/rewrite-target: / spec: rules: - http: paths: - path: /testpath backend: serviceName: test servicePort: 80  As with all other Kubernetes resources, an Ingress needs apiVersion, kind, and metadata fields. The name of an Ingress object must be a valid DNS subdomain name. For general information about working with config files, see deploying applications, configuring containers, managing resources. Ingress frequently uses annotations to configure some options depending on the Ingress controller, an example of which is the rewrite-target annotation. Different Ingress controller support different annotations. Review the documentation for your choice of Ingress controller to learn which annotations are supported.\nThe Ingress spec has all the information needed to configure a load balancer or proxy server. Most importantly, it contains a list of rules matched against all incoming requests. Ingress resource only supports rules for directing HTTP traffic.\nIngress rules Each http rule contains the following information:\n An optional host. In this example, no host is specified, so the rule applies to all inbound HTTP traffic through the IP address specified. If a host is provided (for example, foo.bar.com), the rules apply to that host. A list of paths (for example, /testpath), each of which has an associated backend defined with a serviceName and servicePort. Both the host and path must match the content of an incoming request before the load balancer will direct traffic to the referenced service. A backend is a combination of service and port names as described in the Services doc. HTTP (and HTTPS) requests to the Ingress matching the host and path of the rule will be sent to the listed backend.  A default backend is often configured in an Ingress controller that will service any requests that do not match a path in the spec.\nDefault Backend An Ingress with no rules sends all traffic to a single default backend. The default backend is typically a configuration option of the Ingress controller and is not specified in your Ingress resources.\nIf none of the hosts or paths match the HTTP request in the Ingress objects, the traffic is routed to your default backend.\nClick here to read more on that topic.\n "
 },
 {
-	"uri": "//localhost:1313/intermediate/220_codepipeline/githubcredentials/",
-	"title": "GitHub Access Token",
-	"tags": [],
-	"description": "",
-	"content": "In order for CodePipeline to receive callbacks from GitHub, we need to generate a personal access token.\nOnce created, an access token can be stored in a secure enclave and reused, so this step is only required during the first run or when you need to generate new keys.\nOpen up the New personal access page in GitHub.\nYou may be prompted to enter your GitHub password\n Enter a value for Token description, check the repo permission scope and scroll down and click the Generate token button\nCopy the personal access token and save it in a secure place for the next step\n"
-},
-{
 	"uri": "//localhost:1313/beginner/130_exposing-service/ingress_controller_alb/",
 	"title": "Ingress Controller",
 	"tags": [],
 	"description": "",
 	"content": "Ingress Controllers In order for the Ingress resource to work, the cluster must have an ingress controller running.\nUnlike other types of controllers which run as part of the kube-controller-manager binary, Ingress controllers are not started automatically with a cluster.\nAWS Load Balancer Controller The AWS ALB Ingress Controller has been rebranded to AWS Load Balancer Controller.\n AWS Load Balancer Controller is a controller to help manage Elastic Load Balancers for a Kubernetes cluster.\n It satisfies Kubernetes Ingress resources by provisioning Application Load Balancers. It satisfies Kubernetes Service resources by provisioning Network Load Balancers.  In this chapter we will focus on the Application Load Balancer.\nAWS Elastic Load Balancing Application Load Balancer (ALB) is a popular AWS service that load balances incoming traffic at the application layer (layer 7) across multiple targets, such as Amazon EC2 instances, in multiple Availability Zones.\nALB supports multiple features including:\n host or path based routing TLS (Transport Layer Security) termination, WebSockets HTTP/2 AWS WAF (Web Application Firewall) integration integrated access logs, and health checks  Deploy the AWS Load Balancer Controller Prerequisites We will verify if the AWS Load Balancer Controller version has been set\nif [ ! -x ${LBC_VERSION} ] then tput setaf 2; echo \u0026#39;${LBC_VERSION} has been set.\u0026#39; else tput setaf 1;echo \u0026#39;${LBC_VERSION} has NOT been set.\u0026#39; fi  If the result is ${LBC_VERSION} has NOT been set., click here for the instructions.\n We will use Helm to install the ALB Ingress Controller.\nCheck to see if helm is installed:\nhelm version --short  If Helm is not found, click installing Helm CLI for instructions.\n Create IAM OIDC provider eksctl utils associate-iam-oidc-provider \\  --region ${AWS_REGION} \\  --cluster eksworkshop-eksctl \\  --approve  Learn more about IAM Roles for Service Accounts in the Amazon EKS documentation.\n Create an IAM policy called Create a policy called AWSLoadBalancerControllerIAMPolicy\ncurl -o iam_policy.json https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.3.0/docs/install/iam_policy.json aws iam create-policy \\  --policy-name AWSLoadBalancerControllerIAMPolicy \\  --policy-document file://iam_policy.json Create a IAM role and ServiceAccount eksctl create iamserviceaccount \\  --cluster eksworkshop-eksctl \\  --namespace kube-system \\  --name aws-load-balancer-controller \\  --attach-policy-arn arn:aws:iam::${ACCOUNT_ID}:policy/AWSLoadBalancerControllerIAMPolicy \\  --override-existing-serviceaccounts \\  --approve Install the TargetGroupBinding CRDs kubectl apply -k github.com/aws/eks-charts/stable/aws-load-balancer-controller/crds?ref=master kubectl get crd Deploy the Helm chart The helm chart will deploy from the eks repo\nhelm repo add eks https://aws.github.io/eks-charts helm upgrade -i aws-load-balancer-controller \\  eks/aws-load-balancer-controller \\  -n kube-system \\  --set clusterName=eksworkshop-eksctl \\  --set serviceAccount.create=false \\  --set serviceAccount.name=aws-load-balancer-controller \\  --set image.tag=\u0026#34;${LBC_VERSION}\u0026#34; kubectl -n kube-system rollout status deployment aws-load-balancer-controller Deploy Sample Application Now let’s deploy a sample 2048 game into our Kubernetes cluster and use the Ingress resource to expose it to traffic:\nDeploy 2048 game resources:\nexport EKS_CLUSTER_VERSION=$(aws eks describe-cluster --name eksworkshop-eksctl --query cluster.version --output text) if [ \u0026#34;`echo \u0026#34;${EKS_CLUSTER_VERSION} \u0026lt; 1.19\u0026#34; | bc`\u0026#34; -eq 1 ]; then curl -s https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/main/docs/examples/2048/2048_full.yaml \\  | sed \u0026#39;s=alb.ingress.kubernetes.io/target-type: ip=alb.ingress.kubernetes.io/target-type: instance=g\u0026#39; \\  | kubectl apply -f - fi if [ \u0026#34;`echo \u0026#34;${EKS_CLUSTER_VERSION} \u0026gt;= 1.19\u0026#34; | bc`\u0026#34; -eq 1 ]; then curl -s https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/main/docs/examples/2048/2048_full_latest.yaml \\  | sed \u0026#39;s=alb.ingress.kubernetes.io/target-type: ip=alb.ingress.kubernetes.io/target-type: instance=g\u0026#39; \\  | kubectl apply -f - fi After few seconds, verify that the Ingress resource is enabled:\nkubectl get ingress/ingress-2048 -n game-2048 You should be able to see the following output\nNAME HOSTS ADDRESS PORTS AGE ingress-2048 * k8s-game2048-ingress2-8ae3738fd5-251279030.us-east-2.elb.amazonaws.com 80 6m20s  You can find more information on the ingress with this command:\nexport GAME_INGRESS_NAME=$(kubectl -n game-2048 get targetgroupbindings -o jsonpath=\u0026#39;{.items[].metadata.name}\u0026#39;) kubectl -n game-2048 get targetgroupbindings ${GAME_INGRESS_NAME} -o yaml output\napiVersion: elbv2.k8s.aws/v1beta1 kind: TargetGroupBinding metadata: creationTimestamp: \u0026#34;2020-10-24T20:16:37Z\u0026#34; finalizers: - elbv2.k8s.aws/resources generation: 1 labels: ingress.k8s.aws/stack-name: ingress-2048 ingress.k8s.aws/stack-namespace: game-2048 name: k8s-game2048-service2-0e5fd48cc4 namespace: game-2048 resourceVersion: \u0026#34;292608\u0026#34; selfLink: /apis/elbv2.k8s.aws/v1beta1/namespaces/game-2048/targetgroupbindings/k8s-game2048-service2-0e5fd48cc4 uid: a1e3567e-429d-4f3c-b1fc-1131775cb74b spec: networking: ingress: - from: - securityGroup: groupID: sg-0f2bf9481b203d45a ports: - protocol: TCP serviceRef: name: service-2048 port: 80 targetGroupARN: arn:aws:elasticloadbalancing:us-east-2:197520326489:targetgroup/k8s-game2048-service2-0e5fd48cc4/4e0de699a21473e2 targetType: instance status: observedGeneration: 1  Finally, you access your newly deployed 2048 game by clicking the URL generated with these commands\nIt could take 2 or 3 minutes for the ALB to be ready.\n export GAME_2048=$(kubectl get ingress/ingress-2048 -n game-2048 -o jsonpath=\u0026#39;{.status.loadBalancer.ingress[0].hostname}\u0026#39;) echo http://${GAME_2048} "
-},
-{
-	"uri": "//localhost:1313/intermediate/220_codepipeline/codepipeline/",
-	"title": "CodePipeline Setup",
-	"tags": [],
-	"description": "",
-	"content": "Now we are going to create the AWS CodePipeline using AWS CloudFormation.\nCloudFormation is an infrastructure as code (IaC) tool which provides a common language for you to describe and provision all the infrastructure resources in your cloud environment. CloudFormation allows you to use a simple text file to model and provision, in an automated and secure manner, all the resources needed for your applications across all regions and accounts.\nEach EKS deployment/service should have its own CodePipeline and be located in an isolated source repository.\nYou can modify the CloudFormation templates provided with this workshop to meet your system requirements to easily onboard new services to your EKS cluster. For each new service the following steps can be repeated.\nClick the Launch button to create the CloudFormation stack in the AWS Management Console.\n   Launch template       CodePipeline \u0026amp; EKS  Launch    Download      After the console is open, enter your GitHub username, personal access token (created in previous step), check the acknowledge box and then click the \u0026ldquo;Create stack\u0026rdquo; button located at the bottom of the page.\nWait for the status to change from \u0026ldquo;CREATE_IN_PROGRESS\u0026rdquo; to CREATE_COMPLETE before moving on to the next step.\nOpen CodePipeline in the Management Console. You will see a CodePipeline that starts with eks-workshop-codepipeline. Click this link to view the details.\nIf you receive a permissions error similar to User x is not authorized to perform: codepipeline:ListPipelines\u0026hellip; upon clicking the above link, the CodePipeline console may have opened up in the wrong region. To correct this, from the Region dropdown in the console, choose the region you provisioned the workshop in. Select Oregon (us-west-2) if you provisioned the workshow per the \u0026ldquo;Start the workshop at an AWS event\u0026rdquo; instructions.\n Once you are on the detail page for the specific CodePipeline, you can see the status along with links to the change and build details.\nIf you click on the \u0026ldquo;details\u0026rdquo; link in the build/deploy stage, you can see the output from the CodeBuild process.\n To review the status of the deployment, you can run:\nkubectl describe deployment hello-k8s For the status of the service, run the following command:\nkubectl describe service hello-k8s Challenge: How can we view our exposed service?\nHINT: Which kubectl command will get you the Elastic Load Balancer (ELB) endpoint for this app?\n  Expand here to see the solution   Once the service is built and delivered, we can run the following command to get the Elastic Load Balancer (ELB) endpoint and open it in a browser. If the message is not updated immediately, give Kubernetes some time to deploy the change.\nkubectl get services hello-k8s -o wide   "
 },
 {
 	"uri": "//localhost:1313/020_prerequisites/workspace/",
@@ -385,32 +280,11 @@
 	"content": "Ingress After few seconds, verify that the Ingress resource is enabled:\nkubectl get ingress/ingress-2048 -n game-2048 You should be able to see the following output\nNAME HOSTS ADDRESS PORTS AGE ingress-2048 * k8s-game2048-ingress2-8ae3738fd5-1566954439.us-east-2.elb.amazonaws.com 80 14m  It could take 2 or 3 minutes for the ALB to be ready.\n From your AWS Management Console, if you navigate to the EC2 dashboard and the select Load Balancers from the menu on the left-pane, you should see the details of the ALB instance similar to the following. From the left-pane, if you select Target Groups and look at the registered targets under the Targets tab, you will see the IP addresses and ports of the sample app pods listed. Notice that the pods have been directly registered with the load balancer whereas when we worked with worker nodes in an earlier lab, the IP address of the worker nodes and the NodePort were registered as targets. The latter case is the Instance Mode where Ingress traffic starts at the ALB and reaches the Kubernetes worker nodes through each service\u0026rsquo;s NodePort and subsequently reaches the pods through the service’s ClusterIP. While running under Fargate, ALB operates in IP Mode, where Ingress traffic starts at the ALB and reaches the Kubernetes pods directly.\nIllustration of request routing from an AWS Application Load Balancer to Pods on worker nodes in Instance mode: Illustration of request routing from an AWS Application Load Balancer to Fargate Pods in IP mode: At this point, your deployment is complete and you should be able to reach the game-2048 service from a browser using the DNS name of the ALB. You may get the DNS name of the load balancer either from the AWS Management Console or from the output of the following command.\nexport FARGATE_GAME_2048=$(kubectl get ingress/ingress-2048 -n game-2048 -o jsonpath=\u0026#39;{.status.loadBalancer.ingress[0].hostname}\u0026#39;) echo \u0026#34;http://${FARGATE_GAME_2048}\u0026#34; Output should look like this http://3e100955-2048game-2048ingr-6fa0-1056911976.us-east-2.elb.amazonaws.com  "
 },
 {
-	"uri": "//localhost:1313/intermediate/240_monitoring/deploy-grafana/",
-	"title": "Deploy Grafana",
-	"tags": [],
-	"description": "",
-	"content": "We are now going to install Grafana. For this example, we are primarily using the Grafana defaults, but we are overriding several parameters. As with Prometheus, we are setting the storage class to gp2, admin password, configuring the datasource to point to Prometheus and creating an external load balancer for the service.\nCreate YAML file called grafana.yaml with following commands:\nmkdir ${HOME}/environment/grafana cat \u0026lt;\u0026lt; EoF \u0026gt; ${HOME}/environment/grafana/grafana.yaml datasources: datasources.yaml: apiVersion: 1 datasources: - name: Prometheus type: prometheus url: http://prometheus-server.prometheus.svc.cluster.local access: proxy isDefault: true EoF kubectl create namespace grafana helm install grafana grafana/grafana \\  --namespace grafana \\  --set persistence.storageClassName=\u0026#34;gp2\u0026#34; \\  --set persistence.enabled=true \\  --set adminPassword=\u0026#39;EKS!sAWSome\u0026#39; \\  --values ${HOME}/environment/grafana/grafana.yaml \\  --set service.type=LoadBalancer Run the following command to check if Grafana is deployed properly:\nkubectl get all -n grafana You should see similar results. They should all be Ready and Available\nNAME READY STATUS RESTARTS AGE pod/grafana-f64dbbcf4-794rk 1/1 Running 0 55s NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE service/grafana LoadBalancer 10.100.60.167 aa0fa7322d86e408786cdd21ebcc461c-1708627185.us-east-2.elb.amazonaws.com 80:31929/TCP 55s NAME READY UP-TO-DATE AVAILABLE AGE deployment.apps/grafana 1/1 1 1 55s NAME DESIRED CURRENT READY AGE replicaset.apps/grafana-f64dbbcf4 1 1 1 55s  It can take several minutes before the ELB is up, DNS is propagated and the nodes are registered.\n You can get Grafana ELB URL using this command. Copy \u0026amp; Paste the value into browser to access Grafana web UI.\nexport ELB=$(kubectl get svc -n grafana grafana -o jsonpath=\u0026#39;{.status.loadBalancer.ingress[0].hostname}\u0026#39;) echo \u0026#34;http://$ELB\u0026#34; When logging in, use the username admin and get the password hash by running the following:\nkubectl get secret --namespace grafana grafana -o jsonpath=\u0026#34;{.data.admin-password}\u0026#34; | base64 --decode ; echo "
-},
-{
 	"uri": "//localhost:1313/020_prerequisites/k8stools/",
 	"title": "Install Kubernetes Tools",
 	"tags": [],
 	"description": "",
 	"content": "Amazon EKS clusters require kubectl and kubelet binaries and the aws-cli or aws-iam-authenticator binary to allow IAM authentication for your Kubernetes cluster.\nIn this workshop we will give you the commands to download the Linux binaries. If you are running Mac OSX / Windows, please see the official EKS docs for the download links.\n Install kubectl sudo curl --silent --location -o /usr/local/bin/kubectl \\  https://amazon-eks.s3.us-west-2.amazonaws.com/1.19.6/2021-01-05/bin/linux/amd64/kubectl sudo chmod +x /usr/local/bin/kubectl Update awscli Upgrade AWS CLI according to guidance in AWS documentation.\ncurl \u0026#34;https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip\u0026#34; -o \u0026#34;awscliv2.zip\u0026#34; unzip awscliv2.zip sudo ./aws/install Install jq, envsubst (from GNU gettext utilities) and bash-completion sudo yum -y install jq gettext bash-completion moreutils Install yq for yaml processing echo \u0026#39;yq() { docker run --rm -i -v \u0026#34;${PWD}\u0026#34;:/workdir mikefarah/yq \u0026#34;$@\u0026#34; }\u0026#39; | tee -a ~/.bashrc \u0026amp;\u0026amp; source ~/.bashrc Verify the binaries are in the path and executable for command in kubectl jq envsubst aws do which $command \u0026amp;\u0026gt;/dev/null \u0026amp;\u0026amp; echo \u0026#34;$commandin path\u0026#34; || echo \u0026#34;$commandNOT FOUND\u0026#34; done Enable kubectl bash_completion kubectl completion bash \u0026gt;\u0026gt; ~/.bash_completion . /etc/profile.d/bash_completion.sh . ~/.bash_completion set the AWS Load Balancer Controller version echo \u0026#39;export LBC_VERSION=\u0026#34;v2.3.0\u0026#34;\u0026#39; \u0026gt;\u0026gt; ~/.bash_profile . ~/.bash_profile "
-},
-{
-	"uri": "//localhost:1313/intermediate/300_cis_eks_benchmark/ssh-into-node/",
-	"title": "Module 1: Install kube-bench in node",
-	"tags": [],
-	"description": "",
-	"content": "In this module, we will install kube-bench in one of the nodes and run the CIS Amazon EKS Benchmark node assessment against eks-1.0 node controls.\nList Amazon EKS cluster nodes kubectl get nodes -o wide Output NAME STATUS ROLES AGE VERSION INTERNAL-IP EXTERNAL-IP OS-IMAGE KERNEL-VERSION CONTAINER-RUNTIME ip-192-168-17-56.us-west-2.compute.internal Ready \u0026lt;none\u0026gt; 24h v1.16.12-eks-904af05 192.168.17.56 34.220.140.125 Amazon Linux 2 4.14.181-142.260.amzn2.x86_64 docker://19.3.6 ip-192-168-45-110.us-west-2.compute.internal Ready \u0026lt;none\u0026gt; 24h v1.16.12-eks-904af05 192.168.45.110 34.220.227.8 Amazon Linux 2 4.14.181-142.260.amzn2.x86_64 docker://19.3.6 ip-192-168-84-9.us-west-2.compute.internal Ready \u0026lt;none\u0026gt; 24h v1.16.12-eks-904af05 192.168.84.9 34.210.27.208 Amazon Linux 2 4.14.181-142.260.amzn2.x86_64 docker://19.3.6 SSH into nodes  Ssh (using SSM) via the AWS Console by clicking \u0026lsquo;Connect\u0026rsquo;-\u0026gt;\u0026lsquo;Session Manager`  Install kube-bench Install kube-bench using the commands below.\n Set latest version  KUBEBENCH_URL=$(curl -s https://api.github.com/repos/aquasecurity/kube-bench/releases/latest | jq -r '.assets[] | select(.name | contains(\u0026quot;amd64.rpm\u0026quot;)) | .browser_download_url')  Download and install kube-bench using yum  sudo yum install -y $KUBEBENCH_URL Run assessment against eks-1.0 Run the assessment against eks-1.0 controls based on CIS Amazon EKS Benchmark node assessments.\nkube-bench --benchmark eks-1.0 Output [INFO] 3 Worker Node Security Configuration [INFO] 3.1 Worker Node Configuration Files [PASS] 3.1.1 Ensure that the proxy kubeconfig file permissions are set to 644 or more restrictive (Scored) [PASS] 3.1.2 Ensure that the proxy kubeconfig file ownership is set to root:root (Scored) [PASS] 3.1.3 Ensure that the kubelet configuration file has permissions set to 644 or more restrictive (Scored) [PASS] 3.1.4 Ensure that the kubelet configuration file ownership is set to root:root (Scored) [INFO] 3.2 Kubelet [PASS] 3.2.1 Ensure that the --anonymous-auth argument is set to false (Scored) [PASS] 3.2.2 Ensure that the --authorization-mode argument is not set to AlwaysAllow (Scored) [PASS] 3.2.3 Ensure that the --client-ca-file argument is set as appropriate (Scored) [PASS] 3.2.4 Ensure that the --read-only-port argument is set to 0 (Scored) [PASS] 3.2.5 Ensure that the --streaming-connection-idle-timeout argument is not set to 0 (Scored) [PASS] 3.2.6 Ensure that the --protect-kernel-defaults argument is set to true (Scored) [PASS] 3.2.7 Ensure that the --make-iptables-util-chains argument is set to true (Scored) [PASS] 3.2.8 Ensure that the --hostname-override argument is not set (Scored) [WARN] 3.2.9 Ensure that the --event-qps argument is set to 0 or a level which ensures appropriate event capture (Scored) [PASS] 3.2.10 Ensure that the --rotate-certificates argument is not set to false (Scored) [PASS] 3.2.11 Ensure that the RotateKubeletServerCertificate argument is set to true (Scored) == Remediations == 3.2.9 If using a Kubelet config file, edit the file to set eventRecordQPS: to an appropriate level. If using command line arguments, edit the kubelet service file /etc/systemd/system/kubelet.service on each worker node and set the below parameter in KUBELET_SYSTEM_PODS_ARGS variable. Based on your system, restart the kubelet service. For example: systemctl daemon-reload systemctl restart kubelet.service == Summary == 14 checks PASS 0 checks FAIL 1 checks WARN 0 checks INFO Clean-up  Uninstall kube-bench  sudo yum remove kube-bench -y  Exit out of the node  exit "
-},
-{
-	"uri": "//localhost:1313/intermediate/220_codepipeline/change/",
-	"title": "Trigger New Release",
-	"tags": [],
-	"description": "",
-	"content": "Update Our Application So far we have walked through setting up CI/CD for EKS using AWS CodePipeline and now we are going to make a change to the GitHub repository so that we can see a new release built and delivered.\nOpen GitHub and select the forked repository with the name eks-workshop-sample-api-service-go.\nClick on main.go file and then click on the edit button, which looks like a pencil.\nChange the text where it says \u0026ldquo;Hello World\u0026rdquo;, add a commit message and then click the \u0026ldquo;Commit changes\u0026rdquo; button.\nYou should leave the master branch selected.\nThe main.go application needs to be compiled, so please ensure that you don\u0026rsquo;t accidentally break the build :)\n After you modify and commit your change in GitHub, in approximately one minute you will see a new build triggered in the AWS Management Console Confirm the Change If you still have the ELB URL open in your browser, refresh to confirm the update. If you need to retrieve the URL again, use kubectl get services hello-k8s -o wide\n"
 },
 {
 	"uri": "//localhost:1313/beginner/180_fargate/cleaning/",
@@ -420,18 +294,11 @@
 	"content": "Cleaning up To delete the resources used in this chapter:\nkubectl delete -f https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/main/docs/examples/2048/2048_full.yaml helm uninstall aws-load-balancer-controller \\  -n kube-system eksctl delete iamserviceaccount \\  --cluster eksworkshop-eksctl \\  --name aws-load-balancer-controller \\  --namespace kube-system \\  --wait aws iam delete-policy \\  --policy-arn arn:aws:iam::${ACCOUNT_ID}:policy/AWSLoadBalancerControllerIAMPolicy kubectl delete -k github.com/aws/eks-charts/stable/aws-load-balancer-controller//crds?ref=master eksctl delete fargateprofile \\  --name game-2048 \\  --cluster eksworkshop-eksctl "
 },
 {
-	"uri": "//localhost:1313/intermediate/201_resource_management/cleaning/",
+	"uri": "//localhost:1313/beginner/201_resource_management/cleaning/",
 	"title": "Clean Up",
 	"tags": [],
 	"description": "",
 	"content": "Ensure all the resources created in this module are cleaned up.\n# Basic Pod CPU and Memory Management kubectl delete pod basic-request-pod kubectl delete pod basic-limit-memory-pod kubectl delete pod basic-limit-cpu-pod kubectl delete pod basic-restricted-pod # Advanced Pod CPU and Memory Management kubectl delete namespace low-usage kubectl delete namespace high-usage kubectl delete namespace unrestricted-usage # Resource Quotas kubectl delete namespace red kubectl delete namespace blue # Pod Priority and Preemption kubectl delete deployment high-nginx-deployment kubectl delete deployment nginx-deployment kubectl delete priorityclass high-priority kubectl delete priorityclass low-priority # Prerequisites rm -r ~/environment/resource-management/ helm uninstall metrics-server --namespace metrics kubectl delete namespace metrics-server "
-},
-{
-	"uri": "//localhost:1313/intermediate/220_codepipeline/cleanup/",
-	"title": "Cleanup",
-	"tags": [],
-	"description": "",
-	"content": "Congratulations on completing the CI/CD with CodePipeline module.\nThis module is not used in subsequent steps, so you can remove the resources now, or at the end of the workshop.\nFirst we need to delete the Kubernetes deployment and service:\nkubectl delete deployments hello-k8s kubectl delete services hello-k8s Next, we are going to delete the CloudFormation stack created. Open CloudFormation the AWS Management Console.\nCheck the box next to the eksws-codepipeline stack, select the Actions dropdown menu and then click Delete stack:\nNow we are going to delete the ECR repository:\nEmpty and then delete the S3 bucket used by CodeBuild for build artifacts (bucket name starts with eksws-codepipeline). First, select the bucket, then empty the bucket and finally delete the bucket:\n"
 },
 {
 	"uri": "//localhost:1313/020_prerequisites/iamrole/",
@@ -453,20 +320,6 @@
 	"tags": [],
 	"description": "",
 	"content": " Cloud9 normally manages IAM credentials dynamically. This isn\u0026rsquo;t currently compatible with the EKS IAM authentication, so we will disable it and rely on the IAM role instead.\n  Return to your Cloud9 workspace and click the gear icon (in top right corner) Select AWS SETTINGS Turn off AWS managed temporary credentials Close the Preferences tab   To ensure temporary credentials aren\u0026rsquo;t already in place we will also remove any existing credentials file:\nrm -vf ${HOME}/.aws/credentials We should configure our aws cli with our current region as default.\nIf you are at an AWS event, ask your instructor which AWS region to use.\n export ACCOUNT_ID=$(aws sts get-caller-identity --output text --query Account) export AWS_REGION=$(curl -s 169.254.169.254/latest/dynamic/instance-identity/document | jq -r \u0026#39;.region\u0026#39;) export AZS=($(aws ec2 describe-availability-zones --query \u0026#39;AvailabilityZones[].ZoneName\u0026#39; --output text --region $AWS_REGION)) Check if AWS_REGION is set to desired region\ntest -n \u0026#34;$AWS_REGION\u0026#34; \u0026amp;\u0026amp; echo AWS_REGION is \u0026#34;$AWS_REGION\u0026#34; || echo AWS_REGION is not set Let\u0026rsquo;s save these into bash_profile\necho \u0026#34;export ACCOUNT_ID=${ACCOUNT_ID}\u0026#34; | tee -a ~/.bash_profile echo \u0026#34;export AWS_REGION=${AWS_REGION}\u0026#34; | tee -a ~/.bash_profile echo \u0026#34;export AZS=(${AZS[@]})\u0026#34; | tee -a ~/.bash_profile aws configure set default.region ${AWS_REGION} aws configure get default.region Validate the IAM role Use the GetCallerIdentity CLI command to validate that the Cloud9 IDE is using the correct IAM role.\naws sts get-caller-identity --query Arn | grep eksworkshop-admin -q \u0026amp;\u0026amp; echo \u0026#34;IAM role valid\u0026#34; || echo \u0026#34;IAM role NOT valid\u0026#34; If the IAM role is not valid, DO NOT PROCEED. Go back and confirm the steps on this page.\n"
-},
-{
-	"uri": "//localhost:1313/intermediate/240_monitoring/dashboards/",
-	"title": "Dashboards",
-	"tags": [],
-	"description": "",
-	"content": "Log in to Grafana Log in to Grafana dashboard using credentials supplied during configuration.\nYou will notice that \u0026lsquo;Install Grafana\u0026rsquo; \u0026amp; \u0026lsquo;create your first data source\u0026rsquo; are already completed. We will import community created dashboard for this tutorial.\nCluster Monitoring Dashboard For creating a dashboard to monitor the cluster:\n Click '+' button on left panel and select \u0026lsquo;Import\u0026rsquo;. Enter 3119 dashboard id under Grafana.com Dashboard. Click \u0026lsquo;Load\u0026rsquo;. Select \u0026lsquo;Prometheus\u0026rsquo; as the endpoint under prometheus data sources drop down. Click \u0026lsquo;Import\u0026rsquo;.  This will show monitoring dashboard for all cluster nodes\nPods Monitoring Dashboard For creating a dashboard to monitor all the pods:\n Click '+' button on left panel and select \u0026lsquo;Import\u0026rsquo;. Enter 6417 dashboard id under Grafana.com Dashboard. Click \u0026lsquo;Load\u0026rsquo;. Enter Kubernetes Pods Monitoring as the Dashboard name. Click change to set the Unique identifier (uid). Select \u0026lsquo;Prometheus\u0026rsquo; as the endpoint under prometheus data sources drop down.s Click \u0026lsquo;Import\u0026rsquo;.  "
-},
-{
-	"uri": "//localhost:1313/beginner/090_rbac/create_iam_user/",
-	"title": "Create a User",
-	"tags": [],
-	"description": "",
-	"content": " For the sake of simplicity, in this chapter, we will save credentials to a file to make it easy to toggle back and forth between users. Never do this in production or with credentials that have privileged access; It is not a security best practice to store credentials on the filesystem.\n From within the Cloud9 terminal, create a new user called rbac-user, and generate/save credentials for it:\naws iam create-user --user-name rbac-user aws iam create-access-key --user-name rbac-user | tee /tmp/create_output.json By running the previous step, you should get a response similar to:\n{ \u0026#34;AccessKey\u0026#34;: { \u0026#34;UserName\u0026#34;: \u0026#34;rbac-user\u0026#34;, \u0026#34;Status\u0026#34;: \u0026#34;Active\u0026#34;, \u0026#34;CreateDate\u0026#34;: \u0026#34;2019-07-17T15:37:27Z\u0026#34;, \u0026#34;SecretAccessKey\u0026#34;: \u0026lt; AWS Secret Access Key \u0026gt; , \u0026#34;AccessKeyId\u0026#34;: \u0026lt; AWS Access Key \u0026gt; } }  To make it easy to switch back and forth between the admin user you created the cluster with, and this new rbac-user, run the following command to create a script that when sourced, sets the active user to be rbac-user:\ncat \u0026lt;\u0026lt; EoF \u0026gt; rbacuser_creds.sh export AWS_SECRET_ACCESS_KEY=$(jq -r .AccessKey.SecretAccessKey /tmp/create_output.json) export AWS_ACCESS_KEY_ID=$(jq -r .AccessKey.AccessKeyId /tmp/create_output.json) EoF "
 },
 {
 	"uri": "//localhost:1313/010_introduction/basics/",
@@ -511,13 +364,6 @@
 	"content": "If you look in the newly created eksdemo directory, you\u0026rsquo;ll see several files and directories.\nThe table below outlines the purpose of each component in the Helm chart structure.\n   File or Directory Description     charts/ Sub-charts that the chart depends on   Chart.yaml Information about your chart   values.yaml The default values for your templates   template/ The template files   template/deployment.yaml Basic manifest for creating Kubernetes Deployment objects   template/_helpers.tpl Used to define Go template helpers   template/hpa.yaml Basic manifest for creating Kubernetes Horizontal Pod Autoscaler objects   template/ingress.yaml Basic manifest for creating Kubernetes Ingress objects   template/NOTES.txt A plain text file to give users detailed information about how to use the newly installed chart   template/serviceaccount.yaml Basic manifest for creating Kubernetes ServiceAccount objects   template/service.yaml Basic manifest for creating Kubernetes Service objects   tests/ Directory of Test files   tests/test-connections.yaml Tests that validate that your chart works as expected when it is installed    We\u0026rsquo;re actually going to create our own files, so we\u0026rsquo;ll delete these boilerplate files\nrm -rf ~/environment/eksdemo/templates/ rm ~/environment/eksdemo/Chart.yaml rm ~/environment/eksdemo/values.yaml Run the following code block to create a new Chart.yaml file which will describe the chart\ncat \u0026lt;\u0026lt;EoF \u0026gt; ~/environment/eksdemo/Chart.yaml apiVersion: v2 name: eksdemo description: A Helm chart for EKS Workshop Microservices application version: 0.1.0 appVersion: 1.0 EoF Next we\u0026rsquo;ll copy the manifest files for each of our microservices into the templates directory as servicename.yaml\n#create subfolders for each template type mkdir -p ~/environment/eksdemo/templates/deployment mkdir -p ~/environment/eksdemo/templates/service # Copy and rename frontend manifests cp ~/environment/ecsdemo-frontend/kubernetes/deployment.yaml ~/environment/eksdemo/templates/deployment/frontend.yaml cp ~/environment/ecsdemo-frontend/kubernetes/service.yaml ~/environment/eksdemo/templates/service/frontend.yaml # Copy and rename crystal manifests cp ~/environment/ecsdemo-crystal/kubernetes/deployment.yaml ~/environment/eksdemo/templates/deployment/crystal.yaml cp ~/environment/ecsdemo-crystal/kubernetes/service.yaml ~/environment/eksdemo/templates/service/crystal.yaml # Copy and rename nodejs manifests cp ~/environment/ecsdemo-nodejs/kubernetes/deployment.yaml ~/environment/eksdemo/templates/deployment/nodejs.yaml cp ~/environment/ecsdemo-nodejs/kubernetes/service.yaml ~/environment/eksdemo/templates/service/nodejs.yaml All files in the templates directory are sent through the template engine. These are currently plain YAML files that would be sent to Kubernetes as-is.\nReplace hard-coded values with template directives Let\u0026rsquo;s replace some of the values with template directives to enable more customization by removing hard-coded values.\nOpen ~/environment/eksdemo/templates/deployment/frontend.yaml in your Cloud9 editor.\nThe following steps should be completed seperately for frontend.yaml, crystal.yaml, and nodejs.yaml.\n Under spec, find replicas: 1 and replace with the following:\nreplicas: {{ .Values.replicas }} Under spec.template.spec.containers.image, replace the image with the correct template value from the table below:\n   Filename Value     frontend.yaml - image: {{ .Values.frontend.image }}:{{ .Values.version }}   crystal.yaml - image: {{ .Values.crystal.image }}:{{ .Values.version }}   nodejs.yaml - image: {{ .Values.nodejs.image }}:{{ .Values.version }}    Create a values.yaml file with our template defaults Run the following code block to populate our template directives with default values.\ncat \u0026lt;\u0026lt;EoF \u0026gt; ~/environment/eksdemo/values.yaml # Default values for eksdemo. # This is a YAML-formatted file. # Declare variables to be passed into your templates. # Release-wide Values replicas: 3 version: \u0026#39;latest\u0026#39; # Service Specific Values nodejs: image: brentley/ecsdemo-nodejs crystal: image: brentley/ecsdemo-crystal frontend: image: brentley/ecsdemo-frontend EoF "
 },
 {
-	"uri": "//localhost:1313/intermediate/230_logging/setup_es/",
-	"title": "Provision an Amazon OpenSearch Cluster",
-	"tags": [],
-	"description": "",
-	"content": "This example creates an one instance Amazon OpenSearch cluster named eksworkshop-logging. This cluster will be created in the same region as the EKS Kubernetes cluster.\nThe Amazon OpenSearch cluster will have Fine-Grained Access Control enabled.\nFine-grained access control offers two forms of authentication and authorization:\n A built-in user database, which makes it easy to configure usernames and passwords inside of Amazon OpenSearch cluster. AWS Identity and Access Management (IAM) integration, which lets you map IAM principals to permissions.  We will create a public access domain with fine-grained access control enabled, an access policy that doesn\u0026rsquo;t use IAM principals, and a master user in the internal user database.\nFirst let\u0026rsquo;s create some variables\n# name of our Amazon OpenSearch cluster export ES_DOMAIN_NAME=\u0026#34;eksworkshop-logging\u0026#34; # Elasticsearch version export ES_VERSION=\u0026#34;OpenSearch_1.0\u0026#34; # OpenSearch Dashboards admin user export ES_DOMAIN_USER=\u0026#34;eksworkshop\u0026#34; # OpenSearch Dashboards admin password export ES_DOMAIN_PASSWORD=\u0026#34;$(openssl rand -base64 12)_Ek1$\u0026#34; We are ready to create the Amazon OpenSearch cluster\n# Download and update the template using the variables created previously curl -sS https://www.eksworkshop.com/intermediate/230_logging/deploy.files/es_domain.json \\  | envsubst \u0026gt; ~/environment/logging/es_domain.json # Create the cluster aws opensearch create-domain \\  --cli-input-json file://~/environment/logging/es_domain.json  It takes a little while for the cluster to be in an active state. The AWS Console should show the following status when the cluster is ready.\n You could also check this via AWS CLI\nif [ $(aws opensearch describe-domain --domain-name ${ES_DOMAIN_NAME} --query \u0026#39;DomainStatus.Processing\u0026#39;) == \u0026#34;false\u0026#34; ] then tput setaf 2; echo \u0026#34;The Amazon OpenSearch cluster is ready\u0026#34; else tput setaf 1;echo \u0026#34;The Amazon OpenSearch cluster is NOT ready\u0026#34; fi  It is important to wait for the cluster to be available before moving to the next section.\n "
-},
-{
 	"uri": "//localhost:1313/beginner/080_scaling/test_hpa/",
 	"title": "Scale an Application with HPA",
 	"tags": [],
@@ -525,32 +371,18 @@
 	"content": "Deploy a Sample App We will deploy an application and expose as a service on TCP port 80.\nThe application is a custom-built image based on the php-apache image. The index.php page performs calculations to generate CPU load. More information can be found here\nkubectl create deployment php-apache --image=us.gcr.io/k8s-artifacts-prod/hpa-example kubectl set resources deploy php-apache --requests=cpu=200m kubectl expose deploy php-apache --port 80 kubectl get pod -l app=php-apache Create an HPA resource This HPA scales up when CPU exceeds 50% of the allocated container resource.\nkubectl autoscale deployment php-apache `#The target average CPU utilization` \\ --cpu-percent=50 \\  --min=1 `#The lower limit for the number of pods that can be set by the autoscaler` \\ --max=10 `#The upper limit for the number of pods that can be set by the autoscaler` View the HPA using kubectl. You probably will see \u0026lt;unknown\u0026gt;/50% for 1-2 minutes and then you should be able to see 0%/50%\nkubectl get hpa Generate load to trigger scaling Open a new terminal in the Cloud9 Environment and run the following command to drop into a shell on a new container\nkubectl --generator=run-pod/v1 run -i --tty load-generator --image=busybox /bin/sh Execute a while loop to continue getting http:///php-apache\nwhile true; do wget -q -O - http://php-apache; done In the previous tab, watch the HPA with the following command\nkubectl get hpa -w You will see HPA scale the pods from 1 up to our configured maximum (10) until the CPU average is below our target (50%)\nYou can now stop (Ctrl + C) load test that was running in the other terminal. You will notice that HPA will slowly bring the replica count to min number based on its configuration. You should also get out of load testing application by pressing Ctrl + D.\n"
 },
 {
-	"uri": "//localhost:1313/020_prerequisites/aws_event/portal/",
-	"title": "AWS Workshop Portal",
-	"tags": [],
-	"description": "",
-	"content": "Login to AWS Workshop Portal This workshop creates an AWS account and a Cloud9 environment. You will need the Participant Hash provided upon entry, and your email address to track your unique session.\nConnect to the portal by clicking the button or browsing to https://dashboard.eventengine.run/. The following screen shows up.\nEnter the provided hash in the text box. The button on the bottom right corner changes to Accept Terms \u0026amp; Login. Click on that button to continue.\nClick on AWS Console on dashboard.\nTake the defaults and click on Open AWS Console. This will open AWS Console in a new browser tab.\nOnce you have completed the step above, you can head straight to Create a Workspace\n"
-},
-{
-	"uri": "//localhost:1313/intermediate/200_migrate_to_eks/deploy-counter-app-kind/",
+	"uri": "//localhost:1313/beginner/200_migrate_to_eks/deploy-counter-app-kind/",
 	"title": "Deploy counter app to kind",
 	"tags": [],
 	"description": "",
 	"content": "Once the kind cluster is ready we can check it with\nkubectl --context kind-kind get nodes Deploy our postgres database to the cluster. First create a ConfigMap to initialize an empty database and then create a PersistentVolume on hostPath to store the data.\ncat \u0026lt;\u0026lt;EOF | kubectl --context kind-kind apply -f - --- apiVersion: v1 kind: ConfigMap metadata: name: postgres-config labels: app: postgres data: POSTGRES_PASSWORD: supersecret init: | CREATE TABLE importantdata ( id int4 PRIMARY KEY, count int4 NOT NULL ); INSERT INTO importantdata (id , count) VALUES (1, 0); --- kind: PersistentVolume apiVersion: v1 metadata: name: postgres-pv-volume labels: type: local app: postgres spec: storageClassName: manual capacity: storage: 5Gi accessModes: - ReadWriteMany hostPath: path: \u0026#34;/mnt/data\u0026#34; --- kind: PersistentVolumeClaim apiVersion: v1 metadata: name: postgres-pv-claim labels: app: postgres spec: storageClassName: manual accessModes: - ReadWriteMany resources: requests: storage: 5Gi EOF Now deploy a Postgres StatefulSet and service. You can see we mount the ConfigMap and PersistentVolumeClaim\ncat \u0026lt;\u0026lt;EOF | kubectl --context kind-kind apply -f - apiVersion: apps/v1 kind: StatefulSet metadata: name: postgres spec: replicas: 1 serviceName: postgres selector: matchLabels: app: postgres template: metadata: labels: app: postgres spec: terminationGracePeriodSeconds: 5 containers: - name: postgres image: postgres:13 imagePullPolicy: \u0026#34;IfNotPresent\u0026#34; ports: - containerPort: 5432 envFrom: - configMapRef: name: postgres-config volumeMounts: - mountPath: /var/lib/postgresql/data name: postgredb - mountPath: /docker-entrypoint-initdb.d name: init resources: requests: memory: \u0026#34;64Mi\u0026#34; cpu: \u0026#34;250m\u0026#34; limits: memory: \u0026#34;128Mi\u0026#34; cpu: \u0026#34;500m\u0026#34; volumes: - name: postgredb persistentVolumeClaim: claimName: postgres-pv-claim - name: init configMap: name: postgres-config items: - key: init path: init.sql --- apiVersion: v1 kind: Service metadata: name: postgres labels: app: postgres spec: type: ClusterIP ports: - port: 5432 selector: app: postgres EOF Finally deploy the counter frontend and NodePort service\ncat \u0026lt;\u0026lt;EOF | kubectl --context kind-kind apply -f - --- apiVersion: apps/v1 kind: Deployment metadata: name: counter labels: app: counter spec: replicas: 2 selector: matchLabels: app: counter template: metadata: labels: app: counter spec: containers: - name: counter image: public.ecr.aws/aws-containers/stateful-counter:latest ports: - containerPort: 8000 resources: requests: memory: \u0026#34;16Mi\u0026#34; cpu: \u0026#34;100m\u0026#34; limits: memory: \u0026#34;128Mi\u0026#34; cpu: \u0026#34;500m\u0026#34; --- apiVersion: v1 kind: Service metadata: name: counter-service spec: type: NodePort selector: app: counter ports: - port: 8000 name: http nodePort: 30000 EOF You can verify that your application and database is running with\nkubectl --context kind-kind get pods "
 },
 {
-	"uri": "//localhost:1313/intermediate/300_cis_eks_benchmark/run-as-job/",
-	"title": "Module 2: Run kube-bench as a K8s job",
-	"tags": [],
-	"description": "",
-	"content": "Create a job file Create a job file named job-eks.yaml using the command below.\ncat \u0026lt;\u0026lt; EOF \u0026gt; job-eks.yaml --- apiVersion: batch/v1 kind: Job metadata: name: kube-bench spec: template: spec: hostPID: true containers: - name: kube-bench image: aquasec/kube-bench:latest command: [\u0026#34;kube-bench\u0026#34;, \u0026#34;--benchmark\u0026#34;, \u0026#34;eks-1.0\u0026#34;] volumeMounts: - name: var-lib-kubelet mountPath: /var/lib/kubelet readOnly: true - name: etc-systemd mountPath: /etc/systemd readOnly: true - name: etc-kubernetes mountPath: /etc/kubernetes readOnly: true restartPolicy: Never volumes: - name: var-lib-kubelet hostPath: path: \u0026#34;/var/lib/kubelet\u0026#34; - name: etc-systemd hostPath: path: \u0026#34;/etc/systemd\u0026#34; - name: etc-kubernetes hostPath: path: \u0026#34;/etc/kubernetes\u0026#34; EOF Run the job on your cluster Run the kube-bench job on a pod in your cluster using the command below.\nkubectl apply -f job-eks.yaml View job assessment results Find the pod that was created. It should be in the default namespace.\nkubectl get pods --all-namespaces Retrieve the value of this pod and the output report. Note the pod name will be different for your environment.\nkubectl logs kube-bench-\u0026lt;value\u0026gt; Output [INFO] 3 Worker Node Security Configuration [INFO] 3.1 Worker Node Configuration Files [PASS] 3.1.1 Ensure that the proxy kubeconfig file permissions are set to 644 or more restrictive (Scored) [PASS] 3.1.2 Ensure that the proxy kubeconfig file ownership is set to root:root (Scored) [PASS] 3.1.3 Ensure that the kubelet configuration file has permissions set to 644 or more restrictive (Scored) [PASS] 3.1.4 Ensure that the kubelet configuration file ownership is set to root:root (Scored) [INFO] 3.2 Kubelet [PASS] 3.2.1 Ensure that the --anonymous-auth argument is set to false (Scored) [PASS] 3.2.2 Ensure that the --authorization-mode argument is not set to AlwaysAllow (Scored) [PASS] 3.2.3 Ensure that the --client-ca-file argument is set as appropriate (Scored) [PASS] 3.2.4 Ensure that the --read-only-port argument is set to 0 (Scored) [PASS] 3.2.5 Ensure that the --streaming-connection-idle-timeout argument is not set to 0 (Scored) [PASS] 3.2.6 Ensure that the --protect-kernel-defaults argument is set to true (Scored) [PASS] 3.2.7 Ensure that the --make-iptables-util-chains argument is set to true (Scored) [PASS] 3.2.8 Ensure that the --hostname-override argument is not set (Scored) [WARN] 3.2.9 Ensure that the --event-qps argument is set to 0 or a level which ensures appropriate event capture (Scored) [PASS] 3.2.10 Ensure that the --rotate-certificates argument is not set to false (Scored) [PASS] 3.2.11 Ensure that the RotateKubeletServerCertificate argument is set to true (Scored) == Remediations == 3.2.9 If using a Kubelet config file, edit the file to set eventRecordQPS: to an appropriate level. If using command line arguments, edit the kubelet service file /etc/systemd/system/kubelet.service on each worker node and set the below parameter in KUBELET_SYSTEM_PODS_ARGS variable. Based on your system, restart the kubelet service. For example: systemctl daemon-reload systemctl restart kubelet.service == Summary == 14 checks PASS 0 checks FAIL 1 checks WARN 0 checks INFO Cleanup  Delete the resources  kubectl delete -f job-eks.yaml rm -f job-eks.yaml "
-},
-{
 	"uri": "//localhost:1313/020_prerequisites/",
 	"title": "Start the workshop...",
 	"tags": ["beginner", "kubeflow", "appmesh", "CON203", "CON205", "CON206", "OPN401"],
 	"description": "",
-	"content": "Getting Started   To start the workshop, please follow the these steps \u0026hellip; Create a Workspace\n"
+	"content": "Getting Started To start the workshop, please follow the these steps \u0026hellip; Create a Workspace\n"
 },
 {
 	"uri": "//localhost:1313/020_prerequisites/clone/",
@@ -558,20 +390,6 @@
 	"tags": [],
 	"description": "",
 	"content": "cd ~/environment git clone https://github.com/aws-containers/ecsdemo-frontend.git git clone https://github.com/brentley/ecsdemo-nodejs.git git clone https://github.com/brentley/ecsdemo-crystal.git "
-},
-{
-	"uri": "//localhost:1313/intermediate/230_logging/config_es/",
-	"title": "Configure Amazon OpenSearch Access",
-	"tags": [],
-	"description": "",
-	"content": "Mapping Roles to Users Role mapping is the most critical aspect of fine-grained access control. Fine-grained access control has some predefined roles to help you get started, but unless you map roles to users, every request to the cluster ends in a permissions error.\nBackend roles offer another way of mapping roles to users. Rather than mapping the same role to dozens of different users, you can map the role to a single backend role, and then make sure that all users have that backend role. Backend roles can be IAM roles or arbitrary strings that you specify when you create users in the internal user database.\nWe will add the Fluent Bit ARN as a backend role to the all_access role using the Amazon OpenSearch API\n# We need to retrieve the Fluent Bit Role ARN export FLUENTBIT_ROLE=$(eksctl get iamserviceaccount --cluster eksworkshop-eksctl --namespace logging -o json | jq \u0026#39;.[].status.roleARN\u0026#39; -r) # Get the Amazon OpenSearch Endpoint export ES_ENDPOINT=$(aws opensearch describe-domain --domain-name ${ES_DOMAIN_NAME} --output text --query \u0026#34;DomainStatus.Endpoint\u0026#34;) # Update the Elasticsearch internal database curl -sS -u \u0026#34;${ES_DOMAIN_USER}:${ES_DOMAIN_PASSWORD}\u0026#34; \\  -X PATCH \\  https://${ES_ENDPOINT}/_opendistro/_security/api/rolesmapping/all_access?pretty \\  -H \u0026#39;Content-Type: application/json\u0026#39; \\  -d\u0026#39; [ { \u0026#34;op\u0026#34;: \u0026#34;add\u0026#34;, \u0026#34;path\u0026#34;: \u0026#34;/backend_roles\u0026#34;, \u0026#34;value\u0026#34;: [\u0026#34;\u0026#39;${FLUENTBIT_ROLE}\u0026#39;\u0026#34;] } ] \u0026#39; Output\n{ \u0026#34;status\u0026#34; : \u0026#34;OK\u0026#34;, \u0026#34;message\u0026#34; : \u0026#34;\u0026#39;all_access\u0026#39; updated.\u0026#34; }  "
-},
-{
-	"uri": "//localhost:1313/intermediate/240_monitoring/cleanup/",
-	"title": "Cleanup",
-	"tags": [],
-	"description": "",
-	"content": "Uninstall Prometheus and Grafana helm uninstall prometheus --namespace prometheus kubectl delete ns prometheus helm uninstall grafana --namespace grafana kubectl delete ns grafana rm -rf ${HOME}/environment/grafana "
 },
 {
 	"uri": "//localhost:1313/beginner/050_deploy/servicetype/",
@@ -586,13 +404,6 @@
 	"tags": [],
 	"description": "",
 	"content": "In AWS accounts that have never created a load balancer before, it\u0026rsquo;s possible that the service role for ELB might not exist yet.\nWe can check for the role, and create it if it\u0026rsquo;s missing.\nCopy/Paste the following commands into your Cloud9 workspace:\naws iam get-role --role-name \u0026quot;AWSServiceRoleForElasticLoadBalancing\u0026quot; || aws iam create-service-linked-role --aws-service-name \u0026quot;elasticloadbalancing.amazonaws.com\u0026quot; "
-},
-{
-	"uri": "//localhost:1313/beginner/090_rbac/map_iam_user_to_k8s_user/",
-	"title": "Map an IAM User to K8s",
-	"tags": [],
-	"description": "",
-	"content": "Next, we\u0026rsquo;ll define a k8s user called rbac-user, and map to its IAM user counterpart. Run the following to get the existing ConfigMap and save into a file called aws-auth.yaml:\nkubectl get configmap -n kube-system aws-auth -o yaml | grep -v \u0026quot;creationTimestamp\\|resourceVersion\\|selfLink\\|uid\u0026quot; | sed '/^ annotations:/,+2 d' \u0026gt; aws-auth.yaml Next append the rbac-user mapping to the existing configMap\ncat \u0026lt;\u0026lt; EoF \u0026gt;\u0026gt; aws-auth.yaml data: mapUsers: | - userarn: arn:aws:iam::${ACCOUNT_ID}:user/rbac-user username: rbac-user EoF Some of the values may be dynamically populated when the file is created. To verify everything populated and was created correctly, run the following:\ncat aws-auth.yaml And the output should reflect that rolearn and userarn populated, similar to:\napiVersion: v1 kind: ConfigMap metadata: name: aws-auth namespace: kube-system data: mapUsers: | - userarn: arn:aws:iam::123456789:user/rbac-user username: rbac-user  Next, apply the ConfigMap to apply this mapping to the system:\nkubectl apply -f aws-auth.yaml "
 },
 {
 	"uri": "//localhost:1313/010_introduction/basics/what_is_k8s/",
@@ -620,7 +431,7 @@
 	"title": "Launch using eksctl",
 	"tags": ["beginner", "kubeflow", "appmesh", "CON203", "CON205", "CON206", "OPN401"],
 	"description": "",
-	"content": "Launch using eksctl   eksctl is a tool jointly developed by AWS and Weaveworks that automates much of the experience of creating EKS clusters.\nIn this module, we will use eksctl to launch and configure our EKS cluster and nodes.\n"
+	"content": "Launch using eksctl eksctl is a tool jointly developed by AWS and Weaveworks that automates much of the experience of creating EKS clusters.\nIn this module, we will use eksctl to launch and configure our EKS cluster and nodes.\n"
 },
 {
 	"uri": "//localhost:1313/030_eksctl/test/",
@@ -630,25 +441,11 @@
 	"content": "Test the cluster: Confirm your nodes:\nkubectl get nodes # if we see our 3 nodes, we know we have authenticated correctly Export the Worker Role Name for use throughout the workshop: STACK_NAME=$(eksctl get nodegroup --cluster eksworkshop-eksctl -o json | jq -r \u0026#39;.[].StackName\u0026#39;) ROLE_NAME=$(aws cloudformation describe-stack-resources --stack-name $STACK_NAME | jq -r \u0026#39;.StackResources[] | select(.ResourceType==\u0026#34;AWS::IAM::Role\u0026#34;) | .PhysicalResourceId\u0026#39;) echo \u0026#34;export ROLE_NAME=${ROLE_NAME}\u0026#34; | tee -a ~/.bash_profile Congratulations! You now have a fully working Amazon EKS Cluster that is ready to use! Before you move on to any other labs, make sure to complete the steps on the next page to update the EKS Console Credentials.\n"
 },
 {
-	"uri": "//localhost:1313/beginner/040_dashboard/connect/",
-	"title": "Access the Dashboard",
-	"tags": [],
-	"description": "",
-	"content": "Now we can access the Kubernetes Dashboard\n In your Cloud9 environment, click Tools / Preview / Preview Running Application Scroll to the end of the URL and append:  /api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/ The Cloud9 Preview browser doesn\u0026rsquo;t appear to support the token authentication, so once you have the login screen in the cloud9 preview browser tab, press the Pop Out button to open the login screen in a regular browser tab, like below: Open a New Terminal Tab and enter\naws eks get-token --cluster-name eksworkshop-eksctl | jq -r \u0026#39;.status.token\u0026#39; Copy the output of this command and then click the radio button next to Token then in the text field below paste the output from the last command.\nThen press Sign In.\n"
-},
-{
 	"uri": "//localhost:1313/beginner/080_scaling/deploy_ca/",
 	"title": "Configure Cluster Autoscaler (CA)",
 	"tags": [],
 	"description": "",
 	"content": "Cluster Autoscaler for AWS provides integration with Auto Scaling groups. It enables users to choose from four different options of deployment:\n One Auto Scaling group Multiple Auto Scaling groups Auto-Discovery Control-plane Node setup  Auto-Discovery is the preferred method to configure Cluster Autoscaler. Click here for more information.\nCluster Autoscaler will attempt to determine the CPU, memory, and GPU resources provided by an Auto Scaling Group based on the instance type specified in its Launch Configuration or Launch Template.\nConfigure the ASG You configure the size of your Auto Scaling group by setting the minimum, maximum, and desired capacity. When we created the cluster we set these settings to 3.\naws autoscaling \\  describe-auto-scaling-groups \\  --query \u0026#34;AutoScalingGroups[? Tags[? (Key==\u0026#39;eks:cluster-name\u0026#39;) \u0026amp;\u0026amp; Value==\u0026#39;eksworkshop-eksctl\u0026#39;]].[AutoScalingGroupName, MinSize, MaxSize,DesiredCapacity]\u0026#34; \\  --output table ------------------------------------------------------------- | DescribeAutoScalingGroups | \u0026#43;-------------------------------------------\u0026#43;----\u0026#43;----\u0026#43;-----\u0026#43; | eks-1eb9b447-f3c1-0456-af77-af0bbd65bc9f | 2 | 4 | 3 | \u0026#43;-------------------------------------------\u0026#43;----\u0026#43;----\u0026#43;-----\u0026#43;  Now, increase the maximum capacity to 4 instances\n# we need the ASG name export ASG_NAME=$(aws autoscaling describe-auto-scaling-groups --query \u0026#34;AutoScalingGroups[? Tags[? (Key==\u0026#39;eks:cluster-name\u0026#39;) \u0026amp;\u0026amp; Value==\u0026#39;eksworkshop-eksctl\u0026#39;]].AutoScalingGroupName\u0026#34; --output text) # increase max capacity up to 4 aws autoscaling \\  update-auto-scaling-group \\  --auto-scaling-group-name ${ASG_NAME} \\  --min-size 3 \\  --desired-capacity 3 \\  --max-size 4 # Check new values aws autoscaling \\  describe-auto-scaling-groups \\  --query \u0026#34;AutoScalingGroups[? Tags[? (Key==\u0026#39;eks:cluster-name\u0026#39;) \u0026amp;\u0026amp; Value==\u0026#39;eksworkshop-eksctl\u0026#39;]].[AutoScalingGroupName, MinSize, MaxSize,DesiredCapacity]\u0026#34; \\  --output table IAM roles for service accounts Click here if you are not familiar with IAM Roles for Service Accounts (IRSA).\n With IAM roles for service accounts on Amazon EKS clusters, you can associate an IAM role with a Kubernetes service account. This service account can then provide AWS permissions to the containers in any pod that uses that service account. With this feature, you no longer need to provide extended permissions to the node IAM role so that pods on that node can call AWS APIs.\nEnabling IAM roles for service accounts on your cluster\neksctl utils associate-iam-oidc-provider \\  --cluster eksworkshop-eksctl \\  --approve Creating an IAM policy for your service account that will allow your CA pod to interact with the autoscaling groups.\nmkdir ~/environment/cluster-autoscaler cat \u0026lt;\u0026lt;EoF \u0026gt; ~/environment/cluster-autoscaler/k8s-asg-policy.json { \u0026#34;Version\u0026#34;: \u0026#34;2012-10-17\u0026#34;, \u0026#34;Statement\u0026#34;: [ { \u0026#34;Action\u0026#34;: [ \u0026#34;autoscaling:DescribeAutoScalingGroups\u0026#34;, \u0026#34;autoscaling:DescribeAutoScalingInstances\u0026#34;, \u0026#34;autoscaling:DescribeLaunchConfigurations\u0026#34;, \u0026#34;autoscaling:DescribeTags\u0026#34;, \u0026#34;autoscaling:SetDesiredCapacity\u0026#34;, \u0026#34;autoscaling:TerminateInstanceInAutoScalingGroup\u0026#34;, \u0026#34;ec2:DescribeLaunchTemplateVersions\u0026#34; ], \u0026#34;Resource\u0026#34;: \u0026#34;*\u0026#34;, \u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34; } ] } EoF aws iam create-policy \\  --policy-name k8s-asg-policy \\  --policy-document file://~/environment/cluster-autoscaler/k8s-asg-policy.json Finally, create an IAM role for the cluster-autoscaler Service Account in the kube-system namespace.\neksctl create iamserviceaccount \\  --name cluster-autoscaler \\  --namespace kube-system \\  --cluster eksworkshop-eksctl \\  --attach-policy-arn \u0026#34;arn:aws:iam::${ACCOUNT_ID}:policy/k8s-asg-policy\u0026#34; \\  --approve \\  --override-existing-serviceaccounts Make sure your service account with the ARN of the IAM role is annotated\nkubectl -n kube-system describe sa cluster-autoscaler Output\nName: cluster-autoscaler Namespace: kube-system Labels: \u0026lt;none\u0026gt; Annotations: eks.amazonaws.com/role-arn: arn:aws:iam::197520326489:role/eksctl-eksworkshop-eksctl-addon-iamserviceac-Role1-12LNPCGBD6IPZ Image pull secrets: \u0026lt;none\u0026gt; Mountable secrets: cluster-autoscaler-token-vfk8n Tokens: cluster-autoscaler-token-vfk8n Events: \u0026lt;none\u0026gt;  Deploy the Cluster Autoscaler (CA) Deploy the Cluster Autoscaler to your cluster with the following command.\nkubectl apply -f https://www.eksworkshop.com/beginner/080_scaling/deploy_ca.files/cluster-autoscaler-autodiscover.yaml To prevent CA from removing nodes where its own pod is running, we will add the cluster-autoscaler.kubernetes.io/safe-to-evict annotation to its deployment with the following command\nkubectl -n kube-system \\  annotate deployment.apps/cluster-autoscaler \\  cluster-autoscaler.kubernetes.io/safe-to-evict=\u0026#34;false\u0026#34; Finally let\u0026rsquo;s update the autoscaler image\n# we need to retrieve the latest docker image available for our EKS version export K8S_VERSION=$(kubectl version --short | grep \u0026#39;Server Version:\u0026#39; | sed \u0026#39;s/[^0-9.]*\\([0-9.]*\\).*/\\1/\u0026#39; | cut -d. -f1,2) export AUTOSCALER_VERSION=$(curl -s \u0026#34;https://api.github.com/repos/kubernetes/autoscaler/releases\u0026#34; | grep \u0026#39;\u0026#34;tag_name\u0026#34;:\u0026#39; | sed -s \u0026#39;s/.*-\\([0-9][0-9\\.]*\\).*/\\1/\u0026#39; | grep -m1 ${K8S_VERSION}) kubectl -n kube-system \\  set image deployment.apps/cluster-autoscaler \\  cluster-autoscaler=us.gcr.io/k8s-artifacts-prod/autoscaling/cluster-autoscaler:v${AUTOSCALER_VERSION} Watch the logs\nkubectl -n kube-system logs -f deployment/cluster-autoscaler We are now ready to scale our cluster\n  Related files   cluster-autoscaler-autodiscover.yaml  (4 ko)    "
-},
-{
-	"uri": "//localhost:1313/intermediate/230_logging/deploy/",
-	"title": "Deploy Fluent Bit",
-	"tags": [],
-	"description": "",
-	"content": "Let\u0026rsquo;s start by downloading the fluentbit.yaml deployment file and replace some variables.\ncd ~/environment/logging # get the Amazon OpenSearch Endpoint export ES_ENDPOINT=$(aws es describe-elasticsearch-domain --domain-name ${ES_DOMAIN_NAME} --output text --query \u0026#34;DomainStatus.Endpoint\u0026#34;) curl -Ss https://www.eksworkshop.com/intermediate/230_logging/deploy.files/fluentbit.yaml \\  | envsubst \u0026gt; ~/environment/logging/fluentbit.yaml Explore the file to see what will be deployed. The fluent bit log agent configuration is located in the Kubernetes ConfigMap and will be deployed as a DaemonSet, i.e. one pod per worker node. In our case, a 3 node cluster is used and so 3 pods will be shown in the output when we deploy.\nkubectl apply -f ~/environment/logging/fluentbit.yaml Wait for all of the pods to change to running status\nkubectl --namespace=logging get pods Output\nNAME READY STATUS RESTARTS AGE fluent-bit-2wrs4 1/1 Running 0 6s fluent-bit-9lkkm 1/1 Running 0 6s fluent-bit-x545p 1/1 Running 0 6s  "
 },
 {
 	"uri": "//localhost:1313/beginner/060_helm/helm_micro/deploy/",
@@ -658,18 +455,11 @@
 	"content": "Use the dry-run flag to test our templates To test the syntax and validity of the Chart without actually deploying it, we\u0026rsquo;ll use the --dry-run flag.\nThe following command will build and output the rendered templates without installing the Chart:\nhelm install --debug --dry-run workshop ~/environment/eksdemo Confirm that the values created by the template look correct.\nDeploy the chart Now that we have tested our template, let\u0026rsquo;s install it.\nhelm install workshop ~/environment/eksdemo Similar to what we saw previously in the nginx Helm Chart example, an output of the command will contain the information about the deployment status, revision, namespace, etc, similar to:\nNAME: workshop LAST DEPLOYED: Sat Jul 17 08:47:32 2021 NAMESPACE: default STATUS: deployed REVISION: 1 TEST SUITE: None  In order to review the underlying services, pods and deployments, run:\nkubectl get svc,po,deploy "
 },
 {
-	"uri": "//localhost:1313/intermediate/200_migrate_to_eks/expose-counter-app-kind/",
+	"uri": "//localhost:1313/beginner/200_migrate_to_eks/expose-counter-app-kind/",
 	"title": "Expose counter app from kind",
 	"tags": [],
 	"description": "",
 	"content": "An app that\u0026rsquo;s not exposed isn\u0026rsquo;t very useful. We\u0026rsquo;ll manually create a load balancer to expose the app.\nThe first thing you need to do is get your local computer\u0026rsquo;s public ip address. Open a new browser tab and to icanhasip.com and copy the IP address.\nGo back to the Cloud9 shell and save that IP address as an environment variable\nexport PUBLIC_IP=#YOUR PUBLIC IP Now allow your IP address to access port 80 of your Cloud9 instance\u0026rsquo;s security group and allow traffic on the security group for a load balancer.\naws ec2 authorize-security-group-ingress \\  --group-id $SECURITY_GROUP \\  --protocol tcp \\  --port 80 \\  --cidr ${PUBLIC_IP}/25 aws ec2 authorize-security-group-ingress \\  --group-id $SECURITY_GROUP \\  --protocol -1 \\  --source-group $SECURITY_GROUP Create an Application Load Balancer (ALB) in the same security group and subnet. An ALB needs to be spread across a minimum of two subnets.\nexport ALB_ARN=$(aws elbv2 create-load-balancer \\  --name counter \\  --subnets $(aws ec2 describe-subnets \\  --filters \u0026#34;Name=vpc-id,Values=$VPC\u0026#34; \\  --query \u0026#39;Subnets[*].SubnetId\u0026#39; \\  --output text) \\  --type application --security-groups $SECURITY_GROUP \\  --query \u0026#39;LoadBalancers[0].LoadBalancerArn\u0026#39; \\  --output text) Create a target group\nexport TG_ARN=$(aws elbv2 create-target-group \\  --name counter-target --protocol HTTP \\  --port 30000 --target-type instance \\  --vpc-id ${VPC} --query \u0026#39;TargetGroups[0].TargetGroupArn\u0026#39; \\  --output text) Register our node to the TG\naws elbv2 register-targets \\  --target-group-arn ${TG_ARN} \\  --targets Id=${INSTANCE_ID} Create a listener and default action\naws elbv2 wait load-balancer-available \\  --load-balancer-arns $ALB_ARN \\  \u0026amp;\u0026amp; export ALB_LISTENER=$(aws elbv2 create-listener \\  --load-balancer-arn ${ALB_ARN} \\  --port 80 --protocol HTTP \\  --default-actions Type=forward,TargetGroupArn=${TG_ARN} \\  --query \u0026#39;Listeners[0].ListenerArn\u0026#39; \\  --output text) Our local counter app should now be exposed from the ALB\necho \u0026#34;http://\u0026#34;$(aws elbv2 describe-load-balancers \\  --load-balancer-arns $ALB_ARN \\  --query \u0026#39;LoadBalancers[0].DNSName\u0026#39; --output text) Make sure you click the button a lot because that\u0026rsquo;s the important data we\u0026rsquo;re going to migrate to EKS later.\n"
-},
-{
-	"uri": "//localhost:1313/intermediate/300_cis_eks_benchmark/debug-mode/",
-	"title": "Module 3: Run kube-bench in debug mode",
-	"tags": [],
-	"description": "",
-	"content": "Create a job file Create a job file named job-debug-eks.yaml using the command below.\ncat \u0026lt;\u0026lt; EOF \u0026gt; job-debug-eks.yaml --- apiVersion: batch/v1 kind: Job metadata: name: kube-bench-debug spec: template: spec: hostPID: true containers: - name: kube-bench image: aquasec/kube-bench:latest command: [\u0026#34;kube-bench\u0026#34;, \u0026#34;-v\u0026#34;, \u0026#34;3\u0026#34;, \u0026#34;--logtostderr\u0026#34;, \u0026#34;--benchmark\u0026#34;, \u0026#34;eks-1.0\u0026#34;] volumeMounts: - name: var-lib-kubelet mountPath: /var/lib/kubelet readOnly: true - name: etc-systemd mountPath: /etc/systemd readOnly: true - name: etc-kubernetes mountPath: /etc/kubernetes readOnly: true restartPolicy: Never volumes: - name: var-lib-kubelet hostPath: path: \u0026#34;/var/lib/kubelet\u0026#34; - name: etc-systemd hostPath: path: \u0026#34;/etc/systemd\u0026#34; - name: etc-kubernetes hostPath: path: \u0026#34;/etc/kubernetes\u0026#34; EOF Run the job on your cluster Run the kube-bench job on a pod in your cluster using the command below.\nkubectl apply -f job-debug-eks.yaml View job assessment results Find the pod that was created. It should be in the default namespace.\nkubectl get pods --all-namespaces Retrieve the value of this pod and the output report. Note the pod name will be different for your environment.\nkubectl logs kube-bench-debug-\u0026lt;value\u0026gt; Output I0715 04:29:42.035103 885 common.go:299] Kubernetes version: \u0026quot;\u0026quot; to Benchmark version: \u0026quot;eks-1.0\u0026quot; I0715 04:29:42.035137 885 common.go:299] Kubernetes version: \u0026quot;\u0026quot; to Benchmark version: \u0026quot;eks-1.0\u0026quot; I0715 04:29:42.035144 885 util.go:128] Looking for config specific CIS version \u0026quot;eks-1.0\u0026quot; I0715 04:29:42.035151 885 util.go:132] Looking for file: cfg/eks-1.0/master.yaml I0715 04:29:42.035199 885 common.go:240] Using config file: cfg/eks-1.0/config.yaml I0715 04:29:42.035208 885 common.go:315] Checking if the current node is running master components I0715 04:29:42.035229 885 util.go:81] ps - proc: \u0026quot;kube-apiserver\u0026quot; I0715 04:29:42.039926 885 util.go:53] [/bin/ps -C kube-apiserver -o cmd --no-headers]: exit status 1 I0715 04:29:42.039936 885 util.go:88] ps - returning: \u0026quot;\u0026quot; I0715 04:29:42.039961 885 util.go:229] verifyBin - lines(1) I0715 04:29:42.039967 885 util.go:231] reFirstWord.Match() I0715 04:29:42.053377 885 util.go:261] executable 'apiserver' not running W0715 04:29:42.053395 885 util.go:108] Unable to detect running programs for component \u0026quot;apiserver\u0026quot; The following \u0026quot;master node\u0026quot; programs have been searched, but none of them have been found: - kube-apiserver - hyperkube apiserver - hyperkube kube-apiserver - apiserver These program names are provided in the config.yaml, section 'master.apiserver.bins' I0715 04:29:42.053409 885 common.go:324] unable to detect running programs for component \u0026quot;apiserver\u0026quot; I0715 04:29:42.053437 885 root.go:91] == Running node checks == I0715 04:29:42.053443 885 common.go:299] Kubernetes version: \u0026quot;\u0026quot; to Benchmark version: \u0026quot;eks-1.0\u0026quot; I0715 04:29:42.053450 885 util.go:128] Looking for config specific CIS version \u0026quot;eks-1.0\u0026quot; I0715 04:29:42.053526 885 common.go:240] Using config file: cfg/eks-1.0/config.yaml I0715 04:29:42.053565 885 common.go:80] Using test file: cfg/eks-1.0/node.yaml I0715 04:29:42.053587 885 util.go:81] ps - proc: \u0026quot;hyperkube\u0026quot; I0715 04:29:42.057268 885 util.go:53] [/bin/ps -C hyperkube -o cmd --no-headers]: exit status 1 I0715 04:29:42.057279 885 util.go:88] ps - returning: \u0026quot;\u0026quot; I0715 04:29:42.057323 885 util.go:229] verifyBin - lines(1) I0715 04:29:42.057332 885 util.go:231] reFirstWord.Match() I0715 04:29:42.057337 885 util.go:261] executable 'hyperkube kubelet' not running I0715 04:29:42.057343 885 util.go:81] ps - proc: \u0026quot;kubelet\u0026quot; I0715 04:29:42.061305 885 util.go:88] ps - returning: \u0026quot;/usr/bin/kubelet --cloud-provider aws --config /etc/kubernetes/kubelet/kubelet-config.json --kubeconfig /var/lib/kubelet/kubeconfig --container-runtime docker --network-plugin cni --node-ip=192.168.84.9 --pod-infra-container-image=602401143452.dkr.ecr.us-west-2.amazonaws.com/eks/pause-amd64:3.1 --node-labels=alpha.eksctl.io/cluster-name=eksworkshop-eksctl,alpha.eksctl.io/nodegroup-name=nodegroup,eks.amazonaws.com/nodegroup=nodegroup,eks.amazonaws.com/nodegroup-image=ami-03cb83c4dfe25bd99\\n\u0026quot; I0715 04:29:42.061341 885 util.go:229] verifyBin - lines(2) I0715 04:29:42.061356 885 util.go:231] reFirstWord.Match(/usr/bin/kubelet --cloud-provider aws --config /etc/kubernetes/kubelet/kubelet-config.json --kubeconfig /var/lib/kubelet/kubeconfig --container-runtime docker --network-plugin cni --node-ip=192.168.84.9 --pod-infra-container-image=602401143452.dkr.ecr.us-west-2.amazonaws.com/eks/pause-amd64:3.1 --node-labels=alpha.eksctl.io/cluster-name=eksworkshop-eksctl,alpha.eksctl.io/nodegroup-name=nodegroup,eks.amazonaws.com/nodegroup=nodegroup,eks.amazonaws.com/nodegroup-image=ami-03cb83c4dfe25bd99) I0715 04:29:42.065192 885 util.go:195] Using default config file name '/etc/kubernetes/config' for component kubernetes I0715 04:29:42.065212 885 util.go:202] Component kubelet uses service file '/etc/systemd/system/kubelet.service' \u0026quot;{\\n \\\u0026quot;kind\\\u0026quot;: \\\u0026quot;KubeletConfiguration\\\u0026quot;,\\n \\\u0026quot;apiVersion\\\u0026quot;: \\\u0026quot;kubelet.config.k8s.io/v1beta1\\\u0026quot;,\\n \\\u0026quot;address\\\u0026quot;: \\\u0026quot;0.0.0.0\\\u0026quot;,\\n \\\u0026quot;authentication\\\u0026quot;: {\\n \\\u0026quot;anonymous\\\u0026quot;: {\\n \\\u0026quot;enabled\\\u0026quot;: false\\n },\\n \\\u0026quot;webhook\\\u0026quot;: {\\n \\\u0026quot;cacheTTL\\\u0026quot;: \\\u0026quot;2m0s\\\u0026quot;,\\n \\\u0026quot;enabled\\\u0026quot;: true\\n },\\n \\\u0026quot;x509\\\u0026quot;: {\\n \\\u0026quot;clientCAFile\\\u0026quot;: \\\u0026quot;/etc/kubernetes/pki/ca.crt\\\u0026quot;\\n }\\n },\\n \\\u0026quot;authorization\\\u0026quot;: {\\n \\\u0026quot;mode\\\u0026quot;: \\\u0026quot;Webhook\\\u0026quot;,\\n \\\u0026quot;webhook\\\u0026quot;: {\\n \\\u0026quot;cacheAuthorizedTTL\\\u0026quot;: \\\u0026quot;5m0s\\\u0026quot;,\\n \\\u0026quot;cacheUnauthorizedTTL\\\u0026quot;: \\\u0026quot;30s\\\u0026quot;\\n }\\n },\\n \\\u0026quot;clusterDomain\\\u0026quot;: \\\u0026quot;cluster.local\\\u0026quot;,\\n \\\u0026quot;hairpinMode\\\u0026quot;: \\\u0026quot;hairpin-veth\\\u0026quot;,\\n \\\u0026quot;readOnlyPort\\\u0026quot;: 0,\\n \\\u0026quot;cgroupDriver\\\u0026quot;: \\\u0026quot;cgroupfs\\\u0026quot;,\\n \\\u0026quot;cgroupRoot\\\u0026quot;: \\\u0026quot;/\\\u0026quot;,\\n \\\u0026quot;featureGates\\\u0026quot;: {\\n \\\u0026quot;RotateKubeletServerCertificate\\\u0026quot;: true\\n },\\n \\\u0026quot;protectKernelDefaults\\\u0026quot;: true,\\n \\\u0026quot;serializeImagePulls\\\u0026quot;: false,\\n \\\u0026quot;serverTLSBootstrap\\\u0026quot;: true,\\n \\\u0026quot;tlsCipherSuites\\\u0026quot;: [\\n \\\u0026quot;TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256\\\u0026quot;,\\n \\\u0026quot;TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256\\\u0026quot;,\\n \\\u0026quot;TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305\\\u0026quot;,\\n \\\u0026quot;TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384\\\u0026quot;,\\n \\\u0026quot;TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305\\\u0026quot;,\\n \\\u0026quot;TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384\\\u0026quot;,\\n \\\u0026quot;TLS_RSA_WITH_AES_256_GCM_SHA384\\\u0026quot;,\\n \\\u0026quot;TLS_RSA_WITH_AES_128_GCM_SHA256\\\u0026quot;\\n ],\\n \\\u0026quot;clusterDNS\\\u0026quot;: [\\n \\\u0026quot;10.100.0.10\\\u0026quot;\\n ],\\n \\\u0026quot;evictionHard\\\u0026quot;: {\\n \\\u0026quot;memory.available\\\u0026quot;: \\\u0026quot;100Mi\\\u0026quot;,\\n \\\u0026quot;nodefs.available\\\u0026quot;: \\\u0026quot;10%\\\u0026quot;,\\n \\\u0026quot;nodefs.inodesFree\\\u0026quot;: \\\u0026quot;5%\\\u0026quot;\\n },\\n \\\u0026quot;kubeReserved\\\u0026quot;: {\\n \\\u0026quot;cpu\\\u0026quot;: \\\u0026quot;70m\\\u0026quot;,\\n \\\u0026quot;ephemeral-storage\\\u0026quot;: \\\u0026quot;1Gi\\\u0026quot;,\\n \\\u0026quot;memory\\\u0026quot;: \\\u0026quot;574Mi\\\u0026quot;\\n },\\n \\\u0026quot;maxPods\\\u0026quot;: 29\\n}\\n\u0026quot; - Error Messages:\u0026quot;\u0026quot; I0715 04:29:42.121877 885 check.go:187] Check.ID: 3.2.11 Command: \u0026quot;/bin/cat /etc/kubernetes/kubelet/kubelet-config.json\u0026quot; TestResult: true State: \u0026quot;PASS\u0026quot; [INFO] 3 Worker Node Security Configuration [INFO] 3.1 Worker Node Configuration Files [PASS] 3.1.1 Ensure that the proxy kubeconfig file permissions are set to 644 or more restrictive (Scored) [PASS] 3.1.2 Ensure that the proxy kubeconfig file ownership is set to root:root (Scored) [PASS] 3.1.3 Ensure that the kubelet configuration file has permissions set to 644 or more restrictive (Scored) [PASS] 3.1.4 Ensure that the kubelet configuration file ownership is set to root:root (Scored) [INFO] 3.2 Kubelet [PASS] 3.2.1 Ensure that the --anonymous-auth argument is set to false (Scored) [PASS] 3.2.2 Ensure that the --authorization-mode argument is not set to AlwaysAllow (Scored) [PASS] 3.2.3 Ensure that the --client-ca-file argument is set as appropriate (Scored) [PASS] 3.2.4 Ensure that the --read-only-port argument is set to 0 (Scored) [PASS] 3.2.5 Ensure that the --streaming-connection-idle-timeout argument is not set to 0 (Scored) [PASS] 3.2.6 Ensure that the --protect-kernel-defaults argument is set to true (Scored) [PASS] 3.2.7 Ensure that the --make-iptables-util-chains argument is set to true (Scored) [PASS] 3.2.8 Ensure that the --hostname-override argument is not set (Scored) [WARN] 3.2.9 Ensure that the --event-qps argument is set to 0 or a level which ensures appropriate event capture (Scored) [PASS] 3.2.10 Ensure that the --rotate-certificates argument is not set to false (Scored) [PASS] 3.2.11 Ensure that the RotateKubeletServerCertificate argument is set to true (Scored) == Remediations == 3.2.9 If using a Kubelet config file, edit the file to set eventRecordQPS: to an appropriate level. If using command line arguments, edit the kubelet service file /etc/systemd/system/kubelet.service on each worker node and set the below parameter in KUBELET_SYSTEM_PODS_ARGS variable. Based on your system, restart the kubelet service. For example: systemctl daemon-reload systemctl restart kubelet.service == Summary == 14 checks PASS 0 checks FAIL 1 checks WARN 0 checks INFO Cleanup  Delete the resources  kubectl delete -f job-debug-eks.yaml rm -f job-debug-eks.yaml "
 },
 {
 	"uri": "//localhost:1313/020_prerequisites/kmskey/",
@@ -679,32 +469,11 @@
 	"content": "Create a CMK for the EKS cluster to use when encrypting your Kubernetes secrets:\naws kms create-alias --alias-name alias/eksworkshop --target-key-id $(aws kms create-key --query KeyMetadata.Arn --output text) Let\u0026rsquo;s retrieve the ARN of the CMK to input into the create cluster command.\nexport MASTER_ARN=$(aws kms describe-key --key-id alias/eksworkshop --query KeyMetadata.Arn --output text) We set the MASTER_ARN environment variable to make it easier to refer to the KMS key later.\nNow, let\u0026rsquo;s save the MASTER_ARN environment variable into the bash_profile\necho \u0026#34;export MASTER_ARN=${MASTER_ARN}\u0026#34; | tee -a ~/.bash_profile "
 },
 {
-	"uri": "//localhost:1313/intermediate/230_logging/kibana/",
-	"title": "OpenSearch Dashboards",
-	"tags": [],
-	"description": "",
-	"content": "Finally Let\u0026rsquo;s log into OpenSearch Dashboards to visualize our logs.\necho \u0026#34;OpenSearch Dashboards URL: https://${ES_ENDPOINT}/_dashboards/ OpenSearch Dashboards user: ${ES_DOMAIN_USER}OpenSearch Dashboards password: ${ES_DOMAIN_PASSWORD}\u0026#34; From the OpenSearch Dashboards Welcome screen select Explore on my own\nNow click Confirm button on Select your tenant screen\nOn the next screen click on OpenSearch Dashboards tile\nNow click Add your data\nNow click Create index Pattern\nAdd *fluent-bit* as the Index pattern and click Next step\nSelect @timestamp as the Time filter field name and close the Configuration window by clicking on Create index pattern\nFinally you can select Discover from the left panel and start exploring the logs\n"
-},
-{
-	"uri": "//localhost:1313/beginner/040_dashboard/",
-	"title": "Deploy the Kubernetes Dashboard",
-	"tags": ["beginner", "CON203"],
-	"description": "",
-	"content": "Deploy the Kubernetes Dashboard   In this Chapter, we will deploy the official Kubernetes dashboard, and connect through our Cloud9 Workspace.\n"
-},
-{
 	"uri": "//localhost:1313/010_introduction/basics/concepts_nodes/",
 	"title": "Kubernetes Nodes",
 	"tags": [],
 	"description": "",
 	"content": "The machines that make up a Kubernetes cluster are called nodes.\nNodes in a Kubernetes cluster may be physical, or virtual.\nThere are two types of nodes:\n  A Control-plane-node type, which makes up the Control Plane, acts as the “brains” of the cluster.\n  A Worker-node type, which makes up the Data Plane, runs the actual container images (via pods).\n  We’ll dive deeper into how nodes interact with each other later in the presentation.\n"
-},
-{
-	"uri": "//localhost:1313/beginner/090_rbac/test_rbac_user_without_roles/",
-	"title": "Test the new user",
-	"tags": [],
-	"description": "",
-	"content": "Up until now, as the cluster operator, you\u0026rsquo;ve been accessing the cluster as the admin user. Let\u0026rsquo;s now see what happens when we access the cluster as the newly created rbac-user.\nIssue the following command to source the rbac-user\u0026rsquo;s AWS IAM user environmental variables:\n. rbacuser_creds.sh By running the above command, you\u0026rsquo;ve now set AWS environmental variables which should override the default admin user or role. To verify we\u0026rsquo;ve overrode the default user settings, run the following command:\naws sts get-caller-identity You should see something similar to below, where we\u0026rsquo;re now making API calls as rbac-user:\n{ \u0026#34;Account\u0026#34;: \u0026lt;AWS Account ID\u0026gt;, \u0026#34;UserId\u0026#34;: \u0026lt;AWS User ID\u0026gt;, \u0026#34;Arn\u0026#34;: \u0026#34;arn:aws:iam::\u0026lt;AWS Account ID\u0026gt;:user/rbac-user\u0026#34; }  Now that we\u0026rsquo;re making calls in the context of the rbac-user, lets quickly make a request to get all pods:\nkubectl get pods -n rbac-test You should get a response back similar to:\nNo resources found. Error from server (Forbidden): pods is forbidden: User \u0026#34;rbac-user\u0026#34; cannot list resource \u0026#34;pods\u0026#34; in API group \u0026#34;\u0026#34; in the namespace \u0026#34;rbac-test\u0026#34;  We already created the rbac-user, so why did we get that error?\nJust creating the user doesn\u0026rsquo;t give that user access to any resources in the cluster. In order to achieve that, we\u0026rsquo;ll need to define a role, and then bind the user to that role. We\u0026rsquo;ll do that next.\n"
 },
 {
 	"uri": "//localhost:1313/beginner/050_deploy/viewservices/",
@@ -735,14 +504,7 @@
 	"content": "To test the service our eksdemo Chart created, we\u0026rsquo;ll need to get the name of the ELB endpoint that was generated when we deployed the Chart:\nkubectl get svc ecsdemo-frontend -o jsonpath=\u0026#34;{.status.loadBalancer.ingress[*].hostname}\u0026#34;; echo Copy that address, and paste it into a new tab in your browser. You should see something similar to:\n"
 },
 {
-	"uri": "//localhost:1313/intermediate/300_cis_eks_benchmark/conclusion/",
-	"title": "Conclusion",
-	"tags": [],
-	"description": "",
-	"content": "Conclusion In this chapter, we have explained:\n CIS Kubernetes Benchmark and CIS Amazon EKS Benchmark; Introduced kube-bench as an open source tool to assess against CIS Kubernetes Benchmarks; Demonstrated steps to assess Amazon EKS clusters for managed and self managed nodes Kubernetes security configurations using kube-bench.  "
-},
-{
-	"uri": "//localhost:1313/intermediate/200_migrate_to_eks/configure-eks-cluster/",
+	"uri": "//localhost:1313/beginner/200_migrate_to_eks/configure-eks-cluster/",
 	"title": "Configure EKS cluster",
 	"tags": [],
 	"description": "",
@@ -750,10 +512,10 @@
 },
 {
 	"uri": "//localhost:1313/beginner/",
-	"title": "Beginner",
-	"tags": ["beginner"],
+	"title": "Activities",
+	"tags": ["Roadshow Activities"],
 	"description": "",
-	"content": "Beginner "
+	"content": "Roadshow Activities "
 },
 {
 	"uri": "//localhost:1313/010_introduction/basics/concepts_objects/",
@@ -761,13 +523,6 @@
 	"tags": [],
 	"description": "",
 	"content": "Kubernetes objects are entities that are used to represent the state of the cluster.\nAn object is a “record of intent” – once created, the cluster does its best to ensure it exists as defined. This is known as the cluster’s “desired state.”\nKubernetes is always working to make an object’s “current state” equal to the object’s “desired state.” A desired state can describe:\n What pods (containers) are running, and on which nodes IP endpoints that map to a logical group of containers How many replicas of a container are running And much more\u0026hellip;  Let’s explain these k8s objects in a bit more detail\u0026hellip;\n"
-},
-{
-	"uri": "//localhost:1313/beginner/090_rbac/create_role_and_binding/",
-	"title": "Create the Role and Binding",
-	"tags": [],
-	"description": "",
-	"content": "As mentioned earlier, we have our new user rbac-user, but its not yet bound to any roles. In order to do that, we\u0026rsquo;ll need to switch back to our default admin user.\nRun the following to unset the environmental variables that define us as rbac-user:\nunset AWS_SECRET_ACCESS_KEY unset AWS_ACCESS_KEY_ID To verify we\u0026rsquo;re the admin user again, and no longer rbac-user, issue the following command:\naws sts get-caller-identity The output should show the user is no longer rbac-user:\n{ \u0026#34;Account\u0026#34;: \u0026lt;AWS Account ID\u0026gt;, \u0026#34;UserId\u0026#34;: \u0026lt;AWS User ID\u0026gt;, \u0026#34;Arn\u0026#34;: \u0026#34;arn:aws:iam::\u0026lt;your AWS account ID\u0026gt;:assumed-role/eksworkshop-admin/i-123456789\u0026#34; }  Now that we\u0026rsquo;re the admin user again, we\u0026rsquo;ll create a role called pod-reader that provides list, get, and watch access for pods and deployments, but only for the rbac-test namespace. Run the following to create this role:\ncat \u0026lt;\u0026lt; EoF \u0026gt; rbacuser-role.yaml kind: Role apiVersion: rbac.authorization.k8s.io/v1 metadata: namespace: rbac-test name: pod-reader rules: - apiGroups: [\u0026quot;\u0026quot;] # \u0026quot;\u0026quot; indicates the core API group resources: [\u0026quot;pods\u0026quot;] verbs: [\u0026quot;list\u0026quot;,\u0026quot;get\u0026quot;,\u0026quot;watch\u0026quot;] - apiGroups: [\u0026quot;extensions\u0026quot;,\u0026quot;apps\u0026quot;] resources: [\u0026quot;deployments\u0026quot;] verbs: [\u0026quot;get\u0026quot;, \u0026quot;list\u0026quot;, \u0026quot;watch\u0026quot;] EoF We have the user, we have the role, and now we\u0026rsquo;re bind them together with a RoleBinding resource. Run the following to create this RoleBinding:\ncat \u0026lt;\u0026lt; EoF \u0026gt; rbacuser-role-binding.yaml kind: RoleBinding apiVersion: rbac.authorization.k8s.io/v1 metadata: name: read-pods namespace: rbac-test subjects: - kind: User name: rbac-user apiGroup: rbac.authorization.k8s.io roleRef: kind: Role name: pod-reader apiGroup: rbac.authorization.k8s.io EoF Next, we apply the Role, and RoleBindings we created:\nkubectl apply -f rbacuser-role.yaml kubectl apply -f rbacuser-role-binding.yaml "
 },
 {
 	"uri": "//localhost:1313/beginner/050_deploy/",
@@ -782,13 +537,6 @@
 	"tags": [],
 	"description": "",
 	"content": "When we launched our services, we only launched one container of each. We can confirm this by viewing the running pods:\nkubectl get deployments Now let\u0026rsquo;s scale up the backend services:\nkubectl scale deployment ecsdemo-nodejs --replicas=3 kubectl scale deployment ecsdemo-crystal --replicas=3 Confirm by looking at deployments again:\nkubectl get deployments Also, check the browser tab where we can see our application running. You should now see traffic flowing to multiple backend services.\n"
-},
-{
-	"uri": "//localhost:1313/intermediate/230_logging/cleanup/",
-	"title": "Cleanup",
-	"tags": [],
-	"description": "",
-	"content": "cd ~/environment/ kubectl delete -f ~/environment/logging/fluentbit.yaml aws opensearch delete-domain \\  --domain-name ${ES_DOMAIN_NAME} eksctl delete iamserviceaccount \\  --name fluent-bit \\  --namespace logging \\  --cluster eksworkshop-eksctl \\  --wait aws iam delete-policy \\  --policy-arn \u0026#34;arn:aws:iam::${ACCOUNT_ID}:policy/fluent-bit-policy\u0026#34; kubectl delete namespace logging rm -rf ~/environment/logging unset ES_DOMAIN_NAME unset ES_VERSION unset ES_DOMAIN_USER unset ES_DOMAIN_PASSWORD unset FLUENTBIT_ROLE unset ES_ENDPOINT "
 },
 {
 	"uri": "//localhost:1313/beginner/080_scaling/cleanup/",
@@ -812,18 +560,11 @@
 	"content": "Since we no longer need the Cloud9 instance to have Administrator access to our account, we can delete the workspace we created:\n Go to your Cloud9 Environment Select the environment named eksworkshop and pick delete  "
 },
 {
-	"uri": "//localhost:1313/intermediate/200_migrate_to_eks/deploy-counter-app-eks/",
+	"uri": "//localhost:1313/beginner/200_migrate_to_eks/deploy-counter-app-eks/",
 	"title": "Deploy counter app to EKS",
 	"tags": [],
 	"description": "",
 	"content": "Now it\u0026rsquo;s time to migrate our app to EKS. We\u0026rsquo;re going to do this in two stages.\nFirst we\u0026rsquo;ll move the frontend component but have it talk to the database in our old cluster. Then we\u0026rsquo;ll set up the database in EKS, migrate the data, and configure the frontend to use it instead.\nThe counter app deployment and service is the same as it was in kind except we added two environment varibles for the DB_HOST and DB_PORT and the service type is LoadBalancer instead of NodePort.\ncat \u0026lt;\u0026lt;EOF | kubectl apply -f - --- apiVersion: apps/v1 kind: Deployment metadata: name: counter labels: app: counter spec: replicas: 2 selector: matchLabels: app: counter template: metadata: labels: app: counter spec: containers: - name: counter image: public.ecr.aws/aws-containers/stateful-counter:latest env: - name: DB_HOST value: $IP - name: DB_PORT value: \u0026#34;30001\u0026#34; ports: - containerPort: 8000 resources: requests: memory: \u0026#34;16Mi\u0026#34; cpu: \u0026#34;100m\u0026#34; limits: memory: \u0026#34;128Mi\u0026#34; cpu: \u0026#34;500m\u0026#34; --- apiVersion: v1 kind: Service metadata: name: counter spec: ports: - port: 80 targetPort: 8000 type: LoadBalancer selector: app: counter EOF Now create a postgres-external service in kind that exposes postgres on a NodePort.\ncat \u0026lt;\u0026lt;EOF | kubectl --context kind-kind apply -f - --- apiVersion: v1 kind: Service metadata: name: postgres-external labels: app: postgres spec: type: NodePort ports: - port: 5432 nodePort: 30001 selector: app: postgres EOF Now you should be able to get the endpoint for your load balancer and when you load the counter app the same count will be shown in the app.\nkubectl get svc "
-},
-{
-	"uri": "//localhost:1313/intermediate/",
-	"title": "Intermediate",
-	"tags": ["intermediate"],
-	"description": "",
-	"content": "Intermediate "
 },
 {
 	"uri": "//localhost:1313/010_introduction/basics/concepts_objects_details_1/",
@@ -831,13 +572,6 @@
 	"tags": [],
 	"description": "",
 	"content": "Pod  A thin wrapper around one or more containers  DaemonSet  Implements a single instance of a pod on a worker node  Deployment  Details how to roll out (or roll back) across versions of your application  "
-},
-{
-	"uri": "//localhost:1313/beginner/090_rbac/verify_user_role_binding/",
-	"title": "Verify the Role and Binding",
-	"tags": [],
-	"description": "",
-	"content": "Now that the user, Role, and RoleBinding are defined, lets switch back to rbac-user, and test.\nTo switch back to rbac-user, issue the following command that sources the rbac-user env vars, and verifies they\u0026rsquo;ve taken:\n. rbacuser_creds.sh; aws sts get-caller-identity You should see output reflecting that you are logged in as rbac-user.\nAs rbac-user, issue the following to get pods in the rbac namespace:\nkubectl get pods -n rbac-test The output should be similar to:\nNAME READY STATUS RESTARTS AGE nginx-55bd7c9fd-kmbkf 1/1 Running 0 23h  Try running the same command again, but outside of the rbac-test namespace:\nkubectl get pods -n kube-system You should get an error similar to: No resources found. Error from server (Forbidden): pods is forbidden: User \u0026#34;rbac-user\u0026#34; cannot list resource \u0026#34;pods\u0026#34; in API group \u0026#34;\u0026#34; in the namespace \u0026#34;kube-system\u0026#34;  Because the role you are bound to does not give you access to any namespace other than rbac-test.\n"
 },
 {
 	"uri": "//localhost:1313/beginner/050_deploy/scalefrontend/",
@@ -868,7 +602,7 @@
 	"content": "Introduction Helm is a package manager and application management tool for Kubernetes that packages multiple Kubernetes resources into a single logical deployment unit called a Chart.\nHelm helps you to:\n Achieve a simple (one command) and repeatable deployment Manage application dependency, using specific versions of other application and services Manage multiple deployment configurations: test, staging, production and others Execute post/pre deployment jobs during application deployment Update/rollback and test application deployments  "
 },
 {
-	"uri": "//localhost:1313/intermediate/200_migrate_to_eks/deploy-counter-db-in-eks/",
+	"uri": "//localhost:1313/beginner/200_migrate_to_eks/deploy-counter-db-in-eks/",
 	"title": "Deploy database to EKS",
 	"tags": [],
 	"description": "",
@@ -889,14 +623,7 @@
 	"content": "ReplicaSet  Ensures a defined number of pods are always running  Job  Ensures a pod properly runs to completion  Service  Maps a fixed IP address to a logical group of pods  Label  Key/Value pairs used for association and filtering  "
 },
 {
-	"uri": "//localhost:1313/beginner/090_rbac/cleanup/",
-	"title": "Cleanup",
-	"tags": [],
-	"description": "",
-	"content": "Once you have completed this chapter, you can cleanup the files and resources you created by issuing the following commands:\nunset AWS_SECRET_ACCESS_KEY unset AWS_ACCESS_KEY_ID kubectl delete namespace rbac-test rm rbacuser_creds.sh rm rbacuser-role.yaml rm rbacuser-role-binding.yaml aws iam delete-access-key --user-name=rbac-user --access-key-id=$(jq -r .AccessKey.AccessKeyId /tmp/create_output.json) aws iam delete-user --user-name rbac-user rm /tmp/create_output.json Next remove the rbac-user mapping from the existing configMap by editing the existing aws-auth.yaml file:\ndata: mapUsers: | [] And apply the ConfigMap and delete the aws-auth.yaml file\nkubectl apply -f aws-auth.yaml rm aws-auth.yaml "
-},
-{
-	"uri": "//localhost:1313/intermediate/200_migrate_to_eks/cleanup/",
+	"uri": "//localhost:1313/beginner/200_migrate_to_eks/cleanup/",
 	"title": "Cleanup resources",
 	"tags": [],
 	"description": "",
@@ -924,25 +651,11 @@
 	"content": "Deploy Example Microservices Using Helm In this chapter, we will demonstrate how to deploy microservices using a custom Helm Chart, instead of doing everything manually using kubectl.\nFor detailed information on working with chart templates, refer to the Helm docs.\n"
 },
 {
-	"uri": "//localhost:1313/beginner/040_dashboard/cleanup/",
-	"title": "Cleanup",
-	"tags": ["beginner", "CON203"],
-	"description": "",
-	"content": "Stop the proxy and delete the dashboard deployment\n# kill proxy pkill -f \u0026#39;kubectl proxy --port=8080\u0026#39; # delete dashboard kubectl delete -f https://raw.githubusercontent.com/kubernetes/dashboard/${DASHBOARD_VERSION}/aio/deploy/recommended.yaml unset DASHBOARD_VERSION "
-},
-{
 	"uri": "//localhost:1313/010_introduction/architecture/architecture_control_and_data_overview/",
 	"title": "Architectural Overview",
 	"tags": [],
 	"description": "",
 	"content": "graph TB internet((internet)) kubectl{kubectl} subgraph ControlPlane api(API Server) controller(Controller Manager) scheduler(Scheduler) etcd(etcd) end subgraph worker1 kubelet1(kubelet) kube-proxy1(kube-proxy) subgraph docker1 subgraph podA containerA[container] end subgraph podB containerB[container] end end end internet--kube-proxy1 kubectl--api controller--api scheduler--api api--kubelet1 api--etcd kubelet1--containerA kubelet1--containerB kube-proxy1--containerA kube-proxy1--containerB classDef green fill:#9f6,stroke:#333,stroke-width:4px; classDef orange fill:#f96,stroke:#333,stroke-width:4px; classDef blue fill:#6495ed,stroke:#333,stroke-width:4px; class api blue; class internet green; class kubectl orange;  "
-},
-{
-	"uri": "//localhost:1313/beginner/090_rbac/",
-	"title": "Intro to RBAC",
-	"tags": ["beginner", "CON205"],
-	"description": "",
-	"content": "Intro to RBAC   In this chapter, we\u0026rsquo;ll learn about how role based access control (RBAC) works in kubernetes.\n"
 },
 {
 	"uri": "//localhost:1313/010_introduction/eks/",
@@ -1029,84 +742,56 @@
 	"content": "Deploying Microservices to EKS Fargate   AWS Fargate is a technology that provides on-demand, right-sized compute capacity for containers. With AWS Fargate, you no longer have to provision, configure, or scale groups of virtual machines to run containers. This removes the need to choose server types, decide when to scale your node groups, or optimize cluster packing. You can control which pods start on Fargate and how they run with Fargate profiles, which are defined as part of your Amazon EKS cluster.\nIn this Chapter, we will deploy the game 2048 game on EKS Fargate and expose it to the Internet using an Application Load balancer.\n"
 },
 {
-	"uri": "//localhost:1313/intermediate/200_migrate_to_eks/",
+	"uri": "//localhost:1313/beginner/200_migrate_to_eks/",
 	"title": "Migrate to EKS",
 	"tags": ["intermediate"],
 	"description": "",
 	"content": "Migrate Workloads to EKS In this chapter we will migrate a workload from a self managed kind cluster to an EKS cluster. The workload will have a stateless frontend and a stateful database backend. You\u0026rsquo;ll need to follow the steps to create a Cloud9 workspace. Make sure you update your IAM permissions with an eksworkshop-admin role.\nWhen you create your Cloud9 instance you should select an instance size with at least 8 GB of memory (eg m5.large) because we are going to create a kind cluster we will migrate workloads from.\n We\u0026rsquo;ll need a few environment variables throughout this section so let\u0026rsquo;s set those up now. Unless specified all commands should be run from your Cloud9 instance.\nexport CLUSTER=eksworkshop export AWS_ZONE=$(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone) export AWS_REGION=${AWS_ZONE::-1} export AWS_DEFAULT_REGION=${AWS_REGION} export ACCOUNT_ID=$(aws sts get-caller-identity --query \u0026#39;Account\u0026#39; --output text) export INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id) export MAC=$(curl -s http://169.254.169.254/latest/meta-data/mac) export SECURITY_GROUP=$(curl -s http://169.254.169.254/latest/meta-data/network/interfaces/macs/${MAC}/security-group-ids) export SUBNET=$(curl -s http://169.254.169.254/latest/meta-data/network/interfaces/macs/${MAC}/subnet-id) export VPC=$(curl -s http://169.254.169.254/latest/meta-data/network/interfaces/macs/${MAC}/vpc-id) export IP=$(ip -4 addr show eth0 | grep -oP \u0026#39;(?\u0026lt;=inet\\s)\\d+(\\.\\d+){3}\u0026#39;) printf \u0026#34;export CLUSTER=$CLUSTER\\nexport ACCOUNT_ID=$ACCOUNT_ID\\nexport AWS_REGION=$AWS_REGION\\nexport AWS_DEFAULT_REGION=${AWS_REGION}\\nexport AWS_ZONE=$AWS_ZONE\\nexport INSTANCE_ID=$INSTANCE_ID\\nexport MAC=$MAC\\nexport SECURITY_GROUP=$SECURITY_GROUP\\nexport SUBNET=$SUBNET\\nexport VPC=$VPC\\nexport IP=$IP\u0026#34; | tee -a ~/.bash_profile . ~/.bash_profile Now we can expand the Cloud9 root volume\ncurl -sL \u0026#39;https://eksworkshop.com/intermediate/200_migrate_to_eks/resize-ebs.sh\u0026#39; | bash Install kubectl, kind, aws-iam-authenticator, eksctl and update aws\n# Install kubectl curl -sLO \u0026#34;https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl\u0026#34; sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl rm -f ./kubectl # install eksctl curl -sLO \u0026#34;https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz\u0026#34; tar xz -C /tmp -f \u0026#34;eksctl_$(uname -s)_amd64.tar.gz\u0026#34; sudo install -o root -g root -m 0755 /tmp/eksctl /usr/local/bin/eksctl rm -f ./\u0026#34;eksctl_$(uname -s)_amd64.tar.gz\u0026#34; # install aws-iam-authenticator curl -sLO \u0026#34;https://amazon-eks.s3.us-west-2.amazonaws.com/1.19.6/2021-01-05/bin/linux/amd64/aws-iam-authenticator\u0026#34; sudo install -o root -g root -m 0755 aws-iam-authenticator /usr/local/bin/aws-iam-authenticator rm -f ./aws-iam-authenticator # install kind curl -sLo kind \u0026#34;https://kind.sigs.k8s.io/dl/v0.11.0/kind-linux-amd64\u0026#34; sudo install -o root -g root -m 0755 kind /usr/local/bin/kind rm -f ./kind # install awscliv2 curl -sLo \u0026#34;awscliv2.zip\u0026#34; \u0026#34;https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip\u0026#34; unzip awscliv2.zip sudo ./aws/install rm -rf ./awscliv2.zip ./aws # setup tab completion /usr/local/bin/kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl \u0026gt;/dev/null /usr/local/bin/eksctl completion bash | sudo tee /etc/bash_completion.d/eksctl \u0026gt;/dev/null echo \u0026#39;source /usr/share/bash-completion/bash_completion\u0026#39; \u0026gt;\u0026gt; $HOME/.bashrc . $HOME/.bashrc Once you have everything done use eksctl to create an EKS cluster with the following command\neksctl create cluster --name $CLUSTER \\  --managed --enable-ssm "
 },
 {
-	"uri": "//localhost:1313/intermediate/201_resource_management/",
+	"uri": "//localhost:1313/beginner/201_resource_management/",
 	"title": "Resource Management",
 	"tags": ["intermediate"],
 	"description": "",
 	"content": "Resource Management   Kubernetes Request is used to ensure a Pod has enough defined resources available. It is possible for the Pod to use more than what is specified. This is considered a soft limit.\nKubernetes Limit is a used to ensure a Pod does not use above what is specified. This is considered a hard limit.\nKubernetes Resource Quotas is used to limit resource usage per namespace.\nKubernetes Pod Priority and Preemption is a used to apply priorities to pods relative to other pods. If a pod cannot be placed on a node, it may preempt or evict lower priority pods.\n"
 },
 {
-	"uri": "//localhost:1313/intermediate/220_codepipeline/",
-	"title": "CI/CD with CodePipeline",
-	"tags": ["advanced", "operations", "ci/cd", "CON205"],
-	"description": "",
-	"content": "CI/CD with CodePipeline Continuous integration (CI) and continuous delivery (CD) are essential for deft organizations. Teams are more productive when they can make discrete changes frequently, release those changes programmatically and deliver updates without disruption.\nIn this module, we will build a CI/CD pipeline using AWS CodePipeline. The CI/CD pipeline will deploy a sample Kubernetes service, we will make a change to the GitHub repository and observe the automated delivery of this change to the cluster.\n"
-},
-{
-	"uri": "//localhost:1313/intermediate/230_logging/",
-	"title": "Logging with Amazon OpenSearch, Fluent Bit, and OpenSearch Dashboards",
-	"tags": ["intermediate", "operations", "logging", "CON206"],
-	"description": "",
-	"content": "Logging with Amazon OpenSearch, Fluent Bit, and OpenSearch Dashboards In this Chapter, we will deploy a common Kubernetes logging pattern which consists of the following:\n  Fluent Bit: an open source and multi-platform Log Processor and Forwarder which allows you to collect data/logs from different sources, unify and send them to multiple destinations. It\u0026rsquo;s fully compatible with Docker and Kubernetes environments.\n  Amazon OpenSearch Service: OpenSearch is an open source, distributed search and analytics suite derived from Elasticsearch. Amazon OpenSearch Service offers the latest versions of OpenSearch, support for 19 versions of Elasticsearch (1.5 to 7.10 versions), and visualization capabilities powered by OpenSearch Dashboards and Kibana (1.5 to 7.10 versions).\n  OpenSearch Dashboards: OpenSearch Dashboards, the successor to Kibana, is an open-source visualization tool designed to work with OpenSearch. Amazon OpenSearch Service provides an installation of OpenSearch Dashboards with every OpenSearch Service domain.\n  Fluent Bit will forward logs from the individual instances in the cluster to a centralized logging backend where they are combined for higher-level reporting using Amazon OpenSearch Service .\n"
-},
-{
-	"uri": "//localhost:1313/intermediate/240_monitoring/",
-	"title": "Monitoring using Prometheus and Grafana",
-	"tags": ["intermediate", "operations", "monitoring", "CON206"],
-	"description": "",
-	"content": "Monitoring using Prometheus and Grafana In this Chapter, we will deploy Prometheus and Grafana to monitor Kubernetes cluster\nWhat is Prometheus? Prometheus is an open-source systems monitoring and alerting toolkit originally built at SoundCloud. Since its inception in 2012, many companies and organizations have adopted Prometheus, and the project has a very active developer and user community. It is now a standalone open source project and maintained independently of any company. Prometheus joined the Cloud Native Computing Foundation in 2016 as the second hosted project, after Kubernetes.\nWhat is Grafana? Grafana is open source visualization and analytics software. It allows you to query, visualize, alert on, and explore your metrics no matter where they are stored. In plain English, it provides you with tools to turn your time-series database (TSDB) data into beautiful graphs and visualizations.\n"
-},
-{
-	"uri": "//localhost:1313/intermediate/250_cloudwatch_container_insights/",
+	"uri": "//localhost:1313/beginner/250_cloudwatch_container_insights/",
 	"title": "EKS CloudWatch Container Insights",
 	"tags": ["intermediate", "operations", "monitoring", "CON206"],
 	"description": "",
 	"content": "In this chapter we will learn and leverage the new CloudWatch Container Insights to see how you can use native CloudWatch features to monitor your EKS Cluster performance.\nYou can use CloudWatch Container Insights to collect, aggregate, and summarize metrics and logs from your containerized applications and microservices. Container Insights is available for Amazon Elastic Container Service, Amazon Elastic Kubernetes Service, and Kubernetes platforms on Amazon EC2. The metrics include utilization for resources such as CPU, memory, disk, and network. Container Insights also provides diagnostic information, such as container restart failures, to help you isolate issues and resolve them quickly.\nIn order to complete this lab you will need to have a working EKS Cluster, With Helm installed. You will need to have completed the Start the Workshop\u0026hellip; through Launching your cluster with Eksctl and Install Helm CLI as well.\n To learn all about our Observability features using Amazon CloudWatch and AWS X-Ray, take a look at our One Observability Workshop\n "
 },
 {
-	"uri": "//localhost:1313/intermediate/300_cis_eks_benchmark/",
-	"title": "CIS EKS Benchmark assessment using kube-bench",
-	"tags": ["intermediate", "cis eks benchmark", "kube-bench"],
-	"description": "",
-	"content": "CIS EKS Benchmark assessment using kube-bench   Security is a critical component of configuring and maintaining Kubernetes clusters and applications. Amazon EKS provides secure, managed Kubernetes clusters by default, but you still need to ensure that you configure the nodes and applications you run as part of the cluster to ensure a secure implementation.\nSince CIS Kubernetes Benchmark provides good practice guidance on security configurations for Kubernetes clusters, customers asked us for guidance on CIS Kubernetes Benchmark for Amazon EKS to meet their security and compliance requirements.\nIn this chapter, we take a look at how to assess the Amazon EKS cluster nodes you have created against the CIS EKS Kubernetes benchmark.\n"
-},
-{
-	"uri": "//localhost:1313/intermediate/320_eks_upgrades/",
+	"uri": "//localhost:1313/beginner/320_eks_upgrades/",
 	"title": "Patching/Upgrading your EKS Cluster",
 	"tags": ["intermediate", "operations"],
 	"description": "",
 	"content": "Patching/Upgrading your EKS Cluster As EKS tracks upstream Kubernetes that means that customers can, and should, regularly upgrade their EKS so as to stay within the project\u0026rsquo;s upstream support window. This used to be the current version and two version back (n-2) - but it was recently extended to three versions back (n-3).\nThere is a new major version of Kubernetes every quarter which means that the Kubernetes support window has now gone from three quarters of a year to one full year.\nIn addition to upgrades to Kuberentes, there are other related upgrades to think about with your cluster as well:\n The Amazon Machine Image (AMI) of your Nodes - including not just the portion of Kubernetes that is part of the image, the kubelet, but everything else there (OS, containerd, etc.). The control plane always supports managing kubelets that are one version behind itself (n-1) to help facilitate this upgrade. The foundational DaemonSets that are on deployed onto every EKS cluster (kube-proxy, CoreDNS and the AWS CNI) which may need to be upgraded as you upgrade Kubernetes. Our documentation tells you if this is required and which versions you should upgrade to. And any Add-ons/Controllers/Drivers that you\u0026rsquo;ve added to extend Kubernetes and provide important cluster functionality may need to be upgraded as you upgrade Kuberentes  In this Chapter you\u0026rsquo;ll follow the AWS suggested process to upgrade your cluster from 1.20 to 1.21 including its Managed Node Group to get first-hand experience with this process and where EKS and Managed Node Groups help.\n"
 },
 {
-	"uri": "//localhost:1313/intermediate/320_eks_upgrades/theprocess/",
+	"uri": "//localhost:1313/beginner/320_eks_upgrades/theprocess/",
 	"title": "The Upgrade Process",
 	"tags": [],
 	"description": "",
 	"content": "The process goes as follows:\n (Optional) Check if the new version you are upgrading to has any API deprecations which will mean that you\u0026rsquo;ll need to change your YAML Spec files for them to continue to work on the new cluster. This is only the case with some version upgrades such as 1.15 to 1.16. There are various tools that can help with this such as kube-no-trouble. Since there are not any such deprecations going from 1.20 to 1.21 we\u0026rsquo;ll skip this step here. Run a kubectl get nodes and ensure that all of your Nodes are running the current version. Kubernetes can only support nodes that are one version behind - meaning they all need to match the current Kubernetes version so when you upgrade the EKS control plane they\u0026rsquo;ll then only be one version behind. For Fargate relaunching a Pod (maybe by deleted it and letting the ReplicaSet replace it) will bring it in line with the current Kubernetes version. Upgrade the EKS Control Plane to the new major version Check if the core add-ons (kubeproxy, CoreDNS and the CNI) that ship with EKS require an upgrade to conincide with the major version upgrade. This will be in our upgrade documentation. If so follow that documentation to upgrade those. In this case (a 1.20 to 1.21 upgrade) the documentation says we\u0026rsquo;ll need to upgrade both CoreDNS and kubeproxy. Upgrade any worker nodes so that the kubelet on them (which will now be one Kubernete major version behind) matches that of the EKS control plane. While you don\u0026rsquo;t have to do this immediatly it is a good idea to have the Nodes on the same version as the control plane as soon as is practical - plus it will make Step 2 easier the next time you have to upgrade. If you are using Managed Node Groups (as we are here) then EKS can help facilitate this with a safe automated process which orchestrates both the AWS and Kubernetes side of a rolling Node replacement/upgrade. If you are using Fargate then this will happen automatically the next time your Pods are replaced.  "
 },
 {
-	"uri": "//localhost:1313/intermediate/320_eks_upgrades/upgradeeks/",
+	"uri": "//localhost:1313/beginner/320_eks_upgrades/upgradeeks/",
 	"title": "Upgrade EKS Control Plane",
 	"tags": [],
 	"description": "",
 	"content": "The first step of this process is to upgrade the EKS Control Plane.\nSince we used eksctl to provision our cluster we\u0026rsquo;ll use that tool to do our upgrade as well.\nFirst we\u0026rsquo;ll run this command\neksctl upgrade cluster --name=eksworkshop-eksctl You\u0026rsquo;ll see in the output that it found our cluster, worked out that it is 1.20 and the next version is 1.21 (you can only go to the next version with EKS) and that everything is ready for us to proceed with an upgrade.\n$ eksctl upgrade cluster --name=eksworkshop-eksctl [ℹ] eksctl version 0.66.0 [ℹ] using region us-west-2 [ℹ] (plan) would upgrade cluster \u0026quot;eksworkshop-eksctl\u0026quot; control plane from current version \u0026quot;1.20\u0026quot; to \u0026quot;1.21\u0026quot; [ℹ] re-building cluster stack \u0026quot;eksctl-eksworkshop-eksctl-cluster\u0026quot; [✔] all resources in cluster stack \u0026quot;eksctl-eksworkshop-eksctl-cluster\u0026quot; are up-to-date [ℹ] checking security group configuration for all nodegroups [ℹ] all nodegroups have up-to-date configuration [!] no changes were applied, run again with '--approve' to apply the changes We\u0026rsquo;ll run it again with an \u0026ndash;approve appended to proceed\neksctl upgrade cluster --name=eksworkshop-eksctl --approve  This process should take approximately 25 minutes. You can continue to use the cluster during the control plane upgrade process but you might experience minor service interruptions. For example, if you attempt to connect to one of the EKS API servers just before or just after it\u0026rsquo;s terminated and replaced by a new API server running the new version of Kubernetes, you might experience temporary API call errors or connectivity issues. If this happens, retry your API operations until they succeed. Your existing Pods/workloads running in the data plane should not experience any interruption during the control plane upgrade.\n Given how long this step will take and that the cluster will continue to work maybe move on to other workshop chapters until this process completes then come back to finish once it completes.\n "
 },
 {
-	"uri": "//localhost:1313/intermediate/320_eks_upgrades/upgradeaddons/",
+	"uri": "//localhost:1313/beginner/320_eks_upgrades/upgradeaddons/",
 	"title": "Upgrade EKS Core Add-ons",
 	"tags": [],
 	"description": "",
 	"content": "When you provision an EKS cluster you get three add-ons that run on top of the cluster and that are required for it to function properly:\n kubeproxy CoreDNS aws-node (AWS CNI or Network Plugin)  Looking at the the upgrade documentation for our 1.20 to 1.21 upgrade we see that we\u0026rsquo;ll need to upgrade the kubeproxy and CoreDNS. In addition to performing these steps manually with kubectl as documented there you\u0026rsquo;ll find that eksctl can do it for you as well.\nSince we are using eksctl in the workshop we\u0026rsquo;ll run the two necessary commands for it to do these updates for us:\neksctl utils update-kube-proxy --cluster=eksworkshop-eksctl --approve and then\neksctl utils update-coredns --cluster=eksworkshop-eksctl --approve We can confirm we succeeded by retrieving the versions of each with the commands:\nkubectl get daemonset kube-proxy --namespace kube-system -o=jsonpath=\u0026#39;{$.spec.template.spec.containers[:1].image}\u0026#39; kubectl describe deployment coredns --namespace kube-system | grep Image | cut -d \u0026#34;/\u0026#34; -f 3 "
 },
 {
-	"uri": "//localhost:1313/intermediate/320_eks_upgrades/upgrademng/",
+	"uri": "//localhost:1313/beginner/320_eks_upgrades/upgrademng/",
 	"title": "Upgrade Managed Node Group",
 	"tags": [],
 	"description": "",
@@ -1127,90 +812,6 @@
 	"content": "Cleanup "
 },
 {
-	"uri": "//localhost:1313/tags/con205/",
-	"title": "CON205",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "//localhost:1313/tags/logging/",
-	"title": "logging",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "//localhost:1313/tags/beginner/",
-	"title": "beginner",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "//localhost:1313/tags/con203/",
-	"title": "CON203",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "//localhost:1313/tags/",
-	"title": "Tags",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "//localhost:1313/tags/con206/",
-	"title": "CON206",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "//localhost:1313/tags/intermediate/",
-	"title": "intermediate",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "//localhost:1313/tags/monitoring/",
-	"title": "monitoring",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "//localhost:1313/tags/operations/",
-	"title": "operations",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "//localhost:1313/tags/appmesh/",
-	"title": "appmesh",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "//localhost:1313/tags/kubeflow/",
-	"title": "kubeflow",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "//localhost:1313/tags/opn401/",
-	"title": "OPN401",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
 	"uri": "//localhost:1313/tabs-example/",
 	"title": "",
 	"tags": [],
@@ -1225,8 +826,15 @@
 	"content": ""
 },
 {
-	"uri": "//localhost:1313/tags/advanced/",
-	"title": "advanced",
+	"uri": "//localhost:1313/tags/appmesh/",
+	"title": "appmesh",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "//localhost:1313/tags/beginner/",
+	"title": "beginner",
 	"tags": [],
 	"description": "",
 	"content": ""
@@ -1239,15 +847,22 @@
 	"content": ""
 },
 {
-	"uri": "//localhost:1313/tags/ci/cd/",
-	"title": "ci/cd",
+	"uri": "//localhost:1313/tags/con203/",
+	"title": "CON203",
 	"tags": [],
 	"description": "",
 	"content": ""
 },
 {
-	"uri": "//localhost:1313/tags/cis-eks-benchmark/",
-	"title": "cis eks benchmark",
+	"uri": "//localhost:1313/tags/con205/",
+	"title": "CON205",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "//localhost:1313/tags/con206/",
+	"title": "CON206",
 	"tags": [],
 	"description": "",
 	"content": ""
@@ -1274,6 +889,13 @@
 	"content": "We start by initializing the Terraform state:\nterraform init We can now plan our deployment:\nterraform plan -var 'cluster-name=eksworkshop-tf' -var 'desired-capacity=3' -out eksworkshop-tf And if we want to apply that plan:\nterraform apply \u0026quot;eksworkshop-tf\u0026quot;  Applying the fresh terraform plan will take approximately 15 minutes\n "
 },
 {
+	"uri": "//localhost:1313/tags/intermediate/",
+	"title": "intermediate",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "//localhost:1313/020_prerequisites/eu-west-1/",
 	"title": "Ireland",
 	"tags": [],
@@ -1281,15 +903,15 @@
 	"content": "Create a Cloud9 Environment: https://eu-west-1.console.aws.amazon.com/cloud9/home?region=eu-west-1\n"
 },
 {
-	"uri": "//localhost:1313/020_prerequisites/self_paced/eu-west-1/",
-	"title": "Ireland",
+	"uri": "//localhost:1313/tags/kubeflow/",
+	"title": "kubeflow",
 	"tags": [],
 	"description": "",
-	"content": "Create a Cloud9 Environment: https://eu-west-1.console.aws.amazon.com/cloud9/home?region=eu-west-1\n"
+	"content": ""
 },
 {
-	"uri": "//localhost:1313/tags/kube-bench/",
-	"title": "kube-bench",
+	"uri": "//localhost:1313/tags/monitoring/",
+	"title": "monitoring",
 	"tags": [],
 	"description": "",
 	"content": ""
@@ -1299,14 +921,7 @@
 	"title": "More Resources",
 	"tags": [],
 	"description": "",
-	"content": "Discover more AWS resources for building and running your application on AWS:\n Containers from the Couch - Check out our latest container shows, and learn all about running containers!  More Workshops  Amazon ECS Workshop - Learn how to use Stelligent Mu to deploy a microservice architecture that runs in AWS Fargate Amazon Lightsail Workshop - If you are getting started with the cloud and looking for a way to run an extremely low cost environment Lightsail is perfect. Learn how to deploy to Amazon Lightsail with this workshop.  Tools for AWS Fargate and Amazon ECS  Containers on AWS - Learn common best-practices for running containers on AWS   fargate - Command line tool for interacting with AWS Fargate. With just a single command you can build, push, and launch your container in Fargate, orchestrated by ECS. Wonqa is a tool for spinning up disposable QA environments in AWS Fargate, with SSL enabled by Let\u0026rsquo;s Encrypt. More details about Wonqa on the Wonder Engineering blog coldbrew - Fantastic tool that provisions ECS infrastructure, builds and deploys your container, and connects your services to an application load balancer automatically. Has a great developer experience for day to day use mu - Automates everything relating to ECS devops and CI/CD. This framework lets you write a simple metadata file and it constructs all the infrastructure you need so that you can deploy to ECS by simply pushing to your Git repo.  Courses  Microservices with Docker, Flask, and React - Learn how to build, test, and deploy microservices powered by Docker, Flask, React Amazon ECS!  "
-},
-{
-	"uri": "//localhost:1313/020_prerequisites/self_paced/us-east-2/",
-	"title": "Ohio",
-	"tags": [],
-	"description": "",
-	"content": "Create a Cloud9 Environment: https://us-east-2.console.aws.amazon.com/cloud9/home?region=us-east-2\n"
+	"content": "Discover more AWS resources for building and running your application on AWS:\n Containers from the Couch - Check out our latest container shows, and learn all about running containers!  More Workshops Tools for AWS Fargate and Amazon ECS  Containers on AWS - Learn common best-practices for running containers on AWS   fargate - Command line tool for interacting with AWS Fargate. With just a single command you can build, push, and launch your container in Fargate, orchestrated by ECS. Wonqa is a tool for spinning up disposable QA environments in AWS Fargate, with SSL enabled by Let\u0026rsquo;s Encrypt. More details about Wonqa on the Wonder Engineering blog coldbrew - Fantastic tool that provisions ECS infrastructure, builds and deploys your container, and connects your services to an application load balancer automatically. Has a great developer experience for day to day use mu - Automates everything relating to ECS devops and CI/CD. This framework lets you write a simple metadata file and it constructs all the infrastructure you need so that you can deploy to ECS by simply pushing to your Git repo.  Courses  Microservices with Docker, Flask, and React - Learn how to build, test, and deploy microservices powered by Docker, Flask, React Amazon ECS!  "
 },
 {
 	"uri": "//localhost:1313/020_prerequisites/us-east-2/",
@@ -1316,11 +931,18 @@
 	"content": "Create a Cloud9 Environment: https://us-east-2.console.aws.amazon.com/cloud9/home?region=us-east-2\n"
 },
 {
-	"uri": "//localhost:1313/020_prerequisites/self_paced/us-west-2/",
-	"title": "Oregon",
+	"uri": "//localhost:1313/tags/operations/",
+	"title": "operations",
 	"tags": [],
 	"description": "",
-	"content": "Create a Cloud9 Environment: https://us-west-2.console.aws.amazon.com/cloud9/home?region=us-west-2\n"
+	"content": ""
+},
+{
+	"uri": "//localhost:1313/tags/opn401/",
+	"title": "OPN401",
+	"tags": [],
+	"description": "",
+	"content": ""
 },
 {
 	"uri": "//localhost:1313/020_prerequisites/us-west-2/",
@@ -1330,6 +952,13 @@
 	"content": "Create a Cloud9 Environment: https://us-west-2.console.aws.amazon.com/cloud9/home?region=us-west-2\n"
 },
 {
+	"uri": "//localhost:1313/tags/roadshow-activities/",
+	"title": "Roadshow Activities",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "//localhost:1313/020_prerequisites/ap-southeast-1/",
 	"title": "Singapore",
 	"tags": [],
@@ -1337,9 +966,9 @@
 	"content": "Create a Cloud9 Environment: https://ap-southeast-1.console.aws.amazon.com/cloud9/home?region=ap-southeast-1\n"
 },
 {
-	"uri": "//localhost:1313/020_prerequisites/self_paced/ap-southeast-1/",
-	"title": "Singapore",
+	"uri": "//localhost:1313/tags/",
+	"title": "Tags",
 	"tags": [],
 	"description": "",
-	"content": "Create a Cloud9 Environment: https://ap-southeast-1.console.aws.amazon.com/cloud9/home?region=ap-southeast-1\n"
+	"content": ""
 }]

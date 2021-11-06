@@ -1,59 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>operations on Amazon EKS Workshop</title>
+    <title>operations on Amazon EKS Roadshow</title>
     <link>//localhost:1313/tags/operations/</link>
-    <description>Recent content in operations on Amazon EKS Workshop</description>
+    <description>Recent content in operations on Amazon EKS Roadshow</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 14 Oct 2018 09:27:46 -0400</lastBuildDate><atom:link href="//localhost:1313/tags/operations/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>CI/CD with CodePipeline</title>
-      <link>//localhost:1313/intermediate/220_codepipeline/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//localhost:1313/intermediate/220_codepipeline/</guid>
-      <description>CI/CD with CodePipeline Continuous integration (CI) and continuous delivery (CD) are essential for deft organizations. Teams are more productive when they can make discrete changes frequently, release those changes programmatically and deliver updates without disruption.
-In this module, we will build a CI/CD pipeline using AWS CodePipeline. The CI/CD pipeline will deploy a sample Kubernetes service, we will make a change to the GitHub repository and observe the automated delivery of this change to the cluster.</description>
-    </item>
-    
-    <item>
-      <title>Logging with Amazon OpenSearch, Fluent Bit, and OpenSearch Dashboards</title>
-      <link>//localhost:1313/intermediate/230_logging/</link>
-      <pubDate>Tue, 21 Jul 2020 22:23:34 -0400</pubDate>
-      
-      <guid>//localhost:1313/intermediate/230_logging/</guid>
-      <description>Logging with Amazon OpenSearch, Fluent Bit, and OpenSearch Dashboards In this Chapter, we will deploy a common Kubernetes logging pattern which consists of the following:
-  Fluent Bit: an open source and multi-platform Log Processor and Forwarder which allows you to collect data/logs from different sources, unify and send them to multiple destinations. It&amp;rsquo;s fully compatible with Docker and Kubernetes environments.
-  Amazon OpenSearch Service: OpenSearch is an open source, distributed search and analytics suite derived from Elasticsearch.</description>
-    </item>
-    
-    <item>
-      <title>Monitoring using Prometheus and Grafana</title>
-      <link>//localhost:1313/intermediate/240_monitoring/</link>
-      <pubDate>Sun, 14 Oct 2018 09:27:46 -0400</pubDate>
-      
-      <guid>//localhost:1313/intermediate/240_monitoring/</guid>
-      <description>Monitoring using Prometheus and Grafana In this Chapter, we will deploy Prometheus and Grafana to monitor Kubernetes cluster
-What is Prometheus? Prometheus is an open-source systems monitoring and alerting toolkit originally built at SoundCloud. Since its inception in 2012, many companies and organizations have adopted Prometheus, and the project has a very active developer and user community. It is now a standalone open source project and maintained independently of any company.</description>
-    </item>
-    
+    <language>en-us</language><atom:link href="//localhost:1313/tags/operations/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>EKS CloudWatch Container Insights</title>
-      <link>//localhost:1313/intermediate/250_cloudwatch_container_insights/</link>
+      <link>//localhost:1313/beginner/250_cloudwatch_container_insights/</link>
       <pubDate>Mon, 13 Apr 2020 15:27:17 -0400</pubDate>
       
-      <guid>//localhost:1313/intermediate/250_cloudwatch_container_insights/</guid>
+      <guid>//localhost:1313/beginner/250_cloudwatch_container_insights/</guid>
       <description>In this chapter we will learn and leverage the new CloudWatch Container Insights to see how you can use native CloudWatch features to monitor your EKS Cluster performance.
 You can use CloudWatch Container Insights to collect, aggregate, and summarize metrics and logs from your containerized applications and microservices. Container Insights is available for Amazon Elastic Container Service, Amazon Elastic Kubernetes Service, and Kubernetes platforms on Amazon EC2. The metrics include utilization for resources such as CPU, memory, disk, and network.</description>
     </item>
     
     <item>
       <title>Patching/Upgrading your EKS Cluster</title>
-      <link>//localhost:1313/intermediate/320_eks_upgrades/</link>
+      <link>//localhost:1313/beginner/320_eks_upgrades/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/intermediate/320_eks_upgrades/</guid>
+      <guid>//localhost:1313/beginner/320_eks_upgrades/</guid>
       <description>Patching/Upgrading your EKS Cluster As EKS tracks upstream Kubernetes that means that customers can, and should, regularly upgrade their EKS so as to stay within the project&amp;rsquo;s upstream support window. This used to be the current version and two version back (n-2) - but it was recently extended to three versions back (n-3).
 There is a new major version of Kubernetes every quarter which means that the Kubernetes support window has now gone from three quarters of a year to one full year.</description>
     </item>

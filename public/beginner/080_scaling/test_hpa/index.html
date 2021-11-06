@@ -4,29 +4,29 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.83.1" />
-    <meta name="description" content="Amazon EKS Workshop">
+    <meta name="description" content="Amazon EKS Roadshow">
 <meta name="author" content="Brent Langston">
 
     <link rel="shortcut icon" href="../../../images/favicon.ico" type="image/x-icon" />
 <link rel="icon" href="../../../images/favicon.ico" type="image/x-icon" />
 
-    <title>Scale an Application with HPA :: Amazon EKS Workshop</title>
+    <title>Scale an Application with HPA :: Amazon EKS Roadshow</title>
 
     
-    <link href="../../../css/nucleus.css?1636137210" rel="stylesheet">
-    <link href="../../../css/fontawesome-all.min.css?1636137210" rel="stylesheet">
-    <link href="../../../css/hybrid.css?1636137210" rel="stylesheet">
-    <link href="../../../css/featherlight.min.css?1636137210" rel="stylesheet">
-    <link href="../../../css/perfect-scrollbar.min.css?1636137210" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1636137210" rel="stylesheet">
-    <link href="../../../css/atom-one-dark-reasonable.css?1636137210" rel="stylesheet">
-    <link href="../../../css/theme.css?1636137210" rel="stylesheet">
-    <link href="../../../css/hugo-theme.css?1636137210" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1636140125" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css?1636140125" rel="stylesheet">
+    <link href="../../../css/hybrid.css?1636140125" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css?1636140125" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css?1636140125" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1636140125" rel="stylesheet">
+    <link href="../../../css/atom-one-dark-reasonable.css?1636140125" rel="stylesheet">
+    <link href="../../../css/theme.css?1636140125" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css?1636140125" rel="stylesheet">
     
-      <link href="../../../css/theme-mine.css?1636137210" rel="stylesheet">
+      <link href="../../../css/theme-mine.css?1636140125" rel="stylesheet">
     
 
-    <script src="../../../js/jquery-3.3.1.min.js?1636137210"></script>
+    <script src="../../../js/jquery-3.3.1.min.js?1636140125"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -73,10 +73,10 @@
     <meta name="msapplication-wide310x150logo" content="/icons/mstile-310x150.png" />
     <meta name="msapplication-square310x310logo" content="/icons/mstile-310x310.png" />
 
-    <link href="../../../mermaid/mermaid.css?1636137210" type="text/css" rel="stylesheet" />
-    <link href="../../../css/jquery-ui.min.css?1636137210" rel="stylesheet">
-    <script src="../../../js/jquery-ui-1.12.1.min.js?1636137210"></script>
-    <script src="../../../mermaid/mermaid.min.js?1636137210"></script>
+    <link href="../../../mermaid/mermaid.css?1636140125" type="text/css" rel="stylesheet" />
+    <link href="../../../css/jquery-ui.min.css?1636140125" rel="stylesheet">
+    <script src="../../../js/jquery-ui-1.12.1.min.js?1636140125"></script>
+    <script src="../../../mermaid/mermaid.min.js?1636140125"></script>
     <script>
 	var config = {
         startOnLoad:true,
@@ -105,14 +105,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../../js/lunr.min.js?1636137210"></script>
-<script type="text/javascript" src="../../../js/auto-complete.js?1636137210"></script>
+<script type="text/javascript" src="../../../js/lunr.min.js?1636140125"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js?1636140125"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="../../../js/search.js?1636137210"></script>
+<script type="text/javascript" src="../../../js/search.js?1636140125"></script>
 
     
   </div>
@@ -553,39 +553,7 @@
         
         ">
       <a href="../../../020_prerequisites/">
-          <i class="fa fa-film" aria-hidden="true"></i> Start the workshop...
-          
-          
-      </a>
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-    
-    
-    <li data-nav-id="/020_prerequisites/self_paced/" title="...on your own" class="dd-item 
-        
-        
-        ">
-      <a href="../../../020_prerequisites/self_paced/">
-          ...on your own
-          
-            
-              <i class="fas fa-caret-right"></i>
-            
+          <b>   </b>Start the workshop...
           
           
       </a>
@@ -604,92 +572,13 @@
  
   
     
-      <li data-nav-id="/020_prerequisites/self_paced/account/" title="Create an AWS account" class="dd-item ">
-        <a href="../../../020_prerequisites/self_paced/account/">
-        Create an AWS account
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-             
-            
-          
-             
-            
-          
-             
-            
-          
-             
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    
-    
-    <li data-nav-id="/020_prerequisites/aws_event/" title="...at an AWS event" class="dd-item 
-        
-        
-        ">
-      <a href="../../../020_prerequisites/aws_event/">
-          ...at an AWS event
-          
-            
-              <i class="fas fa-caret-right"></i>
-            
-          
-          
-      </a>
-      
-        <ul>
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/020_prerequisites/aws_event/portal/" title="AWS Workshop Portal" class="dd-item ">
-        <a href="../../../020_prerequisites/aws_event/portal/">
+      <li data-nav-id="/020_prerequisites/portal/" title="AWS Workshop Portal" class="dd-item ">
+        <a href="../../../020_prerequisites/portal/">
         AWS Workshop Portal
         
         </a>
     </li>
      
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
   
  
 
@@ -861,7 +750,7 @@
         
         ">
       <a href="../../../030_eksctl/">
-          <i class="fa fa-film" aria-hidden="true"></i> Launch using eksctl
+          Launch using eksctl
           
           
       </a>
@@ -965,12 +854,12 @@
     
     
     
-    <li data-nav-id="/beginner/" title="Beginner" class="dd-item 
+    <li data-nav-id="/beginner/" title="Activities" class="dd-item 
         parent
         
         ">
       <a href="../../../beginner/">
-          Beginner
+          Activities
           
           
       </a>
@@ -983,102 +872,6 @@
           
           
         
-          
-            
-            
-
-
- 
-  
-    
-    
-    
-    <li data-nav-id="/beginner/040_dashboard/" title="Deploy the Kubernetes Dashboard" class="dd-item 
-        
-        
-        ">
-      <a href="../../../beginner/040_dashboard/">
-          <i class="fa fa-film" aria-hidden="true"></i> Deploy the Kubernetes Dashboard
-          
-            
-              <i class="fas fa-caret-right"></i>
-            
-          
-          
-      </a>
-      
-        <ul>
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/beginner/040_dashboard/dashboard/" title="Deploy the Official Kubernetes Dashboard" class="dd-item ">
-        <a href="../../../beginner/040_dashboard/dashboard/">
-        Deploy the Official Kubernetes Dashboard
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/beginner/040_dashboard/connect/" title="Access the Dashboard" class="dd-item ">
-        <a href="../../../beginner/040_dashboard/connect/">
-        Access the Dashboard
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/beginner/040_dashboard/cleanup/" title="Cleanup" class="dd-item ">
-        <a href="../../../beginner/040_dashboard/cleanup/">
-        Cleanup
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
           
             
             
@@ -1723,197 +1516,6 @@
     
     
     
-    <li data-nav-id="/beginner/090_rbac/" title="Intro to RBAC" class="dd-item 
-        
-        
-        ">
-      <a href="../../../beginner/090_rbac/">
-          <i class="fa fa-film" aria-hidden="true"></i> Intro to RBAC
-          
-            
-              <i class="fas fa-caret-right"></i>
-            
-          
-          
-      </a>
-      
-        <ul>
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/beginner/090_rbac/intro/" title="What is RBAC?" class="dd-item ">
-        <a href="../../../beginner/090_rbac/intro/">
-        What is RBAC?
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/beginner/090_rbac/install_test_pods/" title="Install Test Pods" class="dd-item ">
-        <a href="../../../beginner/090_rbac/install_test_pods/">
-        Install Test Pods
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/beginner/090_rbac/create_iam_user/" title="Create a User" class="dd-item ">
-        <a href="../../../beginner/090_rbac/create_iam_user/">
-        Create a User
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/beginner/090_rbac/map_iam_user_to_k8s_user/" title="Map an IAM User to K8s" class="dd-item ">
-        <a href="../../../beginner/090_rbac/map_iam_user_to_k8s_user/">
-        Map an IAM User to K8s
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/beginner/090_rbac/test_rbac_user_without_roles/" title="Test the new user" class="dd-item ">
-        <a href="../../../beginner/090_rbac/test_rbac_user_without_roles/">
-        Test the new user
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/beginner/090_rbac/create_role_and_binding/" title="Create the Role and Binding" class="dd-item ">
-        <a href="../../../beginner/090_rbac/create_role_and_binding/">
-        Create the Role and Binding
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/beginner/090_rbac/verify_user_role_binding/" title="Verify the Role and Binding" class="dd-item ">
-        <a href="../../../beginner/090_rbac/verify_user_role_binding/">
-        Verify the Role and Binding
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/beginner/090_rbac/cleanup/" title="Cleanup" class="dd-item ">
-        <a href="../../../beginner/090_rbac/cleanup/">
-        Cleanup
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    
-    
     <li data-nav-id="/beginner/130_exposing-service/" title="Exposing a Service" class="dd-item 
         
         
@@ -2211,15 +1813,8 @@
 
             
           
-        
-        </ul>
-              
-    </li>
-  
- 
-
-          
-          
+            
+            
 
 
  
@@ -2227,39 +1822,11 @@
     
     
     
-    <li data-nav-id="/intermediate/" title="Intermediate" class="dd-item 
+    <li data-nav-id="/beginner/200_migrate_to_eks/" title="Migrate to EKS" class="dd-item 
         
         
         ">
-      <a href="../../../intermediate/">
-          Intermediate
-          
-          
-      </a>
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-    
-    
-    <li data-nav-id="/intermediate/200_migrate_to_eks/" title="Migrate to EKS" class="dd-item 
-        
-        
-        ">
-      <a href="../../../intermediate/200_migrate_to_eks/">
+      <a href="../../../beginner/200_migrate_to_eks/">
           Migrate to EKS
           
             
@@ -2283,8 +1850,8 @@
  
   
     
-      <li data-nav-id="/intermediate/200_migrate_to_eks/create-kind-cluster/" title="Create kind cluster" class="dd-item ">
-        <a href="../../../intermediate/200_migrate_to_eks/create-kind-cluster/">
+      <li data-nav-id="/beginner/200_migrate_to_eks/create-kind-cluster/" title="Create kind cluster" class="dd-item ">
+        <a href="../../../beginner/200_migrate_to_eks/create-kind-cluster/">
         Create kind cluster
         
         </a>
@@ -2302,8 +1869,8 @@
  
   
     
-      <li data-nav-id="/intermediate/200_migrate_to_eks/deploy-counter-app-kind/" title="Deploy counter app to kind" class="dd-item ">
-        <a href="../../../intermediate/200_migrate_to_eks/deploy-counter-app-kind/">
+      <li data-nav-id="/beginner/200_migrate_to_eks/deploy-counter-app-kind/" title="Deploy counter app to kind" class="dd-item ">
+        <a href="../../../beginner/200_migrate_to_eks/deploy-counter-app-kind/">
         Deploy counter app to kind
         
         </a>
@@ -2321,8 +1888,8 @@
  
   
     
-      <li data-nav-id="/intermediate/200_migrate_to_eks/expose-counter-app-kind/" title="Expose counter app from kind" class="dd-item ">
-        <a href="../../../intermediate/200_migrate_to_eks/expose-counter-app-kind/">
+      <li data-nav-id="/beginner/200_migrate_to_eks/expose-counter-app-kind/" title="Expose counter app from kind" class="dd-item ">
+        <a href="../../../beginner/200_migrate_to_eks/expose-counter-app-kind/">
         Expose counter app from kind
         
         </a>
@@ -2340,8 +1907,8 @@
  
   
     
-      <li data-nav-id="/intermediate/200_migrate_to_eks/configure-eks-cluster/" title="Configure EKS cluster" class="dd-item ">
-        <a href="../../../intermediate/200_migrate_to_eks/configure-eks-cluster/">
+      <li data-nav-id="/beginner/200_migrate_to_eks/configure-eks-cluster/" title="Configure EKS cluster" class="dd-item ">
+        <a href="../../../beginner/200_migrate_to_eks/configure-eks-cluster/">
         Configure EKS cluster
         
         </a>
@@ -2359,8 +1926,8 @@
  
   
     
-      <li data-nav-id="/intermediate/200_migrate_to_eks/deploy-counter-app-eks/" title="Deploy counter app to EKS" class="dd-item ">
-        <a href="../../../intermediate/200_migrate_to_eks/deploy-counter-app-eks/">
+      <li data-nav-id="/beginner/200_migrate_to_eks/deploy-counter-app-eks/" title="Deploy counter app to EKS" class="dd-item ">
+        <a href="../../../beginner/200_migrate_to_eks/deploy-counter-app-eks/">
         Deploy counter app to EKS
         
         </a>
@@ -2378,8 +1945,8 @@
  
   
     
-      <li data-nav-id="/intermediate/200_migrate_to_eks/deploy-counter-db-in-eks/" title="Deploy database to EKS" class="dd-item ">
-        <a href="../../../intermediate/200_migrate_to_eks/deploy-counter-db-in-eks/">
+      <li data-nav-id="/beginner/200_migrate_to_eks/deploy-counter-db-in-eks/" title="Deploy database to EKS" class="dd-item ">
+        <a href="../../../beginner/200_migrate_to_eks/deploy-counter-db-in-eks/">
         Deploy database to EKS
         
         </a>
@@ -2397,8 +1964,8 @@
  
   
     
-      <li data-nav-id="/intermediate/200_migrate_to_eks/cleanup/" title="Cleanup resources" class="dd-item ">
-        <a href="../../../intermediate/200_migrate_to_eks/cleanup/">
+      <li data-nav-id="/beginner/200_migrate_to_eks/cleanup/" title="Cleanup resources" class="dd-item ">
+        <a href="../../../beginner/200_migrate_to_eks/cleanup/">
         Cleanup resources
         
         </a>
@@ -2427,11 +1994,11 @@
     
     
     
-    <li data-nav-id="/intermediate/201_resource_management/" title="Resource Management" class="dd-item 
+    <li data-nav-id="/beginner/201_resource_management/" title="Resource Management" class="dd-item 
         
         
         ">
-      <a href="../../../intermediate/201_resource_management/">
+      <a href="../../../beginner/201_resource_management/">
           <i class="fa fa-film" aria-hidden="true"></i> Resource Management
           
             
@@ -2455,8 +2022,8 @@
  
   
     
-      <li data-nav-id="/intermediate/201_resource_management/basic-pod-limits/" title="Basic Pod CPU and Memory Management" class="dd-item ">
-        <a href="../../../intermediate/201_resource_management/basic-pod-limits/">
+      <li data-nav-id="/beginner/201_resource_management/basic-pod-limits/" title="Basic Pod CPU and Memory Management" class="dd-item ">
+        <a href="../../../beginner/201_resource_management/basic-pod-limits/">
         Basic Pod CPU and Memory Management
         
         </a>
@@ -2474,8 +2041,8 @@
  
   
     
-      <li data-nav-id="/intermediate/201_resource_management/advanced-pod-limits/" title="Advanced Pod CPU and Memory Management" class="dd-item ">
-        <a href="../../../intermediate/201_resource_management/advanced-pod-limits/">
+      <li data-nav-id="/beginner/201_resource_management/advanced-pod-limits/" title="Advanced Pod CPU and Memory Management" class="dd-item ">
+        <a href="../../../beginner/201_resource_management/advanced-pod-limits/">
         Advanced Pod CPU and Memory Management
         
         </a>
@@ -2493,8 +2060,8 @@
  
   
     
-      <li data-nav-id="/intermediate/201_resource_management/resource-quota/" title="Resource Quotas" class="dd-item ">
-        <a href="../../../intermediate/201_resource_management/resource-quota/">
+      <li data-nav-id="/beginner/201_resource_management/resource-quota/" title="Resource Quotas" class="dd-item ">
+        <a href="../../../beginner/201_resource_management/resource-quota/">
         Resource Quotas
         
         </a>
@@ -2512,8 +2079,8 @@
  
   
     
-      <li data-nav-id="/intermediate/201_resource_management/pod-priority/" title="Pod Priority and Preemption" class="dd-item ">
-        <a href="../../../intermediate/201_resource_management/pod-priority/">
+      <li data-nav-id="/beginner/201_resource_management/pod-priority/" title="Pod Priority and Preemption" class="dd-item ">
+        <a href="../../../beginner/201_resource_management/pod-priority/">
         Pod Priority and Preemption
         
         </a>
@@ -2531,8 +2098,8 @@
  
   
     
-      <li data-nav-id="/intermediate/201_resource_management/cleaning/" title="Clean Up" class="dd-item ">
-        <a href="../../../intermediate/201_resource_management/cleaning/">
+      <li data-nav-id="/beginner/201_resource_management/cleaning/" title="Clean Up" class="dd-item ">
+        <a href="../../../beginner/201_resource_management/cleaning/">
         Clean Up
         
         </a>
@@ -2561,470 +2128,11 @@
     
     
     
-    <li data-nav-id="/intermediate/220_codepipeline/" title="CI/CD with CodePipeline" class="dd-item 
+    <li data-nav-id="/beginner/250_cloudwatch_container_insights/" title="EKS CloudWatch Container Insights" class="dd-item 
         
         
         ">
-      <a href="../../../intermediate/220_codepipeline/">
-          CI/CD with CodePipeline
-          
-            
-              <i class="fas fa-caret-right"></i>
-            
-          
-          
-      </a>
-      
-        <ul>
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/intermediate/220_codepipeline/role/" title="Create IAM Role" class="dd-item ">
-        <a href="../../../intermediate/220_codepipeline/role/">
-        Create IAM Role
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/intermediate/220_codepipeline/configmap/" title="Modify aws-auth ConfigMap" class="dd-item ">
-        <a href="../../../intermediate/220_codepipeline/configmap/">
-        Modify aws-auth ConfigMap
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/intermediate/220_codepipeline/forksample/" title="Fork Sample Repository" class="dd-item ">
-        <a href="../../../intermediate/220_codepipeline/forksample/">
-        Fork Sample Repository
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/intermediate/220_codepipeline/githubcredentials/" title="GitHub Access Token" class="dd-item ">
-        <a href="../../../intermediate/220_codepipeline/githubcredentials/">
-        GitHub Access Token
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/intermediate/220_codepipeline/codepipeline/" title="CodePipeline Setup" class="dd-item ">
-        <a href="../../../intermediate/220_codepipeline/codepipeline/">
-        CodePipeline Setup
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/intermediate/220_codepipeline/change/" title="Trigger New Release" class="dd-item ">
-        <a href="../../../intermediate/220_codepipeline/change/">
-        Trigger New Release
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/intermediate/220_codepipeline/cleanup/" title="Cleanup" class="dd-item ">
-        <a href="../../../intermediate/220_codepipeline/cleanup/">
-        Cleanup
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    
-    
-    <li data-nav-id="/intermediate/230_logging/" title="Logging with Amazon OpenSearch, Fluent Bit, and OpenSearch Dashboards" class="dd-item 
-        
-        
-        ">
-      <a href="../../../intermediate/230_logging/">
-          Logging with Amazon OpenSearch, Fluent Bit, and OpenSearch Dashboards
-          
-            
-              <i class="fas fa-caret-right"></i>
-            
-          
-          
-      </a>
-      
-        <ul>
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/intermediate/230_logging/prereqs/" title="Configure IRSA for Fluent Bit" class="dd-item ">
-        <a href="../../../intermediate/230_logging/prereqs/">
-        Configure IRSA for Fluent Bit
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/intermediate/230_logging/setup_es/" title="Provision an Amazon OpenSearch Cluster" class="dd-item ">
-        <a href="../../../intermediate/230_logging/setup_es/">
-        Provision an Amazon OpenSearch Cluster
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/intermediate/230_logging/config_es/" title="Configure Amazon OpenSearch Access" class="dd-item ">
-        <a href="../../../intermediate/230_logging/config_es/">
-        Configure Amazon OpenSearch Access
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/intermediate/230_logging/deploy/" title="Deploy Fluent Bit" class="dd-item ">
-        <a href="../../../intermediate/230_logging/deploy/">
-        Deploy Fluent Bit
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/intermediate/230_logging/kibana/" title="OpenSearch Dashboards" class="dd-item ">
-        <a href="../../../intermediate/230_logging/kibana/">
-        OpenSearch Dashboards
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/intermediate/230_logging/cleanup/" title="Cleanup" class="dd-item ">
-        <a href="../../../intermediate/230_logging/cleanup/">
-        Cleanup
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    
-    
-    <li data-nav-id="/intermediate/240_monitoring/" title="Monitoring using Prometheus and Grafana" class="dd-item 
-        
-        
-        ">
-      <a href="../../../intermediate/240_monitoring/">
-          Monitoring using Prometheus and Grafana
-          
-            
-              <i class="fas fa-caret-right"></i>
-            
-          
-          
-      </a>
-      
-        <ul>
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/intermediate/240_monitoring/prereqs/" title="Prereqs" class="dd-item ">
-        <a href="../../../intermediate/240_monitoring/prereqs/">
-        Prereqs
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/intermediate/240_monitoring/deploy-prometheus/" title="Deploy Prometheus" class="dd-item ">
-        <a href="../../../intermediate/240_monitoring/deploy-prometheus/">
-        Deploy Prometheus
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/intermediate/240_monitoring/deploy-grafana/" title="Deploy Grafana" class="dd-item ">
-        <a href="../../../intermediate/240_monitoring/deploy-grafana/">
-        Deploy Grafana
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/intermediate/240_monitoring/dashboards/" title="Dashboards" class="dd-item ">
-        <a href="../../../intermediate/240_monitoring/dashboards/">
-        Dashboards
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/intermediate/240_monitoring/cleanup/" title="Cleanup" class="dd-item ">
-        <a href="../../../intermediate/240_monitoring/cleanup/">
-        Cleanup
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    
-    
-    <li data-nav-id="/intermediate/250_cloudwatch_container_insights/" title="EKS CloudWatch Container Insights" class="dd-item 
-        
-        
-        ">
-      <a href="../../../intermediate/250_cloudwatch_container_insights/">
+      <a href="../../../beginner/250_cloudwatch_container_insights/">
           EKS CloudWatch Container Insights
           
             
@@ -3048,8 +2156,8 @@
  
   
     
-      <li data-nav-id="/intermediate/250_cloudwatch_container_insights/gettingstarted/" title="Getting Started" class="dd-item ">
-        <a href="../../../intermediate/250_cloudwatch_container_insights/gettingstarted/">
+      <li data-nav-id="/beginner/250_cloudwatch_container_insights/gettingstarted/" title="Getting Started" class="dd-item ">
+        <a href="../../../beginner/250_cloudwatch_container_insights/gettingstarted/">
         Getting Started
         
         </a>
@@ -3067,8 +2175,8 @@
  
   
     
-      <li data-nav-id="/intermediate/250_cloudwatch_container_insights/installwordpress/" title="Install WordPress" class="dd-item ">
-        <a href="../../../intermediate/250_cloudwatch_container_insights/installwordpress/">
+      <li data-nav-id="/beginner/250_cloudwatch_container_insights/installwordpress/" title="Install WordPress" class="dd-item ">
+        <a href="../../../beginner/250_cloudwatch_container_insights/installwordpress/">
         Install WordPress
         
         </a>
@@ -3086,8 +2194,8 @@
  
   
     
-      <li data-nav-id="/intermediate/250_cloudwatch_container_insights/accesswp/" title="Accessing Wordpress" class="dd-item ">
-        <a href="../../../intermediate/250_cloudwatch_container_insights/accesswp/">
+      <li data-nav-id="/beginner/250_cloudwatch_container_insights/accesswp/" title="Accessing Wordpress" class="dd-item ">
+        <a href="../../../beginner/250_cloudwatch_container_insights/accesswp/">
         Accessing Wordpress
         
         </a>
@@ -3105,8 +2213,8 @@
  
   
     
-      <li data-nav-id="/intermediate/250_cloudwatch_container_insights/cwcinstallprep/" title="Preparing to Install Container Insights" class="dd-item ">
-        <a href="../../../intermediate/250_cloudwatch_container_insights/cwcinstallprep/">
+      <li data-nav-id="/beginner/250_cloudwatch_container_insights/cwcinstallprep/" title="Preparing to Install Container Insights" class="dd-item ">
+        <a href="../../../beginner/250_cloudwatch_container_insights/cwcinstallprep/">
         Preparing to Install Container Insights
         
         </a>
@@ -3124,8 +2232,8 @@
  
   
     
-      <li data-nav-id="/intermediate/250_cloudwatch_container_insights/cwcinstall/" title="Installing Container Insights" class="dd-item ">
-        <a href="../../../intermediate/250_cloudwatch_container_insights/cwcinstall/">
+      <li data-nav-id="/beginner/250_cloudwatch_container_insights/cwcinstall/" title="Installing Container Insights" class="dd-item ">
+        <a href="../../../beginner/250_cloudwatch_container_insights/cwcinstall/">
         Installing Container Insights
         
         </a>
@@ -3143,8 +2251,8 @@
  
   
     
-      <li data-nav-id="/intermediate/250_cloudwatch_container_insights/verifycwci/" title="Verify CloudWatch Container Insights is working" class="dd-item ">
-        <a href="../../../intermediate/250_cloudwatch_container_insights/verifycwci/">
+      <li data-nav-id="/beginner/250_cloudwatch_container_insights/verifycwci/" title="Verify CloudWatch Container Insights is working" class="dd-item ">
+        <a href="../../../beginner/250_cloudwatch_container_insights/verifycwci/">
         Verify CloudWatch Container Insights is working
         
         </a>
@@ -3162,8 +2270,8 @@
  
   
     
-      <li data-nav-id="/intermediate/250_cloudwatch_container_insights/prepareloadtest/" title="Preparing your Load Test" class="dd-item ">
-        <a href="../../../intermediate/250_cloudwatch_container_insights/prepareloadtest/">
+      <li data-nav-id="/beginner/250_cloudwatch_container_insights/prepareloadtest/" title="Preparing your Load Test" class="dd-item ">
+        <a href="../../../beginner/250_cloudwatch_container_insights/prepareloadtest/">
         Preparing your Load Test
         
         </a>
@@ -3181,8 +2289,8 @@
  
   
     
-      <li data-nav-id="/intermediate/250_cloudwatch_container_insights/runloadtest/" title="Running the Load Test" class="dd-item ">
-        <a href="../../../intermediate/250_cloudwatch_container_insights/runloadtest/">
+      <li data-nav-id="/beginner/250_cloudwatch_container_insights/runloadtest/" title="Running the Load Test" class="dd-item ">
+        <a href="../../../beginner/250_cloudwatch_container_insights/runloadtest/">
         Running the Load Test
         
         </a>
@@ -3200,8 +2308,8 @@
  
   
     
-      <li data-nav-id="/intermediate/250_cloudwatch_container_insights/viewvetrics/" title="Viewing our collected metrics" class="dd-item ">
-        <a href="../../../intermediate/250_cloudwatch_container_insights/viewvetrics/">
+      <li data-nav-id="/beginner/250_cloudwatch_container_insights/viewvetrics/" title="Viewing our collected metrics" class="dd-item ">
+        <a href="../../../beginner/250_cloudwatch_container_insights/viewvetrics/">
         Viewing our collected metrics
         
         </a>
@@ -3219,8 +2327,8 @@
  
   
     
-      <li data-nav-id="/intermediate/250_cloudwatch_container_insights/viewlogs/" title="Viewing our collected logs" class="dd-item ">
-        <a href="../../../intermediate/250_cloudwatch_container_insights/viewlogs/">
+      <li data-nav-id="/beginner/250_cloudwatch_container_insights/viewlogs/" title="Viewing our collected logs" class="dd-item ">
+        <a href="../../../beginner/250_cloudwatch_container_insights/viewlogs/">
         Viewing our collected logs
         
         </a>
@@ -3238,8 +2346,8 @@
  
   
     
-      <li data-nav-id="/intermediate/250_cloudwatch_container_insights/cwalarms/" title="Using CloudWatch Alarms" class="dd-item ">
-        <a href="../../../intermediate/250_cloudwatch_container_insights/cwalarms/">
+      <li data-nav-id="/beginner/250_cloudwatch_container_insights/cwalarms/" title="Using CloudWatch Alarms" class="dd-item ">
+        <a href="../../../beginner/250_cloudwatch_container_insights/cwalarms/">
         Using CloudWatch Alarms
         
         </a>
@@ -3257,8 +2365,8 @@
  
   
     
-      <li data-nav-id="/intermediate/250_cloudwatch_container_insights/wraup/" title="Wrapping Up" class="dd-item ">
-        <a href="../../../intermediate/250_cloudwatch_container_insights/wraup/">
+      <li data-nav-id="/beginner/250_cloudwatch_container_insights/wraup/" title="Wrapping Up" class="dd-item ">
+        <a href="../../../beginner/250_cloudwatch_container_insights/wraup/">
         Wrapping Up
         
         </a>
@@ -3287,145 +2395,11 @@
     
     
     
-    <li data-nav-id="/intermediate/300_cis_eks_benchmark/" title="CIS EKS Benchmark assessment using kube-bench" class="dd-item 
+    <li data-nav-id="/beginner/320_eks_upgrades/" title="Patching/Upgrading your EKS Cluster" class="dd-item 
         
         
         ">
-      <a href="../../../intermediate/300_cis_eks_benchmark/">
-          <i class="fa fa-film" aria-hidden="true"></i> CIS EKS Benchmark assessment using kube-bench
-          
-            
-              <i class="fas fa-caret-right"></i>
-            
-          
-          
-      </a>
-      
-        <ul>
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/intermediate/300_cis_eks_benchmark/intro/" title="Introduction to CIS Amazon EKS Benchmark and kube-bench" class="dd-item ">
-        <a href="../../../intermediate/300_cis_eks_benchmark/intro/">
-        Introduction to CIS Amazon EKS Benchmark and kube-bench
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/intermediate/300_cis_eks_benchmark/ssh-into-node/" title="Module 1: Install kube-bench in node" class="dd-item ">
-        <a href="../../../intermediate/300_cis_eks_benchmark/ssh-into-node/">
-        Module 1: Install kube-bench in node
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/intermediate/300_cis_eks_benchmark/run-as-job/" title="Module 2: Run kube-bench as a K8s job" class="dd-item ">
-        <a href="../../../intermediate/300_cis_eks_benchmark/run-as-job/">
-        Module 2: Run kube-bench as a K8s job
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/intermediate/300_cis_eks_benchmark/debug-mode/" title="Module 3: Run kube-bench in debug mode" class="dd-item ">
-        <a href="../../../intermediate/300_cis_eks_benchmark/debug-mode/">
-        Module 3: Run kube-bench in debug mode
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/intermediate/300_cis_eks_benchmark/conclusion/" title="Conclusion" class="dd-item ">
-        <a href="../../../intermediate/300_cis_eks_benchmark/conclusion/">
-        Conclusion
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    
-    
-    <li data-nav-id="/intermediate/320_eks_upgrades/" title="Patching/Upgrading your EKS Cluster" class="dd-item 
-        
-        
-        ">
-      <a href="../../../intermediate/320_eks_upgrades/">
+      <a href="../../../beginner/320_eks_upgrades/">
           Patching/Upgrading your EKS Cluster
           
             
@@ -3449,8 +2423,8 @@
  
   
     
-      <li data-nav-id="/intermediate/320_eks_upgrades/theprocess/" title="The Upgrade Process" class="dd-item ">
-        <a href="../../../intermediate/320_eks_upgrades/theprocess/">
+      <li data-nav-id="/beginner/320_eks_upgrades/theprocess/" title="The Upgrade Process" class="dd-item ">
+        <a href="../../../beginner/320_eks_upgrades/theprocess/">
         The Upgrade Process
         
         </a>
@@ -3468,8 +2442,8 @@
  
   
     
-      <li data-nav-id="/intermediate/320_eks_upgrades/upgradeeks/" title="Upgrade EKS Control Plane" class="dd-item ">
-        <a href="../../../intermediate/320_eks_upgrades/upgradeeks/">
+      <li data-nav-id="/beginner/320_eks_upgrades/upgradeeks/" title="Upgrade EKS Control Plane" class="dd-item ">
+        <a href="../../../beginner/320_eks_upgrades/upgradeeks/">
         Upgrade EKS Control Plane
         
         </a>
@@ -3487,8 +2461,8 @@
  
   
     
-      <li data-nav-id="/intermediate/320_eks_upgrades/upgradeaddons/" title="Upgrade EKS Core Add-ons" class="dd-item ">
-        <a href="../../../intermediate/320_eks_upgrades/upgradeaddons/">
+      <li data-nav-id="/beginner/320_eks_upgrades/upgradeaddons/" title="Upgrade EKS Core Add-ons" class="dd-item ">
+        <a href="../../../beginner/320_eks_upgrades/upgradeaddons/">
         Upgrade EKS Core Add-ons
         
         </a>
@@ -3506,8 +2480,8 @@
  
   
     
-      <li data-nav-id="/intermediate/320_eks_upgrades/upgrademng/" title="Upgrade Managed Node Group" class="dd-item ">
-        <a href="../../../intermediate/320_eks_upgrades/upgrademng/">
+      <li data-nav-id="/beginner/320_eks_upgrades/upgrademng/" title="Upgrade Managed Node Group" class="dd-item ">
+        <a href="../../../beginner/320_eks_upgrades/upgrademng/">
         Upgrade Managed Node Group
         
         </a>
@@ -3744,63 +2718,11 @@
         <ul>
           
               <li> 
-                  <a class="padding" href="https://containersfromthecouch.com"><i class='fab fa-youtube'></i> Containers from the Couch</a>
-              </li>
-          
-              <li> 
-                  <a class="padding" href="//localhost:1313/tags/con203"><i class='fab fa-aws'></i> CON203</a>
-              </li>
-          
-              <li> 
-                  <a class="padding" href="//localhost:1313/tags/con205"><i class='fab fa-aws'></i> CON205</a>
-              </li>
-          
-              <li> 
-                  <a class="padding" href="//localhost:1313/tags/con206"><i class='fab fa-aws'></i> CON206</a>
-              </li>
-          
-              <li> 
-                  <a class="padding" href="//localhost:1313/tags/opn401"><i class='fab fa-aws'></i> OPN401</a>
-              </li>
-          
-              <li> 
-                  <a class="padding" href="//localhost:1313/tags"><i class='fas fa-tags'></i> Tags</a>
-              </li>
-          
-              <li> 
-                  <a class="padding" href="https://appmeshworkshop.com"><i class='fas fa-chalkboard'></i> AppMesh Workshop</a>
-              </li>
-          
-              <li> 
-                  <a class="padding" href="https://ecsworkshop.com"><i class='fas fa-chalkboard'></i> ECS Workshop</a>
-              </li>
-          
-              <li> 
-                  <a class="padding" href="https://awsk8snetworkshops.com"><i class='fas fa-chalkboard'></i> EKS Networking Workshops</a>
-              </li>
-          
-              <li> 
-                  <a class="padding" href="https://awsworkshop.io"><i class='fas fa-chalkboard'></i> AWS Partner Workshops</a>
+                  <a class="padding" href="https://eksworkshop.com"><i class='fas fa-chalkboard'></i> EKS Workshop</a>
               </li>
           
               <li> 
                   <a class="padding" href="https://anywhere.eks.amazonaws.com/docs/getting-started/"><i class='fas fa-chalkboard'></i> EKS Anywhere</a>
-              </li>
-          
-              <li> 
-                  <a class="padding" href="//localhost:1313/more_resources"><i class='fas fa-bookmark'></i> More Resources</a>
-              </li>
-          
-              <li> 
-                  <a class="padding" href="//localhost:1313/authors"><i class='fas fa-users'></i> Authors</a>
-              </li>
-          
-              <li> 
-                  <a class="padding" href="https://github.com/aws-samples/eks-workshop"><i class='fab fa-github'></i> GitHub Project</a>
-              </li>
-          
-              <li> 
-                  <a class="padding" href="mailto:eksworkshop@amazon.com"><i class='fas fa-envelope'></i> Have questions?</a>
               </li>
           
         </ul>
@@ -3867,7 +2789,7 @@
             
           
           
-            <a href='../../../'>Amazon EKS Workshop</a> > <a href='../../../beginner/'>Beginner</a> > <a href='../../../beginner/080_scaling/'>Autoscaling our Applications and Clusters</a> > Scale an Application with HPA
+            <a href='../../../'>Amazon EKS Roadshow</a> > <a href='../../../beginner/'>Activities</a> > <a href='../../../beginner/080_scaling/'>Autoscaling our Applications and Clusters</a> > Scale an Application with HPA
           
          
           
@@ -4274,74 +3196,7 @@ kubectl get pod -l app<span style="color:#f92672">=</span>php-apache
 
                     
                     
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-        
-                    
-                        
-            
-            
-        
-                    
-                        
-            
-            
-        
-                    
-                        
-            
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
                     
-                    
 
                     
                         
@@ -4356,9 +3211,6 @@ kubectl get pod -l app<span style="color:#f92672">=</span>php-apache
                     
                     
 
-                    
-            
-        
                     
             
         
@@ -4577,94 +3429,30 @@ kubectl get pod -l app<span style="color:#f92672">=</span>php-apache
                     
             
         
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
                     
-                    
-                        
-                    
-                    
-
-                    
                         
             
             
                 
                     
-                        
-                        
                     
                 
                 
 
                     
                     
-                    
-
-                    
                         
-            
-            
-                
-                    
-                
-                
-
                     
                     
-                    
 
-                    
-            
-        
                     
                         
             
             
-                
-                    
                 
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
                         
-            
-            
-                
                     
                 
                 
@@ -5112,39 +3900,10 @@ kubectl get pod -l app<span style="color:#f92672">=</span>php-apache
                     
                     
 
-                    
-            
-        
                     
             
         
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
                     
-                    
-
-                    
             
         
                     
@@ -5160,9 +3919,6 @@ kubectl get pod -l app<span style="color:#f92672">=</span>php-apache
                     
                     
 
-                    
-            
-        
                     
                         
             
@@ -5480,44 +4236,10 @@ kubectl get pod -l app<span style="color:#f92672">=</span>php-apache
                     
                     
 
-                    
-            
-        
-                    
-            
-        
                     
             
         
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
                         
             
             
@@ -5533,19 +4255,6 @@ kubectl get pod -l app<span style="color:#f92672">=</span>php-apache
                     
             
         
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
                     
             
         
@@ -5562,9 +4271,6 @@ kubectl get pod -l app<span style="color:#f92672">=</span>php-apache
                     
                     
 
-                    
-            
-        
                     
                         
             
@@ -5630,9 +4336,6 @@ kubectl get pod -l app<span style="color:#f92672">=</span>php-apache
             
         
                     
-            
-        
-                    
                         
             
             
@@ -5646,18 +4349,8 @@ kubectl get pod -l app<span style="color:#f92672">=</span>php-apache
                     
 
                     
-                        
             
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
+        
                     
             
         
@@ -5674,9 +4367,6 @@ kubectl get pod -l app<span style="color:#f92672">=</span>php-apache
                     
                     
 
-                    
-            
-        
                     
                         
             
@@ -5722,26 +4412,10 @@ kubectl get pod -l app<span style="color:#f92672">=</span>php-apache
                     
                     
 
-                    
-            
-        
                     
             
         
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
                     
-
-                    
                         
             
             
@@ -5805,486 +4479,6 @@ kubectl get pod -l app<span style="color:#f92672">=</span>php-apache
                     
             
         
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
                     
                         
             
@@ -6591,19 +4785,19 @@ kubectl get pod -l app<span style="color:#f92672">=</span>php-apache
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../js/clipboard.min.js?1636137210"></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1636137210"></script>
-    <script src="../../../js/perfect-scrollbar.jquery.min.js?1636137210"></script>
-    <script src="../../../js/jquery.sticky.js?1636137210"></script>
-    <script src="../../../js/featherlight.min.js?1636137210"></script>
-    <script src="../../../js/highlight.pack.js?1636137210"></script>
+    <script src="../../../js/clipboard.min.js?1636140125"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1636140125"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1636140125"></script>
+    <script src="../../../js/jquery.sticky.js?1636140125"></script>
+    <script src="../../../js/featherlight.min.js?1636140125"></script>
+    <script src="../../../js/highlight.pack.js?1636140125"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../js/modernizr.custom-3.6.0.js?1636137210"></script>
-    <script src="../../../js/learn.js?1636137210"></script>
-    <script src="../../../js/hugo-learn.js?1636137210"></script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1636140125"></script>
+    <script src="../../../js/learn.js?1636140125"></script>
+    <script src="../../../js/hugo-learn.js?1636140125"></script>
 
-    <link href="../../../mermaid/mermaid.css?1636137210" rel="stylesheet" />
-    <script src="../../../mermaid/mermaid.js?1636137210"></script>
+    <link href="../../../mermaid/mermaid.css?1636140125" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.js?1636140125"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

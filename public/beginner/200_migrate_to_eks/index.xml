@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Migrate to EKS on Amazon EKS Roadshow</title>
+    <link>//localhost:1313/beginner/200_migrate_to_eks/</link>
+    <description>Recent content in Migrate to EKS on Amazon EKS Roadshow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="//localhost:1313/beginner/200_migrate_to_eks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Create kind cluster</title>
+      <link>//localhost:1313/beginner/200_migrate_to_eks/create-kind-cluster/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/beginner/200_migrate_to_eks/create-kind-cluster/</guid>
+      <description>While our EKS cluster is being created we can create a kind cluster locally. Before we create one lets make sure our network rules are set up
+This is going to manually create some iptables rules to route traffic to your Cloud9 instance. If you reboot the VM you will have to run these commands again as they persistent.
+ echo &amp;#39;net.ipv4.conf.all.route_localnet = 1&amp;#39; | sudo tee /etc/sysctl.conf sudo sysctl -p /etc/sysctl.</description>
+    </item>
+    
+    <item>
+      <title>Deploy counter app to kind</title>
+      <link>//localhost:1313/beginner/200_migrate_to_eks/deploy-counter-app-kind/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/beginner/200_migrate_to_eks/deploy-counter-app-kind/</guid>
+      <description>Once the kind cluster is ready we can check it with
+kubectl --context kind-kind get nodes Deploy our postgres database to the cluster. First create a ConfigMap to initialize an empty database and then create a PersistentVolume on hostPath to store the data.
+cat &amp;lt;&amp;lt;EOF | kubectl --context kind-kind apply -f - --- apiVersion: v1 kind: ConfigMap metadata: name: postgres-config labels: app: postgres data: POSTGRES_PASSWORD: supersecret init: | CREATE TABLE importantdata ( id int4 PRIMARY KEY, count int4 NOT NULL ); INSERT INTO importantdata (id , count) VALUES (1, 0); --- kind: PersistentVolume apiVersion: v1 metadata: name: postgres-pv-volume labels: type: local app: postgres spec: storageClassName: manual capacity: storage: 5Gi accessModes: - ReadWriteMany hostPath: path: &amp;#34;/mnt/data&amp;#34; --- kind: PersistentVolumeClaim apiVersion: v1 metadata: name: postgres-pv-claim labels: app: postgres spec: storageClassName: manual accessModes: - ReadWriteMany resources: requests: storage: 5Gi EOF Now deploy a Postgres StatefulSet and service.</description>
+    </item>
+    
+    <item>
+      <title>Expose counter app from kind</title>
+      <link>//localhost:1313/beginner/200_migrate_to_eks/expose-counter-app-kind/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/beginner/200_migrate_to_eks/expose-counter-app-kind/</guid>
+      <description>An app that&amp;rsquo;s not exposed isn&amp;rsquo;t very useful. We&amp;rsquo;ll manually create a load balancer to expose the app.
+The first thing you need to do is get your local computer&amp;rsquo;s public ip address. Open a new browser tab and to icanhasip.com and copy the IP address.
+Go back to the Cloud9 shell and save that IP address as an environment variable
+export PUBLIC_IP=#YOUR PUBLIC IP Now allow your IP address to access port 80 of your Cloud9 instance&amp;rsquo;s security group and allow traffic on the security group for a load balancer.</description>
+    </item>
+    
+    <item>
+      <title>Configure EKS cluster</title>
+      <link>//localhost:1313/beginner/200_migrate_to_eks/configure-eks-cluster/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/beginner/200_migrate_to_eks/configure-eks-cluster/</guid>
+      <description>We created an EKS cluster cluster with a managed node group and OIDC. For Postgres persistent storage we&amp;rsquo;re going to use a host path for the sake of this workshop but it would be advised to use Amazon Elastic File System (EFS) because it&amp;rsquo;s a regional storage service. If the Postgres pod moves availability zones data will still be available. If you&amp;rsquo;d like to do it manually you can follow the EFS workshop here.</description>
+    </item>
+    
+    <item>
+      <title>Deploy counter app to EKS</title>
+      <link>//localhost:1313/beginner/200_migrate_to_eks/deploy-counter-app-eks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/beginner/200_migrate_to_eks/deploy-counter-app-eks/</guid>
+      <description>Now it&amp;rsquo;s time to migrate our app to EKS. We&amp;rsquo;re going to do this in two stages.
+First we&amp;rsquo;ll move the frontend component but have it talk to the database in our old cluster. Then we&amp;rsquo;ll set up the database in EKS, migrate the data, and configure the frontend to use it instead.
+The counter app deployment and service is the same as it was in kind except we added two environment varibles for the DB_HOST and DB_PORT and the service type is LoadBalancer instead of NodePort.</description>
+    </item>
+    
+    <item>
+      <title>Deploy database to EKS</title>
+      <link>//localhost:1313/beginner/200_migrate_to_eks/deploy-counter-db-in-eks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/beginner/200_migrate_to_eks/deploy-counter-db-in-eks/</guid>
+      <description>The final step is to move the database from our kind cluster into EKS. There are lots of different options for how you might want to migrate application state. In many cases using an external database such as Amazon Relational Database Service (RDS) is a great fit.
+For production data you&amp;rsquo;ll want to set up a way where you can verify correctness of your state or automatic syncing between environments. For this workshop we&amp;rsquo;re going to manually move our database state.</description>
+    </item>
+    
+    <item>
+      <title>Cleanup resources</title>
+      <link>//localhost:1313/beginner/200_migrate_to_eks/cleanup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/beginner/200_migrate_to_eks/cleanup/</guid>
+      <description>Delete EKS resources
+kubectl delete svc/counter svc/postgres deploy/counter statefulset/postgres Delete ALB
+aws elbv2 delete-listener \  --listener-arn $ALB_LISTENER aws elbv2 delete-load-balancer \  --load-balancer-arn $ALB_ARN aws elbv2 delete-target-group \  --target-group-arn $TG_ARN Delete VPC peering
+aws ec2 delete-vpc-peering-connection \  --vpc-peering-connection-id $PEERING_ID Delete EKS cluster
+eksctl delete cluster --name $CLUSTER </description>
+    </item>
+    
+  </channel>
+</rss>

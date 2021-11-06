@@ -5,23 +5,18 @@
     <loc>//localhost:1313/</loc>
     <lastmod>2020-10-01T08:30:11-07:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/020_prerequisites/self_paced/account/</loc>
-  </url><url>
-    <loc>//localhost:1313/intermediate/250_cloudwatch_container_insights/gettingstarted/</loc>
+    <loc>//localhost:1313/beginner/250_cloudwatch_container_insights/gettingstarted/</loc>
   </url><url>
     <loc>//localhost:1313/910_conclusion/conclusion/</loc>
   </url><url>
-    <loc>//localhost:1313/intermediate/250_cloudwatch_container_insights/installwordpress/</loc>
+    <loc>//localhost:1313/beginner/250_cloudwatch_container_insights/installwordpress/</loc>
   </url><url>
-    <loc>//localhost:1313/intermediate/250_cloudwatch_container_insights/accesswp/</loc>
+    <loc>//localhost:1313/beginner/250_cloudwatch_container_insights/accesswp/</loc>
   </url><url>
-    <loc>//localhost:1313/intermediate/250_cloudwatch_container_insights/cwcinstallprep/</loc>
+    <loc>//localhost:1313/beginner/250_cloudwatch_container_insights/cwcinstallprep/</loc>
   </url><url>
     <loc>//localhost:1313/beginner/080_scaling/install_kube_ops_view/</loc>
     <lastmod>2020-10-01T08:30:11-07:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/intermediate/240_monitoring/prereqs/</loc>
-    <lastmod>2018-10-14T19:56:14-04:00</lastmod>
   </url><url>
     <loc>//localhost:1313/beginner/050_deploy/applications/</loc>
     <lastmod>2018-09-18T16:01:14-05:00</lastmod>
@@ -29,20 +24,20 @@
     <loc>//localhost:1313/beginner/060_helm/helm_intro/install/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/intermediate/250_cloudwatch_container_insights/cwcinstall/</loc>
+    <loc>//localhost:1313/beginner/250_cloudwatch_container_insights/cwcinstall/</loc>
   </url><url>
-    <loc>//localhost:1313/intermediate/250_cloudwatch_container_insights/verifycwci/</loc>
+    <loc>//localhost:1313/beginner/250_cloudwatch_container_insights/verifycwci/</loc>
   </url><url>
-    <loc>//localhost:1313/intermediate/250_cloudwatch_container_insights/prepareloadtest/</loc>
+    <loc>//localhost:1313/beginner/250_cloudwatch_container_insights/prepareloadtest/</loc>
   </url><url>
-    <loc>//localhost:1313/intermediate/250_cloudwatch_container_insights/runloadtest/</loc>
+    <loc>//localhost:1313/beginner/250_cloudwatch_container_insights/runloadtest/</loc>
   </url><url>
-    <loc>//localhost:1313/intermediate/250_cloudwatch_container_insights/viewvetrics/</loc>
+    <loc>//localhost:1313/beginner/250_cloudwatch_container_insights/viewvetrics/</loc>
   </url><url>
-    <loc>//localhost:1313/intermediate/201_resource_management/basic-pod-limits/</loc>
+    <loc>//localhost:1313/beginner/201_resource_management/basic-pod-limits/</loc>
     <lastmod>2020-06-22T00:00:00-03:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/intermediate/250_cloudwatch_container_insights/viewlogs/</loc>
+    <loc>//localhost:1313/beginner/250_cloudwatch_container_insights/viewlogs/</loc>
     <lastmod>2020-04-13T15:27:17-04:00</lastmod>
   </url><url>
     <loc>//localhost:1313/beginner/130_exposing-service/connecting/</loc>
@@ -51,14 +46,8 @@
     <loc>//localhost:1313/beginner/180_fargate/prerequisites/</loc>
     <lastmod>2019-04-09T00:00:00-03:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/intermediate/240_monitoring/deploy-prometheus/</loc>
-    <lastmod>2018-10-14T20:33:02-04:00</lastmod>
-  </url><url>
     <loc>//localhost:1313/010_introduction/</loc>
     <lastmod>2018-10-03T10:23:24-07:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/beginner/090_rbac/intro/</loc>
-    <lastmod>2018-10-03T10:14:46-07:00</lastmod>
   </url><url>
     <loc>//localhost:1313/beginner/050_deploy/deploynodejs/</loc>
     <lastmod>2018-09-18T17:39:30-05:00</lastmod>
@@ -69,22 +58,12 @@
     <loc>//localhost:1313/beginner/080_scaling/deploy_hpa/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/intermediate/230_logging/prereqs/</loc>
-    <lastmod>2018-08-07T08:30:11-07:00</lastmod>
-  </url><url>
     <loc>//localhost:1313/beginner/060_helm/helm_micro/create_chart/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/beginner/040_dashboard/dashboard/</loc>
-    <lastmod>2018-08-07T08:30:11-07:00</lastmod>
+    <loc>//localhost:1313/beginner/200_migrate_to_eks/create-kind-cluster/</loc>
   </url><url>
-    <loc>//localhost:1313/intermediate/220_codepipeline/role/</loc>
-  </url><url>
-    <loc>//localhost:1313/intermediate/200_migrate_to_eks/create-kind-cluster/</loc>
-  </url><url>
-    <loc>//localhost:1313/intermediate/300_cis_eks_benchmark/intro/</loc>
-  </url><url>
-    <loc>//localhost:1313/intermediate/201_resource_management/advanced-pod-limits/</loc>
+    <loc>//localhost:1313/beginner/201_resource_management/advanced-pod-limits/</loc>
     <lastmod>2020-06-22T00:00:00-03:00</lastmod>
   </url><url>
     <loc>//localhost:1313/beginner/130_exposing-service/accessing/</loc>
@@ -93,18 +72,11 @@
     <loc>//localhost:1313/beginner/180_fargate/creating-profile/</loc>
     <lastmod>2019-04-09T00:00:00-03:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/beginner/090_rbac/install_test_pods/</loc>
-    <lastmod>2018-10-03T10:14:46-07:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/020_prerequisites/self_paced/</loc>
-  </url><url>
     <loc>//localhost:1313/020_prerequisites/portal/</loc>
   </url><url>
-    <loc>//localhost:1313/intermediate/220_codepipeline/configmap/</loc>
+    <loc>//localhost:1313/beginner/250_cloudwatch_container_insights/cwalarms/</loc>
   </url><url>
-    <loc>//localhost:1313/intermediate/250_cloudwatch_container_insights/cwalarms/</loc>
-  </url><url>
-    <loc>//localhost:1313/intermediate/201_resource_management/resource-quota/</loc>
+    <loc>//localhost:1313/beginner/201_resource_management/resource-quota/</loc>
     <lastmod>2020-06-22T00:00:00-03:00</lastmod>
   </url><url>
     <loc>//localhost:1313/beginner/130_exposing-service/exposing/</loc>
@@ -113,13 +85,9 @@
     <loc>//localhost:1313/beginner/180_fargate/prerequisites-for-alb/</loc>
     <lastmod>2019-04-09T00:00:00-03:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/020_prerequisites/aws_event/</loc>
+    <loc>//localhost:1313/beginner/250_cloudwatch_container_insights/wraup/</loc>
   </url><url>
-    <loc>//localhost:1313/intermediate/220_codepipeline/forksample/</loc>
-  </url><url>
-    <loc>//localhost:1313/intermediate/250_cloudwatch_container_insights/wraup/</loc>
-  </url><url>
-    <loc>//localhost:1313/intermediate/201_resource_management/pod-priority/</loc>
+    <loc>//localhost:1313/beginner/201_resource_management/pod-priority/</loc>
     <lastmod>2020-06-22T00:00:00-03:00</lastmod>
   </url><url>
     <loc>//localhost:1313/beginner/180_fargate/deploying-fargate/</loc>
@@ -128,12 +96,8 @@
     <loc>//localhost:1313/beginner/130_exposing-service/ingress/</loc>
     <lastmod>2019-04-09T00:00:00-03:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/intermediate/220_codepipeline/githubcredentials/</loc>
-  </url><url>
     <loc>//localhost:1313/beginner/130_exposing-service/ingress_controller_alb/</loc>
     <lastmod>2019-04-09T00:00:00-03:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/intermediate/220_codepipeline/codepipeline/</loc>
   </url><url>
     <loc>//localhost:1313/020_prerequisites/workspace/</loc>
   </url><url>
@@ -143,34 +107,19 @@
     <loc>//localhost:1313/beginner/180_fargate/ingress/</loc>
     <lastmod>2019-04-09T00:00:00-03:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/intermediate/240_monitoring/deploy-grafana/</loc>
-    <lastmod>2018-10-14T20:54:13-04:00</lastmod>
-  </url><url>
     <loc>//localhost:1313/020_prerequisites/k8stools/</loc>
-  </url><url>
-    <loc>//localhost:1313/intermediate/300_cis_eks_benchmark/ssh-into-node/</loc>
-  </url><url>
-    <loc>//localhost:1313/intermediate/220_codepipeline/change/</loc>
   </url><url>
     <loc>//localhost:1313/beginner/180_fargate/cleaning/</loc>
     <lastmod>2019-04-09T00:00:00-03:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/intermediate/201_resource_management/cleaning/</loc>
+    <loc>//localhost:1313/beginner/201_resource_management/cleaning/</loc>
     <lastmod>2019-04-09T00:00:00-03:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/intermediate/220_codepipeline/cleanup/</loc>
   </url><url>
     <loc>//localhost:1313/020_prerequisites/iamrole/</loc>
   </url><url>
     <loc>//localhost:1313/020_prerequisites/ec2instance/</loc>
   </url><url>
     <loc>//localhost:1313/020_prerequisites/workspaceiam/</loc>
-  </url><url>
-    <loc>//localhost:1313/intermediate/240_monitoring/dashboards/</loc>
-    <lastmod>2018-10-14T21:03:43-04:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/beginner/090_rbac/create_iam_user/</loc>
-    <lastmod>2018-10-03T10:14:46-07:00</lastmod>
   </url><url>
     <loc>//localhost:1313/010_introduction/basics/</loc>
     <lastmod>2018-10-03T10:14:32-07:00</lastmod>
@@ -190,36 +139,20 @@
     <loc>//localhost:1313/beginner/060_helm/helm_micro/customize/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/intermediate/230_logging/setup_es/</loc>
-    <lastmod>2018-08-07T08:30:11-07:00</lastmod>
-  </url><url>
     <loc>//localhost:1313/beginner/080_scaling/test_hpa/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/020_prerequisites/aws_event/portal/</loc>
-  </url><url>
-    <loc>//localhost:1313/intermediate/200_migrate_to_eks/deploy-counter-app-kind/</loc>
-  </url><url>
-    <loc>//localhost:1313/intermediate/300_cis_eks_benchmark/run-as-job/</loc>
+    <loc>//localhost:1313/beginner/200_migrate_to_eks/deploy-counter-app-kind/</loc>
   </url><url>
     <loc>//localhost:1313/020_prerequisites/</loc>
   </url><url>
     <loc>//localhost:1313/020_prerequisites/clone/</loc>
-  </url><url>
-    <loc>//localhost:1313/intermediate/230_logging/config_es/</loc>
-    <lastmod>2020-07-21T15:48:43-04:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/intermediate/240_monitoring/cleanup/</loc>
-    <lastmod>2018-10-14T21:03:30-04:00</lastmod>
   </url><url>
     <loc>//localhost:1313/beginner/050_deploy/servicetype/</loc>
     <lastmod>2018-09-18T17:40:09-05:00</lastmod>
   </url><url>
     <loc>//localhost:1313/beginner/050_deploy/servicerole/</loc>
     <lastmod>2018-09-18T17:40:09-05:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/beginner/090_rbac/map_iam_user_to_k8s_user/</loc>
-    <lastmod>2018-10-03T10:14:46-07:00</lastmod>
   </url><url>
     <loc>//localhost:1313/010_introduction/basics/what_is_k8s/</loc>
     <lastmod>2018-10-03T10:14:46-07:00</lastmod>
@@ -236,35 +169,18 @@
     <loc>//localhost:1313/030_eksctl/test/</loc>
     <lastmod>2018-08-07T13:36:57-07:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/beginner/040_dashboard/connect/</loc>
-    <lastmod>2018-08-07T08:30:11-07:00</lastmod>
-  </url><url>
     <loc>//localhost:1313/beginner/080_scaling/deploy_ca/</loc>
-    <lastmod>2018-08-07T08:30:11-07:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/intermediate/230_logging/deploy/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
   </url><url>
     <loc>//localhost:1313/beginner/060_helm/helm_micro/deploy/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/intermediate/200_migrate_to_eks/expose-counter-app-kind/</loc>
-  </url><url>
-    <loc>//localhost:1313/intermediate/300_cis_eks_benchmark/debug-mode/</loc>
+    <loc>//localhost:1313/beginner/200_migrate_to_eks/expose-counter-app-kind/</loc>
   </url><url>
     <loc>//localhost:1313/020_prerequisites/kmskey/</loc>
   </url><url>
-    <loc>//localhost:1313/intermediate/230_logging/kibana/</loc>
-    <lastmod>2020-07-21T22:23:34-04:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/beginner/040_dashboard/</loc>
-    <lastmod>2020-07-08T09:36:58-04:00</lastmod>
-  </url><url>
     <loc>//localhost:1313/010_introduction/basics/concepts_nodes/</loc>
     <lastmod>2018-10-03T10:15:55-07:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/beginner/090_rbac/test_rbac_user_without_roles/</loc>
-    <lastmod>2018-10-03T10:14:46-07:00</lastmod>
   </url><url>
     <loc>//localhost:1313/beginner/050_deploy/viewservices/</loc>
     <lastmod>2018-09-18T17:40:09-05:00</lastmod>
@@ -278,9 +194,7 @@
     <loc>//localhost:1313/beginner/060_helm/helm_micro/service/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/intermediate/300_cis_eks_benchmark/conclusion/</loc>
-  </url><url>
-    <loc>//localhost:1313/intermediate/200_migrate_to_eks/configure-eks-cluster/</loc>
+    <loc>//localhost:1313/beginner/200_migrate_to_eks/configure-eks-cluster/</loc>
   </url><url>
     <loc>//localhost:1313/beginner/</loc>
     <lastmod>2020-10-01T08:30:11-07:00</lastmod>
@@ -288,17 +202,11 @@
     <loc>//localhost:1313/010_introduction/basics/concepts_objects/</loc>
     <lastmod>2018-10-03T10:15:55-07:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/beginner/090_rbac/create_role_and_binding/</loc>
-    <lastmod>2018-10-03T10:14:46-07:00</lastmod>
-  </url><url>
     <loc>//localhost:1313/beginner/050_deploy/</loc>
     <lastmod>2018-09-18T17:40:09-05:00</lastmod>
   </url><url>
     <loc>//localhost:1313/beginner/050_deploy/scalebackend/</loc>
     <lastmod>2018-09-18T17:40:09-05:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/intermediate/230_logging/cleanup/</loc>
-    <lastmod>2018-08-07T08:30:11-07:00</lastmod>
   </url><url>
     <loc>//localhost:1313/beginner/080_scaling/cleanup/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
@@ -308,16 +216,10 @@
   </url><url>
     <loc>//localhost:1313/920_cleanup/workspace/</loc>
   </url><url>
-    <loc>//localhost:1313/intermediate/200_migrate_to_eks/deploy-counter-app-eks/</loc>
-  </url><url>
-    <loc>//localhost:1313/intermediate/</loc>
-    <lastmod>2020-07-21T22:23:34-04:00</lastmod>
+    <loc>//localhost:1313/beginner/200_migrate_to_eks/deploy-counter-app-eks/</loc>
   </url><url>
     <loc>//localhost:1313/010_introduction/basics/concepts_objects_details_1/</loc>
     <lastmod>2018-10-03T10:15:55-07:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/beginner/090_rbac/verify_user_role_binding/</loc>
-    <lastmod>2018-10-03T10:14:46-07:00</lastmod>
   </url><url>
     <loc>//localhost:1313/beginner/050_deploy/scalefrontend/</loc>
     <lastmod>2018-09-18T17:40:09-05:00</lastmod>
@@ -331,17 +233,14 @@
     <loc>//localhost:1313/beginner/060_helm/helm_intro/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/intermediate/200_migrate_to_eks/deploy-counter-db-in-eks/</loc>
+    <loc>//localhost:1313/beginner/200_migrate_to_eks/deploy-counter-db-in-eks/</loc>
   </url><url>
     <loc>//localhost:1313/910_conclusion/survey/</loc>
   </url><url>
     <loc>//localhost:1313/010_introduction/basics/concepts_objects_details_2/</loc>
     <lastmod>2018-10-03T10:15:55-07:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/beginner/090_rbac/cleanup/</loc>
-    <lastmod>2018-10-03T10:14:46-07:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/intermediate/200_migrate_to_eks/cleanup/</loc>
+    <loc>//localhost:1313/beginner/200_migrate_to_eks/cleanup/</loc>
   </url><url>
     <loc>//localhost:1313/beginner/080_scaling/</loc>
     <lastmod>2020-10-01T08:30:11-07:00</lastmod>
@@ -352,14 +251,8 @@
     <loc>//localhost:1313/beginner/060_helm/helm_micro/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/beginner/040_dashboard/cleanup/</loc>
-    <lastmod>2020-07-08T09:36:58-04:00</lastmod>
-  </url><url>
     <loc>//localhost:1313/010_introduction/architecture/architecture_control_and_data_overview/</loc>
     <lastmod>2018-10-03T10:18:20-07:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/beginner/090_rbac/</loc>
-    <lastmod>2018-10-03T10:14:46-07:00</lastmod>
   </url><url>
     <loc>//localhost:1313/010_introduction/eks/</loc>
     <lastmod>2018-10-03T10:14:32-07:00</lastmod>
@@ -397,74 +290,28 @@
     <loc>//localhost:1313/beginner/180_fargate/</loc>
     <lastmod>2019-04-09T00:00:00-03:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/intermediate/200_migrate_to_eks/</loc>
+    <loc>//localhost:1313/beginner/200_migrate_to_eks/</loc>
   </url><url>
-    <loc>//localhost:1313/intermediate/201_resource_management/</loc>
+    <loc>//localhost:1313/beginner/201_resource_management/</loc>
     <lastmod>2020-06-22T00:00:00-03:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/intermediate/220_codepipeline/</loc>
-  </url><url>
-    <loc>//localhost:1313/intermediate/230_logging/</loc>
-    <lastmod>2020-07-21T22:23:34-04:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/intermediate/240_monitoring/</loc>
-    <lastmod>2018-10-14T09:27:46-04:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/intermediate/250_cloudwatch_container_insights/</loc>
+    <loc>//localhost:1313/beginner/250_cloudwatch_container_insights/</loc>
     <lastmod>2020-04-13T15:27:17-04:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/intermediate/300_cis_eks_benchmark/</loc>
+    <loc>//localhost:1313/beginner/320_eks_upgrades/</loc>
   </url><url>
-    <loc>//localhost:1313/intermediate/320_eks_upgrades/</loc>
+    <loc>//localhost:1313/beginner/320_eks_upgrades/theprocess/</loc>
   </url><url>
-    <loc>//localhost:1313/intermediate/320_eks_upgrades/theprocess/</loc>
+    <loc>//localhost:1313/beginner/320_eks_upgrades/upgradeeks/</loc>
   </url><url>
-    <loc>//localhost:1313/intermediate/320_eks_upgrades/upgradeeks/</loc>
+    <loc>//localhost:1313/beginner/320_eks_upgrades/upgradeaddons/</loc>
   </url><url>
-    <loc>//localhost:1313/intermediate/320_eks_upgrades/upgradeaddons/</loc>
-  </url><url>
-    <loc>//localhost:1313/intermediate/320_eks_upgrades/upgrademng/</loc>
+    <loc>//localhost:1313/beginner/320_eks_upgrades/upgrademng/</loc>
   </url><url>
     <loc>//localhost:1313/910_conclusion/</loc>
   </url><url>
     <loc>//localhost:1313/920_cleanup/</loc>
     <lastmod>2018-08-07T13:37:53-07:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/tags/con205/</loc>
-    <lastmod>2020-10-01T08:30:11-07:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/tags/logging/</loc>
-    <lastmod>2020-07-21T22:23:34-04:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/tags/beginner/</loc>
-    <lastmod>2020-07-08T09:36:58-04:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/tags/con203/</loc>
-    <lastmod>2020-07-08T09:36:58-04:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/tags/</loc>
-    <lastmod>2020-07-08T09:36:58-04:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/tags/con206/</loc>
-    <lastmod>2018-10-14T09:27:46-04:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/tags/intermediate/</loc>
-    <lastmod>2018-10-14T09:27:46-04:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/tags/monitoring/</loc>
-    <lastmod>2018-10-14T09:27:46-04:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/tags/operations/</loc>
-    <lastmod>2018-10-14T09:27:46-04:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/tags/appmesh/</loc>
-    <lastmod>2018-10-03T10:23:24-07:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/tags/kubeflow/</loc>
-    <lastmod>2018-10-03T10:23:24-07:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/tags/opn401/</loc>
-    <lastmod>2018-08-07T13:36:57-07:00</lastmod>
   </url><url>
     <loc>//localhost:1313/tabs-example/</loc>
     <lastmod>2018-08-07T13:34:24-07:00</lastmod>
@@ -472,13 +319,17 @@
     <loc>//localhost:1313/tabs-example/tabs/</loc>
     <lastmod>2018-08-07T13:34:24-07:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/advanced/</loc>
+    <loc>//localhost:1313/tags/appmesh/</loc>
+  </url><url>
+    <loc>//localhost:1313/tags/beginner/</loc>
   </url><url>
     <loc>//localhost:1313/categories/</loc>
   </url><url>
-    <loc>//localhost:1313/tags/ci/cd/</loc>
+    <loc>//localhost:1313/tags/con203/</loc>
   </url><url>
-    <loc>//localhost:1313/tags/cis-eks-benchmark/</loc>
+    <loc>//localhost:1313/tags/con205/</loc>
+  </url><url>
+    <loc>//localhost:1313/tags/con206/</loc>
   </url><url>
     <loc>//localhost:1313/authors/</loc>
   </url><url>
@@ -486,24 +337,28 @@
   </url><url>
     <loc>//localhost:1313/tabs-example/tabs/launcheks/</loc>
   </url><url>
+    <loc>//localhost:1313/tags/intermediate/</loc>
+  </url><url>
     <loc>//localhost:1313/020_prerequisites/eu-west-1/</loc>
   </url><url>
-    <loc>//localhost:1313/020_prerequisites/self_paced/eu-west-1/</loc>
+    <loc>//localhost:1313/tags/kubeflow/</loc>
   </url><url>
-    <loc>//localhost:1313/tags/kube-bench/</loc>
+    <loc>//localhost:1313/tags/monitoring/</loc>
   </url><url>
     <loc>//localhost:1313/more_resources/</loc>
   </url><url>
-    <loc>//localhost:1313/020_prerequisites/self_paced/us-east-2/</loc>
-  </url><url>
     <loc>//localhost:1313/020_prerequisites/us-east-2/</loc>
   </url><url>
-    <loc>//localhost:1313/020_prerequisites/self_paced/us-west-2/</loc>
+    <loc>//localhost:1313/tags/operations/</loc>
+  </url><url>
+    <loc>//localhost:1313/tags/opn401/</loc>
   </url><url>
     <loc>//localhost:1313/020_prerequisites/us-west-2/</loc>
   </url><url>
+    <loc>//localhost:1313/tags/roadshow-activities/</loc>
+  </url><url>
     <loc>//localhost:1313/020_prerequisites/ap-southeast-1/</loc>
   </url><url>
-    <loc>//localhost:1313/020_prerequisites/self_paced/ap-southeast-1/</loc>
+    <loc>//localhost:1313/tags/</loc>
   </url>
 </urlset>
