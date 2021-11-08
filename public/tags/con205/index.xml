@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>CON205 on Amazon EKS Roadshow</title>
-    <link>//localhost:65464/tags/con205/</link>
+    <link>//localhost:50404/tags/con205/</link>
     <description>Recent content in CON205 on Amazon EKS Roadshow</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="//localhost:65464/tags/con205/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="//localhost:50404/tags/con205/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Introduction</title>
-      <link>//localhost:65464/010_introduction/</link>
+      <link>//localhost:50404/010_introduction/</link>
       <pubDate>Wed, 03 Oct 2018 10:23:24 -0700</pubDate>
       
-      <guid>//localhost:65464/010_introduction/</guid>
+      <guid>//localhost:50404/010_introduction/</guid>
       <description>Introduction to Kubernetes   A walkthrough of basic Kubernetes concepts.
 Welcome to the Amazon EKS Roadshow!
 The intent of this workshop is to educate users about the features of Amazon EKS.
@@ -22,29 +22,29 @@ Specifically, we will walk you through the following topics:</description>
     
     <item>
       <title>Start the workshop...</title>
-      <link>//localhost:65464/020_prerequisites/</link>
+      <link>//localhost:50404/020_prerequisites/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:65464/020_prerequisites/</guid>
+      <guid>//localhost:50404/020_prerequisites/</guid>
       <description>Getting Started To start the workshop, please follow the the steps in this section starting with &amp;hellip; AWS Workshop Portal</description>
     </item>
     
     <item>
       <title>Launch using eksctl</title>
-      <link>//localhost:65464/030_eksctl/</link>
+      <link>//localhost:50404/030_eksctl/</link>
       <pubDate>Tue, 07 Aug 2018 13:36:57 -0700</pubDate>
       
-      <guid>//localhost:65464/030_eksctl/</guid>
+      <guid>//localhost:50404/030_eksctl/</guid>
       <description>Launch using eksctl eksctl is a tool jointly developed by AWS and Weaveworks that automates much of the experience of creating EKS clusters.
 In this module, we will use eksctl to launch and configure our EKS cluster and nodes.</description>
     </item>
     
     <item>
       <title>Helm</title>
-      <link>//localhost:65464/beginner/060_helm/</link>
+      <link>//localhost:50404/beginner/060_helm/</link>
       <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
       
-      <guid>//localhost:65464/beginner/060_helm/</guid>
+      <guid>//localhost:50404/beginner/060_helm/</guid>
       <description>Helm   This tutorial has been updated for Helm v3. In version 3, the Tiller component was removed, which simplified operations and improved security.
  If you need to migrate from Helm v2 to v3 click here for the official documentation.
  Helm is a package manager for Kubernetes that packages multiple Kubernetes resources into a single logical deployment unit called a Chart. Charts are easy to create, version, share, and publish.</description>
@@ -52,10 +52,10 @@ In this module, we will use eksctl to launch and configure our EKS cluster and n
     
     <item>
       <title>Autoscaling our Applications and Clusters</title>
-      <link>//localhost:65464/beginner/080_scaling/</link>
+      <link>//localhost:50404/beginner/080_scaling/</link>
       <pubDate>Thu, 01 Oct 2020 08:30:11 -0700</pubDate>
       
-      <guid>//localhost:65464/beginner/080_scaling/</guid>
+      <guid>//localhost:50404/beginner/080_scaling/</guid>
       <description>Implement AutoScaling with HPA and CA   In this Chapter, we will show patterns for scaling your worker nodes and applications deployments automatically.
 Automatic scaling in K8s comes in two forms:
   Horizontal Pod Autoscaler (HPA) scales the pods in a deployment or replica set. It is implemented as a K8s API resource and a controller. The controller manager queries the resource utilization against the metrics specified in each HorizontalPodAutoscaler definition.</description>

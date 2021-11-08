@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Resource Management on Amazon EKS Roadshow</title>
-    <link>//localhost:65464/beginner/201_resource_management/</link>
+    <link>//localhost:50404/beginner/201_resource_management/</link>
     <description>Recent content in Resource Management on Amazon EKS Roadshow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 22 Jun 2020 00:00:00 -0300</lastBuildDate><atom:link href="//localhost:65464/beginner/201_resource_management/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 22 Jun 2020 00:00:00 -0300</lastBuildDate><atom:link href="//localhost:50404/beginner/201_resource_management/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Basic Pod CPU and Memory Management</title>
-      <link>//localhost:65464/beginner/201_resource_management/basic-pod-limits/</link>
+      <link>//localhost:50404/beginner/201_resource_management/basic-pod-limits/</link>
       <pubDate>Mon, 22 Jun 2020 00:00:00 -0300</pubDate>
       
-      <guid>//localhost:65464/beginner/201_resource_management/basic-pod-limits/</guid>
+      <guid>//localhost:50404/beginner/201_resource_management/basic-pod-limits/</guid>
       <description>We will create four pods:
  A request deployment with Request cpu = 0.5 and memory = 1G A limit-cpu deployment with Limit cpu = 0.5 and memory = 1G A limit-memory deployment with Limit cpu = 1 and memory = 1G A restricted deployment with Request of cpu = 1/memory = 1G and Limit cpu = 1.8/memory=2G  Deploy Metrics Server Follow the instructions in the module Deploy the Metrics Server to enable the Kubernetes Metrics Server.</description>
     </item>
     
     <item>
       <title>Advanced Pod CPU and Memory Management</title>
-      <link>//localhost:65464/beginner/201_resource_management/advanced-pod-limits/</link>
+      <link>//localhost:50404/beginner/201_resource_management/advanced-pod-limits/</link>
       <pubDate>Mon, 22 Jun 2020 00:00:00 -0300</pubDate>
       
-      <guid>//localhost:65464/beginner/201_resource_management/advanced-pod-limits/</guid>
+      <guid>//localhost:50404/beginner/201_resource_management/advanced-pod-limits/</guid>
       <description>In the previous section, we created CPU and Memory constraints at the pod level. LimitRange are used to constraint compute, storage or enforce ratio between Request and Limit in a Namespace. In this section, we will separate the compute workloads by low-usage, high-usage and unrestricted-usage.
 We will create three Namespaces:
 mkdir ~/environment/resource-management kubectl create namespace low-usage kubectl create namespace high-usage kubectl create namespace unrestricted-usage Create Limit Ranges Create LimitRange specification for low-usage and high-usage namespace level.</description>
@@ -30,20 +30,20 @@ mkdir ~/environment/resource-management kubectl create namespace low-usage kubec
     
     <item>
       <title>Resource Quotas</title>
-      <link>//localhost:65464/beginner/201_resource_management/resource-quota/</link>
+      <link>//localhost:50404/beginner/201_resource_management/resource-quota/</link>
       <pubDate>Mon, 22 Jun 2020 00:00:00 -0300</pubDate>
       
-      <guid>//localhost:65464/beginner/201_resource_management/resource-quota/</guid>
+      <guid>//localhost:50404/beginner/201_resource_management/resource-quota/</guid>
       <description>ResourceQuotas are used to limit resources like cpu,memory, storage, and services. In this section we will set up ResourceQuotas between two teams blue and red.
 # Create different namespaces kubectl create namespace blue kubectl create namespace red Create Resource Quota In this example environment we have two teams are sharing the same resources. The Red team is limited on number of Load Balancers provisioned and Blue team is restricted on memory/cpu usage.</description>
     </item>
     
     <item>
       <title>Pod Priority and Preemption</title>
-      <link>//localhost:65464/beginner/201_resource_management/pod-priority/</link>
+      <link>//localhost:50404/beginner/201_resource_management/pod-priority/</link>
       <pubDate>Mon, 22 Jun 2020 00:00:00 -0300</pubDate>
       
-      <guid>//localhost:65464/beginner/201_resource_management/pod-priority/</guid>
+      <guid>//localhost:50404/beginner/201_resource_management/pod-priority/</guid>
       <description>Pod Priority is used to apply importance of a pod relative to other pods. In this section we will create two PriorityClasses and watch the interaction of pods.
 Create PriorityClass We will create two PriorityClass, low-priority and high-priority.
 cat &amp;lt;&amp;lt;EoF &amp;gt; ~/environment/resource-management/high-priority-class.yml apiVersion: scheduling.k8s.io/v1 kind: PriorityClass metadata: name: high-priority value: 100 globalDefault: false description: &amp;quot;High-priority Pods&amp;quot; EoF kubectl apply -f ~/environment/resource-management/high-priority-class.yml cat &amp;lt;&amp;lt;EoF &amp;gt; ~/environment/resource-management/low-priority-class.yml apiVersion: scheduling.k8s.io/v1 kind: PriorityClass metadata: name: low-priority value: 50 globalDefault: false description: &amp;quot;Low-priority Pods&amp;quot; EoF kubectl apply -f ~/environment/resource-management/low-priority-class.</description>
@@ -51,10 +51,10 @@ cat &amp;lt;&amp;lt;EoF &amp;gt; ~/environment/resource-management/high-priority
     
     <item>
       <title>Clean Up</title>
-      <link>//localhost:65464/beginner/201_resource_management/cleaning/</link>
+      <link>//localhost:50404/beginner/201_resource_management/cleaning/</link>
       <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
       
-      <guid>//localhost:65464/beginner/201_resource_management/cleaning/</guid>
+      <guid>//localhost:50404/beginner/201_resource_management/cleaning/</guid>
       <description>Ensure all the resources created in this module are cleaned up.
 # Basic Pod CPU and Memory Management kubectl delete pod basic-request-pod kubectl delete pod basic-limit-memory-pod kubectl delete pod basic-limit-cpu-pod kubectl delete pod basic-restricted-pod # Advanced Pod CPU and Memory Management kubectl delete namespace low-usage kubectl delete namespace high-usage kubectl delete namespace unrestricted-usage # Resource Quotas kubectl delete namespace red kubectl delete namespace blue # Pod Priority and Preemption kubectl delete deployment high-nginx-deployment kubectl delete deployment nginx-deployment kubectl delete priorityclass high-priority kubectl delete priorityclass low-priority # Prerequisites rm -r ~/environment/resource-management/ helm uninstall metrics-server --namespace metrics kubectl delete namespace metrics-server </description>
     </item>

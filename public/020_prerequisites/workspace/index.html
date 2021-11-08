@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="js csstransforms3d">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=65464&amp;path=livereload" data-no-instant defer></script>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=50404&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.83.1" />
@@ -13,20 +13,20 @@
     <title>Create a Workspace :: Amazon EKS Roadshow</title>
 
     
-    <link href="../../css/nucleus.css?1636281412" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1636281412" rel="stylesheet">
-    <link href="../../css/hybrid.css?1636281412" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1636281412" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1636281412" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1636281412" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1636281412" rel="stylesheet">
-    <link href="../../css/theme.css?1636281412" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1636281412" rel="stylesheet">
+    <link href="../../css/nucleus.css?1636403441" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1636403441" rel="stylesheet">
+    <link href="../../css/hybrid.css?1636403441" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1636403441" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1636403441" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1636403441" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1636403441" rel="stylesheet">
+    <link href="../../css/theme.css?1636403441" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1636403441" rel="stylesheet">
     
-      <link href="../../css/theme-mine.css?1636281412" rel="stylesheet">
+      <link href="../../css/theme-mine.css?1636403441" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1636281412"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1636403441"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -73,10 +73,10 @@
     <meta name="msapplication-wide310x150logo" content="/icons/mstile-310x150.png" />
     <meta name="msapplication-square310x310logo" content="/icons/mstile-310x310.png" />
 
-    <link href="../../mermaid/mermaid.css?1636281412" type="text/css" rel="stylesheet" />
-    <link href="../../css/jquery-ui.min.css?1636281412" rel="stylesheet">
-    <script src="../../js/jquery-ui-1.12.1.min.js?1636281412"></script>
-    <script src="../../mermaid/mermaid.min.js?1636281412"></script>
+    <link href="../../mermaid/mermaid.css?1636403441" type="text/css" rel="stylesheet" />
+    <link href="../../css/jquery-ui.min.css?1636403441" rel="stylesheet">
+    <script src="../../js/jquery-ui-1.12.1.min.js?1636403441"></script>
+    <script src="../../mermaid/mermaid.min.js?1636403441"></script>
     <script>
 	var config = {
         startOnLoad:true,
@@ -105,14 +105,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1636281412"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1636281412"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1636403441"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1636403441"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/\/localhost:65464\/";
+        var baseurl = "\/\/localhost:50404\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1636281412"></script>
+<script type="text/javascript" src="../../js/search.js?1636403441"></script>
 
     
   </div>
@@ -2873,38 +2873,52 @@ Cloud9 requires third-party-cookies. You can whitelist the <a href="https://docs
 
 <h3 id="increase-the-disk-size-on-the-cloud9-instance">Increase the disk size on the Cloud9 instance</h3>
 
-<div class="notices note" ><p>The following command adds more disk space to the root volume of the EC2 instance that Cloud9 runs on. Once the command completes, we reboot the instance and it could take a minute or two for the IDE to come back online.</p>
+<div class="notices note" ><p>The following command sequence adds more disk space to the root volume of the EC2 instance that Cloud9 runs on.</p>
 </div>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pip3 install --user --upgrade boto3
-export instance_id<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>curl -s http://169.254.169.254/latest/meta-data/instance-id<span style="color:#66d9ef">)</span>
-python -c <span style="color:#e6db74">&#34;import boto3
-</span><span style="color:#e6db74">import os
-</span><span style="color:#e6db74">from botocore.exceptions import ClientError 
-</span><span style="color:#e6db74">ec2 = boto3.client(&#39;ec2&#39;)
-</span><span style="color:#e6db74">volume_info = ec2.describe_volumes(
-</span><span style="color:#e6db74">    Filters=[
-</span><span style="color:#e6db74">        {
-</span><span style="color:#e6db74">            &#39;Name&#39;: &#39;attachment.instance-id&#39;,
-</span><span style="color:#e6db74">            &#39;Values&#39;: [
-</span><span style="color:#e6db74">                os.getenv(&#39;instance_id&#39;)
-</span><span style="color:#e6db74">            ]
-</span><span style="color:#e6db74">        }
-</span><span style="color:#e6db74">    ]
-</span><span style="color:#e6db74">)
-</span><span style="color:#e6db74">volume_id = volume_info[&#39;Volumes&#39;][0][&#39;VolumeId&#39;]
-</span><span style="color:#e6db74">try:
-</span><span style="color:#e6db74">    resize = ec2.modify_volume(    
-</span><span style="color:#e6db74">            VolumeId=volume_id,    
-</span><span style="color:#e6db74">            Size=30
-</span><span style="color:#e6db74">    )
-</span><span style="color:#e6db74">    print(resize)
-</span><span style="color:#e6db74">except ClientError as e:
-</span><span style="color:#e6db74">    if e.response[&#39;Error&#39;][&#39;Code&#39;] == &#39;InvalidParameterValue&#39;:
-</span><span style="color:#e6db74">        print(&#39;ERROR MESSAGE: {}&#39;.format(e))&#34;</span>
-<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $? -eq <span style="color:#ae81ff">0</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
-    sudo reboot
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># ------  resize OS disk -----------</span>
+<span style="color:#75715e"># Specify the desired volume size in GiB as a command-line argument. If not specified, default to 32 GiB.</span>
+VOLUME_SIZE<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>1<span style="color:#66d9ef">:-</span>32<span style="color:#e6db74">}</span>
+
+<span style="color:#75715e"># Get the ID of the environment host Amazon EC2 instance.</span>
+INSTANCE_ID<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>curl -s http://169.254.169.254/latest/meta-data//instance-id<span style="color:#66d9ef">)</span>
+
+<span style="color:#75715e"># Get the ID of the Amazon EBS volume associated with the instance.</span>
+VOLUME_ID<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>aws ec2 describe-instances <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  --instance-id $INSTANCE_ID <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  --query <span style="color:#e6db74">&#34;Reservations[0].Instances[0].BlockDeviceMappings[0].Ebs.VolumeId&#34;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  --output text<span style="color:#66d9ef">)</span>
+
+<span style="color:#75715e"># Resize the EBS volume.</span>
+aws ec2 modify-volume --volume-id $VOLUME_ID --size $VOLUME_SIZE &gt; /dev/null
+
+<span style="color:#75715e"># Wait for the resize to finish.</span>
+<span style="color:#66d9ef">while</span> <span style="color:#f92672">[</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>aws ec2 describe-volumes-modifications <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --volume-id $VOLUME_ID <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --filters Name<span style="color:#f92672">=</span>modification-state,Values<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;optimizing&#34;</span>,<span style="color:#e6db74">&#34;completed&#34;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --query <span style="color:#e6db74">&#34;length(VolumesModifications)&#34;</span><span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --output text<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span> !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;1&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">do</span>
+sleep <span style="color:#ae81ff">1</span>
+<span style="color:#66d9ef">done</span>
+
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#66d9ef">$(</span>readlink -f /dev/xvda<span style="color:#66d9ef">)</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/dev/xvda&#34;</span> <span style="color:#f92672">]</span>
+<span style="color:#66d9ef">then</span>
+  <span style="color:#75715e"># Rewrite the partition table so that the partition takes up all the space that it can.</span>
+  sudo growpart /dev/xvda <span style="color:#ae81ff">1</span>
+ 
+  <span style="color:#75715e"># Expand the size of the file system.</span>
+  sudo resize2fs /dev/xvda1 &gt; /dev/null
+
+<span style="color:#66d9ef">else</span>
+  <span style="color:#75715e"># Rewrite the partition table so that the partition takes up all the space that it can.</span>
+  sudo growpart /dev/nvme0n1 <span style="color:#ae81ff">1</span>
+
+  <span style="color:#75715e"># Expand the size of the file system.</span>
+  <span style="color:#75715e"># sudo resize2fs /dev/nvme0n1p1 #(Amazon Linux 1)</span>
+  sudo xfs_growfs /dev/nvme0n1p1 &gt; /dev/null <span style="color:#75715e">#(Amazon Linux 2)</span>
 <span style="color:#66d9ef">fi</span>
+df -m /
 
 </code></pre></div>
 
@@ -4827,19 +4841,19 @@ python -c <span style="color:#e6db74">&#34;import boto3
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1636281412"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1636281412"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1636281412"></script>
-    <script src="../../js/jquery.sticky.js?1636281412"></script>
-    <script src="../../js/featherlight.min.js?1636281412"></script>
-    <script src="../../js/highlight.pack.js?1636281412"></script>
+    <script src="../../js/clipboard.min.js?1636403441"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1636403441"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1636403441"></script>
+    <script src="../../js/jquery.sticky.js?1636403441"></script>
+    <script src="../../js/featherlight.min.js?1636403441"></script>
+    <script src="../../js/highlight.pack.js?1636403441"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1636281412"></script>
-    <script src="../../js/learn.js?1636281412"></script>
-    <script src="../../js/hugo-learn.js?1636281412"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1636403441"></script>
+    <script src="../../js/learn.js?1636403441"></script>
+    <script src="../../js/hugo-learn.js?1636403441"></script>
 
-    <link href="../../mermaid/mermaid.css?1636281412" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1636281412"></script>
+    <link href="../../mermaid/mermaid.css?1636403441" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1636403441"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

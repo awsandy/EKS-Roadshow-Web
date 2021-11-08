@@ -2,363 +2,363 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>//localhost:65464/</loc>
+    <loc>//localhost:50404/</loc>
     <lastmod>2020-10-01T08:30:11-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/250_cloudwatch_container_insights/gettingstarted/</loc>
+    <loc>//localhost:50404/beginner/250_cloudwatch_container_insights/gettingstarted/</loc>
   </url><url>
-    <loc>//localhost:65464/910_conclusion/conclusion/</loc>
+    <loc>//localhost:50404/910_conclusion/conclusion/</loc>
   </url><url>
-    <loc>//localhost:65464/beginner/250_cloudwatch_container_insights/installwordpress/</loc>
+    <loc>//localhost:50404/beginner/250_cloudwatch_container_insights/installwordpress/</loc>
   </url><url>
-    <loc>//localhost:65464/beginner/250_cloudwatch_container_insights/accesswp/</loc>
+    <loc>//localhost:50404/beginner/250_cloudwatch_container_insights/accesswp/</loc>
   </url><url>
-    <loc>//localhost:65464/beginner/250_cloudwatch_container_insights/cwcinstallprep/</loc>
+    <loc>//localhost:50404/beginner/250_cloudwatch_container_insights/cwcinstallprep/</loc>
   </url><url>
-    <loc>//localhost:65464/beginner/080_scaling/install_kube_ops_view/</loc>
+    <loc>//localhost:50404/beginner/080_scaling/install_kube_ops_view/</loc>
     <lastmod>2020-10-01T08:30:11-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/050_deploy/applications/</loc>
+    <loc>//localhost:50404/beginner/050_deploy/applications/</loc>
     <lastmod>2018-09-18T16:01:14-05:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/060_helm/helm_intro/install/</loc>
+    <loc>//localhost:50404/beginner/060_helm/helm_intro/install/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/250_cloudwatch_container_insights/cwcinstall/</loc>
+    <loc>//localhost:50404/beginner/250_cloudwatch_container_insights/cwcinstall/</loc>
   </url><url>
-    <loc>//localhost:65464/beginner/250_cloudwatch_container_insights/verifycwci/</loc>
+    <loc>//localhost:50404/beginner/250_cloudwatch_container_insights/verifycwci/</loc>
   </url><url>
-    <loc>//localhost:65464/beginner/250_cloudwatch_container_insights/prepareloadtest/</loc>
+    <loc>//localhost:50404/beginner/250_cloudwatch_container_insights/prepareloadtest/</loc>
   </url><url>
-    <loc>//localhost:65464/beginner/250_cloudwatch_container_insights/runloadtest/</loc>
+    <loc>//localhost:50404/beginner/250_cloudwatch_container_insights/runloadtest/</loc>
   </url><url>
-    <loc>//localhost:65464/beginner/250_cloudwatch_container_insights/viewvetrics/</loc>
+    <loc>//localhost:50404/beginner/250_cloudwatch_container_insights/viewvetrics/</loc>
   </url><url>
-    <loc>//localhost:65464/beginner/201_resource_management/basic-pod-limits/</loc>
+    <loc>//localhost:50404/beginner/201_resource_management/basic-pod-limits/</loc>
     <lastmod>2020-06-22T00:00:00-03:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/250_cloudwatch_container_insights/viewlogs/</loc>
+    <loc>//localhost:50404/beginner/250_cloudwatch_container_insights/viewlogs/</loc>
     <lastmod>2020-04-13T15:27:17-04:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/130_exposing-service/connecting/</loc>
+    <loc>//localhost:50404/beginner/130_exposing-service/connecting/</loc>
     <lastmod>2019-04-09T00:00:00-03:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/180_fargate/prerequisites/</loc>
+    <loc>//localhost:50404/beginner/180_fargate/prerequisites/</loc>
     <lastmod>2019-04-09T00:00:00-03:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/010_introduction/</loc>
+    <loc>//localhost:50404/010_introduction/</loc>
     <lastmod>2018-10-03T10:23:24-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/050_deploy/deploynodejs/</loc>
+    <loc>//localhost:50404/beginner/050_deploy/deploynodejs/</loc>
     <lastmod>2018-09-18T17:39:30-05:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/030_eksctl/prerequisites/</loc>
+    <loc>//localhost:50404/030_eksctl/prerequisites/</loc>
     <lastmod>2018-08-07T13:31:55-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/080_scaling/deploy_hpa/</loc>
+    <loc>//localhost:50404/beginner/080_scaling/deploy_hpa/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/060_helm/helm_micro/create_chart/</loc>
+    <loc>//localhost:50404/beginner/060_helm/helm_micro/create_chart/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/200_migrate_to_eks/create-kind-cluster/</loc>
+    <loc>//localhost:50404/beginner/200_migrate_to_eks/create-kind-cluster/</loc>
   </url><url>
-    <loc>//localhost:65464/beginner/201_resource_management/advanced-pod-limits/</loc>
+    <loc>//localhost:50404/beginner/201_resource_management/advanced-pod-limits/</loc>
     <lastmod>2020-06-22T00:00:00-03:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/130_exposing-service/accessing/</loc>
+    <loc>//localhost:50404/beginner/130_exposing-service/accessing/</loc>
     <lastmod>2019-04-09T00:00:00-03:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/180_fargate/creating-profile/</loc>
+    <loc>//localhost:50404/beginner/180_fargate/creating-profile/</loc>
     <lastmod>2019-04-09T00:00:00-03:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/020_prerequisites/portal/</loc>
+    <loc>//localhost:50404/020_prerequisites/portal/</loc>
   </url><url>
-    <loc>//localhost:65464/beginner/250_cloudwatch_container_insights/cwalarms/</loc>
+    <loc>//localhost:50404/beginner/250_cloudwatch_container_insights/cwalarms/</loc>
   </url><url>
-    <loc>//localhost:65464/beginner/201_resource_management/resource-quota/</loc>
+    <loc>//localhost:50404/beginner/201_resource_management/resource-quota/</loc>
     <lastmod>2020-06-22T00:00:00-03:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/130_exposing-service/exposing/</loc>
+    <loc>//localhost:50404/beginner/130_exposing-service/exposing/</loc>
     <lastmod>2019-04-09T00:00:00-03:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/180_fargate/prerequisites-for-alb/</loc>
+    <loc>//localhost:50404/beginner/180_fargate/prerequisites-for-alb/</loc>
     <lastmod>2019-04-09T00:00:00-03:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/250_cloudwatch_container_insights/wraup/</loc>
+    <loc>//localhost:50404/beginner/250_cloudwatch_container_insights/wraup/</loc>
   </url><url>
-    <loc>//localhost:65464/beginner/201_resource_management/pod-priority/</loc>
+    <loc>//localhost:50404/beginner/201_resource_management/pod-priority/</loc>
     <lastmod>2020-06-22T00:00:00-03:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/180_fargate/deploying-fargate/</loc>
+    <loc>//localhost:50404/beginner/180_fargate/deploying-fargate/</loc>
     <lastmod>2019-04-09T00:00:00-03:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/130_exposing-service/ingress/</loc>
+    <loc>//localhost:50404/beginner/130_exposing-service/ingress/</loc>
     <lastmod>2019-04-09T00:00:00-03:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/130_exposing-service/ingress_controller_alb/</loc>
+    <loc>//localhost:50404/beginner/130_exposing-service/ingress_controller_alb/</loc>
     <lastmod>2019-04-09T00:00:00-03:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/020_prerequisites/workspace/</loc>
+    <loc>//localhost:50404/020_prerequisites/workspace/</loc>
   </url><url>
-    <loc>//localhost:65464/beginner/130_exposing-service/cleaning/</loc>
+    <loc>//localhost:50404/beginner/130_exposing-service/cleaning/</loc>
     <lastmod>2019-04-09T00:00:00-03:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/180_fargate/ingress/</loc>
+    <loc>//localhost:50404/beginner/180_fargate/ingress/</loc>
     <lastmod>2019-04-09T00:00:00-03:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/020_prerequisites/k8stools/</loc>
+    <loc>//localhost:50404/020_prerequisites/k8stools/</loc>
   </url><url>
-    <loc>//localhost:65464/beginner/180_fargate/cleaning/</loc>
+    <loc>//localhost:50404/beginner/180_fargate/cleaning/</loc>
     <lastmod>2019-04-09T00:00:00-03:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/201_resource_management/cleaning/</loc>
+    <loc>//localhost:50404/beginner/201_resource_management/cleaning/</loc>
     <lastmod>2019-04-09T00:00:00-03:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/020_prerequisites/iamrole/</loc>
+    <loc>//localhost:50404/020_prerequisites/iamrole/</loc>
   </url><url>
-    <loc>//localhost:65464/020_prerequisites/ec2instance/</loc>
+    <loc>//localhost:50404/020_prerequisites/ec2instance/</loc>
   </url><url>
-    <loc>//localhost:65464/020_prerequisites/workspaceiam/</loc>
+    <loc>//localhost:50404/020_prerequisites/workspaceiam/</loc>
   </url><url>
-    <loc>//localhost:65464/010_introduction/basics/</loc>
+    <loc>//localhost:50404/010_introduction/basics/</loc>
     <lastmod>2018-10-03T10:14:32-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/050_deploy/deploycrystal/</loc>
+    <loc>//localhost:50404/beginner/050_deploy/deploycrystal/</loc>
     <lastmod>2018-09-18T17:40:03-05:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/920_cleanup/undeploy/</loc>
+    <loc>//localhost:50404/920_cleanup/undeploy/</loc>
     <lastmod>2018-08-07T13:37:53-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/030_eksctl/launcheks/</loc>
+    <loc>//localhost:50404/030_eksctl/launcheks/</loc>
     <lastmod>2018-08-07T13:34:24-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/tabs-example/tabs/eksctl/</loc>
+    <loc>//localhost:50404/tabs-example/tabs/eksctl/</loc>
     <lastmod>2018-08-07T13:34:24-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/060_helm/helm_micro/customize/</loc>
+    <loc>//localhost:50404/beginner/060_helm/helm_micro/customize/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/080_scaling/test_hpa/</loc>
+    <loc>//localhost:50404/beginner/080_scaling/test_hpa/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/200_migrate_to_eks/deploy-counter-app-kind/</loc>
+    <loc>//localhost:50404/beginner/200_migrate_to_eks/deploy-counter-app-kind/</loc>
   </url><url>
-    <loc>//localhost:65464/020_prerequisites/</loc>
+    <loc>//localhost:50404/020_prerequisites/</loc>
   </url><url>
-    <loc>//localhost:65464/020_prerequisites/clone/</loc>
+    <loc>//localhost:50404/020_prerequisites/clone/</loc>
   </url><url>
-    <loc>//localhost:65464/beginner/050_deploy/servicetype/</loc>
+    <loc>//localhost:50404/beginner/050_deploy/servicetype/</loc>
     <lastmod>2018-09-18T17:40:09-05:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/050_deploy/servicerole/</loc>
+    <loc>//localhost:50404/beginner/050_deploy/servicerole/</loc>
     <lastmod>2018-09-18T17:40:09-05:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/010_introduction/basics/what_is_k8s/</loc>
+    <loc>//localhost:50404/010_introduction/basics/what_is_k8s/</loc>
     <lastmod>2018-10-03T10:14:46-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/050_deploy/deployfrontend/</loc>
+    <loc>//localhost:50404/beginner/050_deploy/deployfrontend/</loc>
     <lastmod>2018-09-18T17:40:09-05:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/920_cleanup/eksctl/</loc>
+    <loc>//localhost:50404/920_cleanup/eksctl/</loc>
     <lastmod>2018-08-07T13:37:53-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/030_eksctl/</loc>
+    <loc>//localhost:50404/030_eksctl/</loc>
     <lastmod>2018-08-07T13:36:57-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/030_eksctl/test/</loc>
+    <loc>//localhost:50404/030_eksctl/test/</loc>
     <lastmod>2018-08-07T13:36:57-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/080_scaling/deploy_ca/</loc>
+    <loc>//localhost:50404/beginner/080_scaling/deploy_ca/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/060_helm/helm_micro/deploy/</loc>
+    <loc>//localhost:50404/beginner/060_helm/helm_micro/deploy/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/200_migrate_to_eks/expose-counter-app-kind/</loc>
+    <loc>//localhost:50404/beginner/200_migrate_to_eks/expose-counter-app-kind/</loc>
   </url><url>
-    <loc>//localhost:65464/020_prerequisites/kmskey/</loc>
+    <loc>//localhost:50404/020_prerequisites/kmskey/</loc>
   </url><url>
-    <loc>//localhost:65464/010_introduction/basics/concepts_nodes/</loc>
+    <loc>//localhost:50404/010_introduction/basics/concepts_nodes/</loc>
     <lastmod>2018-10-03T10:15:55-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/050_deploy/viewservices/</loc>
+    <loc>//localhost:50404/beginner/050_deploy/viewservices/</loc>
     <lastmod>2018-09-18T17:40:09-05:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/030_eksctl/console/</loc>
+    <loc>//localhost:50404/030_eksctl/console/</loc>
     <lastmod>2018-08-07T13:36:57-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/080_scaling/test_ca/</loc>
+    <loc>//localhost:50404/beginner/080_scaling/test_ca/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/060_helm/helm_micro/service/</loc>
+    <loc>//localhost:50404/beginner/060_helm/helm_micro/service/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/200_migrate_to_eks/configure-eks-cluster/</loc>
+    <loc>//localhost:50404/beginner/200_migrate_to_eks/configure-eks-cluster/</loc>
   </url><url>
-    <loc>//localhost:65464/beginner/</loc>
+    <loc>//localhost:50404/beginner/</loc>
     <lastmod>2020-10-01T08:30:11-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/010_introduction/basics/concepts_objects/</loc>
+    <loc>//localhost:50404/010_introduction/basics/concepts_objects/</loc>
     <lastmod>2018-10-03T10:15:55-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/050_deploy/</loc>
+    <loc>//localhost:50404/beginner/050_deploy/</loc>
     <lastmod>2018-09-18T17:40:09-05:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/050_deploy/scalebackend/</loc>
+    <loc>//localhost:50404/beginner/050_deploy/scalebackend/</loc>
     <lastmod>2018-09-18T17:40:09-05:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/080_scaling/cleanup/</loc>
+    <loc>//localhost:50404/beginner/080_scaling/cleanup/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/060_helm/helm_micro/rolling_back/</loc>
+    <loc>//localhost:50404/beginner/060_helm/helm_micro/rolling_back/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/920_cleanup/workspace/</loc>
+    <loc>//localhost:50404/920_cleanup/workspace/</loc>
   </url><url>
-    <loc>//localhost:65464/beginner/200_migrate_to_eks/deploy-counter-app-eks/</loc>
+    <loc>//localhost:50404/beginner/200_migrate_to_eks/deploy-counter-app-eks/</loc>
   </url><url>
-    <loc>//localhost:65464/010_introduction/basics/concepts_objects_details_1/</loc>
+    <loc>//localhost:50404/010_introduction/basics/concepts_objects_details_1/</loc>
     <lastmod>2018-10-03T10:15:55-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/050_deploy/scalefrontend/</loc>
+    <loc>//localhost:50404/beginner/050_deploy/scalefrontend/</loc>
     <lastmod>2018-09-18T17:40:09-05:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/060_helm/helm_micro/cleanup/</loc>
+    <loc>//localhost:50404/beginner/060_helm/helm_micro/cleanup/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/060_helm/</loc>
+    <loc>//localhost:50404/beginner/060_helm/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/060_helm/helm_intro/</loc>
+    <loc>//localhost:50404/beginner/060_helm/helm_intro/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/200_migrate_to_eks/deploy-counter-db-in-eks/</loc>
+    <loc>//localhost:50404/beginner/200_migrate_to_eks/deploy-counter-db-in-eks/</loc>
   </url><url>
-    <loc>//localhost:65464/910_conclusion/survey/</loc>
+    <loc>//localhost:50404/910_conclusion/survey/</loc>
   </url><url>
-    <loc>//localhost:65464/010_introduction/basics/concepts_objects_details_2/</loc>
+    <loc>//localhost:50404/010_introduction/basics/concepts_objects_details_2/</loc>
     <lastmod>2018-10-03T10:15:55-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/200_migrate_to_eks/cleanup/</loc>
+    <loc>//localhost:50404/beginner/200_migrate_to_eks/cleanup/</loc>
   </url><url>
-    <loc>//localhost:65464/beginner/080_scaling/</loc>
+    <loc>//localhost:50404/beginner/080_scaling/</loc>
     <lastmod>2020-10-01T08:30:11-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/010_introduction/architecture/</loc>
+    <loc>//localhost:50404/010_introduction/architecture/</loc>
     <lastmod>2018-10-03T10:17:52-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/060_helm/helm_micro/</loc>
+    <loc>//localhost:50404/beginner/060_helm/helm_micro/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/010_introduction/architecture/architecture_control_and_data_overview/</loc>
+    <loc>//localhost:50404/010_introduction/architecture/architecture_control_and_data_overview/</loc>
     <lastmod>2018-10-03T10:18:20-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/010_introduction/eks/</loc>
+    <loc>//localhost:50404/010_introduction/eks/</loc>
     <lastmod>2018-10-03T10:14:32-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/050_deploy/cleanup/</loc>
+    <loc>//localhost:50404/beginner/050_deploy/cleanup/</loc>
     <lastmod>2018-08-07T13:37:53-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/010_introduction/architecture/architecture_control/</loc>
+    <loc>//localhost:50404/010_introduction/architecture/architecture_control/</loc>
     <lastmod>2018-10-03T10:18:27-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/010_introduction/architecture/architecture_worker/</loc>
+    <loc>//localhost:50404/010_introduction/architecture/architecture_worker/</loc>
     <lastmod>2018-10-03T10:18:27-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/010_introduction/architecture/cluster_setup_options/</loc>
+    <loc>//localhost:50404/010_introduction/architecture/cluster_setup_options/</loc>
     <lastmod>2018-10-03T10:21:11-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/130_exposing-service/</loc>
+    <loc>//localhost:50404/beginner/130_exposing-service/</loc>
     <lastmod>2019-04-09T00:00:00-03:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/010_introduction/eks/eks_customers/</loc>
+    <loc>//localhost:50404/010_introduction/eks/eks_customers/</loc>
     <lastmod>2018-10-03T10:23:24-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/010_introduction/eks/eks_control_plane/</loc>
+    <loc>//localhost:50404/010_introduction/eks/eks_control_plane/</loc>
     <lastmod>2018-10-03T10:23:24-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/010_introduction/eks/eks_high_architecture/</loc>
+    <loc>//localhost:50404/010_introduction/eks/eks_high_architecture/</loc>
     <lastmod>2018-10-03T10:23:24-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/010_introduction/eks/eks_high_level/</loc>
+    <loc>//localhost:50404/010_introduction/eks/eks_high_level/</loc>
     <lastmod>2018-10-03T10:23:24-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/010_introduction/eks/stay_tuned/</loc>
+    <loc>//localhost:50404/010_introduction/eks/stay_tuned/</loc>
     <lastmod>2018-10-03T10:23:24-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/180_fargate/</loc>
+    <loc>//localhost:50404/beginner/180_fargate/</loc>
     <lastmod>2019-04-09T00:00:00-03:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/200_migrate_to_eks/</loc>
+    <loc>//localhost:50404/beginner/200_migrate_to_eks/</loc>
   </url><url>
-    <loc>//localhost:65464/beginner/201_resource_management/</loc>
+    <loc>//localhost:50404/beginner/201_resource_management/</loc>
     <lastmod>2020-06-22T00:00:00-03:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/250_cloudwatch_container_insights/</loc>
+    <loc>//localhost:50404/beginner/250_cloudwatch_container_insights/</loc>
     <lastmod>2020-04-13T15:27:17-04:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/beginner/320_eks_upgrades/</loc>
+    <loc>//localhost:50404/beginner/320_eks_upgrades/</loc>
   </url><url>
-    <loc>//localhost:65464/beginner/320_eks_upgrades/theprocess/</loc>
+    <loc>//localhost:50404/beginner/320_eks_upgrades/theprocess/</loc>
   </url><url>
-    <loc>//localhost:65464/beginner/320_eks_upgrades/upgradeeks/</loc>
+    <loc>//localhost:50404/beginner/320_eks_upgrades/upgradeeks/</loc>
   </url><url>
-    <loc>//localhost:65464/beginner/320_eks_upgrades/upgradeaddons/</loc>
+    <loc>//localhost:50404/beginner/320_eks_upgrades/upgradeaddons/</loc>
   </url><url>
-    <loc>//localhost:65464/beginner/320_eks_upgrades/upgrademng/</loc>
+    <loc>//localhost:50404/beginner/320_eks_upgrades/upgrademng/</loc>
   </url><url>
-    <loc>//localhost:65464/910_conclusion/</loc>
+    <loc>//localhost:50404/910_conclusion/</loc>
   </url><url>
-    <loc>//localhost:65464/920_cleanup/</loc>
+    <loc>//localhost:50404/920_cleanup/</loc>
     <lastmod>2018-08-07T13:37:53-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/tabs-example/</loc>
+    <loc>//localhost:50404/tabs-example/</loc>
     <lastmod>2018-08-07T13:34:24-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/tabs-example/tabs/</loc>
+    <loc>//localhost:50404/tabs-example/tabs/</loc>
     <lastmod>2018-08-07T13:34:24-07:00</lastmod>
   </url><url>
-    <loc>//localhost:65464/tags/appmesh/</loc>
+    <loc>//localhost:50404/tags/appmesh/</loc>
   </url><url>
-    <loc>//localhost:65464/tags/beginner/</loc>
+    <loc>//localhost:50404/tags/beginner/</loc>
   </url><url>
-    <loc>//localhost:65464/categories/</loc>
+    <loc>//localhost:50404/categories/</loc>
   </url><url>
-    <loc>//localhost:65464/tags/con203/</loc>
+    <loc>//localhost:50404/tags/con203/</loc>
   </url><url>
-    <loc>//localhost:65464/tags/con205/</loc>
+    <loc>//localhost:50404/tags/con205/</loc>
   </url><url>
-    <loc>//localhost:65464/tags/con206/</loc>
+    <loc>//localhost:50404/tags/con206/</loc>
   </url><url>
-    <loc>//localhost:65464/authors/</loc>
+    <loc>//localhost:50404/authors/</loc>
   </url><url>
-    <loc>//localhost:65464/tabs-example/tabs/eks/</loc>
+    <loc>//localhost:50404/tabs-example/tabs/eks/</loc>
   </url><url>
-    <loc>//localhost:65464/tabs-example/tabs/launcheks/</loc>
+    <loc>//localhost:50404/tabs-example/tabs/launcheks/</loc>
   </url><url>
-    <loc>//localhost:65464/tags/intermediate/</loc>
+    <loc>//localhost:50404/tags/intermediate/</loc>
   </url><url>
-    <loc>//localhost:65464/020_prerequisites/eu-west-1/</loc>
+    <loc>//localhost:50404/020_prerequisites/eu-west-1/</loc>
   </url><url>
-    <loc>//localhost:65464/tags/kubeflow/</loc>
+    <loc>//localhost:50404/tags/kubeflow/</loc>
   </url><url>
-    <loc>//localhost:65464/tags/monitoring/</loc>
+    <loc>//localhost:50404/tags/monitoring/</loc>
   </url><url>
-    <loc>//localhost:65464/more_resources/</loc>
+    <loc>//localhost:50404/more_resources/</loc>
   </url><url>
-    <loc>//localhost:65464/020_prerequisites/us-east-2/</loc>
+    <loc>//localhost:50404/020_prerequisites/us-east-2/</loc>
   </url><url>
-    <loc>//localhost:65464/tags/operations/</loc>
+    <loc>//localhost:50404/tags/operations/</loc>
   </url><url>
-    <loc>//localhost:65464/tags/opn401/</loc>
+    <loc>//localhost:50404/tags/opn401/</loc>
   </url><url>
-    <loc>//localhost:65464/020_prerequisites/us-west-2/</loc>
+    <loc>//localhost:50404/020_prerequisites/us-west-2/</loc>
   </url><url>
-    <loc>//localhost:65464/tags/roadshow-activities/</loc>
+    <loc>//localhost:50404/tags/roadshow-activities/</loc>
   </url><url>
-    <loc>//localhost:65464/020_prerequisites/ap-southeast-1/</loc>
+    <loc>//localhost:50404/020_prerequisites/ap-southeast-1/</loc>
   </url><url>
-    <loc>//localhost:65464/tags/</loc>
+    <loc>//localhost:50404/tags/</loc>
   </url>
 </urlset>
