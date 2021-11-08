@@ -62,7 +62,7 @@ The following command sequence adds more disk space to the root volume of the EC
 
 ```bash
 # ------  resize OS disk -----------
-# Specify the desired volume size in GiB as a command-line argument. If not specified, default to 32 GiB.
+# Specify the desired volume size in GiB as 32 GiB.
 VOLUME_SIZE=${1:-32}
 
 # Get the ID of the environment host Amazon EC2 instance.
