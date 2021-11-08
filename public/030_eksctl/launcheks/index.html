@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="js csstransforms3d">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=65464&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.83.1" />
@@ -13,20 +13,20 @@
     <title>Launch EKS :: Amazon EKS Roadshow</title>
 
     
-    <link href="../../css/nucleus.css?1636140125" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1636140125" rel="stylesheet">
-    <link href="../../css/hybrid.css?1636140125" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1636140125" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1636140125" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1636140125" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1636140125" rel="stylesheet">
-    <link href="../../css/theme.css?1636140125" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1636140125" rel="stylesheet">
+    <link href="../../css/nucleus.css?1636281412" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1636281412" rel="stylesheet">
+    <link href="../../css/hybrid.css?1636281412" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1636281412" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1636281412" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1636281412" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1636281412" rel="stylesheet">
+    <link href="../../css/theme.css?1636281412" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1636281412" rel="stylesheet">
     
-      <link href="../../css/theme-mine.css?1636140125" rel="stylesheet">
+      <link href="../../css/theme-mine.css?1636281412" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1636140125"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1636281412"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -73,10 +73,10 @@
     <meta name="msapplication-wide310x150logo" content="/icons/mstile-310x150.png" />
     <meta name="msapplication-square310x310logo" content="/icons/mstile-310x310.png" />
 
-    <link href="../../mermaid/mermaid.css?1636140125" type="text/css" rel="stylesheet" />
-    <link href="../../css/jquery-ui.min.css?1636140125" rel="stylesheet">
-    <script src="../../js/jquery-ui-1.12.1.min.js?1636140125"></script>
-    <script src="../../mermaid/mermaid.min.js?1636140125"></script>
+    <link href="../../mermaid/mermaid.css?1636281412" type="text/css" rel="stylesheet" />
+    <link href="../../css/jquery-ui.min.css?1636281412" rel="stylesheet">
+    <script src="../../js/jquery-ui-1.12.1.min.js?1636281412"></script>
+    <script src="../../mermaid/mermaid.min.js?1636281412"></script>
     <script>
 	var config = {
         startOnLoad:true,
@@ -105,14 +105,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1636140125"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1636140125"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1636281412"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1636281412"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/\/localhost:1313\/";
+        var baseurl = "\/\/localhost:65464\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1636140125"></script>
+<script type="text/javascript" src="../../js/search.js?1636281412"></script>
 
     
   </div>
@@ -2861,10 +2861,6 @@
     </div>
 </div>
 <h3 id="create-an-eks-cluster">Create an EKS cluster</h3>
-
-<div class="notices warning" ><p><code>eksctl</code> version must be 0.38.0 or above to deploy EKS 1.19, <a href="../../030_eksctl/prerequisites">click here</a> to get the latest version.</p>
-</div>
-
 <p>Create an eksctl deployment file (eksworkshop.yaml) use in creating your cluster using the following syntax:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cat <span style="color:#e6db74">&lt;&lt; EOF &gt; eksworkshop.yaml
 </span><span style="color:#e6db74">---
@@ -2873,26 +2869,18 @@
 </span><span style="color:#e6db74">
 </span><span style="color:#e6db74">metadata:
 </span><span style="color:#e6db74">  name: eksworkshop-eksctl
-</span><span style="color:#e6db74">  region: ${AWS_REGION}
-</span><span style="color:#e6db74">  version: &#34;1.19&#34;
-</span><span style="color:#e6db74">
-</span><span style="color:#e6db74">availabilityZones: [&#34;${AZS[0]}&#34;, &#34;${AZS[1]}&#34;, &#34;${AZS[2]}&#34;]
-</span><span style="color:#e6db74">
-</span><span style="color:#e6db74">managedNodeGroups:
-</span><span style="color:#e6db74">- name: nodegroup
-</span><span style="color:#e6db74">  desiredCapacity: 3
-</span><span style="color:#e6db74">  instanceType: t3.small
-</span><span style="color:#e6db74">  ssh:
-</span><span style="color:#e6db74">    enableSsm: true
-</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"># To enable all of the control plane logs, uncomment below:
-</span><span style="color:#e6db74"># cloudWatch:
-</span><span style="color:#e6db74">#  clusterLogging:
-</span><span style="color:#e6db74">#    enableTypes: [&#34;*&#34;]
-</span><span style="color:#e6db74">
-</span><span style="color:#e6db74">secretsEncryption:
-</span><span style="color:#e6db74">  keyARN: ${MASTER_ARN}
-</span><span style="color:#e6db74">EOF</span>
+</span><span style="color:#e6db74">  region: ${AWS_RE</span>GION<span style="color:#f92672">}</span>
+  version: <span style="color:#e6db74">&#34;1.20&#34;</span>
+
+availabilityZones: <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>AZS[0]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>AZS[1]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>AZS[2]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">]</span>
+
+managedNodeGroups:
+- name: nodegroup
+  desiredCapacity: <span style="color:#ae81ff">3</span>
+  instanceType: t3.small
+  ssh:
+    enableSsm: true
+
 </code></pre></div><p>Next, use the file you created as the input for the eksctl cluster creation.</p>
 
 <div class="notices info" ><p>We are deliberatly launching at least one Kubernetes version behind the latest available on <a href="https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html">Amazon EKS</a>. This allows you to perform the <a href="https://www.eksworkshop.com/intermediate/320_eks_upgrades/">cluster upgrade</a> lab.</p>
@@ -2903,6 +2891,81 @@
 <div class="notices info" ><p>Launching EKS and all the dependencies will take approximately 15 minutes</p>
 </div>
 
+<h4 id="challenge-1">Challenge:</h4>
+<p><strong>Launching EKS with some Production features</strong></p>
+<p>Change eksworkshop.yaml to include one or more of the following:</p>
+<ul>
+<li>Full EKS logging to CloudWatch</li>
+<li>Include the latest add ons for coredns, kube-proxy &amp; vpc-cni</li>
+<li>Enable OIDC</li>
+<li>Encrypt secrets using the key we setup earlier ${MASTER_ARN}</li>
+<li>Ensure the nodegroup uses private networking</li>
+</ul>
+
+<div class="notices tip" ><p>💡 You can find example code snippets to combine for all these suggested features at
+<a href="https://github.com/weaveworks/eksctl/tree/main/examples">https://github.com/weaveworks/eksctl/tree/main/examples</a></p>
+</div>
+
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Expand here to see a possible solution
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cat <span style="color:#e6db74">&lt;&lt; EOF &gt; eksworkshop.yaml
+</span><span style="color:#e6db74">---
+</span><span style="color:#e6db74">apiVersion: eksctl.io/v1alpha5
+</span><span style="color:#e6db74">kind: ClusterConfig
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">metadata:
+</span><span style="color:#e6db74">  name: eksworkshop-eksctl
+</span><span style="color:#e6db74">  region: ${AWS_RE</span>GION<span style="color:#f92672">}</span>
+  version: <span style="color:#e6db74">&#34;1.20&#34;</span>
+
+availabilityZones: <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>AZS[0]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>AZS[1]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>AZS[2]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">]</span>
+
+managedNodeGroups:
+- name: nodegroup
+  desiredCapacity: <span style="color:#ae81ff">3</span>
+  instanceType: t3.small
+  ssh:
+    enableSsm: true
+  privateNetworking: true
+
+cloudWatch:
+  clusterLogging:
+    enableTypes: <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;*&#34;</span><span style="color:#f92672">]</span>
+    <span style="color:#75715e"># all supported types: &#34;api&#34;, &#34;audit&#34;, &#34;authenticator&#34;, &#34;controllerManager&#34;, &#34;scheduler&#34;</span>
+    <span style="color:#75715e"># supported special values: &#34;*&#34; and &#34;all&#34;</span>
+
+    <span style="color:#75715e"># Sets the number of days to retain the logs for (see [CloudWatch docs](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.html#API_PutRetentionPolicy_RequestSyntax)).</span>
+    <span style="color:#75715e"># By default, log data is stored in CloudWatch Logs indefinitely.</span>
+    logRetentionInDays: <span style="color:#ae81ff">60</span>
+
+secretsEncryption:
+  keyARN: <span style="color:#e6db74">${</span>MASTER_ARN<span style="color:#e6db74">}</span>
+
+iam:
+  withOIDC: true
+
+addons:
+- name: vpc-cni <span style="color:#75715e"># no version is specified so it deploys the default version</span>
+  attachPolicyARNs:
+    - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
+- name: coredns
+  version: latest <span style="color:#75715e"># auto discovers the latest available</span>
+- name: kube-proxy
+  version: latest
+
+</code></pre></div>
+    </div>
+</div>
 
 
 <footer class=" footline" >
@@ -4824,19 +4887,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1636140125"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1636140125"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1636140125"></script>
-    <script src="../../js/jquery.sticky.js?1636140125"></script>
-    <script src="../../js/featherlight.min.js?1636140125"></script>
-    <script src="../../js/highlight.pack.js?1636140125"></script>
+    <script src="../../js/clipboard.min.js?1636281412"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1636281412"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1636281412"></script>
+    <script src="../../js/jquery.sticky.js?1636281412"></script>
+    <script src="../../js/featherlight.min.js?1636281412"></script>
+    <script src="../../js/highlight.pack.js?1636281412"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1636140125"></script>
-    <script src="../../js/learn.js?1636140125"></script>
-    <script src="../../js/hugo-learn.js?1636140125"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1636281412"></script>
+    <script src="../../js/learn.js?1636281412"></script>
+    <script src="../../js/hugo-learn.js?1636281412"></script>
 
-    <link href="../../mermaid/mermaid.css?1636140125" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1636140125"></script>
+    <link href="../../mermaid/mermaid.css?1636281412" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1636281412"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

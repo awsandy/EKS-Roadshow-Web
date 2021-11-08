@@ -56,38 +56,56 @@ If you intend to run all the sections in this workshop, it will be useful to hav
 ### Increase the disk size on the Cloud9 instance
 
 {{% notice note %}}
-The following command adds more disk space to the root volume of the EC2 instance that Cloud9 runs on. Once the command completes, we reboot the instance and it could take a minute or two for the IDE to come back online.
+The following command sequence adds more disk space to the root volume of the EC2 instance that Cloud9 runs on. 
 {{% /notice %}}
 
+
 ```bash
-pip3 install --user --upgrade boto3
-export instance_id=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
-python -c "import boto3
-import os
-from botocore.exceptions import ClientError 
-ec2 = boto3.client('ec2')
-volume_info = ec2.describe_volumes(
-    Filters=[
-        {
-            'Name': 'attachment.instance-id',
-            'Values': [
-                os.getenv('instance_id')
-            ]
-        }
-    ]
-)
-volume_id = volume_info['Volumes'][0]['VolumeId']
-try:
-    resize = ec2.modify_volume(    
-            VolumeId=volume_id,    
-            Size=30
-    )
-    print(resize)
-except ClientError as e:
-    if e.response['Error']['Code'] == 'InvalidParameterValue':
-        print('ERROR MESSAGE: {}'.format(e))"
-if [ $? -eq 0 ]; then
-    sudo reboot
+# ------  resize OS disk -----------
+# Specify the desired volume size in GiB as a command-line argument. If not specified, default to 32 GiB.
+VOLUME_SIZE=${1:-32}
+
+# Get the ID of the environment host Amazon EC2 instance.
+INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data//instance-id)
+
+# Get the ID of the Amazon EBS volume associated with the instance.
+VOLUME_ID=$(aws ec2 describe-instances \
+  --instance-id $INSTANCE_ID \
+  --query "Reservations[0].Instances[0].BlockDeviceMappings[0].Ebs.VolumeId" \
+  --output text)
+
+# Resize the EBS volume.
+aws ec2 modify-volume --volume-id $VOLUME_ID --size $VOLUME_SIZE > /dev/null
+
+# Wait for the resize to finish.
+while [ \
+  "$(aws ec2 describe-volumes-modifications \
+    --volume-id $VOLUME_ID \
+    --filters Name=modification-state,Values="optimizing","completed" \
+    --query "length(VolumesModifications)"\
+    --output text)" != "1" ]; do
+sleep 1
+done
+
+if [ $(readlink -f /dev/xvda) = "/dev/xvda" ]
+then
+  # Rewrite the partition table so that the partition takes up all the space that it can.
+  sudo growpart /dev/xvda 1
+ 
+  # Expand the size of the file system.
+  sudo resize2fs /dev/xvda1 > /dev/null
+
+else
+  # Rewrite the partition table so that the partition takes up all the space that it can.
+  sudo growpart /dev/nvme0n1 1
+
+  # Expand the size of the file system.
+  # sudo resize2fs /dev/nvme0n1p1 #(Amazon Linux 1)
+  sudo xfs_growfs /dev/nvme0n1p1 > /dev/null #(Amazon Linux 2)
 fi
+df -m /
 
 ```
+
+
+
