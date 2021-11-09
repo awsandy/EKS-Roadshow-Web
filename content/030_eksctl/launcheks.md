@@ -54,6 +54,8 @@ managedNodeGroups:
   ssh:
     enableSsm: true
 
+EOF
+
 ```
 
 Next, use the file you created as the input for the eksctl cluster creation.
@@ -139,5 +141,6 @@ addons:
 - name: kube-proxy
   version: latest
 
+EOF
 ```
 {{% /expand %}}

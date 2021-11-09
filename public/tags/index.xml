@@ -2,106 +2,106 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Amazon EKS Roadshow</title>
-    <link>//localhost:50404/tags/</link>
+    <link>//localhost:50906/tags/</link>
     <description>Recent content in Tags on Amazon EKS Roadshow</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="//localhost:50404/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="//localhost:50906/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>appmesh</title>
-      <link>//localhost:50404/tags/appmesh/</link>
+      <link>//localhost:50906/tags/appmesh/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:50404/tags/appmesh/</guid>
+      <guid>//localhost:50906/tags/appmesh/</guid>
       <description></description>
     </item>
     
     <item>
       <title>beginner</title>
-      <link>//localhost:50404/tags/beginner/</link>
+      <link>//localhost:50906/tags/beginner/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:50404/tags/beginner/</guid>
+      <guid>//localhost:50906/tags/beginner/</guid>
       <description></description>
     </item>
     
     <item>
       <title>CON203</title>
-      <link>//localhost:50404/tags/con203/</link>
+      <link>//localhost:50906/tags/con203/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:50404/tags/con203/</guid>
+      <guid>//localhost:50906/tags/con203/</guid>
       <description></description>
     </item>
     
     <item>
       <title>CON205</title>
-      <link>//localhost:50404/tags/con205/</link>
+      <link>//localhost:50906/tags/con205/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:50404/tags/con205/</guid>
+      <guid>//localhost:50906/tags/con205/</guid>
       <description></description>
     </item>
     
     <item>
       <title>CON206</title>
-      <link>//localhost:50404/tags/con206/</link>
+      <link>//localhost:50906/tags/con206/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:50404/tags/con206/</guid>
+      <guid>//localhost:50906/tags/con206/</guid>
       <description></description>
     </item>
     
     <item>
       <title>intermediate</title>
-      <link>//localhost:50404/tags/intermediate/</link>
+      <link>//localhost:50906/tags/intermediate/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:50404/tags/intermediate/</guid>
+      <guid>//localhost:50906/tags/intermediate/</guid>
       <description></description>
     </item>
     
     <item>
       <title>kubeflow</title>
-      <link>//localhost:50404/tags/kubeflow/</link>
+      <link>//localhost:50906/tags/kubeflow/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:50404/tags/kubeflow/</guid>
+      <guid>//localhost:50906/tags/kubeflow/</guid>
       <description></description>
     </item>
     
     <item>
       <title>monitoring</title>
-      <link>//localhost:50404/tags/monitoring/</link>
+      <link>//localhost:50906/tags/monitoring/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:50404/tags/monitoring/</guid>
+      <guid>//localhost:50906/tags/monitoring/</guid>
       <description></description>
     </item>
     
     <item>
       <title>operations</title>
-      <link>//localhost:50404/tags/operations/</link>
+      <link>//localhost:50906/tags/operations/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:50404/tags/operations/</guid>
+      <guid>//localhost:50906/tags/operations/</guid>
       <description></description>
     </item>
     
     <item>
       <title>OPN401</title>
-      <link>//localhost:50404/tags/opn401/</link>
+      <link>//localhost:50906/tags/opn401/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:50404/tags/opn401/</guid>
+      <guid>//localhost:50906/tags/opn401/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Roadshow Activities</title>
-      <link>//localhost:50404/tags/roadshow-activities/</link>
+      <link>//localhost:50906/tags/roadshow-activities/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:50404/tags/roadshow-activities/</guid>
+      <guid>//localhost:50906/tags/roadshow-activities/</guid>
       <description></description>
     </item>
     
