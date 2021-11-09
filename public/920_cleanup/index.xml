@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cleanup on Amazon EKS Roadshow</title>
-    <link>//localhost:50906/920_cleanup/</link>
+    <link>//localhost:56026/920_cleanup/</link>
     <description>Recent content in Cleanup on Amazon EKS Roadshow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 07 Aug 2018 13:37:53 -0700</lastBuildDate><atom:link href="//localhost:50906/920_cleanup/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Aug 2018 13:37:53 -0700</lastBuildDate><atom:link href="//localhost:56026/920_cleanup/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Undeploy the applications</title>
-      <link>//localhost:50906/920_cleanup/undeploy/</link>
+      <link>//localhost:56026/920_cleanup/undeploy/</link>
       <pubDate>Tue, 07 Aug 2018 13:37:53 -0700</pubDate>
       
-      <guid>//localhost:50906/920_cleanup/undeploy/</guid>
+      <guid>//localhost:56026/920_cleanup/undeploy/</guid>
       <description>To delete the resources created by the applications, we should delete the application deployments and kubernetes dashboard.
 Note that if you followed the cleanup section of the modules, some of the commands below might fail because there is nothing to delete and its ok.
 Undeploy the applications:
@@ -21,10 +21,10 @@ cd ~/environment/ecsdemo-frontend kubectl delete -f kubernetes/service.yaml kube
     
     <item>
       <title>Delete the EKSCTL Cluster</title>
-      <link>//localhost:50906/920_cleanup/eksctl/</link>
+      <link>//localhost:56026/920_cleanup/eksctl/</link>
       <pubDate>Tue, 07 Aug 2018 13:37:53 -0700</pubDate>
       
-      <guid>//localhost:50906/920_cleanup/eksctl/</guid>
+      <guid>//localhost:56026/920_cleanup/eksctl/</guid>
       <description>In order to delete the resources created for this EKS cluster, run the following commands:
 Delete the cluster:
 eksctl delete cluster --name=eksworkshop-eksctl  Without the --wait flag, this will only issue a delete operation to the cluster&amp;rsquo;s CloudFormation stack and won&amp;rsquo;t wait for its deletion. The nodegroup will have to complete the deletion process before the EKS cluster can be deleted. The total process will take approximately 15 minutes, and can be monitored via the CloudFormation Console.</description>
@@ -32,10 +32,10 @@ eksctl delete cluster --name=eksworkshop-eksctl  Without the --wait flag, this w
     
     <item>
       <title>Cleanup the Workspace</title>
-      <link>//localhost:50906/920_cleanup/workspace/</link>
+      <link>//localhost:56026/920_cleanup/workspace/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:50906/920_cleanup/workspace/</guid>
+      <guid>//localhost:56026/920_cleanup/workspace/</guid>
       <description>Since we no longer need the Cloud9 instance to have Administrator access to our account, we can delete the workspace we created:
  Go to your Cloud9 Environment Select the environment named eksworkshop and pick delete  </description>
     </item>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="js csstransforms3d">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=50906&amp;path=livereload" data-no-instant defer></script>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=56026&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.83.1" />
@@ -13,20 +13,20 @@
     <title>Launch EKS :: Amazon EKS Roadshow</title>
 
     
-    <link href="../../css/nucleus.css?1636403708" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1636403708" rel="stylesheet">
-    <link href="../../css/hybrid.css?1636403708" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1636403708" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1636403708" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1636403708" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1636403708" rel="stylesheet">
-    <link href="../../css/theme.css?1636403708" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1636403708" rel="stylesheet">
+    <link href="../../css/nucleus.css?1636445401" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1636445401" rel="stylesheet">
+    <link href="../../css/hybrid.css?1636445401" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1636445401" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1636445401" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1636445401" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1636445401" rel="stylesheet">
+    <link href="../../css/theme.css?1636445401" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1636445401" rel="stylesheet">
     
-      <link href="../../css/theme-mine.css?1636403708" rel="stylesheet">
+      <link href="../../css/theme-mine.css?1636445401" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1636403708"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1636445401"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -73,10 +73,10 @@
     <meta name="msapplication-wide310x150logo" content="/icons/mstile-310x150.png" />
     <meta name="msapplication-square310x310logo" content="/icons/mstile-310x310.png" />
 
-    <link href="../../mermaid/mermaid.css?1636403708" type="text/css" rel="stylesheet" />
-    <link href="../../css/jquery-ui.min.css?1636403708" rel="stylesheet">
-    <script src="../../js/jquery-ui-1.12.1.min.js?1636403708"></script>
-    <script src="../../mermaid/mermaid.min.js?1636403708"></script>
+    <link href="../../mermaid/mermaid.css?1636445401" type="text/css" rel="stylesheet" />
+    <link href="../../css/jquery-ui.min.css?1636445401" rel="stylesheet">
+    <script src="../../js/jquery-ui-1.12.1.min.js?1636445401"></script>
+    <script src="../../mermaid/mermaid.min.js?1636445401"></script>
     <script>
 	var config = {
         startOnLoad:true,
@@ -105,14 +105,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1636403708"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1636403708"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1636445401"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1636445401"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/\/localhost:50906\/";
+        var baseurl = "\/\/localhost:56026\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1636403708"></script>
+<script type="text/javascript" src="../../js/search.js?1636445401"></script>
 
     
   </div>
@@ -2869,17 +2869,19 @@
 </span><span style="color:#e6db74">
 </span><span style="color:#e6db74">metadata:
 </span><span style="color:#e6db74">  name: eksworkshop-eksctl
-</span><span style="color:#e6db74">  region: ${AWS_RE</span>GION<span style="color:#f92672">}</span>
-  version: <span style="color:#e6db74">&#34;1.20&#34;</span>
-
-availabilityZones: <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>AZS[0]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>AZS[1]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>AZS[2]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">]</span>
-
-managedNodeGroups:
-- name: nodegroup
-  desiredCapacity: <span style="color:#ae81ff">3</span>
-  instanceType: t3.small
-  ssh:
-    enableSsm: true
+</span><span style="color:#e6db74">  region: ${AWS_REGION}
+</span><span style="color:#e6db74">  version: &#34;1.20&#34;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">availabilityZones: [&#34;${AZS[0]}&#34;, &#34;${AZS[1]}&#34;, &#34;${AZS[2]}&#34;]
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">managedNodeGroups:
+</span><span style="color:#e6db74">- name: nodegroup
+</span><span style="color:#e6db74">  desiredCapacity: 3
+</span><span style="color:#e6db74">  instanceType: t3.small
+</span><span style="color:#e6db74">  ssh:
+</span><span style="color:#e6db74">    enableSsm: true
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">EOF</span>
 
 </code></pre></div><p>Next, use the file you created as the input for the eksctl cluster creation.</p>
 
@@ -2925,44 +2927,45 @@ managedNodeGroups:
 </span><span style="color:#e6db74">
 </span><span style="color:#e6db74">metadata:
 </span><span style="color:#e6db74">  name: eksworkshop-eksctl
-</span><span style="color:#e6db74">  region: ${AWS_RE</span>GION<span style="color:#f92672">}</span>
-  version: <span style="color:#e6db74">&#34;1.20&#34;</span>
-
-availabilityZones: <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>AZS[0]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>AZS[1]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>AZS[2]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">]</span>
-
-managedNodeGroups:
-- name: nodegroup
-  desiredCapacity: <span style="color:#ae81ff">3</span>
-  instanceType: t3.small
-  ssh:
-    enableSsm: true
-  privateNetworking: true
-
-cloudWatch:
-  clusterLogging:
-    enableTypes: <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;*&#34;</span><span style="color:#f92672">]</span>
-    <span style="color:#75715e"># all supported types: &#34;api&#34;, &#34;audit&#34;, &#34;authenticator&#34;, &#34;controllerManager&#34;, &#34;scheduler&#34;</span>
-    <span style="color:#75715e"># supported special values: &#34;*&#34; and &#34;all&#34;</span>
-
-    <span style="color:#75715e"># Sets the number of days to retain the logs for (see [CloudWatch docs](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.html#API_PutRetentionPolicy_RequestSyntax)).</span>
-    <span style="color:#75715e"># By default, log data is stored in CloudWatch Logs indefinitely.</span>
-    logRetentionInDays: <span style="color:#ae81ff">60</span>
-
-secretsEncryption:
-  keyARN: <span style="color:#e6db74">${</span>MASTER_ARN<span style="color:#e6db74">}</span>
-
-iam:
-  withOIDC: true
-
-addons:
-- name: vpc-cni <span style="color:#75715e"># no version is specified so it deploys the default version</span>
-  attachPolicyARNs:
-    - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
-- name: coredns
-  version: latest <span style="color:#75715e"># auto discovers the latest available</span>
-- name: kube-proxy
-  version: latest
-
+</span><span style="color:#e6db74">  region: ${AWS_REGION}
+</span><span style="color:#e6db74">  version: &#34;1.20&#34;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">availabilityZones: [&#34;${AZS[0]}&#34;, &#34;${AZS[1]}&#34;, &#34;${AZS[2]}&#34;]
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">managedNodeGroups:
+</span><span style="color:#e6db74">- name: nodegroup
+</span><span style="color:#e6db74">  desiredCapacity: 3
+</span><span style="color:#e6db74">  instanceType: t3.small
+</span><span style="color:#e6db74">  ssh:
+</span><span style="color:#e6db74">    enableSsm: true
+</span><span style="color:#e6db74">  privateNetworking: true
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">cloudWatch:
+</span><span style="color:#e6db74">  clusterLogging:
+</span><span style="color:#e6db74">    enableTypes: [&#34;*&#34;]
+</span><span style="color:#e6db74">    # all supported types: &#34;api&#34;, &#34;audit&#34;, &#34;authenticator&#34;, &#34;controllerManager&#34;, &#34;scheduler&#34;
+</span><span style="color:#e6db74">    # supported special values: &#34;*&#34; and &#34;all&#34;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">    # Sets the number of days to retain the logs for (see [CloudWatch docs](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.html#API_PutRetentionPolicy_RequestSyntax)).
+</span><span style="color:#e6db74">    # By default, log data is stored in CloudWatch Logs indefinitely.
+</span><span style="color:#e6db74">    logRetentionInDays: 60
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">secretsEncryption:
+</span><span style="color:#e6db74">  keyARN: ${MASTER_ARN}
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">iam:
+</span><span style="color:#e6db74">  withOIDC: true
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">addons:
+</span><span style="color:#e6db74">- name: vpc-cni # no version is specified so it deploys the default version
+</span><span style="color:#e6db74">  attachPolicyARNs:
+</span><span style="color:#e6db74">    - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
+</span><span style="color:#e6db74">- name: coredns
+</span><span style="color:#e6db74">  version: latest # auto discovers the latest available
+</span><span style="color:#e6db74">- name: kube-proxy
+</span><span style="color:#e6db74">  version: latest
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">EOF</span>
 </code></pre></div>
     </div>
 </div>
@@ -4887,19 +4890,19 @@ addons:
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1636403708"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1636403708"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1636403708"></script>
-    <script src="../../js/jquery.sticky.js?1636403708"></script>
-    <script src="../../js/featherlight.min.js?1636403708"></script>
-    <script src="../../js/highlight.pack.js?1636403708"></script>
+    <script src="../../js/clipboard.min.js?1636445401"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1636445401"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1636445401"></script>
+    <script src="../../js/jquery.sticky.js?1636445401"></script>
+    <script src="../../js/featherlight.min.js?1636445401"></script>
+    <script src="../../js/highlight.pack.js?1636445401"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1636403708"></script>
-    <script src="../../js/learn.js?1636403708"></script>
-    <script src="../../js/hugo-learn.js?1636403708"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1636445401"></script>
+    <script src="../../js/learn.js?1636445401"></script>
+    <script src="../../js/hugo-learn.js?1636445401"></script>
 
-    <link href="../../mermaid/mermaid.css?1636403708" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1636403708"></script>
+    <link href="../../mermaid/mermaid.css?1636445401" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1636445401"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

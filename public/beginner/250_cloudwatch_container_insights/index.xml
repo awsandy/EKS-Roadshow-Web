@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>EKS CloudWatch Container Insights on Amazon EKS Roadshow</title>
-    <link>//localhost:50906/beginner/250_cloudwatch_container_insights/</link>
+    <link>//localhost:56026/beginner/250_cloudwatch_container_insights/</link>
     <description>Recent content in EKS CloudWatch Container Insights on Amazon EKS Roadshow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 13 Apr 2020 15:27:17 -0400</lastBuildDate><atom:link href="//localhost:50906/beginner/250_cloudwatch_container_insights/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 13 Apr 2020 15:27:17 -0400</lastBuildDate><atom:link href="//localhost:56026/beginner/250_cloudwatch_container_insights/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Getting Started</title>
-      <link>//localhost:50906/beginner/250_cloudwatch_container_insights/gettingstarted/</link>
+      <link>//localhost:56026/beginner/250_cloudwatch_container_insights/gettingstarted/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:50906/beginner/250_cloudwatch_container_insights/gettingstarted/</guid>
+      <guid>//localhost:56026/beginner/250_cloudwatch_container_insights/gettingstarted/</guid>
       <description>After you&amp;rsquo;ve completed the prerequisites and Helm is installed and working; We can deploy our Wordpress site. This Helm chart will deploy MariaDB and Wordpress as well as configure a service ingress point for us to access the site through an elastic load balancer.
 For our testing we’ll be deploying Wordpress. We could just use a PHP file on the nodes and run NGINX to test as well, but with this Wordpress install you get experience deploying a Helm chart.</description>
     </item>
     
     <item>
       <title>Install WordPress</title>
-      <link>//localhost:50906/beginner/250_cloudwatch_container_insights/installwordpress/</link>
+      <link>//localhost:56026/beginner/250_cloudwatch_container_insights/installwordpress/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:50906/beginner/250_cloudwatch_container_insights/installwordpress/</guid>
+      <guid>//localhost:56026/beginner/250_cloudwatch_container_insights/installwordpress/</guid>
       <description>We&amp;rsquo;ll be using the bitnami charts repository to install WordPress to our EKS cluster.
  In your Cloud9 Workspace terminal you just need to run the following commands to deploy WordPress and its database.
 # Create a namespace wordpress kubectl create namespace wordpress-cwi # Add the bitnami Helm Charts Repository helm repo add bitnami https://charts.bitnami.com/bitnami # Deploy WordPress in its own namespace helm -n wordpress-cwi install understood-zebu bitnami/wordpress This chart will create:</description>
@@ -30,10 +30,10 @@ For our testing we’ll be deploying Wordpress. We could just use a PHP file on 
     
     <item>
       <title>Accessing Wordpress</title>
-      <link>//localhost:50906/beginner/250_cloudwatch_container_insights/accesswp/</link>
+      <link>//localhost:56026/beginner/250_cloudwatch_container_insights/accesswp/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:50906/beginner/250_cloudwatch_container_insights/accesswp/</guid>
+      <guid>//localhost:56026/beginner/250_cloudwatch_container_insights/accesswp/</guid>
       <description>Testing public URL It may take a few minutes for the LoadBalancer to be available.
  You’ll need the URL for your WordPress site. This is easily accomplished by running the command below from your terminal window.
 export SERVICE_URL=$(kubectl get svc -n wordpress-cwi understood-zebu-wordpress --template &amp;#34;{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}&amp;#34;) echo &amp;#34;Public URL: http://$SERVICE_URL/&amp;#34; You should see the Hello World WordPress welcome page. Testing the admin interface export ADMIN_URL=&amp;#34;http://$SERVICE_URL/admin&amp;#34; export ADMIN_PASSWORD=$(kubectl get secret --namespace wordpress-cwi understood-zebu-wordpress -o jsonpath=&amp;#34;{.</description>
@@ -41,10 +41,10 @@ export SERVICE_URL=$(kubectl get svc -n wordpress-cwi understood-zebu-wordpress 
     
     <item>
       <title>Preparing to Install Container Insights</title>
-      <link>//localhost:50906/beginner/250_cloudwatch_container_insights/cwcinstallprep/</link>
+      <link>//localhost:56026/beginner/250_cloudwatch_container_insights/cwcinstallprep/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:50906/beginner/250_cloudwatch_container_insights/cwcinstallprep/</guid>
+      <guid>//localhost:56026/beginner/250_cloudwatch_container_insights/cwcinstallprep/</guid>
       <description>The full documentation for CloudWatch Container Insights can be found here.
  Add the necessary policy to the IAM role for your worker nodes In order for CloudWatch to get the necessary monitoring info, we need to install the CloudWatch Agent to our EKS Cluster.
 First, we will need to ensure the Role Name our workers use is set in our environment:
@@ -53,10 +53,10 @@ test -n &amp;#34;$ROLE_NAME&amp;#34; &amp;amp;&amp;amp; echo ROLE_NAME is &amp;#
     
     <item>
       <title>Installing Container Insights</title>
-      <link>//localhost:50906/beginner/250_cloudwatch_container_insights/cwcinstall/</link>
+      <link>//localhost:56026/beginner/250_cloudwatch_container_insights/cwcinstall/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:50906/beginner/250_cloudwatch_container_insights/cwcinstall/</guid>
+      <guid>//localhost:56026/beginner/250_cloudwatch_container_insights/cwcinstall/</guid>
       <description>To complete the setup of Container Insights, you can follow the quick start instructions in this section.
 From your Cloud9 Terminal you will just need to run the following command.
 curl -s https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/k8s-deployment-manifest-templates/deployment-mode/daemonset/container-insights-monitoring/quickstart/cwagent-fluentd-quickstart.yaml | sed &amp;#34;s/{{cluster_name}}/eksworkshop-eksctl/;s/{{region_name}}/${AWS_REGION}/&amp;#34; | kubectl apply -f - The command above will:
@@ -65,10 +65,10 @@ curl -s https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-containe
     
     <item>
       <title>Verify CloudWatch Container Insights is working</title>
-      <link>//localhost:50906/beginner/250_cloudwatch_container_insights/verifycwci/</link>
+      <link>//localhost:56026/beginner/250_cloudwatch_container_insights/verifycwci/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:50906/beginner/250_cloudwatch_container_insights/verifycwci/</guid>
+      <guid>//localhost:56026/beginner/250_cloudwatch_container_insights/verifycwci/</guid>
       <description>To verify that data is being collected in CloudWatch, launch the CloudWatch Containers UI in your browser using the link generated by the command below
 echo &amp;#34; Use the URL below to access Cloudwatch Container Insights in $AWS_REGION: https://console.aws.amazon.com/cloudwatch/home?region=${AWS_REGION}#cw:dashboard=Container;context=~(clusters~&amp;#39;eksworkshop-eksctl~dimensions~(~)~performanceType~&amp;#39;Service)&amp;#34; From here you can see the metrics are being collected and presented to CloudWatch. You can switch between various drop downs to see EKS Services, EKS Cluster and more.
 We can now continue with load testing the cluster to see how these metrics can look under load.</description>
@@ -76,10 +76,10 @@ We can now continue with load testing the cluster to see how these metrics can l
     
     <item>
       <title>Preparing your Load Test</title>
-      <link>//localhost:50906/beginner/250_cloudwatch_container_insights/prepareloadtest/</link>
+      <link>//localhost:56026/beginner/250_cloudwatch_container_insights/prepareloadtest/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:50906/beginner/250_cloudwatch_container_insights/prepareloadtest/</guid>
+      <guid>//localhost:56026/beginner/250_cloudwatch_container_insights/prepareloadtest/</guid>
       <description>Now that we have monitoring enabled we will simulate heavy load to our EKS Cluster hosting our Wordpress install. While generating the load, we can watch CloudWatch Container Insights for the performance metrics.
 Install Siege for load testing on your Workspace sudo yum install siege -y Verify Siege is working by typing the below into your terminal window.
 siege --version Output example (version may vary). SIEGE 3.0.8 Copyright (C) 2014 by Jeffrey Fulmer, et al.</description>
@@ -87,10 +87,10 @@ siege --version Output example (version may vary). SIEGE 3.0.8 Copyright (C) 201
     
     <item>
       <title>Running the Load Test</title>
-      <link>//localhost:50906/beginner/250_cloudwatch_container_insights/runloadtest/</link>
+      <link>//localhost:56026/beginner/250_cloudwatch_container_insights/runloadtest/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:50906/beginner/250_cloudwatch_container_insights/runloadtest/</guid>
+      <guid>//localhost:56026/beginner/250_cloudwatch_container_insights/runloadtest/</guid>
       <description>Run Siege to Load Test your Wordpress Site Now that Siege has been installed, we&amp;rsquo;re going to generate some load to our Wordpress site and see the metrics change in CloudWatch Container Insights.
 From your terminal window, run the following command.
 export WP_ELB=$(kubectl -n wordpress-cwi get svc understood-zebu-wordpress -o jsonpath=&amp;#34;{.status.loadBalancer.ingress[].hostname}&amp;#34;) siege -q -t 15S -c 200 -i http://${WP_ELB} This command tells Siege to run 200 concurrent connections to your Wordpress site at varying URLS for 15 seconds.</description>
@@ -98,10 +98,10 @@ export WP_ELB=$(kubectl -n wordpress-cwi get svc understood-zebu-wordpress -o js
     
     <item>
       <title>Viewing our collected metrics</title>
-      <link>//localhost:50906/beginner/250_cloudwatch_container_insights/viewvetrics/</link>
+      <link>//localhost:56026/beginner/250_cloudwatch_container_insights/viewvetrics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:50906/beginner/250_cloudwatch_container_insights/viewvetrics/</guid>
+      <guid>//localhost:56026/beginner/250_cloudwatch_container_insights/viewvetrics/</guid>
       <description>Now let&amp;rsquo;s navigate back to CloudWatch Container Insights browser tab to view the data we&amp;rsquo;ve generated.
 From here you can choose a number of different views. We’re going to narrow down our timelines to a custom time range of just 30 minute so we can zoom into our recently collected insights.
 To do so go to the Time Range option at the top right of The CloudWatch Container Insights windows and selecting 30 minutes.</description>
@@ -109,10 +109,10 @@ To do so go to the Time Range option at the top right of The CloudWatch Containe
     
     <item>
       <title>Viewing our collected logs</title>
-      <link>//localhost:50906/beginner/250_cloudwatch_container_insights/viewlogs/</link>
+      <link>//localhost:56026/beginner/250_cloudwatch_container_insights/viewlogs/</link>
       <pubDate>Mon, 13 Apr 2020 15:27:17 -0400</pubDate>
       
-      <guid>//localhost:50906/beginner/250_cloudwatch_container_insights/viewlogs/</guid>
+      <guid>//localhost:56026/beginner/250_cloudwatch_container_insights/viewlogs/</guid>
       <description>Now that we have a good understanding of the load, let&amp;rsquo;s explore the logs generated by WordPress and sent to Cloudwatch by the Fluentd agent.
 From the CloudWatch Container Insights browser tab:
  Scroll down to the Pod performance section. Select the WordPress pod. Select application logs from the Action menu.  The last action will open the CloudWatch Logs Insights UI in another tab.
@@ -121,10 +121,10 @@ Click the Run query button and expand one of log line to look at it.</descriptio
     
     <item>
       <title>Using CloudWatch Alarms</title>
-      <link>//localhost:50906/beginner/250_cloudwatch_container_insights/cwalarms/</link>
+      <link>//localhost:56026/beginner/250_cloudwatch_container_insights/cwalarms/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:50906/beginner/250_cloudwatch_container_insights/cwalarms/</guid>
+      <guid>//localhost:56026/beginner/250_cloudwatch_container_insights/cwalarms/</guid>
       <description>You can use the CloudWatch metrics to generate various alarms for your EKS Cluster based on assigned metrics.
 In CloudWatch Container Insights we’re going to drill down to create an alarm using CloudWatch for CPU Utilization of the Wordpress service.
 To do so:
@@ -133,10 +133,10 @@ To do so:
     
     <item>
       <title>Wrapping Up</title>
-      <link>//localhost:50906/beginner/250_cloudwatch_container_insights/wraup/</link>
+      <link>//localhost:56026/beginner/250_cloudwatch_container_insights/wraup/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:50906/beginner/250_cloudwatch_container_insights/wraup/</guid>
+      <guid>//localhost:56026/beginner/250_cloudwatch_container_insights/wraup/</guid>
       <description>Wrapping Up As you can see it’s fairly easy to get CloudWatch Container Insights to work, and set alarms for CPU and other metrics.
 With CloudWatch Container Insights we remove the need to manage and update your own monitoring infrastructure and allow you to use native AWS solutions that you don’t have to manage the platform for.
  Cleanup your Environment Let&amp;rsquo;s clean up Wordpress so it&amp;rsquo;s not running in your cluster any longer.</description>

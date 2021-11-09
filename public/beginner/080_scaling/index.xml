@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Autoscaling our Applications and Clusters on Amazon EKS Roadshow</title>
-    <link>//localhost:50906/beginner/080_scaling/</link>
+    <link>//localhost:56026/beginner/080_scaling/</link>
     <description>Recent content in Autoscaling our Applications and Clusters on Amazon EKS Roadshow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 01 Oct 2020 08:30:11 -0700</lastBuildDate><atom:link href="//localhost:50906/beginner/080_scaling/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Oct 2020 08:30:11 -0700</lastBuildDate><atom:link href="//localhost:56026/beginner/080_scaling/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Install Kube-ops-view</title>
-      <link>//localhost:50906/beginner/080_scaling/install_kube_ops_view/</link>
+      <link>//localhost:56026/beginner/080_scaling/install_kube_ops_view/</link>
       <pubDate>Thu, 01 Oct 2020 08:30:11 -0700</pubDate>
       
-      <guid>//localhost:50906/beginner/080_scaling/install_kube_ops_view/</guid>
+      <guid>//localhost:56026/beginner/080_scaling/install_kube_ops_view/</guid>
       <description>Before starting to learn about the various auto-scaling options for your EKS cluster we are going to install Kube-ops-view from Henning Jacobs.
 Kube-ops-view provides a common operational picture for a Kubernetes cluster that helps with understanding our cluster setup in a visual way.
 We will deploy kube-ops-view using Helm configured in a previous module
@@ -21,10 +21,10 @@ We will deploy kube-ops-view using Helm configured in a previous module
     
     <item>
       <title>Configure Horizontal Pod AutoScaler (HPA)</title>
-      <link>//localhost:50906/beginner/080_scaling/deploy_hpa/</link>
+      <link>//localhost:56026/beginner/080_scaling/deploy_hpa/</link>
       <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
       
-      <guid>//localhost:50906/beginner/080_scaling/deploy_hpa/</guid>
+      <guid>//localhost:56026/beginner/080_scaling/deploy_hpa/</guid>
       <description>Deploy the Metrics Server Metrics Server is a scalable, efficient source of container resource metrics for Kubernetes built-in autoscaling pipelines.
 These metrics will drive the scaling behavior of the deployments.
 We will deploy the metrics server using Kubernetes Metrics Server.
@@ -34,10 +34,10 @@ kubectl get apiservice v1beta1.metrics.k8s.io -o json | jq &amp;#39;.status&amp;
     
     <item>
       <title>Scale an Application with HPA</title>
-      <link>//localhost:50906/beginner/080_scaling/test_hpa/</link>
+      <link>//localhost:56026/beginner/080_scaling/test_hpa/</link>
       <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
       
-      <guid>//localhost:50906/beginner/080_scaling/test_hpa/</guid>
+      <guid>//localhost:56026/beginner/080_scaling/test_hpa/</guid>
       <description>Deploy a Sample App We will deploy an application and expose as a service on TCP port 80.
 The application is a custom-built image based on the php-apache image. The index.php page performs calculations to generate CPU load. More information can be found here
 kubectl create deployment php-apache --image=us.gcr.io/k8s-artifacts-prod/hpa-example kubectl set resources deploy php-apache --requests=cpu=200m kubectl expose deploy php-apache --port 80 kubectl get pod -l app=php-apache Create an HPA resource This HPA scales up when CPU exceeds 50% of the allocated container resource.</description>
@@ -45,10 +45,10 @@ kubectl create deployment php-apache --image=us.gcr.io/k8s-artifacts-prod/hpa-ex
     
     <item>
       <title>Configure Cluster Autoscaler (CA)</title>
-      <link>//localhost:50906/beginner/080_scaling/deploy_ca/</link>
+      <link>//localhost:56026/beginner/080_scaling/deploy_ca/</link>
       <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
       
-      <guid>//localhost:50906/beginner/080_scaling/deploy_ca/</guid>
+      <guid>//localhost:56026/beginner/080_scaling/deploy_ca/</guid>
       <description>Cluster Autoscaler for AWS provides integration with Auto Scaling groups. It enables users to choose from four different options of deployment:
  One Auto Scaling group Multiple Auto Scaling groups Auto-Discovery Control-plane Node setup  Auto-Discovery is the preferred method to configure Cluster Autoscaler. Click here for more information.
 Cluster Autoscaler will attempt to determine the CPU, memory, and GPU resources provided by an Auto Scaling Group based on the instance type specified in its Launch Configuration or Launch Template.</description>
@@ -56,20 +56,20 @@ Cluster Autoscaler will attempt to determine the CPU, memory, and GPU resources 
     
     <item>
       <title>Scale a Cluster with CA</title>
-      <link>//localhost:50906/beginner/080_scaling/test_ca/</link>
+      <link>//localhost:56026/beginner/080_scaling/test_ca/</link>
       <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
       
-      <guid>//localhost:50906/beginner/080_scaling/test_ca/</guid>
+      <guid>//localhost:56026/beginner/080_scaling/test_ca/</guid>
       <description>Deploy a Sample App We will deploy an sample nginx application as a ReplicaSet of 1 Pod
 cat &amp;lt;&amp;lt;EoF&amp;gt; ~/environment/cluster-autoscaler/nginx.yaml apiVersion: apps/v1 kind: Deployment metadata: name: nginx-to-scaleout spec: replicas: 1 selector: matchLabels: app: nginx template: metadata: labels: service: nginx app: nginx spec: containers: - image: nginx name: nginx-to-scaleout resources: limits: cpu: 500m memory: 512Mi requests: cpu: 500m memory: 512Mi EoF kubectl apply -f ~/environment/cluster-autoscaler/nginx.yaml kubectl get deployment/nginx-to-scaleout Scale our ReplicaSet Let&amp;rsquo;s scale out the replicaset to 10</description>
     </item>
     
     <item>
       <title>Cleanup Scaling</title>
-      <link>//localhost:50906/beginner/080_scaling/cleanup/</link>
+      <link>//localhost:56026/beginner/080_scaling/cleanup/</link>
       <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
       
-      <guid>//localhost:50906/beginner/080_scaling/cleanup/</guid>
+      <guid>//localhost:56026/beginner/080_scaling/cleanup/</guid>
       <description>kubectl delete -f ~/environment/cluster-autoscaler/nginx.yaml kubectl delete -f https://www.eksworkshop.com/beginner/080_scaling/deploy_ca.files/cluster-autoscaler-autodiscover.yaml eksctl delete iamserviceaccount \  --name cluster-autoscaler \  --namespace kube-system \  --cluster eksworkshop-eksctl \  --wait aws iam delete-policy \  --policy-arn arn:aws:iam::${ACCOUNT_ID}:policy/k8s-asg-policy export ASG_NAME=$(aws autoscaling describe-auto-scaling-groups --query &amp;#34;AutoScalingGroups[? Tags[? (Key==&amp;#39;eks:cluster-name&amp;#39;) &amp;amp;&amp;amp; Value==&amp;#39;eksworkshop-eksctl&amp;#39;]].AutoScalingGroupName&amp;#34; --output text) aws autoscaling \  update-auto-scaling-group \  --auto-scaling-group-name ${ASG_NAME} \  --min-size 3 \  --desired-capacity 3 \  --max-size 3 kubectl delete hpa,svc php-apache kubectl delete deployment php-apache kubectl delete pod load-generator cd ~/environment rm -rf ~/environment/cluster-autoscaler kubectl delete -f https://github.</description>
     </item>
     

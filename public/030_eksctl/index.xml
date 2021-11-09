@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Launch using eksctl on Amazon EKS Roadshow</title>
-    <link>//localhost:50906/030_eksctl/</link>
+    <link>//localhost:56026/030_eksctl/</link>
     <description>Recent content in Launch using eksctl on Amazon EKS Roadshow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 07 Aug 2018 13:36:57 -0700</lastBuildDate><atom:link href="//localhost:50906/030_eksctl/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Aug 2018 13:36:57 -0700</lastBuildDate><atom:link href="//localhost:56026/030_eksctl/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Prerequisites</title>
-      <link>//localhost:50906/030_eksctl/prerequisites/</link>
+      <link>//localhost:56026/030_eksctl/prerequisites/</link>
       <pubDate>Tue, 07 Aug 2018 13:31:55 -0700</pubDate>
       
-      <guid>//localhost:50906/030_eksctl/prerequisites/</guid>
+      <guid>//localhost:56026/030_eksctl/prerequisites/</guid>
       <description>For this module, we need to download the eksctl binary:
 curl --silent --location &amp;#34;https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz&amp;#34; | tar xz -C /tmp sudo mv -v /tmp/eksctl /usr/local/bin Confirm the eksctl command works:
 eksctl version Enable eksctl bash-completion
@@ -21,10 +21,10 @@ eksctl completion bash &amp;gt;&amp;gt; ~/.bash_completion . /etc/profile.d/bash
     
     <item>
       <title>Launch EKS</title>
-      <link>//localhost:50906/030_eksctl/launcheks/</link>
+      <link>//localhost:56026/030_eksctl/launcheks/</link>
       <pubDate>Tue, 07 Aug 2018 13:34:24 -0700</pubDate>
       
-      <guid>//localhost:50906/030_eksctl/launcheks/</guid>
+      <guid>//localhost:56026/030_eksctl/launcheks/</guid>
       <description>DO NOT PROCEED with this step unless you have validated the IAM role in use by the Cloud9 IDE. You will not be able to run the necessary kubectl commands in the later modules unless the EKS cluster is built using the IAM role.
  Challenge: How do I check the IAM role on the workspace?
   Expand here to see the solution   Run aws sts get-caller-identity and validate that your Arn contains eksworkshop-adminand an Instance Id.</description>
@@ -32,20 +32,20 @@ eksctl completion bash &amp;gt;&amp;gt; ~/.bash_completion . /etc/profile.d/bash
     
     <item>
       <title>Test the Cluster</title>
-      <link>//localhost:50906/030_eksctl/test/</link>
+      <link>//localhost:56026/030_eksctl/test/</link>
       <pubDate>Tue, 07 Aug 2018 13:36:57 -0700</pubDate>
       
-      <guid>//localhost:50906/030_eksctl/test/</guid>
+      <guid>//localhost:56026/030_eksctl/test/</guid>
       <description>Test the cluster: Confirm your nodes:
 kubectl get nodes # if we see our 3 nodes, we know we have authenticated correctly Export the Worker Role Name for use throughout the workshop: STACK_NAME=$(eksctl get nodegroup --cluster eksworkshop-eksctl -o json | jq -r &amp;#39;.[].StackName&amp;#39;) ROLE_NAME=$(aws cloudformation describe-stack-resources --stack-name $STACK_NAME | jq -r &amp;#39;.StackResources[] | select(.ResourceType==&amp;#34;AWS::IAM::Role&amp;#34;) | .PhysicalResourceId&amp;#39;) echo &amp;#34;export ROLE_NAME=${ROLE_NAME}&amp;#34; | tee -a ~/.bash_profile Congratulations! You now have a fully working Amazon EKS Cluster that is ready to use!</description>
     </item>
     
     <item>
       <title>Console Credentials</title>
-      <link>//localhost:50906/030_eksctl/console/</link>
+      <link>//localhost:56026/030_eksctl/console/</link>
       <pubDate>Tue, 07 Aug 2018 13:36:57 -0700</pubDate>
       
-      <guid>//localhost:50906/030_eksctl/console/</guid>
+      <guid>//localhost:56026/030_eksctl/console/</guid>
       <description>This step is optional, as nearly all of the workshop content is CLI-driven. But, if you&amp;rsquo;d like full access to your workshop cluster in the EKS console this step is recommended.
 The EKS console allows you to see not only the configuration aspects of your cluster, but also to view Kubernetes cluster objects such as Deployments, Pods, and Nodes. For this type of access, the console IAM User or Role needs to be granted permission within the cluster.</description>
     </item>
