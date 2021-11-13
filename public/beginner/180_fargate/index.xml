@@ -2,36 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Deploying Microservices to EKS Fargate on Amazon EKS Roadshow</title>
-    <link>//localhost:56026/beginner/180_fargate/</link>
+    <link>//localhost:53123/beginner/180_fargate/</link>
     <description>Recent content in Deploying Microservices to EKS Fargate on Amazon EKS Roadshow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 09 Apr 2019 00:00:00 -0300</lastBuildDate><atom:link href="//localhost:56026/beginner/180_fargate/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Prerequisite</title>
-      <link>//localhost:56026/beginner/180_fargate/prerequisites/</link>
-      <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
-      
-      <guid>//localhost:56026/beginner/180_fargate/prerequisites/</guid>
-      <description>AWS Fargate with Amazon EKS is currently available in the following Regions:
-   Region Name Region     US East (Ohio) us-east-2   US East (N. Virginia) us-east-1   US West (N. California) us-west-1   US West (Oregon) us-west-2   Africa (Cape Town) af-south-1   Asia Pacific (Hong Kong) ap-east-1   Asia Pacific (Mumbai) ap-south-1   Asia Pacific (Seoul) ap-northeast-2   Asia Pacific (Singapore) ap-southeast-1   Asia Pacific (Sydney) ap-southeast-2   Asia Pacific (Tokyo) ap-northeast-1 (apne1-az1, apne1-az2, &amp;amp; apne1-az4 only)   Canada (Central) ca-central-1   Europe (Frankfurt) eu-central-1   Europe (Ireland) eu-west-1   Europe (London) eu-west-2   Europe (Milan) eu-south-1   Europe (Paris) eu-west-3   Europe (Stockholm) eu-north-1   South America (São Paulo) sa-east-1   Middle East (Bahrain) me-south-1    Don&amp;rsquo;t continue the lab unless you use one of these region.</description>
-    </item>
-    
+    <lastBuildDate>Tue, 09 Apr 2019 00:00:00 -0300</lastBuildDate><atom:link href="//localhost:53123/beginner/180_fargate/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Creating a Fargate Profile</title>
-      <link>//localhost:56026/beginner/180_fargate/creating-profile/</link>
+      <link>//localhost:53123/beginner/180_fargate/creating-profile/</link>
       <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
       
-      <guid>//localhost:56026/beginner/180_fargate/creating-profile/</guid>
+      <guid>//localhost:53123/beginner/180_fargate/creating-profile/</guid>
       <description>The Fargate profile allows an administrator to declare which pods run on Fargate. Each profile can have up to five selectors that contain a namespace and optional labels. You must define a namespace for every selector. The label field consists of multiple optional key-value pairs. Pods that match a selector (by matching a namespace for the selector and all of the labels specified in the selector) are scheduled on Fargate.</description>
     </item>
     
     <item>
       <title>Setting up the LB controller</title>
-      <link>//localhost:56026/beginner/180_fargate/prerequisites-for-alb/</link>
+      <link>//localhost:53123/beginner/180_fargate/prerequisites-for-alb/</link>
       <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
       
-      <guid>//localhost:56026/beginner/180_fargate/prerequisites-for-alb/</guid>
+      <guid>//localhost:53123/beginner/180_fargate/prerequisites-for-alb/</guid>
       <description>AWS Load Balancer Controller The AWS ALB Ingress Controller has been rebranded to AWS Load Balancer Controller.
 &amp;ldquo;AWS Load Balancer Controller&amp;rdquo; is a controller to help manage Elastic Load Balancers for a Kubernetes cluster.
  It satisfies Kubernetes Ingress resources by provisioning Application Load Balancers. It satisfies Kubernetes Service resources by provisioning Network Load Balancers.  Helm We will use Helm to install the ALB Ingress Controller.
@@ -40,10 +30,10 @@ Check to see if helm is installed:</description>
     
     <item>
       <title>Deploying Pods to Fargate</title>
-      <link>//localhost:56026/beginner/180_fargate/deploying-fargate/</link>
+      <link>//localhost:53123/beginner/180_fargate/deploying-fargate/</link>
       <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
       
-      <guid>//localhost:56026/beginner/180_fargate/deploying-fargate/</guid>
+      <guid>//localhost:53123/beginner/180_fargate/deploying-fargate/</guid>
       <description>Deploy the sample application Deploy the game 2048 as a sample application to verify that the AWS Load Balancer Controller creates an Application Load Balancer as a result of the Ingress object.
 kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/main/docs/examples/2048/2048_full.yaml You can check if the deployment has completed
 kubectl -n game-2048 rollout status deployment deployment-2048 Output: Waiting for deployment &amp;#34;deployment-2048&amp;#34; rollout to finish: 0 of 5 updated replicas are available... Waiting for deployment &amp;#34;deployment-2048&amp;#34; rollout to finish: 1 of 5 updated replicas are available.</description>
@@ -51,10 +41,10 @@ kubectl -n game-2048 rollout status deployment deployment-2048 Output: Waiting f
     
     <item>
       <title>Ingress</title>
-      <link>//localhost:56026/beginner/180_fargate/ingress/</link>
+      <link>//localhost:53123/beginner/180_fargate/ingress/</link>
       <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
       
-      <guid>//localhost:56026/beginner/180_fargate/ingress/</guid>
+      <guid>//localhost:53123/beginner/180_fargate/ingress/</guid>
       <description>Ingress After few seconds, verify that the Ingress resource is enabled:
 kubectl get ingress/ingress-2048 -n game-2048 You should be able to see the following output
 NAME HOSTS ADDRESS PORTS AGE ingress-2048 * k8s-game2048-ingress2-8ae3738fd5-1566954439.us-east-2.elb.amazonaws.com 80 14m  It could take 2 or 3 minutes for the ALB to be ready.
@@ -63,10 +53,10 @@ NAME HOSTS ADDRESS PORTS AGE ingress-2048 * k8s-game2048-ingress2-8ae3738fd5-156
     
     <item>
       <title>Clean Up</title>
-      <link>//localhost:56026/beginner/180_fargate/cleaning/</link>
+      <link>//localhost:53123/beginner/180_fargate/cleaning/</link>
       <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
       
-      <guid>//localhost:56026/beginner/180_fargate/cleaning/</guid>
+      <guid>//localhost:53123/beginner/180_fargate/cleaning/</guid>
       <description>Cleaning up To delete the resources used in this chapter:
 kubectl delete -f https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/main/docs/examples/2048/2048_full.yaml helm uninstall aws-load-balancer-controller \  -n kube-system eksctl delete iamserviceaccount \  --cluster eksworkshop-eksctl \  --name aws-load-balancer-controller \  --namespace kube-system \  --wait aws iam delete-policy \  --policy-arn arn:aws:iam::${ACCOUNT_ID}:policy/AWSLoadBalancerControllerIAMPolicy kubectl delete -k github.com/aws/eks-charts/stable/aws-load-balancer-controller//crds?ref=master eksctl delete fargateprofile \  --name game-2048 \  --cluster eksworkshop-eksctl </description>
     </item>

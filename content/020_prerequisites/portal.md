@@ -14,6 +14,16 @@ Connect to the portal by clicking the button or browsing to [https://dashboard.e
 
 Enter the provided hash in the text box. The button on the bottom right corner changes to **Accept Terms & Login**. Click on that button to continue.
 
+Next use the **Continue with Login with Amazon** button:
+
+![Event Engine](/images/andyt/amazon-login.png)
+
+Provide your Amazon Retail (shopping) credentials:
+
+![Event Engine](/images/andyt/amazon-login2.jpg)
+
+
+
 ![Event Engine Dashboard](/images/event-engine-dashboard.png)
 
 Click on **AWS Console** on dashboard.

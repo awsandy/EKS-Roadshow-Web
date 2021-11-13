@@ -2,26 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>intermediate on Amazon EKS Roadshow</title>
-    <link>//localhost:56026/tags/intermediate/</link>
+    <link>//localhost:53123/tags/intermediate/</link>
     <description>Recent content in intermediate on Amazon EKS Roadshow</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="//localhost:56026/tags/intermediate/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Migrate to EKS</title>
-      <link>//localhost:56026/beginner/200_migrate_to_eks/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//localhost:56026/beginner/200_migrate_to_eks/</guid>
-      <description>Migrate Workloads to EKS In this chapter we will migrate a workload from a self managed kind cluster to an EKS cluster. The workload will have a stateless frontend and a stateful database backend. You&amp;rsquo;ll need to follow the steps to create a Cloud9 workspace. Make sure you update your IAM permissions with an eksworkshop-admin role.
-When you create your Cloud9 instance you should select an instance size with at least 8 GB of memory (eg m5.</description>
-    </item>
-    
+    <language>en-us</language><atom:link href="//localhost:53123/tags/intermediate/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Resource Management</title>
-      <link>//localhost:56026/beginner/201_resource_management/</link>
+      <link>//localhost:53123/beginner/201_resource_management/</link>
       <pubDate>Mon, 22 Jun 2020 00:00:00 -0300</pubDate>
       
-      <guid>//localhost:56026/beginner/201_resource_management/</guid>
+      <guid>//localhost:53123/beginner/201_resource_management/</guid>
       <description>Resource Management   Kubernetes Request is used to ensure a Pod has enough defined resources available. It is possible for the Pod to use more than what is specified. This is considered a soft limit.
 Kubernetes Limit is a used to ensure a Pod does not use above what is specified. This is considered a hard limit.
 Kubernetes Resource Quotas is used to limit resource usage per namespace.
@@ -30,20 +20,20 @@ Kubernetes Pod Priority and Preemption is a used to apply priorities to pods rel
     
     <item>
       <title>EKS CloudWatch Container Insights</title>
-      <link>//localhost:56026/beginner/250_cloudwatch_container_insights/</link>
+      <link>//localhost:53123/beginner/250_cloudwatch_container_insights/</link>
       <pubDate>Mon, 13 Apr 2020 15:27:17 -0400</pubDate>
       
-      <guid>//localhost:56026/beginner/250_cloudwatch_container_insights/</guid>
+      <guid>//localhost:53123/beginner/250_cloudwatch_container_insights/</guid>
       <description>In this chapter we will learn and leverage the new CloudWatch Container Insights to see how you can use native CloudWatch features to monitor your EKS Cluster performance.
 You can use CloudWatch Container Insights to collect, aggregate, and summarize metrics and logs from your containerized applications and microservices. Container Insights is available for Amazon Elastic Container Service, Amazon Elastic Kubernetes Service, and Kubernetes platforms on Amazon EC2. The metrics include utilization for resources such as CPU, memory, disk, and network.</description>
     </item>
     
     <item>
       <title>Patching/Upgrading your EKS Cluster</title>
-      <link>//localhost:56026/beginner/320_eks_upgrades/</link>
+      <link>//localhost:53123/beginner/320_eks_upgrades/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:56026/beginner/320_eks_upgrades/</guid>
+      <guid>//localhost:53123/beginner/320_eks_upgrades/</guid>
       <description>Patching/Upgrading your EKS Cluster As EKS tracks upstream Kubernetes that means that customers can, and should, regularly upgrade their EKS so as to stay within the project&amp;rsquo;s upstream support window. This used to be the current version and two version back (n-2) - but it was recently extended to three versions back (n-3).
 There is a new major version of Kubernetes every quarter which means that the Kubernetes support window has now gone from three quarters of a year to one full year.</description>
     </item>

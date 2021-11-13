@@ -2,53 +2,53 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Amazon EKS on Amazon EKS Roadshow</title>
-    <link>//localhost:56026/010_introduction/eks/</link>
+    <link>//localhost:53123/010_introduction/eks/</link>
     <description>Recent content in Amazon EKS on Amazon EKS Roadshow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 03 Oct 2018 10:14:32 -0700</lastBuildDate><atom:link href="//localhost:56026/010_introduction/eks/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Oct 2018 10:14:32 -0700</lastBuildDate><atom:link href="//localhost:53123/010_introduction/eks/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>EKS Cluster Creation Workflow</title>
-      <link>//localhost:56026/010_introduction/eks/eks_customers/</link>
+      <link>//localhost:53123/010_introduction/eks/eks_customers/</link>
       <pubDate>Wed, 03 Oct 2018 10:23:24 -0700</pubDate>
       
-      <guid>//localhost:56026/010_introduction/eks/eks_customers/</guid>
+      <guid>//localhost:53123/010_introduction/eks/eks_customers/</guid>
       <description></description>
     </item>
     
     <item>
       <title>What happens when you create your EKS cluster</title>
-      <link>//localhost:56026/010_introduction/eks/eks_control_plane/</link>
+      <link>//localhost:53123/010_introduction/eks/eks_control_plane/</link>
       <pubDate>Wed, 03 Oct 2018 10:23:24 -0700</pubDate>
       
-      <guid>//localhost:56026/010_introduction/eks/eks_control_plane/</guid>
+      <guid>//localhost:53123/010_introduction/eks/eks_control_plane/</guid>
       <description></description>
     </item>
     
     <item>
       <title>EKS Architecture for Control plane and Worker node communication</title>
-      <link>//localhost:56026/010_introduction/eks/eks_high_architecture/</link>
+      <link>//localhost:53123/010_introduction/eks/eks_high_architecture/</link>
       <pubDate>Wed, 03 Oct 2018 10:23:24 -0700</pubDate>
       
-      <guid>//localhost:56026/010_introduction/eks/eks_high_architecture/</guid>
+      <guid>//localhost:53123/010_introduction/eks/eks_high_architecture/</guid>
       <description></description>
     </item>
     
     <item>
       <title>High Level</title>
-      <link>//localhost:56026/010_introduction/eks/eks_high_level/</link>
+      <link>//localhost:53123/010_introduction/eks/eks_high_level/</link>
       <pubDate>Wed, 03 Oct 2018 10:23:24 -0700</pubDate>
       
-      <guid>//localhost:56026/010_introduction/eks/eks_high_level/</guid>
+      <guid>//localhost:53123/010_introduction/eks/eks_high_level/</guid>
       <description>Once your EKS cluster is ready, you get an API endpoint and you&amp;rsquo;d use Kubectl, community developed tool to interact with your cluster.</description>
     </item>
     
     <item>
       <title>Amazon EKS!</title>
-      <link>//localhost:56026/010_introduction/eks/stay_tuned/</link>
+      <link>//localhost:53123/010_introduction/eks/stay_tuned/</link>
       <pubDate>Wed, 03 Oct 2018 10:23:24 -0700</pubDate>
       
-      <guid>//localhost:56026/010_introduction/eks/stay_tuned/</guid>
+      <guid>//localhost:53123/010_introduction/eks/stay_tuned/</guid>
       <description>Stay tuned as we continue the journey with EKS in the next module!
 Always ask questions! Feel free to ask them in person during this workshop, or any time on the official Kubernetes Slack channel accessible via http://slack.k8s.io/.</description>
     </item>

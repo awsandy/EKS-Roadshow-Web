@@ -122,9 +122,6 @@ cloudWatch:
     # all supported types: "api", "audit", "authenticator", "controllerManager", "scheduler"
     # supported special values: "*" and "all"
 
-    # Sets the number of days to retain the logs for (see [CloudWatch docs](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.html#API_PutRetentionPolicy_RequestSyntax)).
-    # By default, log data is stored in CloudWatch Logs indefinitely.
-    logRetentionInDays: 60
 
 secretsEncryption:
   keyARN: ${MASTER_ARN}
@@ -143,4 +140,14 @@ addons:
 
 EOF
 ```
+
+```bash
+eksctl create cluster -f eksworkshop.yaml
+```
+
+{{% notice info %}}
+Launching EKS and all the dependencies will take approximately 15 minutes
+{{% /notice %}}
+
+
 {{% /expand %}}
