@@ -39,3 +39,5 @@ In another Terminal tab you can follow the progress with:
 kubectl get nodes --watch
 ```
 You'll notice the new nodes come up (three one in each AZ), one of the older nodes go STATUS SchedulingDisabled, then eventually that node go away and another new node come up to replace it and so on as described in the process above until all the old Nodes have gone away. Then it'll scale back down from 6 Nodes to the original 3.
+
+This operation takes approximately 20 minutes.

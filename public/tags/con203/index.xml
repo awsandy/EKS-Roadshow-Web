@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>CON203 on Amazon EKS Roadshow</title>
-    <link>//localhost:53123/tags/con203/</link>
+    <link>//localhost:1313/tags/con203/</link>
     <description>Recent content in CON203 on Amazon EKS Roadshow</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="//localhost:53123/tags/con203/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="//localhost:1313/tags/con203/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Introduction</title>
-      <link>//localhost:53123/010_introduction/</link>
+      <link>//localhost:1313/010_introduction/</link>
       <pubDate>Wed, 03 Oct 2018 10:23:24 -0700</pubDate>
       
-      <guid>//localhost:53123/010_introduction/</guid>
+      <guid>//localhost:1313/010_introduction/</guid>
       <description>Introduction to Kubernetes   A walkthrough of basic Kubernetes concepts.
 Welcome to the Amazon EKS Roadshow!
 The intent of this workshop is to educate users about the features of Amazon EKS.
@@ -22,38 +22,38 @@ Specifically, we will walk you through the following topics:</description>
     
     <item>
       <title>Start the workshop...</title>
-      <link>//localhost:53123/020_prerequisites/</link>
+      <link>//localhost:1313/020_prerequisites/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:53123/020_prerequisites/</guid>
+      <guid>//localhost:1313/020_prerequisites/</guid>
       <description>Getting Started To start the workshop, please follow the the steps in this section starting with &amp;hellip; AWS Workshop Portal</description>
     </item>
     
     <item>
       <title>Launch using eksctl</title>
-      <link>//localhost:53123/030_eksctl/</link>
+      <link>//localhost:1313/030_eksctl/</link>
       <pubDate>Tue, 07 Aug 2018 13:36:57 -0700</pubDate>
       
-      <guid>//localhost:53123/030_eksctl/</guid>
+      <guid>//localhost:1313/030_eksctl/</guid>
       <description>Launch using eksctl eksctl is a tool jointly developed by AWS and Weaveworks that automates much of the experience of creating EKS clusters.
 In this module, we will use eksctl to launch and configure our EKS cluster and nodes.</description>
     </item>
     
     <item>
       <title>Deploy the Example Microservices</title>
-      <link>//localhost:53123/beginner/050_deploy/</link>
+      <link>//localhost:1313/beginner/050_deploy/</link>
       <pubDate>Tue, 18 Sep 2018 17:40:09 -0500</pubDate>
       
-      <guid>//localhost:53123/beginner/050_deploy/</guid>
+      <guid>//localhost:1313/beginner/050_deploy/</guid>
       <description>Deploy the Example Microservices    Deploy our Sample Applications   Deploy NodeJS Backend API   Deploy Crystal Backend API   Let&amp;#39;s check Service Types   Ensure the ELB Service Role exists   Deploy Frontend Service   Find the Service Address   Scale the Backend Services   Scale the Frontend   Cleanup the applications   </description>
     </item>
     
     <item>
       <title>Helm</title>
-      <link>//localhost:53123/beginner/060_helm/</link>
+      <link>//localhost:1313/beginner/060_helm/</link>
       <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
       
-      <guid>//localhost:53123/beginner/060_helm/</guid>
+      <guid>//localhost:1313/beginner/060_helm/</guid>
       <description>Helm   This tutorial has been updated for Helm v3. In version 3, the Tiller component was removed, which simplified operations and improved security.
  If you need to migrate from Helm v2 to v3 click here for the official documentation.
  Helm is a package manager for Kubernetes that packages multiple Kubernetes resources into a single logical deployment unit called a Chart. Charts are easy to create, version, share, and publish.</description>
@@ -61,10 +61,10 @@ In this module, we will use eksctl to launch and configure our EKS cluster and n
     
     <item>
       <title>Exposing a Service</title>
-      <link>//localhost:53123/beginner/130_exposing-service/</link>
+      <link>//localhost:1313/beginner/130_exposing-service/</link>
       <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
       
-      <guid>//localhost:53123/beginner/130_exposing-service/</guid>
+      <guid>//localhost:1313/beginner/130_exposing-service/</guid>
       <description>Introduction   In this Chapter, we will review how to configure a Service, Deployment or Pod to be exposed outside our cluster. We will also review the different ways to do so.</description>
     </item>
     

@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Start the workshop... on Amazon EKS Roadshow</title>
-    <link>//localhost:53123/020_prerequisites/</link>
+    <link>//localhost:1313/020_prerequisites/</link>
     <description>Recent content in Start the workshop... on Amazon EKS Roadshow</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="//localhost:53123/020_prerequisites/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="//localhost:1313/020_prerequisites/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AWS Workshop Portal</title>
-      <link>//localhost:53123/020_prerequisites/portal/</link>
+      <link>//localhost:1313/020_prerequisites/portal/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:53123/020_prerequisites/portal/</guid>
+      <guid>//localhost:1313/020_prerequisites/portal/</guid>
       <description>Login to AWS Workshop Portal This workshop creates an AWS account and a Cloud9 environment. You will need the Participant Hash provided upon entry, and your email address to track your unique session.
 Connect to the portal by clicking the button or browsing to https://dashboard.eventengine.run/. The following screen shows up.
 Enter the provided hash in the text box. The button on the bottom right corner changes to Accept Terms &amp;amp; Login.</description>
@@ -19,10 +19,10 @@ Enter the provided hash in the text box. The button on the bottom right corner c
     
     <item>
       <title>Create a Workspace</title>
-      <link>//localhost:53123/020_prerequisites/workspace/</link>
+      <link>//localhost:1313/020_prerequisites/workspace/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:53123/020_prerequisites/workspace/</guid>
+      <guid>//localhost:1313/020_prerequisites/workspace/</guid>
       <description>The Cloud9 workspace should be built by an IAM user with Administrator privileges, not the root account user. Please ensure you are logged in as an IAM user, not the root account user.
  A list of supported browsers for AWS Cloud9 is found here.
  Ad blockers, javascript disablers, and tracking blockers should be disabled for the cloud9 domain, or connecting to the workspace might be impacted. Cloud9 requires third-party-cookies.</description>
@@ -30,10 +30,10 @@ Enter the provided hash in the text box. The button on the bottom right corner c
     
     <item>
       <title>Install Kubernetes Tools</title>
-      <link>//localhost:53123/020_prerequisites/k8stools/</link>
+      <link>//localhost:1313/020_prerequisites/k8stools/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:53123/020_prerequisites/k8stools/</guid>
+      <guid>//localhost:1313/020_prerequisites/k8stools/</guid>
       <description>Amazon EKS clusters require kubectl and kubelet binaries and the aws-cli or aws-iam-authenticator binary to allow IAM authentication for your Kubernetes cluster.
 In this workshop we will give you the commands to download the Linux binaries. If you are running Mac OSX / Windows, please see the official EKS docs for the download links.
  Install kubectl sudo curl --silent --location -o /usr/local/bin/kubectl \  https://amazon-eks.s3.us-west-2.amazonaws.com/1.19.6/2021-01-05/bin/linux/amd64/kubectl sudo chmod +x /usr/local/bin/kubectl Update awscli Upgrade AWS CLI according to guidance in AWS documentation.</description>
@@ -41,47 +41,47 @@ In this workshop we will give you the commands to download the Linux binaries. I
     
     <item>
       <title>Create an IAM role for your Workspace</title>
-      <link>//localhost:53123/020_prerequisites/iamrole/</link>
+      <link>//localhost:1313/020_prerequisites/iamrole/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:53123/020_prerequisites/iamrole/</guid>
+      <guid>//localhost:1313/020_prerequisites/iamrole/</guid>
       <description> Follow this deep link to create an IAM role with Administrator access. Confirm that AWS service and EC2 are selected, then click Next: Permissions to view permissions. Confirm that AdministratorAccess is checked, then click Next: Tags to assign tags. Take the defaults, and click Next: Review to review. Enter eksworkshop-admin for the Name, and click Create role.   </description>
     </item>
     
     <item>
       <title>Attach the IAM role to your Workspace</title>
-      <link>//localhost:53123/020_prerequisites/ec2instance/</link>
+      <link>//localhost:1313/020_prerequisites/ec2instance/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:53123/020_prerequisites/ec2instance/</guid>
+      <guid>//localhost:1313/020_prerequisites/ec2instance/</guid>
       <description> Click the grey circle button (in top right corner) and select Manage EC2 Instance.  Select the instance, then choose Actions / Security / Modify IAM Role  Choose eksworkshop-admin from the IAM Role drop down, and select Save   </description>
     </item>
     
     <item>
       <title>Update IAM settings for your Workspace</title>
-      <link>//localhost:53123/020_prerequisites/workspaceiam/</link>
+      <link>//localhost:1313/020_prerequisites/workspaceiam/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:53123/020_prerequisites/workspaceiam/</guid>
+      <guid>//localhost:1313/020_prerequisites/workspaceiam/</guid>
       <description>Cloud9 normally manages IAM credentials dynamically. This isn&amp;rsquo;t currently compatible with the EKS IAM authentication, so we will disable it and rely on the IAM role instead.
   Return to your Cloud9 workspace and click the gear icon (in top right corner) Select AWS SETTINGS Turn off AWS managed temporary credentials Close the Preferences tab   To ensure temporary credentials aren&amp;rsquo;t already in place we will also remove any existing credentials file:</description>
     </item>
     
     <item>
       <title>Clone the Service Repos</title>
-      <link>//localhost:53123/020_prerequisites/clone/</link>
+      <link>//localhost:1313/020_prerequisites/clone/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:53123/020_prerequisites/clone/</guid>
+      <guid>//localhost:1313/020_prerequisites/clone/</guid>
       <description>cd ~/environment git clone https://github.com/aws-containers/ecsdemo-frontend.git git clone https://github.com/brentley/ecsdemo-nodejs.git git clone https://github.com/brentley/ecsdemo-crystal.git </description>
     </item>
     
     <item>
       <title>Create an AWS KMS Custom Managed Key (CMK)</title>
-      <link>//localhost:53123/020_prerequisites/kmskey/</link>
+      <link>//localhost:1313/020_prerequisites/kmskey/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:53123/020_prerequisites/kmskey/</guid>
+      <guid>//localhost:1313/020_prerequisites/kmskey/</guid>
       <description>Create a CMK for the EKS cluster to use when encrypting your Kubernetes secrets:
 aws kms create-alias --alias-name alias/eksworkshop --target-key-id $(aws kms create-key --query KeyMetadata.Arn --output text) Let&amp;rsquo;s retrieve the ARN of the CMK to input into the create cluster command.
 export MASTER_ARN=$(aws kms describe-key --key-id alias/eksworkshop --query KeyMetadata.Arn --output text) We set the MASTER_ARN environment variable to make it easier to refer to the KMS key later.
@@ -90,37 +90,37 @@ Now, let&amp;rsquo;s save the MASTER_ARN environment variable into the bash_prof
     
     <item>
       <title>Ireland</title>
-      <link>//localhost:53123/020_prerequisites/eu-west-1/</link>
+      <link>//localhost:1313/020_prerequisites/eu-west-1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:53123/020_prerequisites/eu-west-1/</guid>
+      <guid>//localhost:1313/020_prerequisites/eu-west-1/</guid>
       <description>Create a Cloud9 Environment: https://eu-west-1.console.aws.amazon.com/cloud9/home?region=eu-west-1</description>
     </item>
     
     <item>
       <title>Ohio</title>
-      <link>//localhost:53123/020_prerequisites/us-east-2/</link>
+      <link>//localhost:1313/020_prerequisites/us-east-2/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:53123/020_prerequisites/us-east-2/</guid>
+      <guid>//localhost:1313/020_prerequisites/us-east-2/</guid>
       <description>Create a Cloud9 Environment: https://us-east-2.console.aws.amazon.com/cloud9/home?region=us-east-2</description>
     </item>
     
     <item>
       <title>Oregon</title>
-      <link>//localhost:53123/020_prerequisites/us-west-2/</link>
+      <link>//localhost:1313/020_prerequisites/us-west-2/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:53123/020_prerequisites/us-west-2/</guid>
+      <guid>//localhost:1313/020_prerequisites/us-west-2/</guid>
       <description>Create a Cloud9 Environment: https://us-west-2.console.aws.amazon.com/cloud9/home?region=us-west-2</description>
     </item>
     
     <item>
       <title>Singapore</title>
-      <link>//localhost:53123/020_prerequisites/ap-southeast-1/</link>
+      <link>//localhost:1313/020_prerequisites/ap-southeast-1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:53123/020_prerequisites/ap-southeast-1/</guid>
+      <guid>//localhost:1313/020_prerequisites/ap-southeast-1/</guid>
       <description>Create a Cloud9 Environment: https://ap-southeast-1.console.aws.amazon.com/cloud9/home?region=ap-southeast-1</description>
     </item>
     

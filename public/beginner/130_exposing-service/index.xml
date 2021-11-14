@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Exposing a Service on Amazon EKS Roadshow</title>
-    <link>//localhost:53123/beginner/130_exposing-service/</link>
+    <link>//localhost:1313/beginner/130_exposing-service/</link>
     <description>Recent content in Exposing a Service on Amazon EKS Roadshow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 09 Apr 2019 00:00:00 -0300</lastBuildDate><atom:link href="//localhost:53123/beginner/130_exposing-service/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 09 Apr 2019 00:00:00 -0300</lastBuildDate><atom:link href="//localhost:1313/beginner/130_exposing-service/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Connecting Applications with Services</title>
-      <link>//localhost:53123/beginner/130_exposing-service/connecting/</link>
+      <link>//localhost:1313/beginner/130_exposing-service/connecting/</link>
       <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
       
-      <guid>//localhost:53123/beginner/130_exposing-service/connecting/</guid>
+      <guid>//localhost:1313/beginner/130_exposing-service/connecting/</guid>
       <description>Before discussing the Kubernetes approach to networking, it is worthwhile to contrast it with the “normal” way networking works with Docker.
 By default, Docker uses host-private networking, so containers can talk to other containers only if they are on the same machine. In order for Docker containers to communicate across nodes, there must be allocated ports on the machine’s own IP address, which are then forwarded or proxied to the containers.</description>
     </item>
     
     <item>
       <title>Accessing the Service</title>
-      <link>//localhost:53123/beginner/130_exposing-service/accessing/</link>
+      <link>//localhost:1313/beginner/130_exposing-service/accessing/</link>
       <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
       
-      <guid>//localhost:53123/beginner/130_exposing-service/accessing/</guid>
+      <guid>//localhost:1313/beginner/130_exposing-service/accessing/</guid>
       <description>Accessing the Service Kubernetes supports 2 primary modes of finding a Service:
  environment variables DNS.  The former works out of the box while the latter requires the CoreDNS cluster add-on (automatically installed when creating the EKS cluster).
 Environment Variables When a Pod runs on a Node, the kubelet adds a set of environment variables for each active Service. This introduces an ordering problem. To see why, inspect the environment of your running nginx Pods (your Pod name will be different): Let&amp;rsquo;s view the pods again:</description>
@@ -30,30 +30,30 @@ Environment Variables When a Pod runs on a Node, the kubelet adds a set of envir
     
     <item>
       <title>Exposing the Service</title>
-      <link>//localhost:53123/beginner/130_exposing-service/exposing/</link>
+      <link>//localhost:1313/beginner/130_exposing-service/exposing/</link>
       <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
       
-      <guid>//localhost:53123/beginner/130_exposing-service/exposing/</guid>
+      <guid>//localhost:1313/beginner/130_exposing-service/exposing/</guid>
       <description>Exposing the Service For some parts of your applications you may want to expose a Service onto an external IP address. Kubernetes supports two ways of doing this: NodePort and LoadBalancer.
 kubectl -n my-nginx get svc my-nginx Output NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE my-nginx ClusterIP 10.100.225.196 &amp;lt;none&amp;gt; 80/TCP 33m  Currently the Service does not have an External IP, so let’s now patch the Service to use a cloud load balancer, by updating the type of the my-nginx Service from ClusterIP to LoadBalancer:</description>
     </item>
     
     <item>
       <title>Ingress</title>
-      <link>//localhost:53123/beginner/130_exposing-service/ingress/</link>
+      <link>//localhost:1313/beginner/130_exposing-service/ingress/</link>
       <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
       
-      <guid>//localhost:53123/beginner/130_exposing-service/ingress/</guid>
+      <guid>//localhost:1313/beginner/130_exposing-service/ingress/</guid>
       <description>What is Ingress? Ingress exposes HTTP and HTTPS routes from outside the cluster to services within the cluster. Traffic routing is controlled by rules defined on the Ingress resource.
 Here is a simple example where an Ingress sends all its traffic to one Service: An Ingress may be configured to give Services externally-reachable URLs, load balance traffic, terminate SSL/TLS, and offer name-based virtual hosting. An Ingress controller is responsible for fulfilling the Ingress, usually with a load balancer, though it may also configure your edge router or additional frontends to help handle the traffic.</description>
     </item>
     
     <item>
       <title>Ingress Controller</title>
-      <link>//localhost:53123/beginner/130_exposing-service/ingress_controller_alb/</link>
+      <link>//localhost:1313/beginner/130_exposing-service/ingress_controller_alb/</link>
       <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
       
-      <guid>//localhost:53123/beginner/130_exposing-service/ingress_controller_alb/</guid>
+      <guid>//localhost:1313/beginner/130_exposing-service/ingress_controller_alb/</guid>
       <description>Ingress Controllers In order for the Ingress resource to work, the cluster must have an ingress controller running.
 Unlike other types of controllers which run as part of the kube-controller-manager binary, Ingress controllers are not started automatically with a cluster.
 AWS Load Balancer Controller The AWS ALB Ingress Controller has been rebranded to AWS Load Balancer Controller.
@@ -62,10 +62,10 @@ AWS Load Balancer Controller The AWS ALB Ingress Controller has been rebranded t
     
     <item>
       <title>Clean Up</title>
-      <link>//localhost:53123/beginner/130_exposing-service/cleaning/</link>
+      <link>//localhost:1313/beginner/130_exposing-service/cleaning/</link>
       <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
       
-      <guid>//localhost:53123/beginner/130_exposing-service/cleaning/</guid>
+      <guid>//localhost:1313/beginner/130_exposing-service/cleaning/</guid>
       <description>Cleaning up To delete the resources used in this chapter:
 kubectl delete -f ~/environment/run-my-nginx.yaml kubectl delete ns my-nginx rm ~/environment/run-my-nginx.yaml export EKS_CLUSTER_VERSION=$(aws eks describe-cluster --name eksworkshop-eksctl --query cluster.version --output text) if [ &amp;#34;`echo &amp;#34;${EKS_CLUSTER_VERSION} &amp;lt; 1.19&amp;#34; | bc`&amp;#34; -eq 1 ]; then curl -s https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/main/docs/examples/2048/2048_full.yaml \  | sed &amp;#39;s=alb.ingress.kubernetes.io/target-type: ip=alb.ingress.kubernetes.io/target-type: instance=g&amp;#39; \  | kubectl delete -f - fi if [ &amp;#34;`echo &amp;#34;${EKS_CLUSTER_VERSION} &amp;gt;= 1.19&amp;#34; | bc`&amp;#34; -eq 1 ]; then curl -s https://raw.</description>
     </item>

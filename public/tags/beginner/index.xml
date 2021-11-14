@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>beginner on Amazon EKS Roadshow</title>
-    <link>//localhost:53123/tags/beginner/</link>
+    <link>//localhost:1313/tags/beginner/</link>
     <description>Recent content in beginner on Amazon EKS Roadshow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Mar 2021 10:00:00 -0800</lastBuildDate><atom:link href="//localhost:53123/tags/beginner/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 08 Mar 2021 10:00:00 -0800</lastBuildDate><atom:link href="//localhost:1313/tags/beginner/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Introduction</title>
-      <link>//localhost:53123/010_introduction/</link>
+      <link>//localhost:1313/010_introduction/</link>
       <pubDate>Wed, 03 Oct 2018 10:23:24 -0700</pubDate>
       
-      <guid>//localhost:53123/010_introduction/</guid>
+      <guid>//localhost:1313/010_introduction/</guid>
       <description>Introduction to Kubernetes   A walkthrough of basic Kubernetes concepts.
 Welcome to the Amazon EKS Roadshow!
 The intent of this workshop is to educate users about the features of Amazon EKS.
@@ -23,38 +23,38 @@ Specifically, we will walk you through the following topics:</description>
     
     <item>
       <title>Start the workshop...</title>
-      <link>//localhost:53123/020_prerequisites/</link>
+      <link>//localhost:1313/020_prerequisites/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:53123/020_prerequisites/</guid>
+      <guid>//localhost:1313/020_prerequisites/</guid>
       <description>Getting Started To start the workshop, please follow the the steps in this section starting with &amp;hellip; AWS Workshop Portal</description>
     </item>
     
     <item>
       <title>Launch using eksctl</title>
-      <link>//localhost:53123/030_eksctl/</link>
+      <link>//localhost:1313/030_eksctl/</link>
       <pubDate>Tue, 07 Aug 2018 13:36:57 -0700</pubDate>
       
-      <guid>//localhost:53123/030_eksctl/</guid>
+      <guid>//localhost:1313/030_eksctl/</guid>
       <description>Launch using eksctl eksctl is a tool jointly developed by AWS and Weaveworks that automates much of the experience of creating EKS clusters.
 In this module, we will use eksctl to launch and configure our EKS cluster and nodes.</description>
     </item>
     
     <item>
       <title>Deploy the Example Microservices</title>
-      <link>//localhost:53123/beginner/050_deploy/</link>
+      <link>//localhost:1313/beginner/050_deploy/</link>
       <pubDate>Tue, 18 Sep 2018 17:40:09 -0500</pubDate>
       
-      <guid>//localhost:53123/beginner/050_deploy/</guid>
+      <guid>//localhost:1313/beginner/050_deploy/</guid>
       <description>Deploy the Example Microservices    Deploy our Sample Applications   Deploy NodeJS Backend API   Deploy Crystal Backend API   Let&amp;#39;s check Service Types   Ensure the ELB Service Role exists   Deploy Frontend Service   Find the Service Address   Scale the Backend Services   Scale the Frontend   Cleanup the applications   </description>
     </item>
     
     <item>
       <title>Helm</title>
-      <link>//localhost:53123/beginner/060_helm/</link>
+      <link>//localhost:1313/beginner/060_helm/</link>
       <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
       
-      <guid>//localhost:53123/beginner/060_helm/</guid>
+      <guid>//localhost:1313/beginner/060_helm/</guid>
       <description>Helm   This tutorial has been updated for Helm v3. In version 3, the Tiller component was removed, which simplified operations and improved security.
  If you need to migrate from Helm v2 to v3 click here for the official documentation.
  Helm is a package manager for Kubernetes that packages multiple Kubernetes resources into a single logical deployment unit called a Chart. Charts are easy to create, version, share, and publish.</description>
@@ -62,10 +62,10 @@ In this module, we will use eksctl to launch and configure our EKS cluster and n
     
     <item>
       <title>Autoscaling our Applications and Clusters</title>
-      <link>//localhost:53123/beginner/080_scaling/</link>
+      <link>//localhost:1313/beginner/080_scaling/</link>
       <pubDate>Thu, 01 Oct 2020 08:30:11 -0700</pubDate>
       
-      <guid>//localhost:53123/beginner/080_scaling/</guid>
+      <guid>//localhost:1313/beginner/080_scaling/</guid>
       <description>Implement AutoScaling with HPA and CA   In this Chapter, we will show patterns for scaling your worker nodes and applications deployments automatically.
 Automatic scaling in K8s comes in two forms:
   Horizontal Pod Autoscaler (HPA) scales the pods in a deployment or replica set. It is implemented as a K8s API resource and a controller. The controller manager queries the resource utilization against the metrics specified in each HorizontalPodAutoscaler definition.</description>
@@ -73,46 +73,46 @@ Automatic scaling in K8s comes in two forms:
     
     <item>
       <title>Exposing a Service</title>
-      <link>//localhost:53123/beginner/130_exposing-service/</link>
+      <link>//localhost:1313/beginner/130_exposing-service/</link>
       <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
       
-      <guid>//localhost:53123/beginner/130_exposing-service/</guid>
+      <guid>//localhost:1313/beginner/130_exposing-service/</guid>
       <description>Introduction   In this Chapter, we will review how to configure a Service, Deployment or Pod to be exposed outside our cluster. We will also review the different ways to do so.</description>
     </item>
     
     <item>
       <title>Using Spot Instances with EKS</title>
-      <link>//localhost:53123/beginner/150_spotnodegroups/</link>
+      <link>//localhost:1313/beginner/150_spotnodegroups/</link>
       <pubDate>Mon, 08 Mar 2021 10:00:00 -0800</pubDate>
       
-      <guid>//localhost:53123/beginner/150_spotnodegroups/</guid>
+      <guid>//localhost:1313/beginner/150_spotnodegroups/</guid>
       <description>Using Spot Instances with EKS   In this module, you will learn how to provision, manage, and maintain your Kubernetes clusters with Amazon EKS on EC2 Spot instances using Spot managed node groups to optimize cost and scale. Click here for a deep-dive blog post on Kubernetes and EC2 Spot Instances in managed node groups.</description>
     </item>
     
     <item>
       <title>Deploying Microservices to EKS Fargate</title>
-      <link>//localhost:53123/beginner/180_fargate/</link>
+      <link>//localhost:1313/beginner/180_fargate/</link>
       <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
       
-      <guid>//localhost:53123/beginner/180_fargate/</guid>
+      <guid>//localhost:1313/beginner/180_fargate/</guid>
       <description>Deploying Microservices to EKS Fargate   AWS Fargate is a technology that provides on-demand, right-sized compute capacity for containers. With AWS Fargate, you no longer have to provision, configure, or scale groups of virtual machines to run containers. This removes the need to choose server types, decide when to scale your node groups, or optimize cluster packing. You can control which pods start on Fargate and how they run with Fargate profiles, which are defined as part of your Amazon EKS cluster.</description>
     </item>
     
     <item>
       <title>Conclusion</title>
-      <link>//localhost:53123/910_conclusion/</link>
+      <link>//localhost:1313/910_conclusion/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:53123/910_conclusion/</guid>
+      <guid>//localhost:1313/910_conclusion/</guid>
       <description>Conclusion </description>
     </item>
     
     <item>
       <title>Cleanup</title>
-      <link>//localhost:53123/920_cleanup/</link>
+      <link>//localhost:1313/920_cleanup/</link>
       <pubDate>Tue, 07 Aug 2018 13:37:53 -0700</pubDate>
       
-      <guid>//localhost:53123/920_cleanup/</guid>
+      <guid>//localhost:1313/920_cleanup/</guid>
       <description>Cleanup </description>
     </item>
     
