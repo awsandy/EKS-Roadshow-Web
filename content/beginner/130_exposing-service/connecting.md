@@ -13,13 +13,6 @@ Coordinating ports across multiple developers is very difficult to do at scale a
 
 #### Exposing pods to the cluster
 
-If you created a default deny policy in the previous section, delete it by running:
-
-```bash
-if [ -f ~/environment/calico_resources/default-deny.yaml ]; then
-  kubectl delete -f ~/environment/calico_resources/default-deny.yaml
-fi
-```
 
 Create a nginx deployment, and note that it has a container port specification:
 
