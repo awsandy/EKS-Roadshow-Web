@@ -145,9 +145,9 @@ EOF
 eksctl create cluster -f eksworkshop.yaml
 ```
 
-{{% notice info %}}
-Launching EKS and all the dependencies will take approximately 20 minutes
-{{% /notice %}}
+
+*Note: Launching EKS and all the dependencies will take approximately 20 minutes*
+
 
 
 {{% /expand %}}

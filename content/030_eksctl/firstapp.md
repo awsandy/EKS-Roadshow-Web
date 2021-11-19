@@ -1,7 +1,7 @@
 ---
 title: "Deploy & test a simple application"
 date: 2018-08-07T13:36:57-07:00
-weight: 31
+weight: 41
 ---
 #### Deploy a simple application:
 
@@ -32,6 +32,13 @@ spec:
         - containerPort: 80
 EOF
 ```
+
+Lets look at some aspects of this manifest
+
+* `kind: Deployment` tells Kubernetes this is a "deployment"
+* `replicas: 1` asks the Kubernetes scheduler to run just one copy of our POD
+* `-image: alexwhen/docker-2048`  tells us which docker image to download and run in the POD
+
 
 Use kubectl to read and apply out application Manifest
 

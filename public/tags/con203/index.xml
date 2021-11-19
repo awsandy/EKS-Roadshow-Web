@@ -65,7 +65,7 @@ In this module, we will use eksctl to launch and configure our EKS cluster and n
       <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
       
       <guid>//localhost:1313/beginner/130_exposing-service/</guid>
-      <description>Introduction   In this Chapter, we will review how to configure a Service, Deployment or Pod to be exposed outside our cluster. We will also review the different ways to do so.</description>
+      <description>Introduction   In this Chapter, we will review how to configure a Service, Deployment or Pod to be exposed outside our cluster.</description>
     </item>
     
   </channel>

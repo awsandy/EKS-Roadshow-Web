@@ -23,9 +23,11 @@ By default, Docker uses host-private networking, so containers can talk to other
       <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
       
       <guid>//localhost:1313/beginner/130_exposing-service/accessing/</guid>
-      <description>Accessing the Service Kubernetes supports 2 primary modes of finding a Service:
- environment variables DNS.  The former works out of the box while the latter requires the CoreDNS cluster add-on (automatically installed when creating the EKS cluster).
-Environment Variables When a Pod runs on a Node, the kubelet adds a set of environment variables for each active Service. This introduces an ordering problem. To see why, inspect the environment of your running nginx Pods (your Pod name will be different): Let&amp;rsquo;s view the pods again:</description>
+      <description>Accessing the Service Kubernetes is able to find services using DNS.
+DNS requires the CoreDNS cluster add-on (automatically installed when creating the EKS cluster).
+To check if your cluster is already running CoreDNS, use the following command.
+kubectl get service -n kube-system -l k8s-app=kube-dns  The service for CoreDNS is still called kube-dns for backward compatibility.
+ NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE kube-dns ClusterIP 10.0.0.10 &amp;lt;none&amp;gt; 53/UDP,53/TCP 8m  If it isn’t running, you can enable it.</description>
     </item>
     
     <item>
@@ -36,28 +38,6 @@ Environment Variables When a Pod runs on a Node, the kubelet adds a set of envir
       <guid>//localhost:1313/beginner/130_exposing-service/exposing/</guid>
       <description>Exposing the Service For some parts of your applications you may want to expose a Service onto an external IP address. Kubernetes supports two ways of doing this: NodePort and LoadBalancer.
 kubectl -n my-nginx get svc my-nginx Output NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE my-nginx ClusterIP 10.100.225.196 &amp;lt;none&amp;gt; 80/TCP 33m  Currently the Service does not have an External IP, so let’s now patch the Service to use a cloud load balancer, by updating the type of the my-nginx Service from ClusterIP to LoadBalancer:</description>
-    </item>
-    
-    <item>
-      <title>Ingress</title>
-      <link>//localhost:1313/beginner/130_exposing-service/ingress/</link>
-      <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
-      
-      <guid>//localhost:1313/beginner/130_exposing-service/ingress/</guid>
-      <description>What is Ingress? Ingress exposes HTTP and HTTPS routes from outside the cluster to services within the cluster. Traffic routing is controlled by rules defined on the Ingress resource.
-Here is a simple example where an Ingress sends all its traffic to one Service: An Ingress may be configured to give Services externally-reachable URLs, load balance traffic, terminate SSL/TLS, and offer name-based virtual hosting. An Ingress controller is responsible for fulfilling the Ingress, usually with a load balancer, though it may also configure your edge router or additional frontends to help handle the traffic.</description>
-    </item>
-    
-    <item>
-      <title>Ingress Controller</title>
-      <link>//localhost:1313/beginner/130_exposing-service/ingress_controller_alb/</link>
-      <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
-      
-      <guid>//localhost:1313/beginner/130_exposing-service/ingress_controller_alb/</guid>
-      <description>Ingress Controllers In order for the Ingress resource to work, the cluster must have an ingress controller running.
-Unlike other types of controllers which run as part of the kube-controller-manager binary, Ingress controllers are not started automatically with a cluster.
-AWS Load Balancer Controller The AWS ALB Ingress Controller has been rebranded to AWS Load Balancer Controller.
- AWS Load Balancer Controller is a controller to help manage Elastic Load Balancers for a Kubernetes cluster.</description>
     </item>
     
     <item>

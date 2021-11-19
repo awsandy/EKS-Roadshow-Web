@@ -88,12 +88,6 @@
     <loc>//localhost:1313/beginner/180_fargate/deploying-fargate/</loc>
     <lastmod>2019-04-09T00:00:00-03:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/beginner/130_exposing-service/ingress/</loc>
-    <lastmod>2019-04-09T00:00:00-03:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/beginner/130_exposing-service/ingress_controller_alb/</loc>
-    <lastmod>2019-04-09T00:00:00-03:00</lastmod>
-  </url><url>
     <loc>//localhost:1313/020_prerequisites/workspace/</loc>
   </url><url>
     <loc>//localhost:1313/beginner/130_exposing-service/cleaning/</loc>
@@ -165,12 +159,6 @@
     <loc>//localhost:1313/030_eksctl/test/</loc>
     <lastmod>2018-08-07T13:36:57-07:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/beginner/080_scaling/deploy_ca/</loc>
-    <lastmod>2018-08-07T08:30:11-07:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/030_eksctl/firstapp/</loc>
-    <lastmod>2018-08-07T13:36:57-07:00</lastmod>
-  </url><url>
     <loc>//localhost:1313/020_prerequisites/kmskey/</loc>
   </url><url>
     <loc>//localhost:1313/010_introduction/basics/concepts_nodes/</loc>
@@ -182,8 +170,8 @@
     <loc>//localhost:1313/030_eksctl/console/</loc>
     <lastmod>2018-08-07T13:36:57-07:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/beginner/080_scaling/test_ca/</loc>
-    <lastmod>2018-08-07T08:30:11-07:00</lastmod>
+    <loc>//localhost:1313/030_eksctl/firstapp/</loc>
+    <lastmod>2018-08-07T13:36:57-07:00</lastmod>
   </url><url>
     <loc>//localhost:1313/beginner/</loc>
     <lastmod>2021-03-08T10:00:00-08:00</lastmod>

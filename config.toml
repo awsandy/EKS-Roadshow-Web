@@ -13,10 +13,9 @@ enableEmoji = true
 hrefTargetBlank = true
 
 [params]
-editURL = "https://github.com/aws-samples/eks-workshop/edit/main/content/"
 themeVariant = "mine"
 showVisitedLinks = false
-author = "Brent Langston"
+author = "Andy Thomas"
 description = "Amazon EKS Roadshow"
 disableSearch = false
 disableAssetsBusting = false
@@ -64,10 +63,6 @@ name = "<i class='fas fa-chalkboard'></i> EKS Workshop"
 url = "https://eksworkshop.com"
 weight = 8
 
-[[menu.shortcuts]]
-name = "<i class='fas fa-chalkboard'></i> EKS Anywhere"
-url = "https://anywhere.eks.amazonaws.com/docs/getting-started/"
-weight = 11
 
 
 [outputs]

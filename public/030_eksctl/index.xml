@@ -41,17 +41,6 @@ kubectl get nodes # if we see our 3 nodes, we know we have authenticated correct
     </item>
     
     <item>
-      <title>Deploy &amp; test a simple application</title>
-      <link>//localhost:1313/030_eksctl/firstapp/</link>
-      <pubDate>Tue, 07 Aug 2018 13:36:57 -0700</pubDate>
-      
-      <guid>//localhost:1313/030_eksctl/firstapp/</guid>
-      <description>Deploy a simple application: Create a kubernetes deployment manifest using this command:
-cat &amp;lt;&amp;lt; EOF &amp;gt; app-deployment.yaml apiVersion: apps/v1 kind: Deployment metadata: namespace: default name: deployment-2048 spec: selector: matchLabels: app.kubernetes.io/name: app-2048 replicas: 1 template: metadata: labels: app.kubernetes.io/name: app-2048 spec: containers: - image: alexwhen/docker-2048 imagePullPolicy: Always name: app-2048 ports: - containerPort: 80 EOF Use kubectl to read and apply out application Manifest
-kubectl apply -f app-deployment.yaml Lets check things are ok: Check the Kubernetes Deployment</description>
-    </item>
-    
-    <item>
       <title>Console Credentials</title>
       <link>//localhost:1313/030_eksctl/console/</link>
       <pubDate>Tue, 07 Aug 2018 13:36:57 -0700</pubDate>
@@ -59,6 +48,17 @@ kubectl apply -f app-deployment.yaml Lets check things are ok: Check the Kuberne
       <guid>//localhost:1313/030_eksctl/console/</guid>
       <description>This step is optional, as nearly all of the workshop content is CLI-driven. But, if you&amp;rsquo;d like full access to your workshop cluster in the EKS console this step is recommended.
 The EKS console allows you to see not only the configuration aspects of your cluster, but also to view Kubernetes cluster objects such as Deployments, Pods, and Nodes. For this type of access, the console IAM User or Role needs to be granted permission within the cluster.</description>
+    </item>
+    
+    <item>
+      <title>Deploy &amp; test a simple application</title>
+      <link>//localhost:1313/030_eksctl/firstapp/</link>
+      <pubDate>Tue, 07 Aug 2018 13:36:57 -0700</pubDate>
+      
+      <guid>//localhost:1313/030_eksctl/firstapp/</guid>
+      <description>Deploy a simple application: Create a kubernetes deployment manifest using this command:
+cat &amp;lt;&amp;lt; EOF &amp;gt; app-deployment.yaml apiVersion: apps/v1 kind: Deployment metadata: namespace: default name: deployment-2048 spec: selector: matchLabels: app.kubernetes.io/name: app-2048 replicas: 1 template: metadata: labels: app.kubernetes.io/name: app-2048 spec: containers: - image: alexwhen/docker-2048 imagePullPolicy: Always name: app-2048 ports: - containerPort: 80 EOF Lets look at some aspects of this manifest
+ kind: Deployment tells Kubernetes this is a &amp;ldquo;deployment&amp;rdquo; replicas: 1 asks the Kubernetes scheduler to run just one copy of our POD -image: alexwhen/docker-2048 tells us which docker image to download and run in the POD  Use kubectl to read and apply out application Manifest</description>
     </item>
     
   </channel>
