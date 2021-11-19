@@ -18,9 +18,9 @@ Run `aws sts get-caller-identity` and validate that your _Arn_ contains `ekswork
 
 ```output
 {
-    "Account": "123456789012",
+    "Account": "xxxxxxxxxxxx",
     "UserId": "AROA1SAMPLEAWSIAMROLE:i-01234567890abcdef",
-    "Arn": "arn:aws:sts::123456789012:assumed-role/eksworkshop-admin/i-01234567890abcdef"
+    "Arn": "arn:aws:sts::xxxxxxxxxxxx:assumed-role/eksworkshop-admin/i-01234567890abcdef"
 }
 ```
 
