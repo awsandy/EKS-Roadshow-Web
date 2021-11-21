@@ -1,9 +1,9 @@
 ---
-title: "Deploy & test a simple application"
+title: "Deploy an application to Fargate"
 date: 2018-08-07T13:36:57-07:00
 weight: 13
 ---
-#### Deploy a simple application to fargate:
+#### Deploy a simple application to Fargate:
 
 Create a Kubernetes Namespace `game-2048`
 
@@ -147,6 +147,7 @@ You should then see the app running in the browser
 * What can you change in the app-deployment.yaml file to run 3 replicas of the application rather than just one?
 * How would you then "apply" the change?
 * How would you then check that 3 pods are running?
+* What can you do to check the extra pods are running on Fargate?
 
 ----
 

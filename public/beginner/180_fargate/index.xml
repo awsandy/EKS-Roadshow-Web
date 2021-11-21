@@ -17,38 +17,16 @@
     </item>
     
     <item>
-      <title>Setting up the LB controller</title>
-      <link>//localhost:1313/beginner/180_fargate/prerequisites-for-alb/</link>
-      <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
+      <title>Deploy an application to Fargate</title>
+      <link>//localhost:1313/beginner/180_fargate/fargate-app/</link>
+      <pubDate>Tue, 07 Aug 2018 13:36:57 -0700</pubDate>
       
-      <guid>//localhost:1313/beginner/180_fargate/prerequisites-for-alb/</guid>
-      <description>AWS Load Balancer Controller The AWS ALB Ingress Controller has been rebranded to AWS Load Balancer Controller.
-&amp;ldquo;AWS Load Balancer Controller&amp;rdquo; is a controller to help manage Elastic Load Balancers for a Kubernetes cluster.
- It satisfies Kubernetes Ingress resources by provisioning Application Load Balancers. It satisfies Kubernetes Service resources by provisioning Network Load Balancers.  Helm We will use Helm to install the ALB Ingress Controller.
-Check to see if helm is installed:</description>
-    </item>
-    
-    <item>
-      <title>Deploying Pods to Fargate</title>
-      <link>//localhost:1313/beginner/180_fargate/deploying-fargate/</link>
-      <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
-      
-      <guid>//localhost:1313/beginner/180_fargate/deploying-fargate/</guid>
-      <description>Deploy the sample application Deploy the game 2048 as a sample application to verify that the AWS Load Balancer Controller creates an Application Load Balancer as a result of the Ingress object.
-kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/main/docs/examples/2048/2048_full.yaml You can check if the deployment has completed
-kubectl -n game-2048 rollout status deployment deployment-2048 Output: Waiting for deployment &amp;#34;deployment-2048&amp;#34; rollout to finish: 0 of 5 updated replicas are available... Waiting for deployment &amp;#34;deployment-2048&amp;#34; rollout to finish: 1 of 5 updated replicas are available.</description>
-    </item>
-    
-    <item>
-      <title>Ingress</title>
-      <link>//localhost:1313/beginner/180_fargate/ingress/</link>
-      <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
-      
-      <guid>//localhost:1313/beginner/180_fargate/ingress/</guid>
-      <description>Ingress After few seconds, verify that the Ingress resource is enabled:
-kubectl get ingress/ingress-2048 -n game-2048 You should be able to see the following output
-NAME HOSTS ADDRESS PORTS AGE ingress-2048 * k8s-game2048-ingress2-8ae3738fd5-1566954439.us-east-2.elb.amazonaws.com 80 14m  It could take 2 or 3 minutes for the ALB to be ready.
- From your AWS Management Console, if you navigate to the EC2 dashboard and the select Load Balancers from the menu on the left-pane, you should see the details of the ALB instance similar to the following.</description>
+      <guid>//localhost:1313/beginner/180_fargate/fargate-app/</guid>
+      <description>Deploy a simple application to Fargate: Create a Kubernetes Namespace game-2048
+cat &amp;lt;&amp;lt; EOF &amp;gt; f-app-namespace.yaml apiVersion: v1 kind: Namespace metadata: name: game-2048 EOF kubectl apply -f f-app-namespace.yaml namespace/game-2048 created  Our fargate profile is matched to the namespace game-2048.
+Next create deployment that uses the game-2048 namespace:
+Create a kubernetes deployment manifest using this command:
+cat &amp;lt;&amp;lt; EOF &amp;gt; f-app-deployment.yaml apiVersion: apps/v1 kind: Deployment metadata: namespace: game-2048 name: fargate-deployment-2048 spec: selector: matchLabels: app.</description>
     </item>
     
     <item>
@@ -58,7 +36,9 @@ NAME HOSTS ADDRESS PORTS AGE ingress-2048 * k8s-game2048-ingress2-8ae3738fd5-156
       
       <guid>//localhost:1313/beginner/180_fargate/cleaning/</guid>
       <description>Cleaning up To delete the resources used in this chapter:
-kubectl delete -f https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/main/docs/examples/2048/2048_full.yaml helm uninstall aws-load-balancer-controller \  -n kube-system eksctl delete iamserviceaccount \  --cluster eksworkshop-eksctl \  --name aws-load-balancer-controller \  --namespace kube-system \  --wait aws iam delete-policy \  --policy-arn arn:aws:iam::${ACCOUNT_ID}:policy/AWSLoadBalancerControllerIAMPolicy kubectl delete -k github.com/aws/eks-charts/stable/aws-load-balancer-controller//crds?ref=master eksctl delete fargateprofile \  --name game-2048 \  --cluster eksworkshop-eksctl </description>
+Interrupt the port forwarding with ctrl-C
+And delete the deployment:
+kubectl delete -f app-deployment.yaml eksctl delete fargateprofile \  --name game-2048 \  --cluster eksworkshop-eksctl </description>
     </item>
     
   </channel>

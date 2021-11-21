@@ -77,23 +77,17 @@
     <loc>//localhost:1313/beginner/130_exposing-service/exposing/</loc>
     <lastmod>2019-04-09T00:00:00-03:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/beginner/180_fargate/prerequisites-for-alb/</loc>
-    <lastmod>2019-04-09T00:00:00-03:00</lastmod>
-  </url><url>
     <loc>//localhost:1313/beginner/250_cloudwatch_container_insights/wraup/</loc>
   </url><url>
     <loc>//localhost:1313/beginner/201_resource_management/pod-priority/</loc>
     <lastmod>2020-06-22T00:00:00-03:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/beginner/180_fargate/deploying-fargate/</loc>
-    <lastmod>2019-04-09T00:00:00-03:00</lastmod>
+    <loc>//localhost:1313/beginner/180_fargate/fargate-app/</loc>
+    <lastmod>2018-08-07T13:36:57-07:00</lastmod>
   </url><url>
     <loc>//localhost:1313/020_prerequisites/workspace/</loc>
   </url><url>
     <loc>//localhost:1313/beginner/130_exposing-service/cleaning/</loc>
-    <lastmod>2019-04-09T00:00:00-03:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/beginner/180_fargate/ingress/</loc>
     <lastmod>2019-04-09T00:00:00-03:00</lastmod>
   </url><url>
     <loc>//localhost:1313/020_prerequisites/k8stools/</loc>

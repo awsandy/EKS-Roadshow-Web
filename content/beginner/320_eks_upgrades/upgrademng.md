@@ -23,13 +23,8 @@ The way that managed node groups does this is:
 If we instead had used a self-managed node group then we need to do the Kubernetes taint and draining steps ourselves to ensure Kubernetes knows that Node is going away and can manage that process gracefully in order for such an upgrade to be non-disruptive.
 {{% /notice %}}
 
-The first step only applies to if we are using the cluster autoscaler. We don't want conflicting Node scaling actions during our upgrade so we should scale that to zero to suspend it during this process using the command below. Unless you have done that chapter in the workshop and left it deployed you can skip this step.
 
-```bash
-kubectl scale deployments/cluster-autoscaler --replicas=0 -n kube-system
-```
-
-We can then trigger the MNG upgrade process by running the following eksctl command:
+Trigger the MNG upgrade process by running the following eksctl command:
 ```bash
 eksctl upgrade nodegroup --name=nodegroup --cluster=eksworkshop-eksctl --kubernetes-version=1.21
 ```
