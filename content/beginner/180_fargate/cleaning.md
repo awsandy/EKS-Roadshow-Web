@@ -9,23 +9,16 @@ draft: false
 
 To delete the resources used in this chapter:
 
+
+Interrupt the port forwarding with **ctrl-C**
+
+And delete the deployment:
+
 ```bash
-kubectl delete -f https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/main/docs/examples/2048/2048_full.yaml
+kubectl delete -f app-deployment.yaml
+```
 
-helm uninstall aws-load-balancer-controller \
-    -n kube-system
-
-eksctl delete iamserviceaccount \
-    --cluster eksworkshop-eksctl \
-    --name aws-load-balancer-controller \
-    --namespace kube-system \
-    --wait
-
-aws iam delete-policy \
-    --policy-arn arn:aws:iam::${ACCOUNT_ID}:policy/AWSLoadBalancerControllerIAMPolicy
-
-kubectl delete -k github.com/aws/eks-charts/stable/aws-load-balancer-controller//crds?ref=master
-
+```bash
 eksctl delete fargateprofile \
   --name game-2048 \
   --cluster eksworkshop-eksctl

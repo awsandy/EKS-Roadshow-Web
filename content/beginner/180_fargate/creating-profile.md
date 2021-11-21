@@ -24,7 +24,9 @@ Fargate profiles are immutable. However, you can create a new updated profile to
 
 When your EKS cluster schedules pods on Fargate, the pods will need to make calls to AWS APIs on your behalf to do things like pull container images from Amazon ECR. The Fargate **Pod Execution Role** provides the IAM permissions to do this. This IAM role is automatically created for you by the above command.
 
-Creation of a Fargate profile can take up to several minutes. Execute the following command after the profile creation is completed and you should see output similar to what is shown below.
+**Creation of a Fargate profile can take up to several minutes.** 
+
+Execute the following command after the profile creation is completed and you should see output similar to what is shown below.
 
 ```bash
 eksctl get fargateprofile \
