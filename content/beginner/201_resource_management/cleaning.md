@@ -22,11 +22,6 @@ kubectl delete namespace unrestricted-usage
 kubectl delete namespace red
 kubectl delete namespace blue
 
-# Pod Priority and Preemption
-kubectl delete deployment high-nginx-deployment
-kubectl delete deployment nginx-deployment
-kubectl delete priorityclass high-priority
-kubectl delete priorityclass low-priority
 
 # Prerequisites 
 rm  -r ~/environment/resource-management/

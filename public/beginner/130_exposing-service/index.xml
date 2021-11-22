@@ -47,7 +47,7 @@ kubectl -n my-nginx get svc my-nginx Output NAME TYPE CLUSTER-IP EXTERNAL-IP POR
       
       <guid>//localhost:1313/beginner/130_exposing-service/cleaning/</guid>
       <description>Cleaning up To delete the resources used in this chapter:
-kubectl delete -f ~/environment/run-my-nginx.yaml kubectl delete ns my-nginx rm ~/environment/run-my-nginx.yaml export EKS_CLUSTER_VERSION=$(aws eks describe-cluster --name eksworkshop-eksctl --query cluster.version --output text) if [ &amp;#34;`echo &amp;#34;${EKS_CLUSTER_VERSION} &amp;lt; 1.19&amp;#34; | bc`&amp;#34; -eq 1 ]; then curl -s https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/main/docs/examples/2048/2048_full.yaml \  | sed &amp;#39;s=alb.ingress.kubernetes.io/target-type: ip=alb.ingress.kubernetes.io/target-type: instance=g&amp;#39; \  | kubectl delete -f - fi if [ &amp;#34;`echo &amp;#34;${EKS_CLUSTER_VERSION} &amp;gt;= 1.19&amp;#34; | bc`&amp;#34; -eq 1 ]; then curl -s https://raw.</description>
+kubectl delete -f ~/environment/run-my-nginx.yaml kubectl delete ns my-nginx rm ~/environment/run-my-nginx.yaml </description>
     </item>
     
   </channel>

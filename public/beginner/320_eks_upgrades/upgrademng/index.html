@@ -13,20 +13,20 @@
     <title>Upgrade Managed Node Group :: Amazon EKS Roadshow</title>
 
     
-    <link href="../../../css/nucleus.css?1637492168" rel="stylesheet">
-    <link href="../../../css/fontawesome-all.min.css?1637492168" rel="stylesheet">
-    <link href="../../../css/hybrid.css?1637492168" rel="stylesheet">
-    <link href="../../../css/featherlight.min.css?1637492168" rel="stylesheet">
-    <link href="../../../css/perfect-scrollbar.min.css?1637492168" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1637492168" rel="stylesheet">
-    <link href="../../../css/atom-one-dark-reasonable.css?1637492168" rel="stylesheet">
-    <link href="../../../css/theme.css?1637492168" rel="stylesheet">
-    <link href="../../../css/hugo-theme.css?1637492168" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1637614370" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css?1637614370" rel="stylesheet">
+    <link href="../../../css/hybrid.css?1637614370" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css?1637614370" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css?1637614370" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1637614370" rel="stylesheet">
+    <link href="../../../css/atom-one-dark-reasonable.css?1637614370" rel="stylesheet">
+    <link href="../../../css/theme.css?1637614370" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css?1637614370" rel="stylesheet">
     
-      <link href="../../../css/theme-mine.css?1637492168" rel="stylesheet">
+      <link href="../../../css/theme-mine.css?1637614370" rel="stylesheet">
     
 
-    <script src="../../../js/jquery-3.3.1.min.js?1637492168"></script>
+    <script src="../../../js/jquery-3.3.1.min.js?1637614370"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -73,10 +73,10 @@
     <meta name="msapplication-wide310x150logo" content="/icons/mstile-310x150.png" />
     <meta name="msapplication-square310x310logo" content="/icons/mstile-310x310.png" />
 
-    <link href="../../../mermaid/mermaid.css?1637492168" type="text/css" rel="stylesheet" />
-    <link href="../../../css/jquery-ui.min.css?1637492168" rel="stylesheet">
-    <script src="../../../js/jquery-ui-1.12.1.min.js?1637492168"></script>
-    <script src="../../../mermaid/mermaid.min.js?1637492168"></script>
+    <link href="../../../mermaid/mermaid.css?1637614370" type="text/css" rel="stylesheet" />
+    <link href="../../../css/jquery-ui.min.css?1637614370" rel="stylesheet">
+    <script src="../../../js/jquery-ui-1.12.1.min.js?1637614370"></script>
+    <script src="../../../mermaid/mermaid.min.js?1637614370"></script>
     <script>
 	var config = {
         startOnLoad:true,
@@ -105,14 +105,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../../js/lunr.min.js?1637492168"></script>
-<script type="text/javascript" src="../../../js/auto-complete.js?1637492168"></script>
+<script type="text/javascript" src="../../../js/lunr.min.js?1637614370"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js?1637614370"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="../../../js/search.js?1637492168"></script>
+<script type="text/javascript" src="../../../js/search.js?1637614370"></script>
 
     
   </div>
@@ -1870,25 +1870,6 @@
  
   
     
-      <li data-nav-id="/beginner/201_resource_management/pod-priority/" title="Pod Priority and Preemption" class="dd-item ">
-        <a href="../../../beginner/201_resource_management/pod-priority/">
-        Pod Priority and Preemption
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
       <li data-nav-id="/beginner/201_resource_management/cleaning/" title="Clean Up" class="dd-item ">
         <a href="../../../beginner/201_resource_management/cleaning/">
         Clean Up
@@ -2622,9 +2603,7 @@
 <div class="notices info" ><p>If we instead had used a self-managed node group then we need to do the Kubernetes taint and draining steps ourselves to ensure Kubernetes knows that Node is going away and can manage that process gracefully in order for such an upgrade to be non-disruptive.</p>
 </div>
 
-<p>The first step only applies to if we are using the cluster autoscaler. We don&rsquo;t want conflicting Node scaling actions during our upgrade so we should scale that to zero to suspend it during this process using the command below. Unless you have done that chapter in the workshop and left it deployed you can skip this step.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl scale deployments/cluster-autoscaler --replicas<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> -n kube-system
-</code></pre></div><p>We can then trigger the MNG upgrade process by running the following eksctl command:</p>
+<p>Trigger the MNG upgrade process by running the following eksctl command:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">eksctl upgrade nodegroup --name<span style="color:#f92672">=</span>nodegroup --cluster<span style="color:#f92672">=</span>eksworkshop-eksctl --kubernetes-version<span style="color:#f92672">=</span>1.21
 </code></pre></div><p>In another Terminal tab you can follow the progress with:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl get nodes --watch
@@ -3922,22 +3901,6 @@
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -4379,19 +4342,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../js/clipboard.min.js?1637492168"></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1637492168"></script>
-    <script src="../../../js/perfect-scrollbar.jquery.min.js?1637492168"></script>
-    <script src="../../../js/jquery.sticky.js?1637492168"></script>
-    <script src="../../../js/featherlight.min.js?1637492168"></script>
-    <script src="../../../js/highlight.pack.js?1637492168"></script>
+    <script src="../../../js/clipboard.min.js?1637614370"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1637614370"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1637614370"></script>
+    <script src="../../../js/jquery.sticky.js?1637614370"></script>
+    <script src="../../../js/featherlight.min.js?1637614370"></script>
+    <script src="../../../js/highlight.pack.js?1637614370"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../js/modernizr.custom-3.6.0.js?1637492168"></script>
-    <script src="../../../js/learn.js?1637492168"></script>
-    <script src="../../../js/hugo-learn.js?1637492168"></script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1637614370"></script>
+    <script src="../../../js/learn.js?1637614370"></script>
+    <script src="../../../js/hugo-learn.js?1637614370"></script>
 
-    <link href="../../../mermaid/mermaid.css?1637492168" rel="stylesheet" />
-    <script src="../../../mermaid/mermaid.js?1637492168"></script>
+    <link href="../../../mermaid/mermaid.css?1637614370" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.js?1637614370"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

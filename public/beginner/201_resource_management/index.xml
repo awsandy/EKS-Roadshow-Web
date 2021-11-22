@@ -39,24 +39,13 @@ mkdir ~/environment/resource-management kubectl create namespace low-usage kubec
     </item>
     
     <item>
-      <title>Pod Priority and Preemption</title>
-      <link>//localhost:1313/beginner/201_resource_management/pod-priority/</link>
-      <pubDate>Mon, 22 Jun 2020 00:00:00 -0300</pubDate>
-      
-      <guid>//localhost:1313/beginner/201_resource_management/pod-priority/</guid>
-      <description>Pod Priority is used to apply importance of a pod relative to other pods. In this section we will create two PriorityClasses and watch the interaction of pods.
-Create PriorityClass We will create two PriorityClass, low-priority and high-priority.
-cat &amp;lt;&amp;lt;EoF &amp;gt; ~/environment/resource-management/high-priority-class.yml apiVersion: scheduling.k8s.io/v1 kind: PriorityClass metadata: name: high-priority value: 100 globalDefault: false description: &amp;quot;High-priority Pods&amp;quot; EoF kubectl apply -f ~/environment/resource-management/high-priority-class.yml cat &amp;lt;&amp;lt;EoF &amp;gt; ~/environment/resource-management/low-priority-class.yml apiVersion: scheduling.k8s.io/v1 kind: PriorityClass metadata: name: low-priority value: 50 globalDefault: false description: &amp;quot;Low-priority Pods&amp;quot; EoF kubectl apply -f ~/environment/resource-management/low-priority-class.</description>
-    </item>
-    
-    <item>
       <title>Clean Up</title>
       <link>//localhost:1313/beginner/201_resource_management/cleaning/</link>
       <pubDate>Tue, 09 Apr 2019 00:00:00 -0300</pubDate>
       
       <guid>//localhost:1313/beginner/201_resource_management/cleaning/</guid>
       <description>Ensure all the resources created in this module are cleaned up.
-# Basic Pod CPU and Memory Management kubectl delete pod basic-request-pod kubectl delete pod basic-limit-memory-pod kubectl delete pod basic-limit-cpu-pod kubectl delete pod basic-restricted-pod # Advanced Pod CPU and Memory Management kubectl delete namespace low-usage kubectl delete namespace high-usage kubectl delete namespace unrestricted-usage # Resource Quotas kubectl delete namespace red kubectl delete namespace blue # Pod Priority and Preemption kubectl delete deployment high-nginx-deployment kubectl delete deployment nginx-deployment kubectl delete priorityclass high-priority kubectl delete priorityclass low-priority # Prerequisites rm -r ~/environment/resource-management/ helm uninstall metrics-server --namespace metrics kubectl delete namespace metrics-server </description>
+# Basic Pod CPU and Memory Management kubectl delete pod basic-request-pod kubectl delete pod basic-limit-memory-pod kubectl delete pod basic-limit-cpu-pod kubectl delete pod basic-restricted-pod # Advanced Pod CPU and Memory Management kubectl delete namespace low-usage kubectl delete namespace high-usage kubectl delete namespace unrestricted-usage # Resource Quotas kubectl delete namespace red kubectl delete namespace blue # Prerequisites rm -r ~/environment/resource-management/ helm uninstall metrics-server --namespace metrics kubectl delete namespace metrics-server </description>
     </item>
     
   </channel>
