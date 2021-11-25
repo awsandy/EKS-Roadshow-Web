@@ -4,8 +4,6 @@ chapter: true
 weight: 320
 draft: false
 tags:
-  - intermediate
-  - operations
 ---
 
 # Patching/Upgrading your EKS Cluster

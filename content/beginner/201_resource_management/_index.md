@@ -4,7 +4,6 @@ chapter: true
 weight: 201
 pre: '<i class="fa fa-film" aria-hidden="true"></i> '
 tags:
-  - intermediate
 ---
 
 # Resource Management

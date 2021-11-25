@@ -6,8 +6,7 @@ weight: 150
 pre: '<i class="fa fa-film" aria-hidden="true"></i> '
 draft: false
 tags:
-  - beginner
-  - CON206
+
 ---
 
 # Using Spot Instances with EKS

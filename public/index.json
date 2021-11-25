@@ -165,7 +165,7 @@
 	"title": "Accessing the Service",
 	"tags": [],
 	"description": "",
-	"content": "Accessing the Service Kubernetes is able to find services using DNS.\nDNS requires the CoreDNS cluster add-on (automatically installed when creating the EKS cluster).\nTo check if your cluster is already running CoreDNS, use the following command.\nkubectl get service -n kube-system -l k8s-app=kube-dns  The service for CoreDNS is still called kube-dns for backward compatibility.\n NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE kube-dns ClusterIP 10.0.0.10 \u0026lt;none\u0026gt; 53/UDP,53/TCP 8m  If it isn’t running, you can enable it. The rest of this section will assume you have a Service with a long lived IP (my-nginx), and a DNS server that has assigned a name to that IP (the CoreDNS cluster add-on), so you can talk to the Service from any pod in your cluster using standard methods (e.g. gethostbyname). Let’s run another curl application to test this:\nkubectl -n my-nginx run curl --image=radial/busyboxplus:curl -i --tty Then, hit enter and run.\nnslookup my-nginx Output: Server: 10.100.0.10 Address 1: 10.100.0.10 kube-dns.kube-system.svc.cluster.local Name: my-nginx Address 1: 10.100.225.196 my-nginx.my-nginx.svc.cluster.local  Type exit to log out of the container.\nexit "
+	"content": "Accessing the Service Kubernetes is able to find services using DNS.\nDNS requires the CoreDNS cluster add-on (this was automatically installed when creating the EKS cluster).\nLet’s test the DNS name using a \u0026ldquo;curl\u0026rdquo; based application:\nkubectl -n my-nginx run curl --image=radial/busyboxplus:curl -i --tty Then, hit enter and run.\nnslookup my-nginx Output: Server: 10.100.0.10 Address 1: 10.100.0.10 kube-dns.kube-system.svc.cluster.local Name: my-nginx Address 1: 10.100.225.196 my-nginx.my-nginx.svc.cluster.local  Type exit to log out of the container.\nexit "
 },
 {
 	"uri": "//localhost:1313/beginner/180_fargate/creating-profile/",
@@ -459,7 +459,7 @@
 	"title": "Cleanup Scaling",
 	"tags": [],
 	"description": "",
-	"content": "kubectl delete hpa,svc php-apache kubectl delete deployment php-apache kubectl delete pod load-generator cd ~/environment rm -rf ~/environment/cluster-autoscaler kubectl delete -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.4.1/components.yaml kubectl delete ns metrics helm uninstall kube-ops-view unset ASG_NAME unset AUTOSCALER_VERSION unset K8S_VERSION "
+	"content": "kubectl delete hpa,svc php-apache kubectl delete deployment php-apache kubectl delete pod load-generator cd ~/environment rm -rf ~/environment/cluster-autoscaler kubectl delete -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.4.1/components.yaml kubectl delete ns metrics helm uninstall kube-ops-view "
 },
 {
 	"uri": "//localhost:1313/beginner/150_spotnodegroups/cleanup/",
@@ -492,9 +492,9 @@
 {
 	"uri": "//localhost:1313/beginner/060_helm/",
 	"title": "Helm",
-	"tags": ["beginner", "CON203", "CON205", "CON206"],
+	"tags": [],
 	"description": "",
-	"content": "Helm   This tutorial has been updated for Helm v3. In version 3, the Tiller component was removed, which simplified operations and improved security.\n If you need to migrate from Helm v2 to v3 click here for the official documentation.\n Helm is a package manager for Kubernetes that packages multiple Kubernetes resources into a single logical deployment unit called a Chart. Charts are easy to create, version, share, and publish.\nIn this chapter, we\u0026rsquo;ll cover installing Helm. Once installed, we\u0026rsquo;ll demonstrate how Helm can be used to deploy a simple nginx webserver, and a more sophisticated microservice.\n"
+	"content": "Helm   Helm is a package manager for Kubernetes that packages multiple Kubernetes resources into a single logical deployment unit called a Chart. Charts are easy to create, version, share, and publish.\nIn this chapter, we\u0026rsquo;ll cover installing Helm. Once installed, we\u0026rsquo;ll demonstrate how Helm can be used to deploy a simple nginx webserver.\n"
 },
 {
 	"uri": "//localhost:1313/beginner/060_helm/helm_intro/",
@@ -653,7 +653,7 @@
 {
 	"uri": "//localhost:1313/beginner/250_cloudwatch_container_insights/",
 	"title": "EKS CloudWatch Container Insights",
-	"tags": ["intermediate", "operations", "monitoring", "CON206"],
+	"tags": [],
 	"description": "",
 	"content": "In this chapter we will learn and leverage the new CloudWatch Container Insights to see how you can use native CloudWatch features to monitor your EKS Cluster performance.\nYou can use CloudWatch Container Insights to collect, aggregate, and summarize metrics and logs from your containerized applications and microservices. Container Insights is available for Amazon Elastic Container Service, Amazon Elastic Kubernetes Service, and Kubernetes platforms on Amazon EC2. The metrics include utilization for resources such as CPU, memory, disk, and network. Container Insights also provides diagnostic information, such as container restart failures, to help you isolate issues and resolve them quickly.\nIn order to complete this lab you will need to have a working EKS Cluster, With Helm installed. You will need to have completed the Start the Workshop\u0026hellip; through Launching your cluster with Eksctl and Install Helm CLI as well.\n To learn all about our Observability features using Amazon CloudWatch and AWS X-Ray, take a look at our One Observability Workshop\n "
 },
@@ -828,13 +828,6 @@
 {
 	"uri": "//localhost:1313/tags/kubeflow/",
 	"title": "kubeflow",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "//localhost:1313/tags/monitoring/",
-	"title": "monitoring",
 	"tags": [],
 	"description": "",
 	"content": ""

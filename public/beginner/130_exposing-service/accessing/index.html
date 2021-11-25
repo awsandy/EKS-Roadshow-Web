@@ -13,20 +13,20 @@
     <title>Accessing the Service :: Amazon EKS Roadshow</title>
 
     
-    <link href="../../../css/nucleus.css?1637836234" rel="stylesheet">
-    <link href="../../../css/fontawesome-all.min.css?1637836234" rel="stylesheet">
-    <link href="../../../css/hybrid.css?1637836234" rel="stylesheet">
-    <link href="../../../css/featherlight.min.css?1637836234" rel="stylesheet">
-    <link href="../../../css/perfect-scrollbar.min.css?1637836234" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1637836234" rel="stylesheet">
-    <link href="../../../css/atom-one-dark-reasonable.css?1637836234" rel="stylesheet">
-    <link href="../../../css/theme.css?1637836234" rel="stylesheet">
-    <link href="../../../css/hugo-theme.css?1637836234" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1637842771" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css?1637842771" rel="stylesheet">
+    <link href="../../../css/hybrid.css?1637842771" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css?1637842771" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css?1637842771" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1637842771" rel="stylesheet">
+    <link href="../../../css/atom-one-dark-reasonable.css?1637842771" rel="stylesheet">
+    <link href="../../../css/theme.css?1637842771" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css?1637842771" rel="stylesheet">
     
-      <link href="../../../css/theme-mine.css?1637836234" rel="stylesheet">
+      <link href="../../../css/theme-mine.css?1637842771" rel="stylesheet">
     
 
-    <script src="../../../js/jquery-3.3.1.min.js?1637836234"></script>
+    <script src="../../../js/jquery-3.3.1.min.js?1637842771"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -73,10 +73,10 @@
     <meta name="msapplication-wide310x150logo" content="/icons/mstile-310x150.png" />
     <meta name="msapplication-square310x310logo" content="/icons/mstile-310x310.png" />
 
-    <link href="../../../mermaid/mermaid.css?1637836234" type="text/css" rel="stylesheet" />
-    <link href="../../../css/jquery-ui.min.css?1637836234" rel="stylesheet">
-    <script src="../../../js/jquery-ui-1.12.1.min.js?1637836234"></script>
-    <script src="../../../mermaid/mermaid.min.js?1637836234"></script>
+    <link href="../../../mermaid/mermaid.css?1637842771" type="text/css" rel="stylesheet" />
+    <link href="../../../css/jquery-ui.min.css?1637842771" rel="stylesheet">
+    <script src="../../../js/jquery-ui-1.12.1.min.js?1637842771"></script>
+    <script src="../../../mermaid/mermaid.min.js?1637842771"></script>
     <script>
 	var config = {
         startOnLoad:true,
@@ -105,14 +105,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../../js/lunr.min.js?1637836234"></script>
-<script type="text/javascript" src="../../../js/auto-complete.js?1637836234"></script>
+<script type="text/javascript" src="../../../js/lunr.min.js?1637842771"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js?1637842771"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="../../../js/search.js?1637836234"></script>
+<script type="text/javascript" src="../../../js/search.js?1637842771"></script>
 
     
   </div>
@@ -2595,19 +2595,8 @@
 
 <h4 id="accessing-the-service">Accessing the Service</h4>
 <p>Kubernetes is able to find services using DNS.</p>
-<p>DNS requires the <a href="https://kubernetes.io/docs/tasks/administer-cluster/coredns/#about-coredns">CoreDNS</a> cluster add-on (automatically installed when creating the EKS cluster).</p>
-<p>To check if your cluster is already running CoreDNS, use the following command.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl get service -n kube-system -l k8s-app<span style="color:#f92672">=</span>kube-dns
-</code></pre></div>
-<div class="notices note" ><p>The service for CoreDNS is still called <code>kube-dns</code> for backward compatibility.</p>
-</div>
-
-<pre><output class="bash">
-NAME       TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)         AGE
-kube-dns   ClusterIP   10.0.0.10    &lt;none&gt;        53/UDP,53/TCP   8m
-</output></pre>
-
-<p>If it isn’t running, you can enable it. The rest of this section will assume you have a Service with a long lived IP (my-nginx), and a DNS server that has assigned a name to that IP (the CoreDNS cluster add-on), so you can talk to the Service from any pod in your cluster using standard methods (e.g. gethostbyname). Let’s run another curl application to test this:</p>
+<p>DNS requires the <a href="https://kubernetes.io/docs/tasks/administer-cluster/coredns/#about-coredns">CoreDNS</a> cluster add-on (this was automatically installed when creating the EKS cluster).</p>
+<p>Let’s test the DNS name using a &ldquo;curl&rdquo; based application:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl -n my-nginx run curl --image<span style="color:#f92672">=</span>radial/busyboxplus:curl -i --tty
 </code></pre></div><p>Then, hit enter and run.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">nslookup my-nginx
@@ -4355,19 +4344,19 @@ Address 1: 10.100.225.196 my-nginx.my-nginx.svc.cluster.local
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../js/clipboard.min.js?1637836234"></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1637836234"></script>
-    <script src="../../../js/perfect-scrollbar.jquery.min.js?1637836234"></script>
-    <script src="../../../js/jquery.sticky.js?1637836234"></script>
-    <script src="../../../js/featherlight.min.js?1637836234"></script>
-    <script src="../../../js/highlight.pack.js?1637836234"></script>
+    <script src="../../../js/clipboard.min.js?1637842771"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1637842771"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1637842771"></script>
+    <script src="../../../js/jquery.sticky.js?1637842771"></script>
+    <script src="../../../js/featherlight.min.js?1637842771"></script>
+    <script src="../../../js/highlight.pack.js?1637842771"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../js/modernizr.custom-3.6.0.js?1637836234"></script>
-    <script src="../../../js/learn.js?1637836234"></script>
-    <script src="../../../js/hugo-learn.js?1637836234"></script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1637842771"></script>
+    <script src="../../../js/learn.js?1637842771"></script>
+    <script src="../../../js/hugo-learn.js?1637842771"></script>
 
-    <link href="../../../mermaid/mermaid.css?1637836234" rel="stylesheet" />
-    <script src="../../../mermaid/mermaid.js?1637836234"></script>
+    <link href="../../../mermaid/mermaid.css?1637842771" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.js?1637842771"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

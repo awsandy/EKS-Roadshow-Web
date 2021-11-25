@@ -7,16 +7,6 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="//localhost:1313/tags/operations/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>EKS CloudWatch Container Insights</title>
-      <link>//localhost:1313/beginner/250_cloudwatch_container_insights/</link>
-      <pubDate>Mon, 13 Apr 2020 15:27:17 -0400</pubDate>
-      
-      <guid>//localhost:1313/beginner/250_cloudwatch_container_insights/</guid>
-      <description>In this chapter we will learn and leverage the new CloudWatch Container Insights to see how you can use native CloudWatch features to monitor your EKS Cluster performance.
-You can use CloudWatch Container Insights to collect, aggregate, and summarize metrics and logs from your containerized applications and microservices. Container Insights is available for Amazon Elastic Container Service, Amazon Elastic Kubernetes Service, and Kubernetes platforms on Amazon EC2. The metrics include utilization for resources such as CPU, memory, disk, and network.</description>
-    </item>
-    
-    <item>
       <title>Patching/Upgrading your EKS Cluster</title>
       <link>//localhost:1313/beginner/320_eks_upgrades/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

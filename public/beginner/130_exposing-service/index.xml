@@ -24,10 +24,10 @@ By default, Docker uses host-private networking, so containers can talk to other
       
       <guid>//localhost:1313/beginner/130_exposing-service/accessing/</guid>
       <description>Accessing the Service Kubernetes is able to find services using DNS.
-DNS requires the CoreDNS cluster add-on (automatically installed when creating the EKS cluster).
-To check if your cluster is already running CoreDNS, use the following command.
-kubectl get service -n kube-system -l k8s-app=kube-dns  The service for CoreDNS is still called kube-dns for backward compatibility.
- NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE kube-dns ClusterIP 10.0.0.10 &amp;lt;none&amp;gt; 53/UDP,53/TCP 8m  If it isn’t running, you can enable it.</description>
+DNS requires the CoreDNS cluster add-on (this was automatically installed when creating the EKS cluster).
+Let’s test the DNS name using a &amp;ldquo;curl&amp;rdquo; based application:
+kubectl -n my-nginx run curl --image=radial/busyboxplus:curl -i --tty Then, hit enter and run.
+nslookup my-nginx Output: Server: 10.100.0.10 Address 1: 10.100.0.10 kube-dns.kube-system.svc.cluster.local Name: my-nginx Address 1: 10.100.225.196 my-nginx.my-nginx.svc.cluster.local  Type exit to log out of the container.</description>
     </item>
     
     <item>

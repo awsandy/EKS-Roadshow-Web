@@ -319,8 +319,6 @@
   </url><url>
     <loc>//localhost:1313/tags/kubeflow/</loc>
   </url><url>
-    <loc>//localhost:1313/tags/monitoring/</loc>
-  </url><url>
     <loc>//localhost:1313/more_resources/</loc>
   </url><url>
     <loc>//localhost:1313/020_prerequisites/us-east-2/</loc>
