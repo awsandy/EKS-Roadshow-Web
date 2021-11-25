@@ -77,18 +77,6 @@ In this workshop we will give you the commands to download the Linux binaries. I
     </item>
     
     <item>
-      <title>Create an AWS KMS Custom Managed Key (CMK)</title>
-      <link>//localhost:1313/020_prerequisites/kmskey/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//localhost:1313/020_prerequisites/kmskey/</guid>
-      <description>Create a CMK for the EKS cluster to use when encrypting your Kubernetes secrets:
-aws kms create-alias --alias-name alias/eksworkshop --target-key-id $(aws kms create-key --query KeyMetadata.Arn --output text) Let&amp;rsquo;s retrieve the ARN of the CMK to input into the create cluster command.
-export MASTER_ARN=$(aws kms describe-key --key-id alias/eksworkshop --query KeyMetadata.Arn --output text) We set the MASTER_ARN environment variable to make it easier to refer to the KMS key later.
-Now, let&amp;rsquo;s save the MASTER_ARN environment variable into the bash_profile</description>
-    </item>
-    
-    <item>
       <title>Ireland</title>
       <link>//localhost:1313/020_prerequisites/eu-west-1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
