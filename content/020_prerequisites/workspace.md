@@ -31,7 +31,7 @@ Cloud9 requires third-party-cookies. You can whitelist the [specific domains]( h
 
 ### Launch Cloud9:
 
-Create a Cloud9 Environment: [https://eu-west-1.console.aws.amazon.com/cloud9/home?region=eu-west-1](https://eu-west-1.console.aws.amazon.com/cloud9/home?region=eu-west-1?name=eksworkshop&instanceType=t3.small)
+Create a Cloud9 Environment: [https://eu-west-1.console.aws.amazon.com/cloud9/home](https://eu-west-1.console.aws.amazon.com/cloud9/home)
 
 
 - Select **Create environment**

@@ -12,10 +12,9 @@
       <pubDate>Mon, 22 Jun 2020 00:00:00 -0300</pubDate>
       
       <guid>//localhost:1313/beginner/201_resource_management/</guid>
-      <description>Resource Management   Kubernetes Request is used to ensure a Pod has enough defined resources available. It is possible for the Pod to use more than what is specified. This is considered a soft limit.
+      <description>Resource Management Kubernetes Request is used to ensure a Pod has enough defined resources available. It is possible for the Pod to use more than what is specified. This is considered a soft limit.
 Kubernetes Limit is a used to ensure a Pod does not use above what is specified. This is considered a hard limit.
-Kubernetes Resource Quotas is used to limit resource usage per namespace.
-Kubernetes Pod Priority and Preemption is a used to apply priorities to pods relative to other pods.</description>
+Kubernetes Resource Quotas is used to limit resource usage per namespace.</description>
     </item>
     
     <item>
