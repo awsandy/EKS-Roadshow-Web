@@ -4,7 +4,7 @@
 	"title": "Amazon EKS Roadshow",
 	"tags": [],
 	"description": "",
-	"content": "Amazon EKS Roadshow Pilot  In this workshop, we will explore multiple ways to configure VPC, ALB, and EC2 Kubernetes workers, and Amazon Elastic Kubernetes Service.\n"
+	"content": "Amazon EKS Roadshow Pilot  In this roadshow, we will explore multiple ways to configure the Amazon Elastic Kubernetes Service and run Kubernetes applications.\n"
 },
 {
 	"uri": "//localhost:1313/beginner/250_cloudwatch_container_insights/gettingstarted/",
@@ -46,7 +46,7 @@
 	"title": "Install Kube-ops-view",
 	"tags": [],
 	"description": "",
-	"content": "Before starting to learn about the various auto-scaling options for your EKS cluster we are going to install Kube-ops-view from Henning Jacobs.\nKube-ops-view provides a common operational picture for a Kubernetes cluster that helps with understanding our cluster setup in a visual way.\nWe will deploy kube-ops-view using Helm configured in a previous module\n The following line updates the stable helm repository and then installs kube-ops-view using a LoadBalancer Service type and creating a RBAC (Resource Base Access Control) entry for the read-only service account to read nodes and pods information from the cluster.\nhelm install kube-ops-view \\ stable/kube-ops-view \\ --set service.type=LoadBalancer \\ --set rbac.create=True The execution above installs kube-ops-view exposing it through a Service using the LoadBalancer type. A successful execution of the command will display the set of resources created and will prompt some advice asking you to use kubectl proxy and a local URL for the service. Given we are using the type LoadBalancer for our service, we can disregard this; Instead we will point our browser to the external load balancer.\nMonitoring and visualization shouldn\u0026rsquo;t be typically be exposed publicly unless the service is properly secured and provide methods for authentication and authorization. You can still deploy kube-ops-view using a Service of type ClusterIP by removing the --set service.type=LoadBalancer section and using kubectl proxy. Kube-ops-view does also support Oauth 2\n To check the chart was installed successfully:\nhelm list should display :\nNAME REVISION UPDATED STATUS CHART APP VERSION NAMESPACE kube-ops-view 1 Sun Sep 22 11:47:31 2019 DEPLOYED kube-ops-view-1.1.0 0.11 default With this we can explore kube-ops-view output by checking the details about the newly service created.\nkubectl get svc kube-ops-view | tail -n 1 | awk '{ print \u0026quot;Kube-ops-view URL = http://\u0026quot;$4 }' This will display a line similar to Kube-ops-view URL = http://\u0026lt;URL_PREFIX_ELB\u0026gt;.amazonaws.com Opening the URL in your browser will provide the current state of our cluster.\nYou may need to refresh the page and clean your browser cache. The creation and setup of the LoadBalancer may take a few minutes; usually in two minutes you should see kub-ops-view.\n As this workshop moves along and you perform scale up and down actions, you can check the effects and changes in the cluster using kube-ops-view. Check out the different components and see how they map to the concepts that we have already covered during this workshop.\nSpend some time checking the state and properties of your EKS cluster.\n "
+	"content": "Before starting to learn about the various auto-scaling options for your EKS cluster we are going to install Kube-ops-view from Henning Jacobs.\nKube-ops-view provides a common operational picture for a Kubernetes cluster that helps with understanding our cluster setup in a visual way.\nWe will deploy kube-ops-view using Helm configured in a previous activity (use this link to install the helm tool if you have not done so already).\n The following line updates the stable helm repository and then installs kube-ops-view using a LoadBalancer Service type and creating a RBAC (Resource Base Access Control) entry for the read-only service account to read nodes and pods information from the cluster.\nhelm install kube-ops-view \\ stable/kube-ops-view \\ --set service.type=LoadBalancer \\ --set rbac.create=True The execution above installs kube-ops-view exposing it through a Service using the LoadBalancer type. A successful execution of the command will display the set of resources created and will prompt some advice asking you to use kubectl proxy and a local URL for the service. Given we are using the type LoadBalancer for our service, we can disregard this; Instead we will point our browser to the external load balancer.\nMonitoring and visualization shouldn\u0026rsquo;t be typically be exposed publicly unless the service is properly secured and provide methods for authentication and authorization. You can still deploy kube-ops-view using a Service of type ClusterIP by removing the --set service.type=LoadBalancer section and using kubectl proxy. Kube-ops-view does also support Oauth 2\n To check the chart was installed successfully:\nhelm list should display :\nNAME REVISION UPDATED STATUS CHART APP VERSION NAMESPACE kube-ops-view 1 Sun Sep 22 11:47:31 2019 DEPLOYED kube-ops-view-1.1.0 0.11 default With this we can explore kube-ops-view output by checking the details about the newly service created.\nkubectl get svc kube-ops-view | tail -n 1 | awk '{ print \u0026quot;Kube-ops-view URL = http://\u0026quot;$4 }' This will display a line similar to Kube-ops-view URL = http://\u0026lt;URL_PREFIX_ELB\u0026gt;.amazonaws.com Opening the URL in your browser will provide the current state of our cluster.\nYou may need to refresh the page and clean your browser cache. The creation and setup of the LoadBalancer may take a few minutes; usually in two minutes you should see kub-ops-view.\n As this workshop moves along and you perform scale up and down actions, you can check the effects and changes in the cluster using kube-ops-view. Check out the different components and see how they map to the concepts that we have already covered during this workshop.\nSpend some time checking the state and properties of your EKS cluster.\n "
 },
 {
 	"uri": "//localhost:1313/beginner/050_deploy/applications/",
@@ -128,9 +128,9 @@
 {
 	"uri": "//localhost:1313/010_introduction/",
 	"title": "Introduction",
-	"tags": ["beginner", "kubeflow", "appmesh", "CON203", "CON205", "CON206"],
+	"tags": [],
 	"description": "",
-	"content": "Introduction to Kubernetes   A walkthrough of basic Kubernetes concepts.\nWelcome to the Amazon EKS Roadshow!\nThe intent of this workshop is to educate users about the features of Amazon EKS.\nBackground in EKS, Kubernetes, Docker, and container workflows are not required, but they are recommended.\nThis chapter will introduce you to the basic workings of Kubernetes, laying the foundation for the hands-on portion of the workshop.\nSpecifically, we will walk you through the following topics:\n Kubernetes (k8s) Basics   Kubernetes Architecture   Amazon EKS   "
+	"content": "Introduction to Kubernetes   A walkthrough of basic Kubernetes concepts.\nWelcome to the Amazon EKS Roadshow!\nThe intent of this workshop is to educate users about the features of Amazon EKS.\nBackground in EKS, Kubernetes, Docker, and container workflows are not required, but they are recommended.\nThis chapter will introduce you to the basic workings of Kubernetes, laying the foundation for the hands-on portion of the roadshow.\nSpecifically, we will walk you through the following topics:\n Kubernetes (k8s) Basics   Kubernetes Architecture   Amazon EKS   "
 },
 {
 	"uri": "//localhost:1313/beginner/050_deploy/deploynodejs/",
@@ -324,7 +324,7 @@
 {
 	"uri": "//localhost:1313/020_prerequisites/",
 	"title": "Start the workshop...",
-	"tags": ["beginner", "kubeflow", "appmesh", "CON203", "CON205", "CON206", "OPN401"],
+	"tags": [],
 	"description": "",
 	"content": "Getting Started To start the workshop, please follow the the steps in this section starting with \u0026hellip; AWS Workshop Portal\n"
 },
@@ -380,7 +380,7 @@
 {
 	"uri": "//localhost:1313/030_eksctl/",
 	"title": "Launch using eksctl",
-	"tags": ["beginner", "kubeflow", "appmesh", "CON203", "CON205", "CON206", "OPN401"],
+	"tags": [],
 	"description": "",
 	"content": "Launch using eksctl eksctl is a tool jointly developed by AWS and Weaveworks that automates much of the experience of creating EKS clusters.\nIn this module, we will use eksctl to launch and configure our EKS cluster and nodes.\n"
 },
@@ -443,7 +443,7 @@
 {
 	"uri": "//localhost:1313/beginner/050_deploy/",
 	"title": "Deploy the Example Microservices",
-	"tags": ["beginner", "CON203"],
+	"tags": [],
 	"description": "",
 	"content": "Deploy the Example Microservices    Deploy our Sample Applications   Deploy NodeJS Backend API   Deploy Crystal Backend API   Let\u0026#39;s check Service Types   Ensure the ELB Service Role exists   Deploy Frontend Service   Find the Service Address   Scale the Backend Services   Scale the Frontend   Cleanup the applications   "
 },
@@ -527,7 +527,7 @@
 {
 	"uri": "//localhost:1313/beginner/080_scaling/",
 	"title": "Autoscaling our Applications",
-	"tags": ["beginner", "CON205"],
+	"tags": [],
 	"description": "",
 	"content": "Implement AutoScaling with Horizontal POD Autoscaler (HPA)   In this Chapter, we will show patterns for scaling your applications deployments automatically.\nAutomatic scaling in K8s comes in two forms:\n  Horizontal Pod Autoscaler (HPA) scales the pods in a deployment or replica set. It is implemented as a K8s API resource and a controller. The controller manager queries the resource utilization against the metrics specified in each HorizontalPodAutoscaler definition. It obtains the metrics from either the resource metrics API (for per-pod resource metrics), or the custom metrics API (for all other metrics).\n  Cluster Autoscaler (CA) a component that automatically adjusts the size of a Kubernetes Cluster so that all pods have a place to run and there are no unneeded nodes. We won\u0026rsquo;t be exploring this just yet.\n  "
 },
@@ -583,7 +583,7 @@
 {
 	"uri": "//localhost:1313/beginner/130_exposing-service/",
 	"title": "Exposing a Service",
-	"tags": ["beginner", "CON203"],
+	"tags": [],
 	"description": "",
 	"content": "Introduction   In this Chapter, we will review how to configure a Service, Deployment or Pod to be exposed outside our cluster.\n"
 },
@@ -595,6 +595,13 @@
 	"content": ""
 },
 {
+	"uri": "//localhost:1313/beginner/180_fargate/",
+	"title": "Deploying Microservices to EKS Fargate",
+	"tags": [],
+	"description": "",
+	"content": "Deploying Microservices to EKS Fargate AWS Fargate is a technology that provides on-demand, right-sized compute capacity for containers. With AWS Fargate, you no longer have to provision, configure, or scale groups of virtual machines to run containers. This removes the need to choose server types, decide when to scale your node groups, or optimize cluster packing. You can control which pods start on Fargate and how they run with Fargate profiles, which are defined as part of your Amazon EKS cluster.\nIn this Chapter, we will deploy the game 2048 game on EKS Fargate.\n"
+},
+{
 	"uri": "//localhost:1313/010_introduction/eks/eks_control_plane/",
 	"title": "What happens when you create your EKS cluster",
 	"tags": [],
@@ -604,7 +611,7 @@
 {
 	"uri": "//localhost:1313/beginner/150_spotnodegroups/",
 	"title": "Using Spot Instances with EKS",
-	"tags": ["beginner", "CON206"],
+	"tags": [],
 	"description": "",
 	"content": "Using Spot Instances with EKS   In this module, you will learn how to provision, manage, and maintain your Kubernetes clusters with Amazon EKS on EC2 Spot instances using Spot managed node groups to optimize cost and scale. Click here for a deep-dive blog post on Kubernetes and EC2 Spot Instances in managed node groups.\n"
 },
@@ -627,14 +634,7 @@
 	"title": "Amazon EKS!",
 	"tags": [],
 	"description": "",
-	"content": "Stay tuned as we continue the journey with EKS in the next module!\nAlways ask questions! Feel free to ask them in person during this workshop, or any time on the official Kubernetes Slack channel accessible via http://slack.k8s.io/.\n"
-},
-{
-	"uri": "//localhost:1313/beginner/180_fargate/",
-	"title": "Deploying Microservices to EKS Fargate",
-	"tags": ["beginner", "CON206"],
-	"description": "",
-	"content": "Deploying Microservices to EKS Fargate AWS Fargate is a technology that provides on-demand, right-sized compute capacity for containers. With AWS Fargate, you no longer have to provision, configure, or scale groups of virtual machines to run containers. This removes the need to choose server types, decide when to scale your node groups, or optimize cluster packing. You can control which pods start on Fargate and how they run with Fargate profiles, which are defined as part of your Amazon EKS cluster.\nIn this Chapter, we will deploy the game 2048 game on EKS Fargate.\n"
+	"content": "Stay tuned as we continue the journey with EKS in the next module!\nAlways ask questions! Feel free to ask them in person during this roadshow, or any time on the official Kubernetes Slack channel accessible via http://slack.k8s.io/.\n"
 },
 {
 	"uri": "//localhost:1313/beginner/060_helm/helm_nginx/searchchart/",
@@ -646,7 +646,7 @@
 {
 	"uri": "//localhost:1313/beginner/201_resource_management/",
 	"title": "Resource Management",
-	"tags": ["intermediate"],
+	"tags": [],
 	"description": "",
 	"content": "Resource Management Kubernetes Request is used to ensure a Pod has enough defined resources available. It is possible for the Pod to use more than what is specified. This is considered a soft limit.\nKubernetes Limit is a used to ensure a Pod does not use above what is specified. This is considered a hard limit.\nKubernetes Resource Quotas is used to limit resource usage per namespace.\n"
 },
@@ -667,7 +667,7 @@
 {
 	"uri": "//localhost:1313/beginner/320_eks_upgrades/",
 	"title": "Patching/Upgrading your EKS Cluster",
-	"tags": ["intermediate", "operations"],
+	"tags": [],
 	"description": "",
 	"content": "Patching/Upgrading your EKS Cluster As EKS tracks upstream Kubernetes that means that customers can, and should, regularly upgrade their EKS so as to stay within the project\u0026rsquo;s upstream support window. This used to be the current version and two version back (n-2) - but it was recently extended to three versions back (n-3).\nThere is a new major version of Kubernetes every quarter which means that the Kubernetes support window has now gone from three quarters of a year to one full year.\nIn addition to upgrades to Kuberentes, there are other related upgrades to think about with your cluster as well:\n The Amazon Machine Image (AMI) of your Nodes - including not just the portion of Kubernetes that is part of the image, the kubelet, but everything else there (OS, containerd, etc.). The control plane always supports managing kubelets that are one version behind itself (n-1) to help facilitate this upgrade. The foundational DaemonSets that are on deployed onto every EKS cluster (kube-proxy, CoreDNS and the AWS CNI) which may need to be upgraded as you upgrade Kubernetes. Our documentation tells you if this is required and which versions you should upgrade to. And any Add-ons/Controllers/Drivers that you\u0026rsquo;ve added to extend Kubernetes and provide important cluster functionality may need to be upgraded as you upgrade Kuberentes  In this Chapter you\u0026rsquo;ll follow the AWS suggested process to upgrade your cluster from 1.20 to 1.21 including its Managed Node Group to get first-hand experience with this process and where EKS and Managed Node Groups help.\n"
 },
@@ -683,7 +683,7 @@
 	"title": "Upgrade EKS Control Plane",
 	"tags": [],
 	"description": "",
-	"content": "The first step of this process is to upgrade the EKS Control Plane.\nSince we used eksctl to provision our cluster we\u0026rsquo;ll use that tool to do our upgrade as well.\nFirst we\u0026rsquo;ll run this command\neksctl upgrade cluster --name=eksworkshop-eksctl You\u0026rsquo;ll see in the output that it found our cluster, worked out that it is 1.20 and the next version is 1.21 (you can only go to the next version with EKS) and that everything is ready for us to proceed with an upgrade.\n$ eksctl upgrade cluster --name=eksworkshop-eksctl [ℹ] eksctl version 0.66.0 [ℹ] using region us-west-2 [ℹ] (plan) would upgrade cluster \u0026quot;eksworkshop-eksctl\u0026quot; control plane from current version \u0026quot;1.20\u0026quot; to \u0026quot;1.21\u0026quot; [ℹ] re-building cluster stack \u0026quot;eksctl-eksworkshop-eksctl-cluster\u0026quot; [✔] all resources in cluster stack \u0026quot;eksctl-eksworkshop-eksctl-cluster\u0026quot; are up-to-date [ℹ] checking security group configuration for all nodegroups [ℹ] all nodegroups have up-to-date configuration [!] no changes were applied, run again with '--approve' to apply the changes We\u0026rsquo;ll run it again with an \u0026ndash;approve appended to proceed\neksctl upgrade cluster --name=eksworkshop-eksctl --approve  This process should take approximately 25 minutes. You can continue to use the cluster during the control plane upgrade process but you might experience minor service interruptions. For example, if you attempt to connect to one of the EKS API servers just before or just after it\u0026rsquo;s terminated and replaced by a new API server running the new version of Kubernetes, you might experience temporary API call errors or connectivity issues. If this happens, retry your API operations until they succeed. Your existing Pods/workloads running in the data plane should not experience any interruption during the control plane upgrade.\n Given how long this step will take and that the cluster will continue to work maybe move on to other workshop chapters until this process completes then come back to finish once it completes.\n "
+	"content": "The first step of this process is to upgrade the EKS Control Plane.\nSince we used eksctl to provision our cluster we\u0026rsquo;ll use that tool to do our upgrade as well.\nFirst we\u0026rsquo;ll run this command\neksctl upgrade cluster --name=eksworkshop-eksctl You\u0026rsquo;ll see in the output that it found our cluster, worked out that it is 1.20 and the next version is 1.21 (you can only go to the next version with EKS) and that everything is ready for us to proceed with an upgrade.\n$ eksctl upgrade cluster --name=eksworkshop-eksctl [ℹ] eksctl version 0.66.0 [ℹ] using region us-west-2 [ℹ] (plan) would upgrade cluster \u0026quot;eksworkshop-eksctl\u0026quot; control plane from current version \u0026quot;1.20\u0026quot; to \u0026quot;1.21\u0026quot; [ℹ] re-building cluster stack \u0026quot;eksctl-eksworkshop-eksctl-cluster\u0026quot; [✔] all resources in cluster stack \u0026quot;eksctl-eksworkshop-eksctl-cluster\u0026quot; are up-to-date [ℹ] checking security group configuration for all nodegroups [ℹ] all nodegroups have up-to-date configuration [!] no changes were applied, run again with '--approve' to apply the changes We\u0026rsquo;ll run it again with an \u0026ndash;approve appended to proceed\neksctl upgrade cluster --name=eksworkshop-eksctl --approve  This process should take approximately 25 minutes. You can continue to use the cluster during the control plane upgrade process but you might experience minor service interruptions. For example, if you attempt to connect to one of the EKS API servers just before or just after it\u0026rsquo;s terminated and replaced by a new API server running the new version of Kubernetes, you might experience temporary API call errors or connectivity issues. If this happens, retry your API operations until they succeed. Your existing Pods/workloads running in the data plane should not experience any interruption during the control plane upgrade.\n Given how long this step will take and that the cluster will continue to work maybe move on to other roadshow activities until this process completes then come back to finish once it completes.\n "
 },
 {
 	"uri": "//localhost:1313/beginner/320_eks_upgrades/upgradeaddons/",
@@ -728,27 +728,6 @@
 	"content": "Cleanup "
 },
 {
-	"uri": "//localhost:1313/tags/beginner/",
-	"title": "beginner",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "//localhost:1313/tags/con206/",
-	"title": "CON206",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "//localhost:1313/tags/",
-	"title": "Tags",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
 	"uri": "//localhost:1313/tabs-example/",
 	"title": "",
 	"tags": [],
@@ -763,8 +742,8 @@
 	"content": ""
 },
 {
-	"uri": "//localhost:1313/tags/appmesh/",
-	"title": "appmesh",
+	"uri": "//localhost:1313/tags/beginner/",
+	"title": "beginner",
 	"tags": [],
 	"description": "",
 	"content": ""
@@ -772,20 +751,6 @@
 {
 	"uri": "//localhost:1313/categories/",
 	"title": "Categories",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "//localhost:1313/tags/con203/",
-	"title": "CON203",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "//localhost:1313/tags/con205/",
-	"title": "CON205",
 	"tags": [],
 	"description": "",
 	"content": ""
@@ -812,25 +777,11 @@
 	"content": "We start by initializing the Terraform state:\nterraform init We can now plan our deployment:\nterraform plan -var 'cluster-name=eksworkshop-tf' -var 'desired-capacity=3' -out eksworkshop-tf And if we want to apply that plan:\nterraform apply \u0026quot;eksworkshop-tf\u0026quot;  Applying the fresh terraform plan will take approximately 15 minutes\n "
 },
 {
-	"uri": "//localhost:1313/tags/intermediate/",
-	"title": "intermediate",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
 	"uri": "//localhost:1313/020_prerequisites/eu-west-1/",
 	"title": "Ireland",
 	"tags": [],
 	"description": "",
 	"content": "Create a Cloud9 Environment: https://eu-west-1.console.aws.amazon.com/cloud9/home?region=eu-west-1\n"
-},
-{
-	"uri": "//localhost:1313/tags/kubeflow/",
-	"title": "kubeflow",
-	"tags": [],
-	"description": "",
-	"content": ""
 },
 {
 	"uri": "//localhost:1313/more_resources/",
@@ -845,20 +796,6 @@
 	"tags": [],
 	"description": "",
 	"content": "Create a Cloud9 Environment: https://us-east-2.console.aws.amazon.com/cloud9/home?region=us-east-2\n"
-},
-{
-	"uri": "//localhost:1313/tags/operations/",
-	"title": "operations",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "//localhost:1313/tags/opn401/",
-	"title": "OPN401",
-	"tags": [],
-	"description": "",
-	"content": ""
 },
 {
 	"uri": "//localhost:1313/020_prerequisites/us-west-2/",
@@ -880,4 +817,11 @@
 	"tags": [],
 	"description": "",
 	"content": "Create a Cloud9 Environment: https://ap-southeast-1.console.aws.amazon.com/cloud9/home?region=ap-southeast-1\n"
+},
+{
+	"uri": "//localhost:1313/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
 }]

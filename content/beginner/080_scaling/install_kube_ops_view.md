@@ -8,7 +8,7 @@ Before starting to learn about the various auto-scaling options for your EKS clu
 Kube-ops-view provides a common operational picture for a Kubernetes cluster that helps with understanding our cluster setup in a visual way.
 
 {{% notice note %}}
-We will deploy kube-ops-view using `Helm` configured in a previous [module](/beginner/060_helm/helm_intro/install/index.html)
+We will deploy kube-ops-view using `Helm` configured in a previous [activity](/beginner/060_helm/helm_intro/install/index.html) (use this link to install the `helm` tool if you have not done so already).
 {{% /notice %}}
 
 The following line updates the stable helm repository and then installs kube-ops-view using a LoadBalancer Service type and creating a RBAC (Resource Base Access Control) entry for the read-only service account to read nodes and pods information from the cluster.

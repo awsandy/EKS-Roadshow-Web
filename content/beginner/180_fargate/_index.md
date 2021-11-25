@@ -1,7 +1,7 @@
 ---
 title: "Deploying Microservices to EKS Fargate"
 chapter: true
-weight: 180
+weight: 140
 pre: '<i class="fa fa-film" aria-hidden="true"></i> '
 tags:
 ---

@@ -83,7 +83,6 @@ Change eksworkshop.yaml to include one or more of the following:
 * Full EKS logging to CloudWatch
 * Include the latest add ons for coredns, kube-proxy & vpc-cni
 * Enable OIDC
-* Encrypt secrets using the key we setup earlier ${MASTER_ARN}
 * Ensure the nodegroup uses private networking
 
 
@@ -121,10 +120,6 @@ cloudWatch:
     enableTypes: ["*"]
     # all supported types: "api", "audit", "authenticator", "controllerManager", "scheduler"
     # supported special values: "*" and "all"
-
-
-secretsEncryption:
-  keyARN: ${MASTER_ARN}
 
 iam:
   withOIDC: true

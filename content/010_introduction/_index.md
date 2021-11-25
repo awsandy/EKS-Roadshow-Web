@@ -21,7 +21,7 @@ The intent of this workshop is to educate users about the features of Amazon EKS
 
 Background in EKS, Kubernetes, Docker, and container workflows are not required, but they are recommended.
 
-This chapter will introduce you to the basic workings of Kubernetes, laying the foundation for the hands-on portion of the workshop.
+This chapter will introduce you to the basic workings of Kubernetes, laying the foundation for the hands-on portion of the roadshow.
 
 Specifically, we will walk you through the following topics:
 

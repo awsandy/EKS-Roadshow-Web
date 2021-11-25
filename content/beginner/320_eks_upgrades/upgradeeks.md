@@ -34,5 +34,5 @@ This process should take approximately 25 minutes. You can continue to use the c
 {{% /notice %}}
 
 {{% notice info %}}
-Given how long this step will take and that the cluster will continue to work maybe move on to other workshop chapters until this process completes then come back to finish once it completes.
+Given how long this step will take and that the cluster will continue to work maybe move on to other roadshow activities until this process completes then come back to finish once it completes.
 {{% /notice %}}

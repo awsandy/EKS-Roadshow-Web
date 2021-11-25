@@ -233,6 +233,9 @@
     <loc>//localhost:1313/010_introduction/eks/eks_customers/</loc>
     <lastmod>2018-10-03T10:23:24-07:00</lastmod>
   </url><url>
+    <loc>//localhost:1313/beginner/180_fargate/</loc>
+    <lastmod>2019-04-09T00:00:00-03:00</lastmod>
+  </url><url>
     <loc>//localhost:1313/010_introduction/eks/eks_control_plane/</loc>
     <lastmod>2018-10-03T10:23:24-07:00</lastmod>
   </url><url>
@@ -247,9 +250,6 @@
   </url><url>
     <loc>//localhost:1313/010_introduction/eks/stay_tuned/</loc>
     <lastmod>2018-10-03T10:23:24-07:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/beginner/180_fargate/</loc>
-    <lastmod>2019-04-09T00:00:00-03:00</lastmod>
   </url><url>
     <loc>//localhost:1313/beginner/060_helm/helm_nginx/searchchart/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
@@ -284,28 +284,15 @@
     <loc>//localhost:1313/920_cleanup/</loc>
     <lastmod>2018-08-07T13:37:53-07:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/beginner/</loc>
-    <lastmod>2021-03-08T10:00:00-08:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/tags/con206/</loc>
-    <lastmod>2021-03-08T10:00:00-08:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/tags/</loc>
-    <lastmod>2021-03-08T10:00:00-08:00</lastmod>
-  </url><url>
     <loc>//localhost:1313/tabs-example/</loc>
     <lastmod>2018-08-07T13:34:24-07:00</lastmod>
   </url><url>
     <loc>//localhost:1313/tabs-example/tabs/</loc>
     <lastmod>2018-08-07T13:34:24-07:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/appmesh/</loc>
+    <loc>//localhost:1313/tags/beginner/</loc>
   </url><url>
     <loc>//localhost:1313/categories/</loc>
-  </url><url>
-    <loc>//localhost:1313/tags/con203/</loc>
-  </url><url>
-    <loc>//localhost:1313/tags/con205/</loc>
   </url><url>
     <loc>//localhost:1313/authors/</loc>
   </url><url>
@@ -313,24 +300,18 @@
   </url><url>
     <loc>//localhost:1313/tabs-example/tabs/launcheks/</loc>
   </url><url>
-    <loc>//localhost:1313/tags/intermediate/</loc>
-  </url><url>
     <loc>//localhost:1313/020_prerequisites/eu-west-1/</loc>
-  </url><url>
-    <loc>//localhost:1313/tags/kubeflow/</loc>
   </url><url>
     <loc>//localhost:1313/more_resources/</loc>
   </url><url>
     <loc>//localhost:1313/020_prerequisites/us-east-2/</loc>
-  </url><url>
-    <loc>//localhost:1313/tags/operations/</loc>
-  </url><url>
-    <loc>//localhost:1313/tags/opn401/</loc>
   </url><url>
     <loc>//localhost:1313/020_prerequisites/us-west-2/</loc>
   </url><url>
     <loc>//localhost:1313/tags/roadshow-activities/</loc>
   </url><url>
     <loc>//localhost:1313/020_prerequisites/ap-southeast-1/</loc>
+  </url><url>
+    <loc>//localhost:1313/tags/</loc>
   </url>
 </urlset>
