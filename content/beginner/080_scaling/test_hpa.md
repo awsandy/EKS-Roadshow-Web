@@ -59,4 +59,4 @@ You will see HPA scale the pods from 1 up to our configured maximum (10) until t
 
 ![Scale Up](/images/scaling-hpa-results.png)
 
-You can now stop (_Ctrl + C_) load test that was running in the other terminal. You will notice that HPA will slowly bring the replica count to min number based on its configuration. You should also get out of load testing application by pressing _Ctrl + D_.
+You can now stop (_Ctrl + C_) load test that was running in the other terminal. You will notice that HPA will slowly bring the replica count to min number based on its configuration. You should also get out of load testing application by pressing _Ctrl + C_. and typing "exit"

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="js csstransforms3d">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=57086&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.83.1" />
@@ -13,20 +13,20 @@
     <title>Console Credentials :: Amazon EKS Roadshow</title>
 
     
-    <link href="../../css/nucleus.css?1637844770" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1637844770" rel="stylesheet">
-    <link href="../../css/hybrid.css?1637844770" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1637844770" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1637844770" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1637844770" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1637844770" rel="stylesheet">
-    <link href="../../css/theme.css?1637844770" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1637844770" rel="stylesheet">
+    <link href="../../css/nucleus.css?1638019455" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1638019455" rel="stylesheet">
+    <link href="../../css/hybrid.css?1638019455" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1638019455" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1638019455" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1638019455" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1638019455" rel="stylesheet">
+    <link href="../../css/theme.css?1638019455" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1638019455" rel="stylesheet">
     
-      <link href="../../css/theme-mine.css?1637844770" rel="stylesheet">
+      <link href="../../css/theme-mine.css?1638019455" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1637844770"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1638019455"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -73,10 +73,10 @@
     <meta name="msapplication-wide310x150logo" content="/icons/mstile-310x150.png" />
     <meta name="msapplication-square310x310logo" content="/icons/mstile-310x310.png" />
 
-    <link href="../../mermaid/mermaid.css?1637844770" type="text/css" rel="stylesheet" />
-    <link href="../../css/jquery-ui.min.css?1637844770" rel="stylesheet">
-    <script src="../../js/jquery-ui-1.12.1.min.js?1637844770"></script>
-    <script src="../../mermaid/mermaid.min.js?1637844770"></script>
+    <link href="../../mermaid/mermaid.css?1638019455" type="text/css" rel="stylesheet" />
+    <link href="../../css/jquery-ui.min.css?1638019455" rel="stylesheet">
+    <script src="../../js/jquery-ui-1.12.1.min.js?1638019455"></script>
+    <script src="../../mermaid/mermaid.min.js?1638019455"></script>
     <script>
 	var config = {
         startOnLoad:true,
@@ -105,14 +105,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1637844770"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1637844770"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1638019455"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1638019455"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/\/localhost:1313\/";
+        var baseurl = "\/\/localhost:57086\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1637844770"></script>
+<script type="text/javascript" src="../../js/search.js?1638019455"></script>
 
     
   </div>
@@ -807,9 +807,9 @@
  
   
     
-      <li data-nav-id="/030_eksctl/console/" title="Console Credentials" class="dd-item active">
-        <a href="../../030_eksctl/console/">
-        Console Credentials
+      <li data-nav-id="/030_eksctl/firstapp/" title="Deploy &amp; test a simple application" class="dd-item ">
+        <a href="../../030_eksctl/firstapp/">
+        Deploy &amp; test a simple application
         
         </a>
     </li>
@@ -826,9 +826,9 @@
  
   
     
-      <li data-nav-id="/030_eksctl/firstapp/" title="Deploy &amp; test a simple application" class="dd-item ">
-        <a href="../../030_eksctl/firstapp/">
-        Deploy &amp; test a simple application
+      <li data-nav-id="/030_eksctl/console/" title="Console Credentials" class="dd-item active">
+        <a href="../../030_eksctl/console/">
+        Console Credentials
         
         </a>
     </li>
@@ -2541,6 +2541,8 @@
     <li>
       <ul>
         <li></li>
+        <li><a href="#now-you-can-explore-your-eks-cluster-using-the-console">Now you can explore your EKS Cluster using the console!</a></li>
+        <li><a href="#clean-up-the-application">Clean up the application</a></li>
       </ul>
     </li>
   </ul>
@@ -2568,7 +2570,7 @@
 
 
 
-<p>This step is optional, as nearly all of the workshop content is CLI-driven. But, if you&rsquo;d like full access to your workshop cluster in the EKS console this step is recommended.</p>
+<p>Nearly all of the workshop content is CLI-driven. But, if you&rsquo;d like full access to your workshop cluster in the EKS console this step is recommended.</p>
 <p>The EKS console allows you to see not only the configuration aspects of your cluster, but also to view Kubernetes cluster objects such as Deployments, Pods, and Nodes. For this type of access, the console IAM User or Role needs to be granted permission within the cluster.</p>
 <p>By default, the credentials used to create the cluster are automatically granted these permissions. Following along in the workshop, you&rsquo;ve created a cluster using temporary IAM credentials from within Cloud9. This means that you&rsquo;ll need to add your AWS Console credentials to the cluster.</p>
 <h4 id="import-your-eks-console-credentials-to-your-new-cluster">Import your EKS Console credentials to your new cluster:</h4>
@@ -2590,6 +2592,40 @@
 <p>Now you can verify your entry in the AWS auth map within the console.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl describe configmap -n kube-system aws-auth
 </code></pre></div><p>Now you&rsquo;re all set to move on. For more information, check out the <a href="https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html">EKS documentation</a> on this topic.</p>
+<hr>
+<h3 id="now-you-can-explore-your-eks-cluster-using-the-console">Now you can explore your EKS Cluster using the console!</h3>
+<p>Search for and select the EKS Service:</p>
+<p><img src="../../images/andyt/eks-console-1.png" alt="Console 1"></p>
+<p>Click on the link for your cluster <code>eksworkshop-eksctl</code>:</p>
+<p><img src="../../images/andyt/eks-console-2.png" alt="Console 2"></p>
+<p>Explore the 3 tabs and links, twisties within:</p>
+<p><img src="../../images/andyt/eks-console-3.png" alt="Console 3"></p>
+<h4 id="challenge">Challenge</h4>
+<p>Can you find information about your deployment <code>deployment-2048</code></p>
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Expand here to see how
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <p>In the Workloads tab - click the link for your deployment:</p>
+<p><img src="../../images/andyt/eks-console-4.png" alt="Console 4"></p>
+
+    </div>
+</div>
+<hr>
+<h3 id="clean-up-the-application">Clean up the application</h3>
+<p>In the Cloud9 IDE Terminal:</p>
+<p>Interrupt the port forwarding with <strong>ctrl-C</strong></p>
+<p>And delete the deployment:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl delete -f app-deployment.yaml
+</code></pre></div><p><img src="../../images/andyt/c9-del-2048.png" alt="del 2048"></p>
 
 
 <footer class=" footline" >
@@ -3134,7 +3170,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -3151,8 +3186,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -3172,6 +3205,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -4290,10 +4326,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="../../030_eksctl/test/" title="Test the Cluster"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../../030_eksctl/firstapp/" title="Deploy &amp; test a simple application"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../../030_eksctl/firstapp/" title="Deploy &amp; test a simple application" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../../beginner/" title="Activities" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -4303,19 +4339,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1637844770"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1637844770"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1637844770"></script>
-    <script src="../../js/jquery.sticky.js?1637844770"></script>
-    <script src="../../js/featherlight.min.js?1637844770"></script>
-    <script src="../../js/highlight.pack.js?1637844770"></script>
+    <script src="../../js/clipboard.min.js?1638019455"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1638019455"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1638019455"></script>
+    <script src="../../js/jquery.sticky.js?1638019455"></script>
+    <script src="../../js/featherlight.min.js?1638019455"></script>
+    <script src="../../js/highlight.pack.js?1638019455"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1637844770"></script>
-    <script src="../../js/learn.js?1637844770"></script>
-    <script src="../../js/hugo-learn.js?1637844770"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1638019455"></script>
+    <script src="../../js/learn.js?1638019455"></script>
+    <script src="../../js/hugo-learn.js?1638019455"></script>
 
-    <link href="../../mermaid/mermaid.css?1637844770" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1637844770"></script>
+    <link href="../../mermaid/mermaid.css?1638019455" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1638019455"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

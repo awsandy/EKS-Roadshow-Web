@@ -64,15 +64,6 @@ Next, use the file you created as the input for the eksctl cluster creation.
 We are deliberatly launching at least one Kubernetes version behind the latest available on [Amazon EKS](https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html). This allows you to perform the [cluster upgrade](https://www.eksworkshop.com/intermediate/320_eks_upgrades/) lab.
 {{% /notice %}}
 
-```bash
-eksctl create cluster -f eksworkshop.yaml
-```
-
-{{% notice info %}}
-Launching EKS and all the dependencies will take approximately 15 minutes
-{{% /notice %}}
-
-
 
 #### Challenge:
 
@@ -136,13 +127,14 @@ addons:
 EOF
 ```
 
+{{% /expand %}}
+
 ```bash
 eksctl create cluster -f eksworkshop.yaml
 ```
-
 
 *Note: Launching EKS and all the dependencies will take approximately 20 minutes*
 
 
 
-{{% /expand %}}
+

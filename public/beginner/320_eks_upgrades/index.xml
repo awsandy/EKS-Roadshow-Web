@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Patching/Upgrading your EKS Cluster on Amazon EKS Roadshow</title>
-    <link>//localhost:1313/beginner/320_eks_upgrades/</link>
+    <link>//localhost:57086/beginner/320_eks_upgrades/</link>
     <description>Recent content in Patching/Upgrading your EKS Cluster on Amazon EKS Roadshow</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="//localhost:1313/beginner/320_eks_upgrades/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="//localhost:57086/beginner/320_eks_upgrades/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Upgrade Process</title>
-      <link>//localhost:1313/beginner/320_eks_upgrades/theprocess/</link>
+      <link>//localhost:57086/beginner/320_eks_upgrades/theprocess/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/beginner/320_eks_upgrades/theprocess/</guid>
+      <guid>//localhost:57086/beginner/320_eks_upgrades/theprocess/</guid>
       <description>The process goes as follows:
  (Optional) Check if the new version you are upgrading to has any API deprecations which will mean that you&amp;rsquo;ll need to change your YAML Spec files for them to continue to work on the new cluster. This is only the case with some version upgrades such as 1.15 to 1.16. There are various tools that can help with this such as kube-no-trouble. Since there are not any such deprecations going from 1.</description>
     </item>
     
     <item>
       <title>Upgrade EKS Control Plane</title>
-      <link>//localhost:1313/beginner/320_eks_upgrades/upgradeeks/</link>
+      <link>//localhost:57086/beginner/320_eks_upgrades/upgradeeks/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/beginner/320_eks_upgrades/upgradeeks/</guid>
+      <guid>//localhost:57086/beginner/320_eks_upgrades/upgradeeks/</guid>
       <description>The first step of this process is to upgrade the EKS Control Plane.
 Since we used eksctl to provision our cluster we&amp;rsquo;ll use that tool to do our upgrade as well.
 First we&amp;rsquo;ll run this command
@@ -30,20 +30,20 @@ eksctl upgrade cluster --name=eksworkshop-eksctl You&amp;rsquo;ll see in the out
     
     <item>
       <title>Upgrade EKS Core Add-ons</title>
-      <link>//localhost:1313/beginner/320_eks_upgrades/upgradeaddons/</link>
+      <link>//localhost:57086/beginner/320_eks_upgrades/upgradeaddons/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/beginner/320_eks_upgrades/upgradeaddons/</guid>
+      <guid>//localhost:57086/beginner/320_eks_upgrades/upgradeaddons/</guid>
       <description>When you provision an EKS cluster you get three add-ons that run on top of the cluster and that are required for it to function properly:
  kubeproxy CoreDNS aws-node (AWS CNI or Network Plugin)  Looking at the the upgrade documentation for our 1.20 to 1.21 upgrade we see that we&amp;rsquo;ll need to upgrade the kubeproxy and CoreDNS. In addition to performing these steps manually with kubectl as documented there you&amp;rsquo;ll find that eksctl can do it for you as well.</description>
     </item>
     
     <item>
       <title>Upgrade Managed Node Group</title>
-      <link>//localhost:1313/beginner/320_eks_upgrades/upgrademng/</link>
+      <link>//localhost:57086/beginner/320_eks_upgrades/upgrademng/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/beginner/320_eks_upgrades/upgrademng/</guid>
+      <guid>//localhost:57086/beginner/320_eks_upgrades/upgrademng/</guid>
       <description>Finally we have gotten to the last step of the upgrade process which is upgrading our Nodes.
 There are two ways to provision and manage your worker nodes - self-managed node groups and managed node groups. In this workshop eksctl was configured to use the managed node groups. This was helpful here as managed node groups make this easier for us by automating both the AWS and the Kubernetes side of the process.</description>
     </item>

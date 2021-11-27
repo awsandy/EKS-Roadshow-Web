@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Autoscaling our Applications on Amazon EKS Roadshow</title>
-    <link>//localhost:1313/beginner/080_scaling/</link>
+    <link>//localhost:57086/beginner/080_scaling/</link>
     <description>Recent content in Autoscaling our Applications on Amazon EKS Roadshow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 01 Oct 2020 08:30:11 -0700</lastBuildDate><atom:link href="//localhost:1313/beginner/080_scaling/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Oct 2020 08:30:11 -0700</lastBuildDate><atom:link href="//localhost:57086/beginner/080_scaling/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Install Kube-ops-view</title>
-      <link>//localhost:1313/beginner/080_scaling/install_kube_ops_view/</link>
+      <link>//localhost:57086/beginner/080_scaling/install_kube_ops_view/</link>
       <pubDate>Thu, 01 Oct 2020 08:30:11 -0700</pubDate>
       
-      <guid>//localhost:1313/beginner/080_scaling/install_kube_ops_view/</guid>
+      <guid>//localhost:57086/beginner/080_scaling/install_kube_ops_view/</guid>
       <description>Before starting to learn about the various auto-scaling options for your EKS cluster we are going to install Kube-ops-view from Henning Jacobs.
 Kube-ops-view provides a common operational picture for a Kubernetes cluster that helps with understanding our cluster setup in a visual way.
 We will deploy kube-ops-view using Helm configured in a previous activity (use this link to install the helm tool if you have not done so already).
@@ -21,10 +21,10 @@ We will deploy kube-ops-view using Helm configured in a previous activity (use t
     
     <item>
       <title>Configure Horizontal Pod AutoScaler (HPA)</title>
-      <link>//localhost:1313/beginner/080_scaling/deploy_hpa/</link>
+      <link>//localhost:57086/beginner/080_scaling/deploy_hpa/</link>
       <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
       
-      <guid>//localhost:1313/beginner/080_scaling/deploy_hpa/</guid>
+      <guid>//localhost:57086/beginner/080_scaling/deploy_hpa/</guid>
       <description>Deploy the Metrics Server Metrics Server is a scalable, efficient source of container resource metrics for Kubernetes built-in autoscaling pipelines.
 These metrics will drive the scaling behavior of the deployments.
 We will deploy the metrics server using Kubernetes Metrics Server.
@@ -34,10 +34,10 @@ kubectl get apiservice v1beta1.metrics.k8s.io -o json | jq &amp;#39;.status&amp;
     
     <item>
       <title>Scale an Application with HPA</title>
-      <link>//localhost:1313/beginner/080_scaling/test_hpa/</link>
+      <link>//localhost:57086/beginner/080_scaling/test_hpa/</link>
       <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
       
-      <guid>//localhost:1313/beginner/080_scaling/test_hpa/</guid>
+      <guid>//localhost:57086/beginner/080_scaling/test_hpa/</guid>
       <description>Deploy a Sample App We will deploy an application and expose as a service on TCP port 80.
 The application is a custom-built image based on the php-apache image. The index.php page performs calculations to generate CPU load. More information can be found here
 kubectl create deployment php-apache --image=us.gcr.io/k8s-artifacts-prod/hpa-example kubectl set resources deploy php-apache --requests=cpu=200m kubectl expose deploy php-apache --port 80 kubectl get pod -l app=php-apache Create an HPA resource This HPA scales up when CPU exceeds 50% of the allocated container resource.</description>
@@ -45,10 +45,10 @@ kubectl create deployment php-apache --image=us.gcr.io/k8s-artifacts-prod/hpa-ex
     
     <item>
       <title>Cleanup Scaling</title>
-      <link>//localhost:1313/beginner/080_scaling/cleanup/</link>
+      <link>//localhost:57086/beginner/080_scaling/cleanup/</link>
       <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
       
-      <guid>//localhost:1313/beginner/080_scaling/cleanup/</guid>
+      <guid>//localhost:57086/beginner/080_scaling/cleanup/</guid>
       <description>kubectl delete hpa,svc php-apache kubectl delete deployment php-apache kubectl delete pod load-generator cd ~/environment rm -rf ~/environment/cluster-autoscaler kubectl delete -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.4.1/components.yaml kubectl delete ns metrics helm uninstall kube-ops-view </description>
     </item>
     

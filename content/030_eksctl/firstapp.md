@@ -113,17 +113,5 @@ You now have a fully working Amazon EKS Cluster with a working application.
 * How would you then check that 3 pods are running?
 
 
-----
-
-#### Clean up the application
-
-
-Interrupt the port forwarding with **ctrl-C**
-
-And delete the deployment:
-
-```bash
-kubectl delete -f app-deployment.yaml
-```
 
 

@@ -1,10 +1,10 @@
 ---
 title: "Console Credentials"
 date: 2018-08-07T13:36:57-07:00
-weight: 40
+weight: 45
 ---
 
-This step is optional, as nearly all of the workshop content is CLI-driven. But, if you'd like full access to your workshop cluster in the EKS console this step is recommended.
+Nearly all of the workshop content is CLI-driven. But, if you'd like full access to your workshop cluster in the EKS console this step is recommended.
 
 The EKS console allows you to see not only the configuration aspects of your cluster, but also to view Kubernetes cluster objects such as Deployments, Pods, and Nodes. For this type of access, the console IAM User or Role needs to be granted permission within the cluster.
 
@@ -45,3 +45,48 @@ kubectl describe configmap -n kube-system aws-auth
 ```
 
 Now you're all set to move on. For more information, check out the [EKS documentation](https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html) on this topic.
+
+----
+
+### Now you can explore your EKS Cluster using the console!
+
+Search for and select the EKS Service:
+
+![Console 1](/images/andyt/eks-console-1.png)
+
+Click on the link for your cluster `eksworkshop-eksctl`:
+
+![Console 2](/images/andyt/eks-console-2.png)
+
+Explore the 3 tabs and links, twisties within:
+
+![Console 3](/images/andyt/eks-console-3.png)
+
+#### Challenge 
+
+Can you find information about your deployment `deployment-2048`
+
+{{% expand "Expand here to see how" %}}
+
+In the Workloads tab - click the link for your deployment:
+
+![Console 4](/images/andyt/eks-console-4.png)
+
+{{% /expand %}}
+
+
+----
+
+### Clean up the application
+
+In the Cloud9 IDE Terminal:
+
+Interrupt the port forwarding with **ctrl-C**
+
+And delete the deployment:
+
+```bash
+kubectl delete -f app-deployment.yaml
+```
+
+![del 2048](/images/andyt/c9-del-2048.png)

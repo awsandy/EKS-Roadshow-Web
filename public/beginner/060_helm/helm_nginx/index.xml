@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Deploy nginx With Helm on Amazon EKS Roadshow</title>
-    <link>//localhost:1313/beginner/060_helm/helm_nginx/</link>
+    <link>//localhost:57086/beginner/060_helm/helm_nginx/</link>
     <description>Recent content in Deploy nginx With Helm on Amazon EKS Roadshow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 07 Aug 2018 08:30:11 -0700</lastBuildDate><atom:link href="//localhost:1313/beginner/060_helm/helm_nginx/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Aug 2018 08:30:11 -0700</lastBuildDate><atom:link href="//localhost:57086/beginner/060_helm/helm_nginx/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Search Chart Repositories</title>
-      <link>//localhost:1313/beginner/060_helm/helm_nginx/searchchart/</link>
+      <link>//localhost:57086/beginner/060_helm/helm_nginx/searchchart/</link>
       <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
       
-      <guid>//localhost:1313/beginner/060_helm/helm_nginx/searchchart/</guid>
+      <guid>//localhost:57086/beginner/060_helm/helm_nginx/searchchart/</guid>
       <description>Now that our repository Chart list has been updated, we can search for Charts.
 To list all Charts:
 helm search repo That should output something similar to: NAME CHART VERSION APP VERSION DESCRIPTION stable/acs-engine-autoscaler 2.2.2 2.1.1 Scales worker... stable/aerospike 0.3.2 v4.5.0.5 A Helm chart... ...  You can see from the output that it dumped the list of all Charts we have added. In some cases that may be useful, but an even more useful search would involve a keyword argument.</description>
@@ -20,10 +20,10 @@ helm search repo That should output something similar to: NAME CHART VERSION APP
     
     <item>
       <title>Add the Bitnami Repository</title>
-      <link>//localhost:1313/beginner/060_helm/helm_nginx/addbitnamirepo/</link>
+      <link>//localhost:57086/beginner/060_helm/helm_nginx/addbitnamirepo/</link>
       <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
       
-      <guid>//localhost:1313/beginner/060_helm/helm_nginx/addbitnamirepo/</guid>
+      <guid>//localhost:57086/beginner/060_helm/helm_nginx/addbitnamirepo/</guid>
       <description>In the last slide, we saw that nginx offers many different products via the default Helm Chart repository, but the nginx standalone web server is not one of them.
 After a quick web search, we discover that there is a Chart for the nginx standalone web server available via the Bitnami Chart repository.
 To add the Bitnami Chart repo to our local list of searchable charts:
@@ -32,10 +32,10 @@ helm repo add bitnami https://charts.</description>
     
     <item>
       <title>Install bitnami/nginx</title>
-      <link>//localhost:1313/beginner/060_helm/helm_nginx/installnginx/</link>
+      <link>//localhost:57086/beginner/060_helm/helm_nginx/installnginx/</link>
       <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
       
-      <guid>//localhost:1313/beginner/060_helm/helm_nginx/installnginx/</guid>
+      <guid>//localhost:57086/beginner/060_helm/helm_nginx/installnginx/</guid>
       <description>Installing the Bitnami standalone nginx web server Chart involves us using the helm install command.
 A Helm Chart can be installed multiple times inside a Kubernetes cluster. This is because each installation of a Chart can be customized to suit a different purpose.
 For this reason, you must supply a unique name for the installation, or ask Helm to generate a name for you.
@@ -44,10 +44,10 @@ Challenge: How can you use Helm to deploy the bitnami/nginx chart?</description>
     
     <item>
       <title>Clean Up</title>
-      <link>//localhost:1313/beginner/060_helm/helm_nginx/cleaningup/</link>
+      <link>//localhost:57086/beginner/060_helm/helm_nginx/cleaningup/</link>
       <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
       
-      <guid>//localhost:1313/beginner/060_helm/helm_nginx/cleaningup/</guid>
+      <guid>//localhost:57086/beginner/060_helm/helm_nginx/cleaningup/</guid>
       <description>To remove all the objects that the Helm Chart created, we can use Helm uninstall.
 Before we uninstall our application, we can verify what we have running via the Helm list command:
 helm list You should see output similar to below, which show that mywebserver is installed: NAME NAMESPACE REVISION UPDATED STATUS CHART APP VERSION mywebserver default 1 2021-07-15 13:52:34.563653342 &amp;#43;0000 UTC deployed nginx-9.3.7 1.21.1  It was a lot of fun; we had some great times sending HTTP back and forth, but now its time to uninstall this deployment.</description>
