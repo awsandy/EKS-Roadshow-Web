@@ -2,36 +2,36 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Using Spot Instances with EKS on Amazon EKS Roadshow</title>
-    <link>//localhost:57086/beginner/150_spotnodegroups/</link>
+    <link>//localhost:1313/beginner/150_spotnodegroups/</link>
     <description>Recent content in Using Spot Instances with EKS on Amazon EKS Roadshow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Mar 2021 10:00:00 -0800</lastBuildDate><atom:link href="//localhost:57086/beginner/150_spotnodegroups/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 08 Mar 2021 10:00:00 -0800</lastBuildDate><atom:link href="//localhost:1313/beginner/150_spotnodegroups/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Add Spot managed node group</title>
-      <link>//localhost:57086/beginner/150_spotnodegroups/spotnodegroups/</link>
+      <link>//localhost:1313/beginner/150_spotnodegroups/spotnodegroups/</link>
       <pubDate>Mon, 08 Mar 2021 10:00:00 -0800</pubDate>
       
-      <guid>//localhost:57086/beginner/150_spotnodegroups/spotnodegroups/</guid>
+      <guid>//localhost:1313/beginner/150_spotnodegroups/spotnodegroups/</guid>
       <description>We have our EKS cluster and nodes already, but we need some Spot Instances configured to run the workload. We will be creating a Spot managed node group to utilize Spot Instances. Managed node groups automatically create a label - eks.amazonaws.com/capacityType - to identify which nodes are Spot Instances and which are On-Demand Instances so that we can schedule the appropriate workloads to run on Spot Instances. We will use eksctl to launch new nodes running on Spot Instances that will connect to the EKS cluster.</description>
     </item>
     
     <item>
       <title>Spot Configuration and Lifecycle</title>
-      <link>//localhost:57086/beginner/150_spotnodegroups/spotlifecycle/</link>
+      <link>//localhost:1313/beginner/150_spotnodegroups/spotlifecycle/</link>
       <pubDate>Mon, 08 Mar 2021 10:00:00 -0800</pubDate>
       
-      <guid>//localhost:57086/beginner/150_spotnodegroups/spotlifecycle/</guid>
+      <guid>//localhost:1313/beginner/150_spotnodegroups/spotlifecycle/</guid>
       <description>View the Spot Managed Node Group Configuration Use the AWS Management Console to inspect the Spot managed node group deployed in your Kubernetes cluster. Select Elastic Kubernetes Service, click on Clusters, and then on eksworkshop-eksctl cluster. Select the Configuration tab and Compute sub tab. You can see 2 node groups created - one On-Demand node group and one Spot node groups.
 Click on ng-spot group and you can see the instance types set from the create command.</description>
     </item>
     
     <item>
       <title>Deploy an Application on Spot</title>
-      <link>//localhost:57086/beginner/150_spotnodegroups/deployapp/</link>
+      <link>//localhost:1313/beginner/150_spotnodegroups/deployapp/</link>
       <pubDate>Mon, 08 Mar 2021 10:00:00 -0800</pubDate>
       
-      <guid>//localhost:57086/beginner/150_spotnodegroups/deployapp/</guid>
+      <guid>//localhost:1313/beginner/150_spotnodegroups/deployapp/</guid>
       <description>We are redesigning our Microservice example and want our frontend service to be deployed on Spot Instances when they are available. We will ensure that the NodeJS and crystal backend services are deployed on On-Demand Instances. We will use Node Affinity in our manifest file to configure this.
 Configure Node Affinity for the services Open the deployment manifest of the frontend service in your Cloud9 editor - ~/environment/ecsdemo-frontend/kubernetes/deployment.yaml
 Edit the spec to configure NodeAffinity to prefer Spot Instances, but not require them.</description>
@@ -39,10 +39,10 @@ Edit the spec to configure NodeAffinity to prefer Spot Instances, but not requir
     
     <item>
       <title>Cleanup</title>
-      <link>//localhost:57086/beginner/150_spotnodegroups/cleanup/</link>
+      <link>//localhost:1313/beginner/150_spotnodegroups/cleanup/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:57086/beginner/150_spotnodegroups/cleanup/</guid>
+      <guid>//localhost:1313/beginner/150_spotnodegroups/cleanup/</guid>
       <description>Cleanup our Microservices deployment
 cd ~/environment/ecsdemo-frontend kubectl delete -f kubernetes/service.yaml kubectl delete -f kubernetes/deployment.yaml cd ~/environment/ecsdemo-crystal kubectl delete -f kubernetes/service.yaml kubectl delete -f kubernetes/deployment.yaml cd ~/environment/ecsdemo-nodejs kubectl delete -f kubernetes/service.yaml kubectl delete -f kubernetes/deployment.yaml To delete the label and the Node Group created by this module, run the following commands
 kubectl label nodes --all lifecycle- eksctl delete nodegroup --cluster=eksworkshop-eksctl --region=${AWS_REGION} --name=ng-spot </description>

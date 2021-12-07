@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Introduction on Amazon EKS Roadshow</title>
-    <link>//localhost:57086/010_introduction/</link>
+    <link>//localhost:1313/010_introduction/</link>
     <description>Recent content in Introduction on Amazon EKS Roadshow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 03 Oct 2018 10:23:24 -0700</lastBuildDate><atom:link href="//localhost:57086/010_introduction/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Oct 2018 10:23:24 -0700</lastBuildDate><atom:link href="//localhost:1313/010_introduction/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

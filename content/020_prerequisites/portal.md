@@ -18,10 +18,9 @@ Next use the **Continue with Login with Amazon** button:
 
 ![Event Engine](/images/andyt/amazon-login.png)
 
-Provide your Amazon Retail (shopping) credentials:
+Provide your Amazon Retail (shopping) credentials if you selected this option:
 
 ![Event Engine](/images/andyt/amazon-login2.jpg)
-
 
 
 ![Event Engine Dashboard](/images/event-engine-dashboard.png)
