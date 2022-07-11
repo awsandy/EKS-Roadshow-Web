@@ -3,10 +3,7 @@ title: "Amazon EKS Roadshow"
 chapter: true
 weight: 1
 ---
-
-
-
-## Amazon EKS Roadshow Pilot
+## Amazon EKS Roadshow
 
 ----
 

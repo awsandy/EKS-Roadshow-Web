@@ -13,20 +13,20 @@
     <title>Upgrade EKS Control Plane :: Amazon EKS Roadshow</title>
 
     
-    <link href="../../../css/nucleus.css?1638867841" rel="stylesheet">
-    <link href="../../../css/fontawesome-all.min.css?1638867841" rel="stylesheet">
-    <link href="../../../css/hybrid.css?1638867841" rel="stylesheet">
-    <link href="../../../css/featherlight.min.css?1638867841" rel="stylesheet">
-    <link href="../../../css/perfect-scrollbar.min.css?1638867841" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1638867841" rel="stylesheet">
-    <link href="../../../css/atom-one-dark-reasonable.css?1638867841" rel="stylesheet">
-    <link href="../../../css/theme.css?1638867841" rel="stylesheet">
-    <link href="../../../css/hugo-theme.css?1638867841" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1657026199" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css?1657026199" rel="stylesheet">
+    <link href="../../../css/hybrid.css?1657026199" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css?1657026199" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css?1657026199" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1657026199" rel="stylesheet">
+    <link href="../../../css/atom-one-dark-reasonable.css?1657026199" rel="stylesheet">
+    <link href="../../../css/theme.css?1657026199" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css?1657026199" rel="stylesheet">
     
-      <link href="../../../css/theme-mine.css?1638867841" rel="stylesheet">
+      <link href="../../../css/theme-mine.css?1657026199" rel="stylesheet">
     
 
-    <script src="../../../js/jquery-3.3.1.min.js?1638867841"></script>
+    <script src="../../../js/jquery-3.3.1.min.js?1657026199"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -73,10 +73,10 @@
     <meta name="msapplication-wide310x150logo" content="/icons/mstile-310x150.png" />
     <meta name="msapplication-square310x310logo" content="/icons/mstile-310x310.png" />
 
-    <link href="../../../mermaid/mermaid.css?1638867841" type="text/css" rel="stylesheet" />
-    <link href="../../../css/jquery-ui.min.css?1638867841" rel="stylesheet">
-    <script src="../../../js/jquery-ui-1.12.1.min.js?1638867841"></script>
-    <script src="../../../mermaid/mermaid.min.js?1638867841"></script>
+    <link href="../../../mermaid/mermaid.css?1657026199" type="text/css" rel="stylesheet" />
+    <link href="../../../css/jquery-ui.min.css?1657026199" rel="stylesheet">
+    <script src="../../../js/jquery-ui-1.12.1.min.js?1657026199"></script>
+    <script src="../../../mermaid/mermaid.min.js?1657026199"></script>
     <script>
 	var config = {
         startOnLoad:true,
@@ -105,14 +105,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../../js/lunr.min.js?1638867841"></script>
-<script type="text/javascript" src="../../../js/auto-complete.js?1638867841"></script>
+<script type="text/javascript" src="../../../js/lunr.min.js?1657026199"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js?1657026199"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="../../../js/search.js?1638867841"></script>
+<script type="text/javascript" src="../../../js/search.js?1657026199"></script>
 
     
   </div>
@@ -2481,7 +2481,7 @@
     
     <section id="footer">
       <left>
-    <a href="https://aws.amazon.com/privacy/?nc1=f_pr">Privacy</a> | <a href="https://aws.amazon.com/terms/?nc1=f_pr">Site Terms</a> | © 2021, Amazon Web Services, Inc. or its affiliates. All rights reserved. 
+    <a href="https://aws.amazon.com/privacy/?nc1=f_pr">Privacy</a> | <a href="https://aws.amazon.com/terms/?nc1=f_pr">Site Terms</a> | © 2022, Amazon Web Services, Inc. or its affiliates. All rights reserved. 
 </left>
 
     </section>
@@ -2571,16 +2571,20 @@
 <p>First we&rsquo;ll run this command</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">eksctl upgrade cluster --name<span style="color:#f92672">=</span>eksworkshop-eksctl
 </code></pre></div><p>You&rsquo;ll see in the output that it found our cluster, worked out that it is 1.20 and the next version is 1.21 (you can only go to the next version with EKS) and that everything is ready for us to proceed with an upgrade.</p>
-<pre><code>$ eksctl upgrade cluster --name=eksworkshop-eksctl
+<pre><output class="bash">
+
 [ℹ]  eksctl version 0.66.0
-[ℹ]  using region us-west-2
-[ℹ]  (plan) would upgrade cluster &quot;eksworkshop-eksctl&quot; control plane from current version &quot;1.20&quot; to &quot;1.21&quot;
-[ℹ]  re-building cluster stack &quot;eksctl-eksworkshop-eksctl-cluster&quot;
-[✔]  all resources in cluster stack &quot;eksctl-eksworkshop-eksctl-cluster&quot; are up-to-date
+[ℹ]  using region eu-west-1
+[ℹ]  (plan) would upgrade cluster &#34;eksworkshop-eksctl&#34; control plane from current version &#34;1.20&#34; to &#34;1.21&#34;
+[ℹ]  re-building cluster stack &#34;eksctl-eksworkshop-eksctl-cluster&#34;
+[✔]  all resources in cluster stack &#34;eksctl-eksworkshop-eksctl-cluster&#34; are up-to-date
 [ℹ]  checking security group configuration for all nodegroups
 [ℹ]  all nodegroups have up-to-date configuration
-[!]  no changes were applied, run again with '--approve' to apply the changes
-</code></pre><p>We&rsquo;ll run it again with an &ndash;approve appended to proceed</p>
+[!]  no changes were applied, run again with &#39;--approve&#39; to apply the changes
+
+</output></pre>
+
+<p>We&rsquo;ll run it again with an &ndash;approve appended to proceed</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">eksctl upgrade cluster --name<span style="color:#f92672">=</span>eksworkshop-eksctl --approve
 </code></pre></div>
 <div class="notices info" ><p>This process should take approximately 25 minutes. You can continue to use the cluster during the control plane upgrade process but you might experience minor service interruptions. For example, if you attempt to connect to one of the EKS API servers just before or just after it&rsquo;s terminated and replaced by a new API server running the new version of Kubernetes, you might experience temporary API call errors or connectivity issues. If this happens, retry your API operations until they succeed. Your existing Pods/workloads running in the data plane should not experience any interruption during the control plane upgrade.</p>
@@ -4307,19 +4311,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../js/clipboard.min.js?1638867841"></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1638867841"></script>
-    <script src="../../../js/perfect-scrollbar.jquery.min.js?1638867841"></script>
-    <script src="../../../js/jquery.sticky.js?1638867841"></script>
-    <script src="../../../js/featherlight.min.js?1638867841"></script>
-    <script src="../../../js/highlight.pack.js?1638867841"></script>
+    <script src="../../../js/clipboard.min.js?1657026199"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1657026199"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1657026199"></script>
+    <script src="../../../js/jquery.sticky.js?1657026199"></script>
+    <script src="../../../js/featherlight.min.js?1657026199"></script>
+    <script src="../../../js/highlight.pack.js?1657026199"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../js/modernizr.custom-3.6.0.js?1638867841"></script>
-    <script src="../../../js/learn.js?1638867841"></script>
-    <script src="../../../js/hugo-learn.js?1638867841"></script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1657026199"></script>
+    <script src="../../../js/learn.js?1657026199"></script>
+    <script src="../../../js/hugo-learn.js?1657026199"></script>
 
-    <link href="../../../mermaid/mermaid.css?1638867841" rel="stylesheet" />
-    <script src="../../../mermaid/mermaid.js?1638867841"></script>
+    <link href="../../../mermaid/mermaid.css?1657026199" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.js?1657026199"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
